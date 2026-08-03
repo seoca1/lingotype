@@ -4,7 +4,7 @@
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-18.3-61dafb)](https://react.dev/)
-[![Tests](https://img.shields.io/badge/Tests-674%20passed-success)](prototype/README.md#testing)
+[![Tests](https://img.shields.io/badge/Tests-680%20passed-success)](prototype/README.md#testing)
 [![Phase](https://img.shields.io/badge/Phase-7%20Alpha%20%F0%9F%9F%9A-green)](ROADMAP.md)
 
 **🎮 [Play Live Demo](https://seoca1.github.io/typing-language/)**
@@ -18,13 +18,14 @@
   - 🇬🇧 **English**: 표준 QWERTY
   - 🇯🇵 **Japanese**: Romaji → Kanji 매핑 (`konnichiwa` → `こんにちは`)
   - 🇪🇸 **Spanish**: 악센트 입력 + ASCII fallback (`adios` → `adiós` ✅)
-  - 🇰🇷 **Korean**: 한글 키보드 자모 직접 입력 + 클라이언트 합성 (`ㅎㅏㄴㄴㅕㅇ` → `한냥`)
+  - 🇰🇷 **Korean**: 한글 키보드 자모 직접 입력 + 클라이언트 합성 (`ㅎㅏㄴㄴㅕㅱ` → `한냥`)
 - **격파 시스템**: 단어·문장을 격파하여 미션 클리어
   - 실시간 비주얼 피드백 (파티클, 플래시, 콤보)
   - 정확도/속도 기반 점수 시스템
 - **컴패니언 캐릭터**: 언어별 문화 의상 (영미복/기모노/플라멩코/한복)
 - **140개 스테이지**: Tier 0-5 난이도 곡선
-- **577개 코퍼스 항목**: 단어·문장·속담·인용문
+- **4,038개 코퍼스 항목**: EN 1,054 + JP 502 + ES 1,246 + KR 1,236 (auto-generated from `Language/` wiki)
+- **52 Daily Lessons**: 100% topic-appropriate culture (EN 15 + JP 14 + ES 11 + KR 12)
 
 ## 디렉토리 구조
 
@@ -70,11 +71,11 @@ npm run cli:interactive
 
 | 항목 | 상태 | 세부사항 |
 |------|------|----------|
-| **테스트** | ✅ | 674개 테스트 통과 |
+| **테스트** | ✅ | 680개 테스트 통과 (1 skipped) |
 | **번들 크기** | ✅ | 971KB (gzip: 298KB) |
 | **언어** | ✅ | EN, JP, ES, KR |
 | **스테이지** | ✅ | 140개 (Tier 0-5) |
-| **콘텐츠** | ✅ | 577개 코퍼스 항목 + 45 Daily Lessons (100% culture) |
+| **콘텐츠** | ✅ | 4,038개 코퍼스 항목 + 52 Daily Lessons (100% culture) |
 | **배포** | ✅ | GitHub Pages 자동 배포 |
 | **Social** | ✅ | SVG favicon + OG/Twitter Card |
 
@@ -85,7 +86,7 @@ npm run cli:interactive
 - **Language**: TypeScript 5.5
 - **Framework**: React 18.3
 - **Build**: Vite 5.3
-- **Testing**: Vitest (673 tests) + Playwright
+- **Testing**: Vitest (680 tests + 1 skipped) + Playwright
 - **Rendering**: HTML5 Canvas 2D
 - **State**: React useState + Reducer
 - **Styling**: CSS (모듈 없이)

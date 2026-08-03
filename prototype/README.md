@@ -5,7 +5,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-18.3-61dafb)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-5.3-646cff)](https://vitejs.dev/)
-[![Tests](https://img.shields.io/badge/Tests-673%20passed-success)](#testing)
+[![Tests](https://img.shields.io/badge/Tests-680%20passed-success)](#testing)
 
 **🎮 [Play Live Demo](https://seoca1.github.io/typing-language/)**
 
@@ -70,8 +70,9 @@ prototype/
 │   │   ├── SpanishHandler.ts
 │   │   └── KoreanHandler.ts
 │   ├── data/                 # 코퍼스 & 스테이지
-│   │   ├── corpus.ts         # 577 entries (words, sentences, etc.)
-│   │   └── stages.ts         # 40 stages
+│   │   ├── {en,jp,es,kr}_corpus.ts  # 4,038 entries (auto-generated from Language wiki)
+│   │   ├── dailyLessons.ts   # 52 문화 가이드 (EN 15 + JP 14 + ES 11 + KR 12)
+│   │   └── stages.ts         # 140 stages (Tier 0-5)
 │   ├── combat/               # 격파 시스템
 │   ├── mission/              # 미션 시스템
 │   ├── stage/                # 스테이지 진행
@@ -80,7 +81,7 @@ prototype/
 │   ├── engine/               # 렌더링
 │   ├── ui/                   # React 컴포넌트
 │   └── state/                # 게임 상태
-├── tests/                    # 유닛 테스트 (100 tests)
+├── tests/                    # 유닛 테스트 (680 passed + 1 skipped)
 ├── CLI_TOOLS.md              # CLI 도구 상세 가이드
 └── package.json
 ```
@@ -89,14 +90,14 @@ prototype/
 
 ## 🌍 지원 언어
 
-| 언어 | 코드 | 입력 방식 | 단어 | 문장 | Tier 0 |
-|------|------|----------|------|------|--------|
-| **English** | `en` | QWERTY | 70 | 23 | - |
-| **Japanese** | `jp` | Romaji → Kanji | 51 | 19 | 132 chars |
-| **Spanish** | `es` | Accent input | 50 | 21 | - |
-| **Korean** | `kr` | 2-beol Jamo | 32 | 20 | - |
+| 언어 | 코드 | 입력 방식 | 단어 (corpus) | Tier 0 |
+|------|------|----------|------|------|
+| **English** | `en` | QWERTY | 1,054 | - |
+| **Japanese** | `jp` | Romaji → Kanji | 502 | 132 chars |
+| **Spanish** | `es` | Accent input | 1,246 | - |
+| **Korean** | `kr` | 2-beol Jamo | 1,236 | - |
 
-**총:** 577 corpus entries, 140 stages
+**총:** 4,038 corpus entries, 140 stages, 52 Daily Lessons
 
 ---
 
@@ -111,7 +112,7 @@ npm run preview      # 빌드 미리보기
 
 ### 테스트
 ```bash
-npm test             # 유닛 테스트 (674 passed, 1 skipped)
+npm test             # 유닛 테스트 (680 passed, 1 skipped)
 npm run test:watch   # Watch 모드
 npm run cli:test     # CLI 자동 검증 (30 tests)
 ```
@@ -176,7 +177,7 @@ npm test
 ```
 
 **결과:**
-- ✅ 674/674 tests passed
+- ✅ 680/680 tests passed
 - ⏭️ 1 test skipped (Korean accuracy - 설계상 의도)
 - 📊 Coverage: EnglishHandler (22), JapaneseHandler (24), SpanishHandler (26), KoreanHandler (27)
 
@@ -358,11 +359,12 @@ npm run dev -- --port 3000
 | **언어** | TypeScript 5.5 |
 | **프레임워크** | React 18.3 + Vite 5.3 |
 | **코드 라인** | ~15,000 lines |
-| **유닛 테스트** | 674 passed, 1 skipped |
+| **유닛 테스트** | 680 passed, 1 skipped |
 | **빌드 크기** | 929 KB (gzip 274 KB) |
 | **지원 언어** | 4개 (EN/JP/ES/KR) |
-| **코퍼스** | 577개 항목 |
+| **코퍼스** | 4,038개 항목 (EN 1,054 + JP 502 + ES 1,246 + KR 1,236) |
 | **스테이지** | 140개 (Tier 0-5) |
+| **Daily Lessons** | 52 (EN 15 + JP 14 + ES 11 + KR 12) |
 
 ---
 

@@ -1,14 +1,14 @@
 # Typing Language — 프로젝트 상태 리포트
 
-> **최종 업데이트**: 2026-06-24
-> **최종 커밋**: daily lesson culture pages + meta tags + SVG favicon
-> **버전**: Phase 7 — 140 스테이지, 674 테스트, daily lessons 45/45 culture 100%
+> **최종 업데이트**: 2026-08-03
+> **최종 커밋**: README + PROJECT_STATUS metric sync (corpus 577 → 4,038, tests 674 → 680)
+> **버전**: Phase 7 — 140 스테이지, 680 테스트, 4,038 corpus + 52 Daily Lessons
 
 ---
 
 ## 1. 한 줄 요약
 
-4개국어(EN/JP/ES/KR) 타이핑 학습 게임, **GitHub Pages 자동 배포**. **674 tests passing** (1 skipped), **971 KB / gzip 298 KB**, **45 daily lessons (100% topic-appropriate culture)**, **12명 캐릭터 (84 PNG)**, **440+ wiki 페이지**. Phase 7 완성.
+4개국어(EN/JP/ES/KR) 타이핑 학습 게임, **GitHub Pages 자동 배포**. **680 tests passing** (1 skipped), **971 KB / gzip 298 KB**, **4,038 corpus entries (EN 1,054 + JP 502 + ES 1,246 + KR 1,236)**, **52 Daily Lessons (100% topic-appropriate culture)**, **12명 캐릭터 (84 PNG)**, **440+ wiki 페이지**. Phase 7 완성.
 
 ---
 
@@ -16,12 +16,13 @@
 
 | 항목 | 초기값 (Phase A 시작) | 최종값 (현재) | 변화 |
 |---|---|---|---|
-| **테스트** | 313 passed | **674 passed** | +361 (+115%) |
+| **테스트** | 313 passed | **680 passed** | +367 (+117%) |
 | 테스트 파일 | 14 | **23** | +9 |
 | **번들 크기** | 463 KB | **971 KB** | +110% |
 | gzip 크기 | 137 KB | **298 KB** | +118% |
 | CSS | 21 KB | 27 KB | +29% |
-| **daily lessons** | 11 | **45** | +309% |
+| **Corpus** | 577 | **4,038** | +7.0× (auto-generated from Language wiki) |
+| **daily lessons** | 11 | **52** | +373% |
 | Wiki 페이지 | 385 | **410+** | +6.5% |
 | **스테이지** | 30+ | **140** | +367% |
 | 신규 파일 | – | 7개 신규 + 5개 강화 | – |
@@ -380,7 +381,7 @@ Game/typing_language/
 ```bash
 # 개발
 npm run dev          # Vite dev server
-npm test             # 674 tests (1 skipped)
+npm test             # 680 tests (1 skipped)
 npm run build        # 프로덕션 빌드 (929 KB)
 
 # 콘텐츠 파이프라인

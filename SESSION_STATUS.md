@@ -1,6 +1,6 @@
 # Phase 7 Progress — Typing Language
 
-**Last Updated:** 2026-06-25
+**Last Updated:** 2026-08-03
 **Status:** Phase 7 Complete — Deployed ✅
 
 ---
@@ -9,9 +9,10 @@
 
 ```
 Build:     ✓ 971 KB (gzip 298 KB)
-Tests:     ✓ 674 passed | 1 skipped
+Tests:     ✓ 680 passed | 1 skipped
 SAMPLE_STAGES: 140 stages
-Daily Lessons: 45 (100% culture coverage)
+Corpus: 4,038 entries (EN 1,054 + JP 502 + ES 1,246 + KR 1,236)
+Daily Lessons: 52 (100% culture coverage)
 ```
 
 **Key commands:**
@@ -50,7 +51,7 @@ cd .. && uv run --with pyyaml python3 scripts/validate-daily-lessons.py
 - `daily-lesson-culture-plan.md`: all phases complete
 - `ROADMAP.md`: Phase 7 marked complete
 - `PROJECT_STATUS.md`: synced with latest metrics
-- `README.md`: updated stats (674 tests, 971KB, 45 lessons)
+- `README.md`: updated stats (680 tests, 971KB, 4,038 corpus, 52 lessons) — 2026-08-03
 
 ---
 

@@ -195,7 +195,7 @@ Phase 7: 알파 빌드              [🔄 현재 진행]
 **완료 조건**:
 - [x] 한 세션이 15~30분 분량 (Tier 1-3 완주 기준)
 - [x] 언어별 다양한 스테이지 (140개)
-- [x] 총 코퍼스: 577개 항목 (EN 155 / JP 117 / ES 137 / KR 105 / Daily Lessons 63)
+- [x] 총 코퍼스: **4,038개 항목** (EN 1,054 + JP 502 + ES 1,246 + KR 1,236, auto-generated from Language wiki)
 
 **확장 가능 (Tier 4-5)**:
 - [ ] 추가 단어장 (각 언어 100+)
@@ -224,11 +224,12 @@ Phase 7: 알파 빌드              [🔄 현재 진행]
 - ✅ 게임 코어 완성 (입력/격파/미션/스테이지/캐릭터)
 - ✅ 4개 언어 지원 (EN/JP/ES/KR)
 - ✅ 140 스테이지 (Tier 0-5, Romance/Travel 테마)
-- ✅ 674개 테스트 통과 (1 skipped)
+- ✅ **680개 테스트 통과** (1 skipped)
 - ✅ 프로덕션 빌드 가능 (971KB gzip 298KB)
 - ✅ GitHub Pages 자동 배포
-- ✅ Daily lessons 45/45 (100% topic-appropriate culture)
+- ✅ **Daily lessons 52/52** (100% topic-appropriate culture; EN 15 + JP 14 + ES 11 + KR 12)
 - ✅ SVG favicon + OG/Twitter Card meta tags
+- ✅ 4,038 코퍼스 항목 (EN 1,054 + JP 502 + ES 1,246 + KR 1,236)
 
 **남은 작업**:
 1. ⚠️ 이슈 #1 Fix: Blank screen after multiple restarts (mitigated)
@@ -259,10 +260,11 @@ Phase 7: 알파 빌드              [🔄 현재 진행]
 
 **프로젝트 현황**:
 - **코드베이스**: 15,000+ LOC
-- **테스트**: 674 tests
+- **테스트**: 680 tests (1 skipped)
 - **번들 크기**: 971KB (gzip 298KB)
 - **언어**: 4개 (EN/JP/ES/KR)
 - **스테이지**: 140
-- **Daily Lessons**: 45 (100% culture coverage)
+- **Daily Lessons**: 52 (100% culture coverage)
+- **Corpus**: 4,038 entries (EN 1,054 + JP 502 + ES 1,246 + KR 1,236)
 - **Daily Lessons**: 45
 - **총 코퍼스**: EN 155 / JP 117 / ES 137 / KR 105
