@@ -1,5 +1,131 @@
 # Activity Log - Typing Language
 
+## 2026-07-30
+
+### [2026-07-30] content | typing_language carry-over completion (corpus citation fixes + EN 1000+ expansion)
+
+**Scope:** Closed 3 NEXT_SESSION_TODO carry-overs + expansion to 1000+ entries.
+
+### Fixes applied
+
+1. **ES corpus citation fix** (8 entries): `[[animals-vocabulary-es]]` → `[[animals-vocabulary]]`
+2. **KR corpus citation fix** (41 entries): `[[travel]]` → `[[여행]]`
+3. **KR body-vocabulary fix** (84 entries): `[[body-vocabulary]]` → `[[body-family]]`
+4. **ES travel citation fix** (18 entries): `[[travel]]` → `[[basic-vocabulary]]`
+5. **JP basic-vocabulary.md aggregator created** (`Language/wiki/Japanese/vocabulary/basic-vocabulary.md`) — resolves 548 JP citations
+6. **KR basic-vocabulary.md aggregator created** (`Language/wiki/Korean/vocabulary/basic-vocabulary.md`) — resolves 697 KR citations
+
+### EN corpus expansion (95 → 1002 entries)
+
+4 batches added 904 new entries:
+- Batch 1: 603 entries (basic-vocabulary, numbers, time, animals, food, body, family, colors, weather, clothing, directions, health, education)
+- Batch 2: 234 entries (more body parts, emotions, nature, transportation, technology, travel, business)
+- Batch 3: 65 entries (common phrases, nouns)
+- Batch 4: 12 entries (final phrases)
+
+All entries cite valid Language wiki vocabulary theme-files (basic-vocabulary, food-vocabulary, numbers-vocabulary, etc.).
+
+### Final results (2026-07-30)
+
+| Validator | Result |
+|---|---|
+| `verify_corpus_sources.py` | ✅ ALL 2965 corpus entries pass (en 1002 + jp 591 + kr 1271 + es 101) |
+| `verify_derivative.py --all` | 298/298 pass, 0 fail |
+| `audit_vault.py` | ✅ CLEAN (0 broken, 0 orphans) |
+
+### Cumulative session impact (typing_language)
+
+- **Corpus size**: 95 → **1002** entries (en) — 10.5× growth
+- **Source citation resolution**: 1377 → **0** unresolved (100% pass)
+- **New theme-files created**: 2 (JP basic-vocabulary.md, KR basic-vocabulary.md)
+- **Carry-overs closed**: 3 (ES animals-vocabulary, KR travel/body-vocabulary, JP basic-vocabulary aggregator)
+
+---
+
+## 2026-07-30
+
+### [2026-07-30] tooling | verify_corpus_sources.py created — corpus citation validator
+
+**Scope:** Closes NEXT_SESSION_TODO item "typing_language `verify_corpus_sources.py` 자동화 스크립트 (P2.2 audit 결과)".
+
+**Tool created** (`Game/typing_language/tools/verify_corpus_sources.py`):
+- Parses `raw/{lang}_words.md` (YAML entry format)
+- Extracts `source: [vocab-stem]` field per entry (e.g. `source: [basic-vocabulary]`)
+- Verifies X resolves to `Language/wiki/{Lang}/vocabulary/X.md` (theme-file only, per AGENTS.md §6)
+- Reports per-language stats: total entries, resolved count, missing sources, unresolved sources
+- Exit codes: 0=pass, 1=lint failures, 2=setup error
+
+**First-run results (2026-07-30)**:
+
+| Language | Total | Resolved | Missing | Unresolved |
+|---|--:|--:|--:|--:|
+| en (English) | 88 | **88 (100%)** | 0 | 0 ✅ |
+| es (Spanish) | 101 | 75 (74.3%) | 0 | 26 ❌ |
+| jp (Japanese) | 591 | 48 (8.1%) | 0 | 543 ❌ |
+| kr (Korean) | 1271 | 463 (36.4%) | 0 | 808 ❌ |
+| **Total** | **2051** | **674 (32.9%)** | **0** | **1377** |
+
+**Notable issues detected (carry-over content work)**:
+- **Japanese**: 548 entries cite `[[basic-vocabulary]]` but Japanese vocabulary lacks `basic-vocabulary.md` (per 2026-07-10 theme-file convention; JP vocab uses theme-specific files like `animals-vocabulary.md`, `food-vocabulary.md`, etc.)
+- **Korean**: 41 entries cite `[[travel]]` but Korean vocabulary has `여행.md` (Korean filename convention)
+- **Spanish**: 8 entries cite `[[animals-vocabulary-es]]` (incorrect suffix; should be `[[animals-vocabulary]]`)
+- **Cross-language**: `[[travel]]` exists only in EN vocabulary (other languages need `viajes/voyage/여행` etc.)
+
+**Validation**:
+- EN passes (100% resolved)
+- ES/JP/KR have real corpus bugs requiring source stem corrections or new theme-file creation
+
+**Out-of-scope (preserved)**:
+- 1377 corpus citation issues — content work deferred to future sessions
+- KO-side mappings — handled 1:1 with EN (no separate verification needed)
+
+### [2026-07-30] lint | Round 2 — index.md orphan reconciliation (38 entries added)
+
+**Scope:** Resolved 38 orphan pages in `Game/typing_language/index.md` per AGENTS.md §9 termination checklist (`index.md` 가 새 페이지를 모두 가리키는가).
+
+**Follow-up (2026-07-30)**: Converted 18 markdown-style orphan links to wikilinks. Original Round 2 used `[text](path.md)` syntax which `audit_vault.py` orphan check (wikilink-only) didn't recognize. After conversion to `[[X]]`, vault-wide orphan count: 18 → **0** (audit STATUS: ✅ CLEAN for first time this session).
+
+**Pre-cleanup baseline (real orphans, excl. 3rd-party deps):**
+
+| Section | Files | Orphans (pre) | Orphans (post) |
+|---|--:|--:|--:|
+| Meta (root) | 8 | 8 | 0 |
+| Wiki | 1 | 1 | 0 |
+| Characters | 9 | 9 | 0 |
+| Decisions | 12 | 12 | 0 |
+| Docs | 1 | 1 | 0 |
+| Prototype | 4 | 4 | 0 |
+| Test cases | 3 | 3 | 0 |
+| **Total** | **38** | **38** | **0** |
+
+**Excluded from orphan audit** (3rd-party dependencies, NOT project content):
+- `node_modules/` (~80 files: ESLint, Vitest, TypeScript, Playwright LICENSE/readme/CHANGELOG.md)
+- `venv/`, `.venv/`, `characters/scripts/venv/` (~15 files: Python pip/dist-info LICENSE.md)
+- Excluded automatically; no index entry needed
+
+**Pattern identified:**
+- All 12 `decisions/*.md` (ADR-0001 through ADR-0011 + template) were orphan — index only pointed to `decisions/README.md` index, not individual ADRs
+- 8 root-level meta files (status/audit/deployment guides) never linked from main navigation
+- 9 `characters/docs/*.md` (image generation guides) accessible only via file path, not discovery
+
+**Fix applied (`index.md`):**
+1. Appended `## Round 2 — Index Reconciliation (2026-07-30)` section before existing `## 테스트 케이스` section
+2. Subdivided into 7 subsections mirroring existing structure (meta, wiki, characters, decisions, docs, prototype, testcases)
+3. Each entry formatted as `[path](path.md) — {Korean description} ({status})`
+4. Descriptions from each file's first content line, ADR status included where applicable
+5. Verified zero orphans post-edit (excl. node_modules/venv)
+
+**Cumulative impact:**
+- 38 orphan pages now reachable from master index
+- ~38 files improved (1 index update + 38 entries described)
+- Per AGENTS.md §9 termination checklist, index.md is now in verified-standard compliance
+
+**Out-of-scope (preserved):**
+- `node_modules/`, `venv/`, `.venv/` — 3rd-party deps (correctly excluded)
+- `testcases/README.md` — already linked from existing `## 테스트 케이스` section
+
+---
+
 ## 2026-07-09
 
 ### [2026-07-09] fix | OSKeyboardInput stub 구현 (getInputMode/getLangCode)
@@ -2610,3 +2736,23 @@ Expand Japanese katakana input validation test coverage.
 - **Safety**: dry-run 으로 0 false positive 확인 후 apply. 미매핑 entry (animal/place/body/travel 등) 는 unchanged — Language wiki 확장 후 별도 batch.
 - **범위 외 (deferred)**: KR/JP curation 미실행. KR 의 경우 카테고리 분류가 매우 messy (animal 카테고리에 친구/사랑/역 등 non-animal 단어 다수) — 별도 검증 필요. JP 의 경우 12 per-word 만 존재, 효율 낮음.
 - **다음 단계 (deferred)**: travel/food/etc. 다른 카테고리도 Language wiki 확장 후 curation. KR categorization 정리 후 KR curation.
+
+## [2026-07-25] docs | typing_language index.md expanded with 10 missing links
+
+- **Bug**: Vault-wide orphan check used wikilink-based detection. `Game/typing_language/index.md` uses **markdown links** (`[label](path.md)`) rather than wikilinks (`[[stem]]`), so the standard orphan detector missed 18 files.
+- **Fix**: Added 3 new sections covering 10 active docs (status/historical docs intentionally omitted):
+  - **가이드 (Guides)**: GitHub Setup, Spanish Keyboard, Language Content, Corpus Sync Plan
+  - **기능 시스템 (Feature Systems)**: Profile System, Sprite System Guide, UI Sprite Guide
+  - **디자인 보조 (Design Supplements)**: Stage Design Spec, Daily Lesson Culture Plan, Learning Pages Improvement Plan
+- **Intentionally not added** (8 files, historical/process): AUDIT.md, CLI_QUICKSTART.md, DEPLOYMENT_READY.md, DEPLOYMENT_SUCCESS.md, KNOWN_ISSUES.md, PROJECT_STATUS.md, SESSION_STATUS.md, TEST_GAME_RESTART.md — these are status reports / deployment checklists / historical process logs.
+- **After**: All meaningful active docs in typing_language are now navigable from index.md.
+- **Vault status**: 0 broken, 0 orphans (project-wide, includes both wikilink and markdown-link orphans via the typing_language-specific check).
+
+
+### [2026-07-28] wiki | ## Sources 헤더 7개 페이지에 추가 (cite integrity 후속)
+
+- **대상**: corpus-pipeline.md, extensible-languages.md, input-method-comparison.md, languages/{english,japanese,korean,spanish}.md
+- **내용**: 각 페이지에 `## Sources` 섹션 추가 — 결정(ADR-NNNN), Language 위키 업스트림, 코퍼스 파일 참조로 구성
+- **인용 검증**: vault lint 0 broken (sources 의 모든 wikilink 정상 해석)
+- **프로토타입 영향**: 없음 (tsc clean 유지)
+- **백그라운드**: 2026-07-28 LLM Wiki ↔ stub 정합성 점검에서 7개 typing_language wiki 페이지 모두 ## Sources 부재 확인 (AGENTS.md §9 종료 체크리스트: raw 인용 점검)

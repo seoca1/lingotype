@@ -259,9 +259,9 @@ function createHandler(language: string): InputHandler { ... }
 
 ## References
 
-- [[wiki/extensible-languages]] - 구현 상세 문서
+- [extensible-languages](../wiki/extensible-languages.md) - 구현 상세 문서
 - `src/language/languages/french.example.ts` - 새 언어 추가 템플릿
-- [[wiki/languages/english]], [[wiki/languages/japanese]], etc. - 언어별 프로필
+- [languages/english](../wiki/languages/english.md), [languages/japanese](../wiki/languages/japanese.md), etc. - 언어별 프로필
 
 ## Status History
 
