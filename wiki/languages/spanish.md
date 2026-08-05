@@ -101,6 +101,11 @@
 | food | pan, agua, carne, fruta |
 | common_verb | ser, estar, tener, ir, ver, hacer |
 | accent_words | niño, año, señor, entonces, después |
+| body | cabeza, ojo, boca, brazo, mano, espalda, estómago, pierna, pie, corazón |
+| weather | frío, llueve, despejado, soleado |
+| restaurant | mesa, carta, plato, cubiertos |
+| culture | abrazo, milonga, lunfardo, cabeceo, mina |
+| emotion | encantar (gustar-like) |
 | ... | ... |
 
 ### 난이도 (CEFR)
@@ -148,6 +153,20 @@
 
 ## 다음 단계
 
-- `raw/es_words.md` 코퍼스 작성 (Phase 6)
+- `raw/es_words.md` 코퍼스 작성 (Phase 6) — **현재 143 entries** (101 기존 + 42 신규, 2026-07-13 card-extraction sync)
 - 핸들러 구현: `prototype/src/input/SpanishHandler.ts`
 - 단위 테스트: `testcases/input-handler.md` > Spanish Tests
+
+## 코퍼스 진화 (2026-07-13)
+
+- **Card-Extraction sync (ADR-0062)**: Language/wiki/Spanish 신규 35 entries (이번 세션) 동기화
+- **추가 카테고리**: body/weather/restaurant/culture/emotion (5 신규)
+- **Source format**: theme-anchor (`[[theme-vocabulary]]`) 통일 (AGENTS.md §1.5)
+- **남은 gap**: Language Spanish 370 entries 중 143 → 227 gap. 향후 세션에서 추가 sync.
+
+## Sources
+
+- [[0003-es-accents]] — ADR-0003 (액센트 직접 입력 + ASCII 폴백, Accepted)
+- [[AGENTS]] §4.3 — 스페인어 입력 방식 (액센트 á é í ó ú ñ ¿ ¡ 지원, 스테이지별 모드 선택)
+- Language 위키 업스트림: `Language/wiki/Spanish/index.md`
+- 코퍼스: `Game/typing_language/raw/es_words.md` (theme-anchor citation, 96 cross-language citations resolvable via shared stem convention)

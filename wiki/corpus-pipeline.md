@@ -153,3 +153,10 @@
 - 언어별 게임 프로필: `Game/typing_language/wiki/languages/{lang}.md`
 - 결정 기록: `Game/typing_language/decisions/`
 - 언어 정확성 규칙: `Game/typing_language/AGENTS.md` §4
+
+## Sources
+
+- [[pipeline-to-game]] — Language 측 다운스트림 계약 (theme-file anchor 컨벤션 정의)
+- [[AGENTS]] §1.5 — 코퍼스 citation 규약
+- [[AGENTS]] §3.1 — 새 언어/코퍼스 추가 워크플로우
+- [[AGENTS]] §4 — 언어 정확성 규칙 (EN/JP/ES/KR 입력 방식)

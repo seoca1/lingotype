@@ -227,3 +227,10 @@
 - `raw/jp_words.md` 코퍼스 작성 (Phase 6 콘텐츠 작업)
 - 핸들러 구현: `prototype/src/input/JapaneseHandler.ts`
 - 단위 테스트: `testcases/input-handler.md` > Japanese Tests
+
+## Sources
+
+- [[0002-jp-input]] — ADR-0002 (로마자→한자 직접 매핑, Accepted)
+- [[AGENTS]] §4.2 — 일본어 입력 방식 (장음 ー, 촉음 っ/ッ, 요음 ょ 모두 romaji 반영)
+- Language 위키 업스트림: `Language/wiki/Japanese/index.md`
+- 코퍼스: `Game/typing_language/raw/jp_words.md` (theme-anchor citation)

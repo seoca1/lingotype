@@ -69,3 +69,12 @@
 - 각 언어별 핸들러 구현
 - 입력 균형 테스트 (Phase 4 Vertical Slice)
 - 균형 조정 (Phase 5+)
+
+## Sources
+
+- [languages/english](languages/english.md) — EN 입력 방식 (QWERTY 표준)
+- [languages/japanese](languages/japanese.md) — JP 입력 방식 (ADR-0002 로마자→한자)
+- [languages/spanish](languages/spanish.md) — ES 입력 방식 (ADR-0003 액센트 직접+ASCII 폴백)
+- [languages/korean](languages/korean.md) — KR 입력 방식 (ADR-0010 한글 자모 직접+로마자 하이브리드)
+- [[0001-tech-stack]] — TypeScript + React + Vite
+- [[AGENTS]] §4 — 언어 정확성 규칙

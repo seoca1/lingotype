@@ -219,3 +219,11 @@
 - 결정: `decisions/0010-kr-input.md`
 - 일본어 참고 (유사 패턴): `wiki/languages/japanese.md`
 - 스페인어 참고 (액센트 직접 입력 패턴): `wiki/languages/spanish.md`
+
+## Sources
+
+- [[0010-kr-input]] — ADR-0010 (한글 키보드 자모 직접 입력 + 클라이언트 합성, Accepted)
+- [[0009-kr-input]] — ADR-0009 (로마자→한글 매핑, Superseded by 0010)
+- [[AGENTS]] §4 — 언어 정확성 규칙
+- Language 위키 업스트림: `Language/wiki/Korean/index.md`
+- 코퍼스: `Game/typing_language/raw/kr_words.md` (theme-anchor citation, 5 real travel entries currently)

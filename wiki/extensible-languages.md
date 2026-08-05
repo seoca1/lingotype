@@ -2,7 +2,7 @@
 
 > **Status**: ✅ Implemented (2026-06-18)  
 > **Category**: Architecture · Language Support  
-> **Related**: [[languages/english]], [[languages/japanese]], [[languages/spanish]], [[languages/korean]]
+> **Related**: [english](languages/english.md), [japanese](languages/japanese.md), [spanish](languages/spanish.md), [korean](languages/korean.md)
 
 ## Overview
 
@@ -271,9 +271,15 @@ When adding a new language:
 
 ## See Also
 
-- [[languages/english]] - English language profile
-- [[languages/japanese]] - Japanese language profile  
-- [[languages/spanish]] - Spanish language profile
-- [[languages/korean]] - Korean language profile
+- [english](languages/english.md) - English language profile
+- [japanese](languages/japanese.md) - Japanese language profile  
+- [spanish](languages/spanish.md) - Spanish language profile
+- [korean](languages/korean.md) - Korean language profile
 - `src/language/languages/french.example.ts` - New language template
 - `decisions/0011-extensible-languages.md` - Architecture decision record
+
+## Sources
+
+- [[0011-extensible-languages]] — ADR-0011 (확장 가능한 언어 레지스트리 시스템, Accepted)
+- [[AGENTS]] §1.5 — 콘텐츠 소스 업스트림 파이프라인
+- [[AGENTS]] §4.4 — 추가 언어 (향후) 가이드라인 (IME, UTF-8 호환성)
