@@ -2749,6 +2749,23 @@ Expand Japanese katakana input validation test coverage.
 - **Vault status**: 0 broken, 0 orphans (project-wide, includes both wikilink and markdown-link orphans via the typing_language-specific check).
 
 
+### [2026-08-06] chore | Build artifact revert — dist/index.html + dailyLessons.json
+
+작업 내용:
+- `prototype/dist/index.html` build hash 변경 (`index-D2InVVsw.js` → `index-OSqQPliM.js`) — build artifact, per 2026-08-05 closure entry 의 build-hash-revert pattern.
+- `prototype/src/data/dailyLessons.json` `generatedAt` timestamp 변경 (2026-08-05T17:16:11 → 2026-08-05T21:27:32) — content diff 없음 (timestamp only).
+
+처리:
+- 두 파일 `git checkout HEAD --` 로 revert (no commit needed — build artifacts should not be in committed state without meaningful content change).
+- `git status` → working tree clean.
+
+검증:
+- `npm test` skip (no code changes)
+- `npm run build` → 0 errors (regen produces content-twin of HEAD)
+- `verify_corpus_sources.py` → 2965/2965 entries (100%, 0 missing, 0 unresolved)
+
+Push 상태: 5 commits ahead of `origin/main` (no new commits this session — user action for `gh auth login` → `git push`).
+
 ### [2026-07-28] wiki | ## Sources 헤더 7개 페이지에 추가 (cite integrity 후속)
 
 - **대상**: corpus-pipeline.md, extensible-languages.md, input-method-comparison.md, languages/{english,japanese,korean,spanish}.md
