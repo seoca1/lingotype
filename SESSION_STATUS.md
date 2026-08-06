@@ -1,7 +1,23 @@
 # Phase 7 Progress — Typing Language
 
-**Last Updated:** 2026-08-03
-**Status:** Phase 7 Complete — Deployed ✅
+**Last Updated:** 2026-08-06
+**Status:** Phase 7 Complete — Deployed ✅ (2026-08-06 carry-over session closure)
+
+## 2026-08-06 — Build artifact revert + log entry
+
+### 작업
+- **`prototype/dist/index.html`** build hash 변경 (`index-D2InVVsw.js` → `index-OSqQPliM.js`) — build artifact, session 2026-08-05 의 build-hash-revert pattern 따라 `git checkout HEAD --` 로 revert.
+- **`prototype/src/data/dailyLessons.json`** `generatedAt` timestamp 변경 (2026-08-05T17:16:11 → 2026-08-05T21:27:32) — content diff 없음 (timestamp only). revert.
+- **`log.md`** 2026-08-06 entry 추가 (commit `f74334b`).
+
+### 검증
+- `npm test` skip (no code changes)
+- `npm run build` → 0 errors (regen produces content-twin of HEAD)
+- `verify_corpus_sources.py` → 2965/2965 entries (100%, 0 missing, 0 unresolved)
+
+### Push 상태
+- 5 commits ahead of `origin/main` (no change this session — await `gh auth login` + `git push`)
+- Per workspace AGENTS.md §8: push is user-action territory (GH_TOKEN invalid)
 
 ---
 
