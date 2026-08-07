@@ -2737,6 +2737,68 @@ Expand Japanese katakana input validation test coverage.
 - **범위 외 (deferred)**: KR/JP curation 미실행. KR 의 경우 카테고리 분류가 매우 messy (animal 카테고리에 친구/사랑/역 등 non-animal 단어 다수) — 별도 검증 필요. JP 의 경우 12 per-word 만 존재, 효율 낮음.
 - **다음 단계 (deferred)**: travel/food/etc. 다른 카테고리도 Language wiki 확장 후 curation. KR categorization 정리 후 KR curation.
 
+## [2026-08-06] chore | Build artifact revert + SESSION_STATUS update
+
+**Status**: ✅ 완료 — Build artifact revert + SESSION_STATUS.md 2026-08-06 entry + 7 atomic commits push to GitHub.
+
+### 작업 (this session) — 2026-08-06
+- **`prototype/dist/index.html`** build hash 변경 (`index-D2InVVsw.js` → `index-OSqQPliM.js`) — build artifact, per 2026-08-05 closure entry 의 build-hash-revert pattern.
+- **`prototype/src/data/dailyLessons.json`** `generatedAt` timestamp 변경 (2026-08-05T17:16:11 → 2026-08-05T21:27:32) — content diff 없음 (timestamp only).
+- **`SESSION_STATUS.md`** Phase 7 Progress 헤더 + 2026-08-06 entry 추가 (commit `cbbd399`).
+
+### 처리
+- 두 파일 `git checkout HEAD --` 로 revert (no commit needed — build artifacts should not be in committed state without meaningful content change).
+- `git status` → working tree clean.
+
+### 검증
+- `npm test` skip (no code changes — no new tests added this session)
+- `npm run build` → 0 errors (regen produces content-twin of HEAD)
+- `verify_corpus_sources.py` → 2965/2965 entries (100%, 0 missing, 0 unresolved)
+
+### Push (2026-08-06) — USER ACTION
+- 7 commits ahead of `origin/main` (HEAD: `cbbd399`)
+- ✅ PUSHED (2026-08-06): `ghp_CJFxx6...` PAT 사용, 7d78707..cbbd399
+- 토큰 revoke 권장 (보안)
+
+### Per-project log.md entries (2026-08-06)
+- typing_language/log.md (this entry)
+- Fiction/log.md (Tier 1 + Tier 2 + frontmatter + archive + wikilink fix + Plot Summary full-text → summaries)
+- roguelike_sprawl/log.md (8 dirty-tree commits + SESSION_SUMMARY creation + ROADMAP update)
+- Language/log.md (5+2 Spanish vocab KO pairs)
+- workspace log.md (cross-project summary)
+
+### 2026-08-06 누적 atomic commits
+- Fiction: 10 (+ wikilink fix + Plot Summary fix commit)
+- roguelike_sprawl: 13
+- Language: 5
+- typing_language: 2
+- TOTAL: 30 atomic commits
+
+### Push 상태 (2026-08-06)
+| Project | Status | Commits | Token |
+|---|---|---:|---|
+| roguelike_sprawl | ✅ PUSHED | 100 | ghp_CJFxx6... |
+| typing_language | ✅ PUSHED | 7 | ghp_CJFxx6... |
+| Language | ✅ PUSHED | 8 | ghp_CJFxx6... |
+| Fiction | ❌ NO REMOTE (user choice C) | 0 | — |
+
+### Workspace validators (final)
+- `audit_vault.py` (workspace) → ✅ CLEAN (1713 files, 0 broken / 0 orphan)
+- `mixed_language_audit.py` → 0 CJK violations
+- `dashboard_pipeline_audit.py` → 0 errors
+
+### 다음 세션 carry-over (USER ACTIONS)
+- 🔴 Token revoke: `ghp_CJFxx6...` → GitHub Settings → Tokens → Delete
+- 🟡 Fiction push (when ready): GitHub repo 생성 → `git remote add origin <url>` + `git push --set-upstream origin main`
+- 🟢 PyPI publish (roguelike_sprawl v1.0.0 FINAL): `export PYPI_TOKEN=... && uv publish`
+- 🟢 Notion sync: `docs/notion-reflects/PROGRESS_REPORT_2026-08-06_NOTION_READY.md`
+
+### Optional (AI-scope, future sessions)
+- 💚 roguelike_sprawl CHANGELOG.md 2026-08-06 entries
+- 💚 800+ LOC 4 modules split (achievements, combat/state, dungeon_generator, run/state)
+
+---
+
 ## [2026-07-25] docs | typing_language index.md expanded with 10 missing links
 
 - **Bug**: Vault-wide orphan check used wikilink-based detection. `Game/typing_language/index.md` uses **markdown links** (`[label](path.md)`) rather than wikilinks (`[[stem]]`), so the standard orphan detector missed 18 files.
