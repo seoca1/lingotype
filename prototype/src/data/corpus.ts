@@ -2057,6 +2057,48 @@ export const KR_SENTENCES: WordEntry[] = [
     category: 'culture',
   },
 
+  // Tier 5: 장문 확장 (krs_206 to krs_210 — JP 와 동일 10 entries)
+  {
+    id: 'krs_206',
+    display: '오늘날 세계화되는 시대에 문화 간 이해와 소통 능력은 서로 연결된 시장에서 개인과 직업적 성공을 위해 점점 더 중요해지고 있습니다.',
+    meaning: 'In today\'s globalizing world, cross-cultural understanding and communication skills have become increasingly important for personal and professional success in interconnected markets.',
+    level: 5,
+    category: 'education',
+    source: 'education-vocabulary',
+  },
+  {
+    id: 'krs_207',
+    display: '전통적인 일본 다도 예식은 단순한 음료 제공을 넘어 영적 수양과 마음�김, 타인에 대한 배려를 강조하는 종합적인 문화 예술을 상징합니다.',
+    meaning: 'Traditional Japanese tea ceremony represents a comprehensive cultural art that emphasizes spiritual cultivation, mindfulness, and consideration for others, transcending mere beverage service.',
+    level: 5,
+    category: 'culture',
+    source: 'culture-vocabulary',
+  },
+  {
+    id: 'krs_208',
+    display: '실패에 대한 두려움 없이 계속 도전함으로써 우리는 새로운 가능성을 발견하고 한때 우리 능력을 정의한다고 믿었던 한계를 초월할 수 있습니다.',
+    meaning: 'By continuing to challenge ourselves without fear of failure, we can discover new possibilities and transcend the limitations we once believed defined our capabilities.',
+    level: 5,
+    category: 'inspiration',
+    source: 'entertainment-vocabulary',
+  },
+  {
+    id: 'krs_209',
+    display: '고대 로마의 철학자 세네카는 어려움 안에 성장의 기회가 있으며 장애물이 우리 내면의 강인함과 회복력을 발견하는 계기가 된다고 가르쳤습니다.',
+    meaning: 'The ancient Roman philosopher Seneca taught that within difficulties lie opportunities for growth, and obstacles become the trigger for discovering our inner strength and resilience.',
+    level: 5,
+    category: 'philosophy',
+    source: 'literature-vocabulary',
+  },
+  {
+    id: 'krs_210',
+    display: '세계 역사는 서로 다른 문화와 문명의 반복적인 만남, 충돌, 융합을 통해 형성되어 왔으며 우리의 글로벌 사회를 이해하는 데 중요한 통찰력을 제공합니다.',
+    meaning: 'World history has been shaped through the repeated encounters, conflicts, and fusions of different cultures and civilizations, offering important insights for understanding our global society.',
+    level: 5,
+    category: 'history',
+    source: 'literature-vocabulary',
+  },
+
   // Tier 4: 뉴스 헤드라인 (Tier 4 unlock — requires 'news' corpus)
   {
     id: 'krs_301',
@@ -2142,6 +2184,120 @@ export const KR_SENTENCES: WordEntry[] = [
     level: 4,
     category: 'news',
   },
+
+  // Tier 4: 비즈니스 이메일 (Tier 4 unlock — requires 'business' corpus)
+  {
+    id: 'krs_401',
+    display: '이 건에 관심을 가져주셔서 감사합니다.',
+    meaning: 'Thank you for your attention to this matter.',
+    level: 4,
+    category: 'business',
+    source: 'business-vocabulary',
+  },
+  {
+    id: 'krs_402',
+    display: '요청하신 문서를 첨부로 보내드립니다.',
+    meaning: 'Please find attached the requested document.',
+    level: 4,
+    category: 'business',
+    source: 'business-vocabulary',
+  },
+  {
+    id: 'krs_403',
+    display: '다음 회의 일정을 확정하고 싶습니다.',
+    meaning: 'I would like to confirm the date of our next meeting.',
+    level: 4,
+    category: 'business',
+    source: 'business-vocabulary',
+  },
+  {
+    id: 'krs_404',
+    display: '폐를 끼쳐드려 죄송합니다.',
+    meaning: 'I apologize for the inconvenience caused.',
+    level: 4,
+    category: 'business',
+    source: 'business-vocabulary',
+  },
+  {
+    id: 'krs_405',
+    display: '이번 요청에 빠른 회신 감사합니다.',
+    meaning: 'I appreciate your prompt response to this request.',
+    level: 4,
+    category: 'business',
+    source: 'business-vocabulary',
+  },
+  {
+    id: 'krs_406',
+    display: '프로젝트 진행 상황을 알려드립니다.',
+    meaning: 'I wish to inform you about the project progress.',
+    level: 4,
+    category: 'business',
+    source: 'business-vocabulary',
+  },
+  {
+    id: 'krs_407',
+    display: '계약 조건에 대해 논의하고 싶습니다.',
+    meaning: 'I would like to discuss the contract terms.',
+    level: 4,
+    category: 'business',
+    source: 'business-vocabulary',
+  },
+  {
+    id: 'krs_408',
+    display: '검토하시도록 견적서를 보내드립니다.',
+    meaning: 'I am sending you the quote for your review.',
+    level: 4,
+    category: 'business',
+    source: 'business-vocabulary',
+  },
+  {
+    id: 'krs_409',
+    display: '귀사와 거래할 수 있는 기회를 주셔서 감사합니다.',
+    meaning: 'I appreciate the opportunity to do business with you.',
+    level: 4,
+    category: 'business',
+    source: 'business-vocabulary',
+  },
+  {
+    id: 'krs_410',
+    display: '이 제안에 대한 승인을 요청드립니다.',
+    meaning: 'I request your approval for this proposal.',
+    level: 4,
+    category: 'business',
+    source: 'business-vocabulary',
+  },
+  {
+    id: 'krs_411',
+    display: '가능한 빨리 확인 회신 부탁드립니다.',
+    meaning: 'I look forward to your confirmation at your earliest convenience.',
+    level: 4,
+    category: 'business',
+    source: 'business-vocabulary',
+  },
+  {
+    id: 'krs_412',
+    display: '긴급한 건으로 귀하와 통화해야 합니다.',
+    meaning: 'I need to speak with you about an urgent matter.',
+    level: 4,
+    category: 'business',
+    source: 'business-vocabulary',
+  },
+  {
+    id: 'krs_413',
+    display: '월별 진행 보고서를 보내드립니다.',
+    meaning: 'I am sending you the monthly progress report.',
+    level: 4,
+    category: 'business',
+    source: 'business-vocabulary',
+  },
+  {
+    id: 'krs_414',
+    display: '문의 사항 있으시면 언제든 연락 주십시오.',
+    meaning: 'Please feel free to contact me with any questions.',
+    level: 4,
+    category: 'business',
+    source: 'business-vocabulary',
+  },
 ];
 
 export const EN_SENTENCES: WordEntry[] = [
@@ -2174,6 +2330,13 @@ export const EN_SENTENCES: WordEntry[] = [
   { id: 'ens_204', display: 'Technology has transformed the way we communicate, allowing us to connect instantly with people across the globe and share ideas in real time.', level: 5, category: 'technology' },
   { id: 'ens_205', display: 'Despite facing numerous challenges and setbacks, she never gave up on her dreams and continued working hard towards achieving her goals.', level: 5, category: 'inspiration' },
 
+  // Tier 5: Passages expansion (ens_206 to ens_210 — parity with JP/ES/KR 10 entries)
+  { id: 'ens_206', display: 'In today\'s globalizing world, cross-cultural understanding and communication skills have become increasingly important for personal and professional success in interconnected markets.', level: 5, category: 'education' , source: 'education-vocabulary' },
+  { id: 'ens_207', display: 'Traditional Japanese tea ceremony represents a comprehensive cultural art that emphasizes spiritual cultivation, mindfulness, and consideration for others, transcending mere beverage service.', level: 5, category: 'culture' , source: 'culture-vocabulary' },
+  { id: 'ens_208', display: 'By continuing to challenge ourselves without fear of failure, we can discover new possibilities and transcend the limitations we once believed defined our capabilities.', level: 5, category: 'inspiration' , source: 'entertainment-vocabulary' },
+  { id: 'ens_209', display: 'The ancient Roman philosopher Seneca taught that within difficulties lie opportunities for growth, and obstacles become the trigger for discovering our inner strength and resilience.', level: 5, category: 'philosophy' , source: 'literature-vocabulary' },
+  { id: 'ens_210', display: 'World history has been shaped through the repeated encounters, conflicts, and fusions of different cultures and civilizations, offering important insights for understanding our global society.', level: 5, category: 'history' , source: 'literature-vocabulary' },
+
   // Tier 4: News headlines (Tier 4 unlock — requires 'news' corpus)
   { id: 'ens_301', display: 'Scientists discover new species of deep-sea fish in the Pacific Ocean.', level: 4, category: 'news' },
   { id: 'ens_302', display: 'International climate summit reaches historic agreement on carbon emissions.', level: 4, category: 'news' },
@@ -2187,6 +2350,22 @@ export const EN_SENTENCES: WordEntry[] = [
   { id: 'ens_310', display: 'Education ministry introduces new digital learning program for primary schools.', level: 4, category: 'news' },
   { id: 'ens_311', display: 'Space mission successfully lands rover on Martian surface to search for water.', level: 4, category: 'news' },
   { id: 'ens_312', display: 'World leaders gather to discuss urgent measures against climate change threats.', level: 4, category: 'news' },
+
+  // Tier 4: Business emails (Tier 4 unlock — requires 'business' corpus)
+  { id: 'ens_401', display: 'Thank you for your attention to this matter.', meanings: { en: 'Thank you for your attention to this matter.', ko: '이 건에 관심을 가져주셔서 감사합니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary' },
+  { id: 'ens_402', display: 'Please find attached the requested document.', meanings: { en: 'Please find attached the requested document.', ko: '요청하신 문서를 첨부로 보내드립니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary' },
+  { id: 'ens_403', display: 'I would like to confirm the date of our next meeting.', meanings: { en: 'I would like to confirm the date of our next meeting.', ko: '다음 회의 일정을 확정하고 싶습니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary' },
+  { id: 'ens_404', display: 'I apologize for the inconvenience caused.', meanings: { en: 'I apologize for the inconvenience caused.', ko: '폐를 끼쳐드려 죄송합니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary' },
+  { id: 'ens_405', display: 'I appreciate your prompt response to this request.', meanings: { en: 'I appreciate your prompt response to this request.', ko: '이번 요청에 빠른 회신 감사합니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary' },
+  { id: 'ens_406', display: 'I wish to inform you about the project progress.', meanings: { en: 'I wish to inform you about the project progress.', ko: '프로젝트 진행 상황을 알려드립니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary' },
+  { id: 'ens_407', display: 'I would like to discuss the contract terms.', meanings: { en: 'I would like to discuss the contract terms.', ko: '계약 조건에 대해 논의하고 싶습니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary' },
+  { id: 'ens_408', display: 'I am sending you the quote for your review.', meanings: { en: 'I am sending you the quote for your review.', ko: '검토하시도록 견적서를 보내드립니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary' },
+  { id: 'ens_409', display: 'I appreciate the opportunity to do business with you.', meanings: { en: 'I appreciate the opportunity to do business with you.', ko: '귀사와 거래할 수 있는 기회를 주셔서 감사합니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary' },
+  { id: 'ens_410', display: 'I request your approval for this proposal.', meanings: { en: 'I request your approval for this proposal.', ko: '이 제안에 대한 승인을 요청드립니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary' },
+  { id: 'ens_411', display: 'I look forward to your confirmation at your earliest convenience.', meanings: { en: 'I look forward to your confirmation at your earliest convenience.', ko: '가능한 빨리 확인 회신 부탁드립니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary' },
+  { id: 'ens_412', display: 'I need to speak with you about an urgent matter.', meanings: { en: 'I need to speak with you about an urgent matter.', ko: '긴급한 건으로 귀하와 통화해야 합니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary' },
+  { id: 'ens_413', display: 'I am sending you the monthly progress report.', meanings: { en: 'I am sending you the monthly progress report.', ko: '월별 진행 보고서를 보내드립니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary' },
+  { id: 'ens_414', display: 'Please feel free to contact me with any questions.', meanings: { en: 'Please feel free to contact me with any questions.', ko: '문의 사항 있으시면 언제든 연락 주십시오.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary' },
 ];
 
 export const JP_SENTENCES: WordEntry[] = [
@@ -2215,6 +2394,14 @@ export const JP_SENTENCES: WordEntry[] = [
   { id: 'jps_203', display: '彼女は多くの困難や挫折に直面しても、決して夢を諦めず、目標を達成するために努力を続けました。', romaji: 'kanojowaookunokonnnannzasetunichokumennshitemodeshiteketteshiteyumewoankiramezumokuhyouwotasseisurutameniryokuwotsudzukemashita', meanings: { en: 'Despite facing many difficulties and setbacks, she never gave up on her dreams and continued working hard to achieve her goals.' }, meaningLang: 'en', level: 5, category: 'inspiration' },
   { id: 'jps_204', display: '桜の花が咲く春の季節は、日本で最も美しい時期の一つとして知られており、多くの人々が花見を楽しみます。', romaji: 'sakuranohanagazakuharunokisetsuwanihonndemottomoutsukushiijikinohtotoshiteshirareteorisokuunohitobitagahannmiwotanoshimimasu', meanings: { en: 'The spring season when cherry blossoms bloom is known as one of the most beautiful times in Japan, and many people enjoy flower viewing.' }, meaningLang: 'en', level: 5, category: 'culture' },
 
+  // Tier 5: 文学作品・文化・哲学 (passages expansion — jps_205 to jps_210)
+  { id: 'jps_205', display: 'グローバル化が進む現代において、異文化間の理解とコミュニケーション能力は、個人と社会の成功においてますます重要な要素となっています。', romaji: 'guroobarukagasukusumugendaideokiteibunnkannokannrikutomyunikeeshonnnouyouryokuwakojiuntoshakainosseikouniokiteimasuyokujouomonaeruyousouninarimasu', meanings: { en: 'In today\'s globalizing world, cross-cultural understanding and communication skills are becoming increasingly important factors in personal and social success.' }, meaningLang: 'en', level: 5, category: 'education' , source: 'education-vocabulary' },
+  { id: 'jps_206', display: '人工知能と機械学習の急速な発展により、医療診断から金融分析まで、さまざまな分野でデータ駆動型の意思決定が標準となっています。', romaji: 'jinkouchinoutokikai gakushuunoukyuusokuna hattenni yoriiryou shinndankara kinnyuubunnsekimade samazamanabunnnya de dēta kurudoogatano isiketteihyoujunntoshiteimasu', meanings: { en: 'With the rapid advancement of AI and machine learning, data-driven decision-making has become standard in various fields from medical diagnosis to financial analysis.' }, meaningLang: 'en', level: 5, category: 'technology' , source: 'technology-vocabulary' },
+  { id: 'jps_207', display: '日本の伝統的な茶道は、単なる飲み物の提供ではなく、心を整え、相手を思いやる精神性を重視する総合的な文化芸術として理解されています。', romaji: 'nihonnodenntoutekina chaadouhanitannarunomimonomonoteikyuudehaku shinn wo totonoete aitewoomoiyaru seishinnseiwojuushisuru sougoutekina bunnkageijutsutoshiterikai sareteimasu', meanings: { en: 'Traditional Japanese tea ceremony is understood not as merely serving a beverage, but as a comprehensive cultural art that emphasizes spiritual cultivation and consideration for others.' }, meaningLang: 'en', level: 5, category: 'culture' , source: 'culture-vocabulary' },
+  { id: 'jps_208', display: '失敗を恐れずに挑戦し続けることで、人は新たな可能性を発見し、自分自身の限界を超えることができます。', romaji: 'shippaiwoosorezuni chousennshitsuzukerukotodehitohashinnarakanouseiwohakkennshijibunjisshinnnogenkaiwokoerukotogadekimasu', meanings: { en: 'By continuing to challenge without fear of failure, people can discover new possibilities and transcend their own limitations.' }, meaningLang: 'en', level: 5, category: 'inspiration' , source: 'entertainment-vocabulary' },
+  { id: 'jps_209', display: '古代ローマの哲学者セネカは、困難の中にこそ成長の機会があり、障害は私たちの内なる強さを発見するきっかけとなると教えてくれました。', romaji: 'kodairoomanotetsugakusha Senekahakonnnannnonakanikoso seichounokikaigaari shougaihawatashitachinau narenatsuyousawohakkennsuru kikkakenitonaru tooshietekuremashita', meanings: { en: 'The ancient Roman philosopher Seneca taught us that within difficulties lie opportunities for growth, and obstacles become the trigger for discovering our inner strength.' }, meaningLang: 'en', level: 5, category: 'philosophy' , source: 'literature-vocabulary' },
+  { id: 'jps_210', display: '世界の歴史は、異なる文化と文明が出会い、衝突し、融合を繰り返す中で形成されてきました。この過程から、現代のグローバル社会を理解する重要なヒントが得られます。', romaji: 'sekainorekishi hakotonarubunnkatobunmeiga deaishishoutotsushiyuu gounwo kurikaesunakanadekeisei saretekimashita konokateikara gendaiguroobarushakaiworikaisuru juuyouna hintogueraremasu', meanings: { en: 'World history has been shaped through the repeated encounters, conflicts, and fusions of different cultures and civilizations. From this process we can gain important hints for understanding today\'s global society.' }, meaningLang: 'en', level: 5, category: 'history' , source: 'literature-vocabulary' },
+
   // Tier 4: ニュース見出し (Tier 4 unlock — requires 'news' corpus)
   { id: 'jps_301', display: '科学者たちが太平洋で新しい深海魚の種を発見した。', romaji: 'kagakushatachigataiheiyoudeshinkaisakizanaonoshuwohakumeinishita', meanings: { en: 'Scientists discovered a new species of deep-sea fish in the Pacific Ocean.' }, meaningLang: 'en', level: 4, category: 'news' },
   { id: 'jps_302', display: '国際気候サミットが炭素排出削減の歴史的合意に達した。', romaji: 'kokusaikikousamittogatansohaisishukugennnorekishitekigouinitasshita', meanings: { en: 'The international climate summit reached a historic agreement on carbon emission reductions.' }, meaningLang: 'en', level: 4, category: 'news' },
@@ -2228,6 +2415,38 @@ export const JP_SENTENCES: WordEntry[] = [
   { id: 'jps_310', display: '教育省が小学校向けの新しいデジタル学習プログラムを導入した。', romaji: 'kyouikushougashougakkoumukenoatarashiidejitarugakushuppuroguramuwodounyuushita', meanings: { en: 'The education ministry introduced a new digital learning program for primary schools.' }, meaningLang: 'en', level: 4, category: 'news' },
   { id: 'jps_311', display: '宇宙探査機が火星の表面にローバーの着陸に成功した。', romaji: 'uchuutansakukigakaseinohyoumenniRoobanochakurikunoseikoushita', meanings: { en: 'The space mission successfully landed a rover on the Martian surface.' }, meaningLang: 'en', level: 4, category: 'news' },
   { id: 'jps_312', display: '世界各国の指導者たちが気候変動対策について話し合った。', romaji: 'sekaikakukununshidoushatachigakikuhennndoutaisakunitsuitehanashiatta', meanings: { en: 'World leaders gathered to discuss climate change countermeasures.' }, meaningLang: 'en', level: 4, category: 'news' },
+
+  // Tier 4: ニュース追加 (2026-08-08 expansion — jps_313 to jps_326)
+  { id: 'jps_313', display: '主要中央銀行が新しい金融政策を導入した。', romaji: 'shuyouchuuoukinngougaatarashiikinyuuseisakuwodounyuushita', meanings: { en: 'A major central bank introduced new monetary policy.' }, meaningLang: 'en', level: 4, category: 'news' },
+  { id: 'jps_314', display: '国際宇宙ステーションに新しい実験モジュールが追加された。', romaji: 'kokusaiuchuusuteeshonnniatarashiijikkennmojuurugatuisakareta', meanings: { en: 'A new experimental module was added to the International Space Station.' }, meaningLang: 'en', level: 4, category: 'news' },
+  { id: 'jps_315', display: '深海生物のゲノム解読に成功した研究チームが話題になっている。', romaji: 'shinkaiseibutsunogenomukaidokuniseikoushitakenkyuuchiimugawadaininaru', meanings: { en: 'A research team that succeeded in decoding deep-sea organism genomes is drawing attention.' }, meaningLang: 'en', level: 4, category: 'news' },
+  { id: 'jps_316', display: '再生可能エネルギー発電量が過去最高を記録した。', romaji: 'saiseikanounerugiihatsudennryoukakakoosaikouwokirokushita', meanings: { en: 'Renewable energy generation reached an all-time record.' }, meaningLang: 'en', level: 4, category: 'news' },
+  { id: 'jps_317', display: 'AI創薬の新手法が臨床試験で成果を上げている。', romaji: 'AIsouyakunoshinshuhougaringuushoukendeseikawoageteiru', meanings: { en: 'A new AI-based drug discovery method is showing results in clinical trials.' }, meaningLang: 'en', level: 4, category: 'news' },
+  { id: 'jps_318', display: '都市部の大気汚染レベルが過去十年で最良の状態となった。', romaji: 'toshibunotaikiosenreberugakakojuunnendesaidounojoutainatta', meanings: { en: 'Urban air pollution levels have reached the best state in the past decade.' }, meaningLang: 'en', level: 4, category: 'news' },
+  { id: 'jps_319', display: '電気自動車の新モデルが世界市場に向けて発表された。', romaji: 'denkijidoushanashinmoderugasekaishijouunikimetehappyousareta', meanings: { en: 'A new electric vehicle model was unveiled for the global market.' }, meaningLang: 'en', level: 4, category: 'news' },
+  { id: 'jps_320', display: '国際的なサイバーセキュリティ協定が主要国間で締結された。', romaji: 'kokusaitekinasaibaasekyurithiikyoutegashuyoukunkannindeteiketsusareta', meanings: { en: 'An international cybersecurity agreement was concluded among major nations.' }, meaningLang: 'en', level: 4, category: 'news' },
+  { id: 'jps_321', display: '海洋プラスチック汚染削減に向けた新技術が開発された。', romaji: 'kaiyoupurasukkutosenngensakugennnimuketashingijutsugakaihatsusareta', meanings: { en: 'A new technology aimed at reducing ocean plastic pollution has been developed.' }, meaningLang: 'en', level: 4, category: 'news' },
+  { id: 'jps_322', display: '量子コンピュータの商業利用が複数の企業始まった。', romaji: 'ryoushikompyuutanoshougyouriyougafukusuunokigyoudehajimatta', meanings: { en: 'Commercial use of quantum computers has begun at multiple companies.' }, meaningLang: 'en', level: 4, category: 'news' },
+  { id: 'jps_323', display: '宇宙望遠鏡が太陽系外の新しい惑星系を発見した。', romaji: 'uchuubouenkyougataiyoukeigaidenoatarashiiwakuseikeiwohakkenshita', meanings: { en: 'A space telescope discovered a new planetary system outside the solar system.' }, meaningLang: 'en', level: 4, category: 'news' },
+  { id: 'jps_324', display: '次世代バッテリー技術の開発競争が世界的に激化している。', romaji: 'jisedaibatteriigijutsunokaihatsukyousougasekaitekinigekkashiteiru', meanings: { en: 'Competition for next-generation battery technology development is intensifying worldwide.' }, meaningLang: 'en', level: 4, category: 'news' },
+  { id: 'jps_325', display: 'グローバル貿易量が経済予測を上回るペースで回復している。', romaji: 'guroobarubouekiryouagataikeizaiyosoouwouwamappeesudekaifukushiteiru', meanings: { en: 'Global trade volume is recovering at a pace exceeding economic forecasts.' }, meaningLang: 'en', level: 4, category: 'news' },
+  { id: 'jps_326', display: '新しい気象観測衛星の打ち上げが成功裏に完了した。', romaji: 'atarashiikishoukansokueiseinouchiagemaseikourinikanryoushita', meanings: { en: 'The launch of a new weather observation satellite has been successfully completed.' }, meaningLang: 'en', level: 4, category: 'news' },
+
+  // Tier 4: ビジネスメール追加 (2026-08-08 expansion — jps_401 to jps_414, business category)
+  { id: 'jps_401', display: '添付ファイルをご確認いただけますでしょうか。', romaji: 'tenpufairuwogokakuninitadakemasudeshouka', meanings: { en: 'Could you please check the attached file?' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-email' },
+  { id: 'jps_402', display: '会議の日程を調整させていただきます。', romaji: 'kaiginonitteiwouchouseisashiteitadakimasu', meanings: { en: 'I will adjust the meeting schedule.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-email' },
+  { id: 'jps_403', display: 'ご返信をお待ちしております。', romaji: 'gohenshinnwoomachishiteorimasu', meanings: { en: 'I look forward to your reply.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-email' },
+  { id: 'jps_404', display: '先日はお忙しい中ありがとうございました。', romaji: 'senjitsuhaoisogashinakaarigatougozaimashita', meanings: { en: 'Thank you for your time the other day despite your busy schedule.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-email' },
+  { id: 'jps_405', display: '新しいプロジェクトの進捗状況をご報告いたします。', romaji: 'atarashiipurojekutonoshinnchokujoukyouwogohoukokuitashimasu', meanings: { en: 'I would like to report on the progress of the new project.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-email' },
+  { id: 'jps_406', display: '提案書をご確認の上、ご意見をお聞かせください。', romaji: 'teianshowogokakuninnoue,goikennwookikasetekudasai', meanings: { en: 'Please review the proposal and share your feedback.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-email' },
+  { id: 'jps_407', display: '契約条件について協議させていただきたく存じます。', romaji: 'keiyakujoukennitsuitekyougishiteitadakitakuzonjimasu', meanings: { en: 'I would like to discuss the contract terms with you.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-email' },
+  { id: 'jps_408', display: '見積もりをお送りいたしますのでご確認ください。', romaji: 'mitsumorriwoookuriitashimasunodegokakuninkudasai', meanings: { en: 'I will send the estimate, so please check it.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-email' },
+  { id: 'jps_409', display: '請求書の発行をお願い申し上げます。', romaji: 'seikyuushonohakukouwwoonegaimoushiagemasu', meanings: { en: 'I would like to request the issuance of an invoice.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-email' },
+  { id: 'jps_410', display: '商談の機会をいただきありがとうございます。', romaji: 'shoudannokikaippwoitadakiarigatougozaimasu', meanings: { en: 'Thank you for the business meeting opportunity.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-email' },
+  { id: 'jps_411', display: '来週の会議で新しい戦略について発表いたします。', romaji: 'raishuunokaigideatarashiisenryakunitsuitehappyouitashimasu', meanings: { en: 'I will present on the new strategy at next week\'s meeting.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-email' },
+  { id: 'jps_412', display: '納品予定日についてご確認いただけますでしょうか。', romaji: 'nouhinnyouitebichinitsuitegokakuninitadakemasudeshouka', meanings: { en: 'Could you please confirm the expected delivery date?' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-email' },
+  { id: 'jps_413', display: '出張の手配についてご相談したいのですが。', romaji: 'shucchinnotehaitsunitsuitegousoudanshitainodesuga', meanings: { en: 'I would like to discuss the business trip arrangements.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-email' },
+  { id: 'jps_414', display: '年度末の売上目標達成に向け尽力いたします。', romaji: 'nendomatsunouriagemokuhyoutasseinimukejinnryokuuitashimasu', meanings: { en: 'I will do my best to achieve the year-end sales target.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-email' },
 ];
 
 export const ES_SENTENCES: WordEntry[] = [
@@ -2258,6 +2477,13 @@ export const ES_SENTENCES: WordEntry[] = [
   { id: 'ess_204', display: 'En el corazón de la ciudad, la gente corre a través de sus rutinas diarias, apenas notando los pequeños momentos de belleza que los rodean cada día.', level: 5, category: 'literature' },
   { id: 'ess_205', display: 'El zorro marrón rápido salta sobre el perro perezoso mientras el sol se pone detrás de las montañas distantes, pintando el cielo en tonos de naranja y púrpura.', level: 5, category: 'literature' },
 
+  // Tier 5: Passages expansion (ess_206 to ess_210 — parity with JP 10 entries)
+  { id: 'ess_206', display: 'En el mundo globalizado de hoy, la comprensión intercultural y las habilidades de comunicación se han vuelto cada vez más importantes para el éxito personal y profesional en mercados interconectados.', level: 5, category: 'education' , source: 'education-vocabulary' },
+  { id: 'ess_207', display: 'La ceremonia tradicional japonesa del té representa un arte cultural integral que enfatiza el cultivo espiritual, la atención plena y la consideración hacia los demás, trascendiendo el simple servicio de bebidas.', level: 5, category: 'culture' , source: 'culture-vocabulary' },
+  { id: 'ess_208', display: 'Al continuar desafiándonos a nosotros mismos sin temor al fracaso, podemos descubrir nuevas posibilidades y trascender las limitaciones que una vez creímos definían nuestras capacidades.', level: 5, category: 'inspiration' , source: 'entertainment-vocabulary' },
+  { id: 'ess_209', display: 'El filósofo romano antiguo Séneca enseñó que dentro de las dificultades yacen oportunidades de crecimiento, y los obstáculos se convierten en el detonante para descubrir nuestra fuerza interior y resiliencia.', level: 5, category: 'philosophy' , source: 'literature-vocabulary' },
+  { id: 'ess_210', display: 'La historia mundial ha sido moldeada a través de los repetidos encuentros, conflictos y fusiones de diferentes culturas y civilizaciones, ofreciendo importantes perspectivas para comprender nuestra sociedad global.', level: 5, category: 'history' , source: 'literature-vocabulary' },
+
   // Tier 4: Titulares de noticias (Tier 4 unlock — requires 'news' corpus)
   { id: 'ess_301', display: 'Científicos descubren una nueva especie de pez en el océano Pacífico.', level: 4, category: 'news' },
   { id: 'ess_302', display: 'La cumbre climática internacional alcanza un acuerdo histórico sobre emisiones.', level: 4, category: 'news' },
@@ -2271,6 +2497,22 @@ export const ES_SENTENCES: WordEntry[] = [
   { id: 'ess_310', display: 'El ministerio de educación lanza un nuevo programa de aprendizaje digital.', level: 4, category: 'news' },
   { id: 'ess_311', display: 'La misión espacial logra aterrizar un rover en la superficie de Marte.', level: 4, category: 'news' },
   { id: 'ess_312', display: 'Los líderes mundiales se reúnen para discutir medidas contra el cambio climático.', level: 4, category: 'news' },
+
+  // Tier 4: Correos electrónicos (Tier 4 unlock — requires 'business' corpus)
+  { id: 'ess_401', display: 'Le agradezco su atención a este asunto.', meanings: { en: 'Thank you for your attention to this matter.', ko: '이 건에 관심을 가져주셔서 감사합니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary-es' },
+  { id: 'ess_402', display: 'Adjunto encontrará el documento solicitado.', meanings: { en: 'Please find attached the requested document.', ko: '요청하신 문서를 첨부로 보내드립니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary-es' },
+  { id: 'ess_403', display: 'Quisiera confirmar la fecha de nuestra próxima reunión.', meanings: { en: 'I would like to confirm the date of our next meeting.', ko: '다음 회의 일정을 확정하고 싶습니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary-es' },
+  { id: 'ess_404', display: 'Le ruego disculpe las molestias ocasionadas.', meanings: { en: 'I apologize for the inconvenience caused.', ko: '폐를 끼쳐드려 죄송합니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary-es' },
+  { id: 'ess_405', display: 'Agradezco su pronta respuesta a esta solicitud.', meanings: { en: 'I appreciate your prompt response to this request.', ko: '이번 요청에 빠른 회신 감사합니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary-es' },
+  { id: 'ess_406', display: 'Deseo informarle sobre los avances del proyecto.', meanings: { en: 'I wish to inform you about the project progress.', ko: '프로젝트 진행 상황을 알려드립니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary-es' },
+  { id: 'ess_407', display: 'Quisiera discutir los términos del contrato.', meanings: { en: 'I would like to discuss the contract terms.', ko: '계약 조건에 대해 논의하고 싶습니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary-es' },
+  { id: 'ess_408', display: 'Le envío la cotización para su revisión.', meanings: { en: 'I am sending you the quote for your review.', ko: '검토하시도록 견적서를 보내드립니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary-es' },
+  { id: 'ess_409', display: 'Agradezco la oportunidad de hacer negocios con ustedes.', meanings: { en: 'I appreciate the opportunity to do business with you.', ko: '귀사와 거래할 수 있는 기회를 주셔서 감사합니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary-es' },
+  { id: 'ess_410', display: 'Solicito su aprobación para esta propuesta.', meanings: { en: 'I request your approval for this proposal.', ko: '이 제안에 대한 승인을 요청드립니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary-es' },
+  { id: 'ess_411', display: 'Espero su confirmación a la brevedad posible.', meanings: { en: 'I look forward to your confirmation at your earliest convenience.', ko: '가능한 빨리 확인 회신 부탁드립니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary-es' },
+  { id: 'ess_412', display: 'Necesito hablar con usted sobre un asunto urgente.', meanings: { en: 'I need to speak with you about an urgent matter.', ko: '긴급한 건으로 귀하와 통화해야 합니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary-es' },
+  { id: 'ess_413', display: 'Le envío el informe de avance mensual.', meanings: { en: 'I am sending you the monthly progress report.', ko: '월별 진행 보고서를 보내드립니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary-es' },
+  { id: 'ess_414', display: 'Quedo a su disposición para cualquier consulta.', meanings: { en: 'I remain at your disposal for any questions.', ko: '문의 사항 있으시면 언제든 연락 주십시오.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary-es' },
 ];
 
 export const CORPUS = {

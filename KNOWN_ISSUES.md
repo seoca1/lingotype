@@ -2,7 +2,7 @@
 
 게임의 알려진 버그와 문제점을 추적하는 문서입니다.
 
-**최종 업데이트:** 2026-06-26
+**최종 업데이트:** 2026-08-08
 
 ---
 
@@ -132,12 +132,13 @@ finalUrl = config.src.startsWith(base) ? config.src : base + config.src;
 
 ## 📊 이슈 통계
 
-**현재 상태:**
+**현재 상태 (2026-08-08):**
 - 🔴 Critical: 0개
-- 🟡 Medium: 2개 (spin 효과 개선, 설정 저장)
-- ✅ Fixed: 3개
+- 🟡 Medium: 1개 (Issue #4 — Settings Native Language persistence, partial fix only)
+- ✅ Fixed: 3개 (Issue #1 blank-screen, Issue #3 spin-effect, Issue #5 character-image)
+- 🟡 Partial: 1개 (Issue #4 — Menu.tsx i18n done; localStorage fallback only)
 
-**해결률:** 60% (3/5)
+**해결률:** 80% (4/5 — 3 fully fixed + 1 partial)
 
 ---
 
@@ -175,4 +176,35 @@ finalUrl = config.src.startsWith(base) ? config.src : base + config.src;
 
 ---
 
-**마지막 업데이트:** 2026-06-26
+**마지막 업데이트:** 2026-06-26 → 2026-08-08 (stale-note reconciliation)
+
+---
+
+## 🎯 진행 중인 작업 (2026-08-08)
+
+### 2026-06-26 이후 해결된 항목
+
+- **Issue #5 (EffectsSystem flaky test)** — `spawnFloatingWords` 분포 좌표를 deterministic spread로 수정 (2026-06-25 `fd16268` 커밋 계열). 격리 실행시 통과, 전체 실행에서도 안정화. 1 skip (의도적) 유지. 자세한 내용: `PROJECT_STATUS.md` §8 테스트 커버리지.
+- **Corpus citation 1,377 unresolved → 0** (2026-07-30) — 5 surgical fixes (ES animals-vocabulary, KR travel, KR body-vocabulary, ES travel, plus JP/KR `basic-vocabulary.md` aggregator theme-files). 자세한 내용: `log.md` 2026-07-30 carry-over entry + `index.md` §Tools.
+- **EN corpus expansion 95 → 1,002** (2026-07-30) — 4 batches, 904 new entries, all cited.
+- **Issue #1 blank-screen race condition** — pre-render canvas validation + RAF resilience (2026-06-25 `fd16268`). 자세한 내용: `SESSION_STATUS.md` §4 Known Issues.
+- **Build artifact hygiene** — `prototype/dist/index.html` hash drift reverted (2026-08-06).
+
+### 현재 outstanding (2026-08-08)
+
+1. **KR corpus 로마자 추가** — 일부 entry에 romaji 누락 (인사/숫자/음식 외)
+2. **ADR-0010 로마자 매핑 테이블 문서화** — `decisions/0010-kr-input.md` 에 매핑 표 추가 필요
+3. **Daily lesson display improvements** — Menu → Daily Lesson 접근성 (Today tab/modal)
+4. **Daily lesson progress persistence** — `getLessonProgress` total 파라미터 활용
+5. **Sound (BGM/SFX)** — optional
+6. **Options menu** — key remapping, colorblind mode — optional
+
+### Cross-reference
+
+- Status snapshot: [`PROJECT_STATUS.md`](PROJECT_STATUS.md) §12 알려진 이슈 / 한계
+- Session closure: [`SESSION_STATUS.md`](SESSION_STATUS.md) §4 Known Issues (md-doc, 2026-06-25 5-issue table)
+- Index of doc changes: [`index.md`](index.md) §도구 (Tools) — corpus citation 2,965/2,965 ✓
+
+---
+
+**마지막 업데이트:** 2026-08-08

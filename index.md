@@ -18,6 +18,7 @@
 - [Japanese (JP)](wiki/languages/japanese.md) - **로마자→한자 매핑** (ADR-0002)
 - [Spanish (ES)](wiki/languages/spanish.md) - **액센트 직접 입력 + ASCII 폴백** (ADR-0003)
 - [Korean (KR)](wiki/languages/korean.md) - **한글 키보드 자모 직접 입력** (ADR-0010 Accepted)
+- [KR Romanization & Jamo Mapping Reference](wiki/languages/korean-romaji-mapping.md) - **canonical mapping reference** (jamo composition 표 + 발음 변동 + Revised Romanization 표준, ADR-0010 보완)
 - [Input Method Comparison](wiki/input-method-comparison.md) - 언어별 입력 방식 비교
 
 ## 코퍼스 (Corpus)
@@ -68,13 +69,15 @@ Corpus source citation validator (added 2026-07-30):
 
 - [tools/verify_corpus_sources.py](tools/verify_corpus_sources.py) - **`raw/{lang}_words.md` 항목의 `source: [vocab-stem]` 필드가 `Language/wiki/{Lang}/vocabulary/{stem}.md`로 resolve되는지 검증**
 
-**Status (2026-07-30 first run)**:
-- ✅ English: 88/88 (100%)
-- ❌ Spanish: 75/101 (74.3%, 26 unresolved)
-- ❌ Japanese: 48/591 (8.1%, 543 unresolved — `[[basic-vocabulary]]` 인용 다수)
-- ❌ Korean: 463/1271 (36.4%, 808 unresolved — `[[travel]]` vs `여행.md` 불일치)
+**Status — 2026-07-30 first run → 2026-07-30 same-day fixes → 2026-08-08 verified clean**:
+- ✅ English: 1002/1002 (100%)
+- ✅ Spanish: 101/101 (100%)
+- ✅ Japanese: 591/591 (100%)
+- ✅ Korean: 1271/1271 (100%)
 
-**1377 corpus citation issues** detected — content work for future sessions.
+**2965/2965 corpus entries pass** (0 missing, 0 unresolved). All source citations resolve to `Language/wiki/{Lang}/vocabulary/{theme}.md`.
+
+> **Resolution history (2026-07-30)**: 1,377 unresolved citations → 0 in a single session via 5 surgical fixes — ES animals-vocabulary (8), KR travel (41), KR body-vocabulary (84), ES travel (18), plus 2 new aggregator theme-files (JP `basic-vocabulary.md`, KR `basic-vocabulary.md`). Details: `log.md` 2026-07-30 carry-over entry.
 
 ## Round 2 — Index Reconciliation (2026-07-30)
 

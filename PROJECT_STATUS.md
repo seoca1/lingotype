@@ -1,6 +1,6 @@
 # Typing Language — 프로젝트 상태 리포트
 
-> **최종 업데이트**: 2026-08-03
+> **최종 업데이트**: 2026-08-08 (stale-note reconciliation: §9 bundle size 891KB→971KB / 264KB→298KB, daily lesson 45→52)
 > **최종 커밋**: README + PROJECT_STATUS metric sync (corpus 577 → 4,038, tests 674 → 680)
 > **버전**: Phase 7 — 140 스테이지, 680 테스트, 4,038 corpus + 52 Daily Lessons
 
@@ -278,9 +278,9 @@ https://seoca1.github.io/typing-language/
 | Phase F 후 | 531 KB | 168 KB |
 | Phase H 후 | 609 KB | 193 KB |
 | Phase J 후 | 617 KB | 196 KB |
-| **현재** | **891 KB** | **264 KB** |
+| **현재** | **971 KB** | **298 KB** |
 
-증가 원인: 140 스테이지 확장 + daily lesson 45개 + LearnScreen wiki 연동 + 캐릭터 12명
+증가 원인: 140 스테이지 확장 + daily lesson 52개 + LearnScreen wiki 연동 + 캐릭터 12명
 
 ---
 

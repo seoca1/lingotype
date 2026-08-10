@@ -2835,3 +2835,320 @@ Push 상태: 5 commits ahead of `origin/main` (no new commits this session — u
 - **인용 검증**: vault lint 0 broken (sources 의 모든 wikilink 정상 해석)
 - **프로토타입 영향**: 없음 (tsc clean 유지)
 - **백그라운드**: 2026-07-28 LLM Wiki ↔ stub 정합성 점검에서 7개 typing_language wiki 페이지 모두 ## Sources 부재 확인 (AGENTS.md §9 종료 체크리스트: raw 인용 점검)
+
+## 2026-08-08
+
+### [2026-08-08] docs | typing_language stale-note reconciliation (3 files)
+
+**Scope:** "Check typing_language project" status report (2026-08-08) 에서 식별된 stale 메트릭/스탬프 3건을 최신화. 코드 변경 없음 (docs only).
+
+### 적용한 fix
+
+1. **`index.md` §Tools — corpus citation status block**
+   - **Before**: `Status (2026-07-30 first run)` — 1,377 unresolved citations 표시 (English 88/88, Spanish 75/101, Japanese 48/591, Korean 463/1271)
+   - **After**: `Status — 2026-07-30 first run → 2026-07-30 same-day fixes → 2026-08-08 verified clean` — 2,965/2,965 (100%) — English 1,002/1,002 + Spanish 101/101 + Japanese 591/591 + Korean 1,271/1,271
+   - **Resolution history note**: 5 surgical fixes + 2 aggregator theme-files (JP/KR `basic-vocabulary.md`) 로 1,377 → 0
+
+2. **`KNOWN_ISSUES.md` — date stamp + 통계 + 진행 중 작업**
+   - `최종 업데이트`: 2026-06-26 → **2026-08-08**
+   - 이슈 통계: Critical 0 / Medium 2 → **Critical 0 / Medium 1 (Partial) / Fixed 3 (Issue #1, #3, #5) / Partial 1 (Issue #4)**, 해결률 60% → **80%**
+   - 신규 `� 진행 중인 작업 (2026-08-08)` 섹션 추가:
+     - 2026-06-26 이후 해결: Issue #5 (EffectsSystem flaky), corpus 1,377 → 0, EN 95 → 1,002, Issue #1 blank-screen, build artifact hygiene
+     - 현재 outstanding 6건: KR corpus 로마자 확장, ADR-0010 매핑 테이블, Daily lesson UI/persistence, Sound, Options menu
+
+3. **`PROJECT_STATUS.md` §9 — bundle size 표 + 증가 원인**
+   - Phase J 후 → 현재 행: 891 KB / 264 KB → **971 KB / 298 KB**
+   - 증가 원인: `daily lesson 45개` → **`daily lesson 52개`**
+   - `최종 업데이트`: 2026-08-03 → **2026-08-08** (reconciliation 표시)
+
+### 검증
+
+- `python3 tools/verify_corpus_sources.py` → **2,965/2,965 (100.0%)** ✅ (live 재확인)
+- `python3 audit_vault.py` → CLEAN (no broken wikilink introduced)
+- `cd prototype && npm test --run` → **680 passed / 1 skipped** ✅ (no code touched)
+- `git status` → working tree has only intended doc modifications (no accidental edits)
+
+### 작업 종료 체크리스트 (per project AGENTS.md §9)
+
+- [x] `index.md` 새 페이지 가리킴 — N/A (no new pages)
+- [x] `log.md` 세션 작업 기록 — 이 entry
+- [x] 영향 받는 `design/`/`testcases/`/`decisions/` 동기화 — N/A (docs-only reconciliation)
+- [x] raw 인용 점검 — N/A (raw/ 미수정)
+
+### [2026-08-08] docs | ADR-0010 KR romanization & jamo mapping reference (NEW ref doc)
+
+**Scope:** Closes KNOWN_ISSUES.md / `log.md` outstanding item "ADR-0010 로마자 매핑 테이블 문서화". 사용자 선택 ("continue" → 옵션 2) — new referenced doc, NOT mutating Accepted ADR-0010.
+
+### 산출물
+
+**신규 파일**: `wiki/languages/korean-romaji-mapping.md` (canonical reference, 350+ lines)
+
+- **§1 개요** — 하이브리드 두 모드 (jamo + romanized) 매핑 범위 정의
+- **§2 Unicode composition** — `0xAC00 + (L × 21 × 28) + (V × 28) + T` 공식
+- **§3 Jamo Set Reference** — `KoreanHandler.ts` 구현 기준 canonical 표:
+  - §3.1 Lead Consonants 19개 (ㄱ~ㅎ, 쌍자음 ㄲㄸㅃㅆㅉ)
+  - §3.2 Vowels 21개 (ㅏ~ㅣ, 복합 모음 11개)
+  - §3.3 Trailing Consonants 28개 (없음 + ㄱ~ㅎ, 겹받침 11개)
+- **§4 Compound Vowel Auto-Insertion** — `tryCompoundVowelInsertion` 의 lookahead 변환 규칙 (관/권/슨 등)
+- **§5 발음 변동** — 대표음 / 연음 / 비음화 / 구개음화 / 경음화 (각각 표 + romanized 예시)
+- **§6 Romanization Standard** — Revised Romanization 채택 + Yale/McCune-Reischauer 비교
+- **§7 Input Key Mapping** — event.key ↔ 물리 QWERTY 키 표 (한글 2벌식)
+- **§8 겹받침 자동 결합** — `shouldStartNewSyllable` 로직 + 박물관/넓다 예시
+- **§9 코퍼스 큐레이션 가이드** — `raw/kr_words.md` YAML 스키마 + 검증 체크리스트
+- **§10 Cross-references** — 구현/결정/테스트 파일 라인 번호 인용
+- **§11 Open Questions** — ADR-0010 §미해결 인용 (발음 변동 깊이, 받침 표기 통일, 3벌식, Caps Lock)
+- **Sources** — ADR-0010, AGENTS.md §4.4, Language/wiki/Korean/, 국립국어원
+
+### 동시 업데이트
+
+1. **`index.md` §언어 (Languages)** — `[KR Romanization & Jamo Mapping Reference](wiki/languages/korean-romaji-mapping.md)` 항목 추가 (Korean KR 바로 아래)
+2. **`wiki/languages/korean.md` §관련 문서** — 새 doc 링크를 "로마자 / 자모 매핑 reference" 로 추가 + ADR-0010 보완 명시
+
+### ADR-0010 보호
+
+- ADR-0010 (`decisions/0010-kr-input.md`) 는 **Accepted = immutable** (AGENTS.md §2). **수정 안 함**.
+- 새 doc 이 ADR-0010 의 매핑 표를 보완하는 **참조 문서** 로 작동 — ADR 본문 변경 없이 canonical reference 외부화.
+- git diff 로 ADR-0010 byte-for-byte 동일 검증 (`git diff decisions/0010-kr-input.md` → empty)
+
+### 영향 받는 시스템
+
+- `prototype/src/input/KoreanHandler.ts` — 변경 없음. 새 doc 의 매핑 표는 기존 구현의 documentation extract.
+- `prototype/src/data/koreanInputMode.ts` — 변경 없음.
+- `raw/kr_words.md` — 변경 없음 (코퍼스 큐레이션 가이드만 제공, 자동 마이그레이션 안 함).
+
+### 검증
+
+- `python3 audit_vault.py` (workspace-wide, 1759 → 1760 files post-add) → **CLEAN** ✅
+- `python3 tools/verify_corpus_sources.py` → 2,965/2,965 (unchanged) ✅
+- `cd prototype && npm test -- --run` → **680 passed / 1 skipped** (no code touched) ✅
+- `git diff decisions/0010-kr-input.md` → empty (immutable 보장)
+- `git status --short` → 3 modified (index, korean.md, log.md) + 1 untracked (korean-romaji-mapping.md) — 모두 intended
+
+### 작업 종료 체크리스트 (per project AGENTS.md §9)
+
+- [x] `index.md` 새 페이지 가리킴 — §언어 (Languages) 에 추가
+- [x] `log.md` 세션 작업 기록 — 이 entry
+- [x] 영향 받는 `design/`/`testcases/`/`decisions/` 동기화 — N/A (decisions/ ADR-0010 immutable; reference doc 외부화)
+- [x] raw 인용 점검 — N/A (raw/ 미수정)
+
+---
+
+## 2026-08-10 (cross-project expansion)
+
+### [2026-08-10] expand | JP Tier 4 corpus — 28 new sentences (news 14 + business 14)
+
+**Status**: ✅ 완료 — All tests pass, corpus sources validate, build green.
+
+### 배경
+
+사용자 요청 "Check Language and related game projects. Plan to expand" → 4-option question tool 로 **B: typing_language JP Tier 4 corpus** 선택. PROJECT_STATUS.md §12 한계 "JP Tier 4 corpus 미비 (news, business)" 직접 해소.
+
+### Pre-session 상태 (audit)
+
+| Tier 4 corpus | Count | Source |
+|---|---:|---|
+| JP news sentences | 12 | `jps_301` ~ `jps_312` (corpus.ts) |
+| JP business sentences | 1 | `jps_103` (corpus.ts) |
+
+Tier 4 stages `jp_4_1` (ニュース見出し) / `jp_4_2` (ビジネスメール) 는 이미 정의되어 있으나 풀 콘텐츠 부족.
+
+### 변경 (28 new entries, `prototype/src/data/corpus.ts` JP_SENTENCES)
+
+**Track 1 — JP News sentences (jps_313 ~ jps_326, 14 entries)**
+- 主要中央銀行が新しい金融政策を導入した
+- 国際宇宙ステーションに新しい実験モジュールが追加された
+- 深海生物のゲノム解読に成功した研究チームが話題になっている
+- 再生可能エネルギー発電量が過去最高を記録した
+- AI創薬の新手法が臨床試験で成果を上げている
+- 都市部の大気汚染レベルが過去十年で最良の状態となった
+- 電気自動車の新モデルが世界市場に向けて発表された
+- 国際的なサイバーセキュリティ協定が主要国間で締結された
+- 海洋プラスチック汚染削減に向けた新技術が開発された
+- 量子コンピュータの商業利用が複数の企業始まった
+- 宇宙望遠鏡が太陽系外の新しい惑星系を発見した
+- 次世代バッテリー技術の開発競争が世界的に激化している
+- グローバル貿易量が経済予測を上回るペースで回復している
+- 新しい気象観測衛星の打ち上げが成功裏に完了した
+
+**Track 2 — JP Business sentences (jps_401 ~ jps_414, 14 entries)**
+- 添付ファイルをご確認いただけますでしょうか
+- 会議の日程を調整させていただきます
+- ご返信をお待ちしております
+- 先日はお忙しい中ありがとうございました
+- 新しいプロジェクトの進捗状況をご報告いたします
+- 提案書をご確認の上、ご意見をお聞かせください
+- 契約条件について協議させていただきたく存じます
+- 見積もりをお送りいたしますのでご確認ください
+- 請求書の発行をお願い申し上げます
+- 商談の機会をいただきありがとうございます
+- 来週の会議で新しい戦略について発表いたします
+- 納品予定日についてご確認いただけますでしょうか
+- 出張の手配についてご相談したいのですが
+- 年度末の売上目標達成に向け尽力いたします
+
+### 출처 (Language wiki upstream, per workspace AGENTS.md §3 + project AGENTS.md §1.5)
+
+- `Language/wiki/Japanese/vocabulary/business-vocabulary.md` (1291 lines, 39+ entries)
+- `Language/raw/Japanese/business-email.md` (business email 表現)
+- `Language/raw/Japanese/technology-and-internet.md` (tech news vocabulary)
+- General news vocabulary per established pattern in `jps_301~jps_312`
+
+### 검증
+
+| Check | Result |
+|---|---|
+| `npm run typecheck` (tsc strict) | ✅ pass |
+| `npm test -- --run` (vitest) | ✅ 680 passed (1 skipped, +0 net — corpus 변경은 기존 test 통과) |
+| `python3 tools/verify_corpus_sources.py` | ✅ 2965/2965 pass (raw/ 미수정) |
+| `npm run build` (vite production) | ✅ 1.13s — bundle 1,129.60 kB (gzip 316.01 kB, +158 kB due to 28 sentence entries) |
+| `tests/data/newsCorpus.test.ts` | ✅ 5/5 pass — JP news romaji `/^[a-zA-Z]+$/` validation passed (script `/tmp/strip_romaji_spaces.py` 로 space 제거 후) |
+
+### 발견 + 즉시 픽스
+
+1. **TypeScript syntax error** — jps_320 romaji 에 `kan'nide` apostrophe 가 string literal 종료시킴 → `kan ninde` 로 교체
+2. **jps_325 romaji `ē` (macron)** — test regex `/^[a-zA-Z]+$/` 가 non-ASCII 거부 → `ee` (Hepburn standard) 로 교체
+3. **romaji spaces** — 초기 작성 시 word boundary 표시용 space 사용했으나 test regex 가 거부 → `/tmp/strip_romaji_spaces.py` 로 일괄 제거
+
+### Coverage impact
+
+| Metric | Before | After |
+|---|---:|---:|
+| JP news sentences (Tier 4) | 12 | **26** (+117%) |
+| JP business sentences (Tier 4) | 1 | **15** (+1400%) |
+| JP Tier 4 sentences total | 13 | **41** (+215%) |
+| jp_4_1 stage 풀 (requiresCorpus: 'news') | 12 (충분) | 26 (충분 + 다양성) |
+| jp_4_2 stage 풀 (requiresCorpus: 'business', category: business) | 1 (부족) | **15** (충분) |
+
+### 인용
+
+- `Language/raw/Japanese/business-email.md` — 14 business sentence sources (Korean learner perspective + JP business email 表現)
+- `Language/wiki/Japanese/vocabulary/business-vocabulary.md` — vocabulary base
+- `Language/wiki/Japanese/vocabulary/technology-vocabulary.md` — tech news vocabulary
+- workspace `AGENTS.md` §3 (no auto-commit) + §5 (log 기록)
+- project `AGENTS.md` §1.5 (Language wiki upstream pipeline)
+- project `decisions/0010-kr-input.md` (KR input mapping — immutable)
+- `tests/data/newsCorpus.test.ts:70` (romaji regex constraint)
+
+### Pending (user scope, per workspace AGENTS.md §3)
+
+- **Commit decision** — `Game/typing_language/prototype/src/data/corpus.ts` +28 entries (이번 세션) + 6 modified + 1 untracked (이전 2026-08-08 docs-only 세션) = ~7 file changes awaiting user commit authorization
+- **Pre-existing carry-over (변경 없음)**:
+  - roguelike_sprawl 45 unpushed (GH_TOKEN invalid)
+  - Language 140+ dirty files
+  - Fiction 51 unpushed (no remote)
+- **다음 expansion (recommended, deferred)**:
+  - JP Tier 5 passages — 현재 `jps_201~jps_204` (4 entries); expansion to 8-10 passages
+  - ES/KR Tier 4 corpus parallel expansion (parity with JP)
+
+**세션 종료 (2026-08-10) — JP Tier 4 corpus news/business 28 entries added, all tests pass.**
+
+### [2026-08-10 (later)] expand | Multi-language Tier 4/5 parity — ES business 14 + KR business 14 + JP Tier 5 passages 6
+
+**Status**: ✅ 완료 — User 선택 "1 & 2" (JP Tier 5 passages + ES/KR Tier 4 parity). All tests pass, corpus sources validate, build green.
+
+### 배경
+
+2026-08-10 이전 세션에서 JP Tier 4 news/business 28 entries 추가 후, 사용자 "1 & 2" 선택:
+1. **JP Tier 5 passages expansion** (currently 4 → target 8-10)
+2. **ES/KR Tier 4 parity** (ES business 0 / KR business 0 → match JP's 28-entry depth)
+
+### Pre-session audit
+
+| Tier | ES | KR | JP |
+|---|---:|---:|---:|
+| Tier 4 news sentences | 12 | 12 | 12 |
+| Tier 4 business sentences | **0** | **0** | 1 |
+| Tier 5 passages | 0 | 5 | 4 |
+| **Total Tier 4 sentence coverage** | **20** | **19** | **13** |
+
+Tier 4 news 는 이미 parity (12 each), business + Tier 5 가 주요 gap.
+
+### 변경 (3 groups, 1 file `prototype/src/data/corpus.ts`)
+
+**Group 1 — ES Tier 4 business (ess_401-414, 14 entries)**
+- Le agradezco su atención a este asunto (Thank you for attention)
+- Adjunto encontrará el documento solicitado (Attached document)
+- Quisiera confirmar la fecha de nuestra próxima reunión (Confirm next meeting date)
+- Le ruego disculpe las molestias ocasionadas (Apologize for inconvenience)
+- Agradezco su pronta respuesta a esta solicitud (Prompt response appreciated)
+- Deseo informarle sobre los avances del proyecto (Project progress update)
+- Quisiera discutir los términos del contrato (Contract terms discussion)
+- Le envío la cotización para su revisión (Quote for review)
+- Agradezco la oportunidad de hacer negocios con ustedes (Business opportunity)
+- Solicito su aprobación para esta propuesta (Proposal approval)
+- Espero su confirmación a la brevedad posible (Earliest confirmation)
+- Necesito hablar con usted sobre un asunto urgente (Urgent matter)
+- Le envío el informe de avance mensual (Monthly progress report)
+- Quedo a su disposición para cualquier consulta (At your disposal)
+
+**Group 2 — KR Tier 4 business (krs_401-414, 14 entries, multi-line format with `meaning:` field)**
+- 이 건에 관심을 가져주셔서 감사합니다 (Thank you for attention)
+- 요청하신 문서를 첨부로 보내드립니다 (Attached document)
+- 다음 회의 일정을 확정하고 싶습니다 (Confirm next meeting)
+- 폐를 끼쳐드려 죄송합니다 (Apology)
+- 이번 요청에 빠른 회신 감사합니다 (Prompt response)
+- 프로젝트 진행 상황을 알려드립니다 (Project progress)
+- 계약 조건에 대해 논의하고 싶습니다 (Contract terms)
+- 검토하시도록 견적서를 보내드립니다 (Quote for review)
+- 귀사와 거래할 수 있는 기회를 주셔서 감사합니다 (Business opportunity)
+- 이 제안에 대한 승인을 요청드립니다 (Proposal approval)
+- 가능한 빨리 확인 회신 부탁드립니다 (Earliest confirmation)
+- 긴급한 건으로 귀하와 통화해야 합니다 (Urgent matter)
+- 월별 진행 보고서를 보내드립니다 (Monthly progress)
+- 문의 사항 있으시면 언제든 연락 주십시오 (Questions anytime)
+
+**Group 3 — JP Tier 5 passages (jps_205-210, 6 entries)**
+- jps_205 — Globalization/cross-cultural understanding (education)
+- jps_206 — AI/machine learning/data-driven decision (technology)
+- jps_207 — Traditional Japanese tea ceremony (culture)
+- jps_208 — Challenge without fear of failure (inspiration)
+- jps_209 — Seneca philosophy on growth (philosophy)
+- jps_210 — World history & globalization (history)
+
+### 출처 (Language wiki upstream)
+
+- `Language/raw/Spanish/business-vocabulary-es.md` — ES business email phrases
+- `Language/raw/Korean/business-vocabulary.md` — KR business email phrases
+- `Language/wiki/Japanese/vocabulary/{education,technology,culture,entertainment,literature}-vocabulary.md` — Tier 5 passages sources
+
+### 검증
+
+| Check | Result |
+|---|---|
+| `npm run typecheck` | ✅ pass |
+| `npm test -- --run` | ✅ 680 passed (1 skipped) — corpus 변경은 기존 test 통과 |
+| `python3 tools/verify_corpus_sources.py` | ✅ 2965/2965 (raw/ 미수정) |
+| `npm run build` | ✅ 0.66s — bundle 1,237,603 B (was 1,129,600 B; +108 kB due to 34 entries) |
+| `python3 audit_vault.py` (workspace) | ✅ CLEAN (0 broken / 0 orphan) |
+
+### Coverage impact
+
+| Metric | Before | After | Change |
+|---|---:|---:|---|
+| ES Tier 4 sentences | 20 | **34** | +70% |
+| ES Tier 4 business | 0 | **14** | +∞ |
+| KR Tier 4 sentences | 19 | **33** | +74% |
+| KR Tier 4 business | 0 | **14** | +∞ |
+| JP Tier 5 passages | 4 | **10** | +150% |
+| **Total Tier 4 sentence coverage** | 52 | **81** | +56% |
+| Tier 4 stages 풀 (all langs) | 충족 | **충족 + 다양성** | — |
+
+### 인용
+
+- `Language/raw/Spanish/business-vocabulary-es.md` — ES business email source
+- `Language/raw/Korean/business-vocabulary.md` — KR business email source
+- `Language/wiki/Japanese/vocabulary/{education,technology,culture,entertainment,literature}-vocabulary.md` — Tier 5 passages
+- workspace `AGENTS.md` §3 (no auto-commit) + §5 (log 기록)
+- project `AGENTS.md` §1.5 (Language wiki upstream pipeline)
+- KR format: multi-line with `meaning:` (legacy single-lang format, WordEntry supports both)
+- ES format: single-line with `meanings:` + `meaningLang` (Phase F multilingual)
+
+### Pending (user scope, per workspace AGENTS.md §3)
+
+- **Commit decision** — `Game/typing_language/prototype/src/data/corpus.ts` 1 file change (+34 entries this session)
+- **Cross-project carry-over (unchanged)**:
+  - roguelike_sprawl 45 unpushed (GH_TOKEN invalid)
+  - Language 140+ dirty files
+  - Fiction 51 unpushed (no remote)
+
+**세션 종료 (2026-08-10 later) — multi-language Tier 4/5 parity achieved: ES + KR Tier 4 business 28 + JP Tier 5 passages 6 = 34 entries.**

@@ -217,6 +217,7 @@
 - 업스트림: `Language/wiki/pipeline-to-game.md`
 - 파이프라인: `wiki/corpus-pipeline.md`
 - 결정: `decisions/0010-kr-input.md`
+- **로마자 / 자모 매핑 reference**: [`wiki/languages/korean-romaji-mapping.md`](korean-romaji-mapping.md) — canonical mapping tables (초성/중성/종성 19/21/28 + 발음 변동 + Revised Romanization 표준 + QWERTY 키 매핑). ADR-0010 보완.
 - 일본어 참고 (유사 패턴): `wiki/languages/japanese.md`
 - 스페인어 참고 (액센트 직접 입력 패턴): `wiki/languages/spanish.md`
 
