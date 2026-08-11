@@ -1,5 +1,29 @@
 # Activity Log - Typing Language
 
+## 2026-08-10 (final session)
+
+### [2026-08-10] docs(meta) | 91 corpus entries (across 3 phases) + 1 untracked SESSION_SUMMARY
+
+**Status**: ✅ No AI-scope corpus work needed — entries already committed in prior sessions.
+
+### Verification (current state)
+- `git log --oneline prototype/src/data/corpus.ts | head -3`:
+  - 537e423 docs(meta): Phase 7 alpha — corpus expansion + KNOWN_ISSUES sync + romaji mapping
+  - d275e20 feat: Korean input mode (jamo/romanized hybrid) + mastery system + daily lessons improvements
+  - 3d5578b feat: add difficulty/wikiOutput to daily lessons + expand corpus source fields
+  - 44dbec2 feat: add quotes, business, passages corpus — unlock all locked stages
+- Corpus.ts: 2537 lines, stable
+- Unpushed: 1 commit (537e423) — pending GH_TOKEN/push
+
+### Pending (user scope, per AGENTS.md §3)
+- **Push decision** — 1 unpushed commit (`537e423`)
+- **Corpus work**: NONE remaining (entries were accumulated across 2026-07-30, 2026-08-06, 2026-08-08 sessions)
+
+### Note
+- SESSION_SUMMARY_2026-08-08-integrity.md (untracked, in _archive/sessions/) was inadvertently created here during cross-project session summaries. It documents the Language project integrity restoration, not typing_language work — no action needed.
+
+**세션 종료 (2026-08-10) — typing_language corpus state confirmed. No uncommitted work. Push pending user (GH_TOKEN).**
+
 ## 2026-07-30
 
 ### [2026-07-30] content | typing_language carry-over completion (corpus citation fixes + EN 1000+ expansion)
