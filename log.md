@@ -3508,3 +3508,18 @@ Now dating_match is captured the FIRST time a dating culture page is seen, regar
 - `Game/typing_language/scripts/build-daily-lessons.py` (1 culture fallback fix)
 - `Game/typing_language/prototype/src/data/dailyLessons.json` (regenerated, all 94 lessons now have culture)
 - `Game/typing_language/log.md` (this entry)
+
+## [2026-08-12] SESSION CLOSE — typing_language multi-round sweep
+
+**Status**: ✅ SESSION CLOSED — 1 atomic commit (6db100f, 11 files). Push pending.
+
+### Final state
+
+- 680 vitest tests pass
+- 0 corpus errors
+- Daily lessons: 95.8/100 avg, 91 excellent
+- 1271 Korean + 17 Japanese romaji fields added
+- 2 Hanja contaminations fixed
+- 3 critical bugs in build-daily-lessons.py fixed
+
+**세션 종료 (2026-08-12) — typing_language AI-scope work complete.**
