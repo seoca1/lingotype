@@ -694,14 +694,15 @@ def build_lesson_from_source(
 
             score = overlap + substring_bonus * 0.5
 
-            # Track dating culture separately — it's the fallback of last resort
             is_dating = "dating" in culture_stem or "恋愛" in culture_stem
+            if is_dating and dating_match is None:
+                dating_match = page
 
             if score > best_score:
                 best_score = score
                 best_match = page
-                if is_dating:
-                    dating_match = page
+            elif score == best_score and is_dating and dating_match is None:
+                dating_match = page
 
         # Accept best match only if it has at least one meaningful keyword overlap.
         # Otherwise fall back to dating culture (lowest common denominator).
@@ -713,9 +714,12 @@ def build_lesson_from_source(
             source_topic = source_page.get("title", source_page["stem"])
             print(f"  [culture fallback] '{source_topic}' → dating culture (no keyword match)")
 
-    # Fallback: if vocab is too small, add from same-language vocabulary
     if len(vocab_pages) < TARGET_VOCAB_MIN:
-        for stem, page in wiki["vocabulary"].items():
+        sorted_items = sorted(
+            wiki["vocabulary"].items(),
+            key=lambda kv: (".ko" in kv[0] or ".en" in kv[0] or ".es" in kv[0] or ".jp" in kv[0] or ".kr" in kv[0], kv[0])
+        )
+        for stem, page in sorted_items:
             if page not in vocab_pages:
                 vocab_pages.append(page)
             if len(vocab_pages) >= TARGET_VOCAB_MIN:
@@ -723,7 +727,11 @@ def build_lesson_from_source(
 
     # Fallback: if expressions too small
     if len(expr_pages) < TARGET_EXPR_MIN:
-        for stem, page in wiki["expressions"].items():
+        sorted_exprs = sorted(
+            wiki["expressions"].items(),
+            key=lambda kv: (".ko" in kv[0] or ".en" in kv[0] or ".es" in kv[0] or ".jp" in kv[0] or ".kr" in kv[0], kv[0])
+        )
+        for stem, page in sorted_exprs:
             if page not in expr_pages:
                 expr_pages.append(page)
             if len(expr_pages) >= TARGET_EXPR_MIN:

@@ -89,6 +89,7 @@ Corpus source citation validator (added 2026-07-30):
 - [[TEST_GAME_RESTART]] — 게임 중단 후 재시작 불가 디버깅 가이드
 - [[CLI_QUICKSTART]] — CLI 도구 5분 빠른 시작 가이드
 - [[SESSION_STATUS]] — 현재 세션 상태 (2026-06-25)
+- [[SESSION_SUMMARY]] — 최신 세션 요약 (2026-08-10)
 - [[AUDIT]] — 프로젝트 감사 보고서 (2026-06-20)
 - [[KNOWN_ISSUES]] — 알려진 버그/이슈 추적
 - [[DEPLOYMENT_SUCCESS]] — 배포 성공 보고서

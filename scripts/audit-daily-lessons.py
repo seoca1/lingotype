@@ -29,10 +29,16 @@ def resolve_wikilink_to_stem(wikilink: str, wiki_index: dict) -> str | None:
     target = wikilink.split("|")[0].strip()
     if target in wiki_index:
         return target
+    target_with_md = target + '.md'
+    if target_with_md in wiki_index:
+        return target_with_md
     # Try by title
-    for stem, page in wiki_index.items():
+    for key, page in wiki_index.items():
         if page.get("title") == target:
-            return stem
+            return key
+        stem = key[:-3] if key.endswith('.md') else key
+        if stem == target:
+            return key
     return None
 
 

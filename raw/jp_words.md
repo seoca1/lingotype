@@ -316,7 +316,7 @@
 - { id: jp_301, display: お茶, romaji: ocha, meaning: おちゃ (ocha) — tea., level: 5, category: food, source: [[basic-vocabulary]] }
 - { id: jp_302, display: お金, romaji: okane, meaning: Money., level: 1, category: number, source: [[basic-vocabulary]] }
 - { id: jp_303, display: お願いします, romaji: onegaishimasu, meaning: please; I ask of you (부탁합니다), level: 4, category: greeting, source: [[basic-vocabulary]] }
-- { id: jp_304, display: かっこいい, meaning: 멋있다/멋진 — Cool; good-looking (for men); stylish., level: 4, category: basic, source: [[basic-vocabulary]]  }
+- { id: jp_304, display: かっこいい, meaning: 멋있다/멋진 — Cool; good-looking (for men); stylish., level: 4, category: basic, source: [[basic-vocabulary]]  , romaji: "kakkoii" }
 - { id: jp_305, display: きつい, romaji: kitsui, meaning: きつい (kitsui) — tight., level: 3, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_306, display: こんにちは, romaji: konnichiwa, meaning: hello; good afternoon (안녕하세요), level: 5, category: greeting, source: [[basic-vocabulary]] }
 - { id: jp_307, display: こんばんは, romaji: konbanwa, meaning: good evening (좋은 저녁), level: 5, category: greeting, source: [[basic-vocabulary]] }
@@ -337,7 +337,7 @@
 - { id: jp_322, display: ウェブサイト, romaji: webusaito, meaning: website (웹사이트), level: 3, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_323, display: オオカミ, romaji: oogami, meaning: おおがみ (oogami) — wolf., level: 3, category: animal, source: [[basic-vocabulary]] }
 - { id: jp_324, display: カエル, romaji: kaeru, meaning: かえる (kaeru) — frog., level: 4, category: animal, source: [[basic-vocabulary]] }
-- { id: jp_325, display: カフェ, meaning: 카페 — Café; coffee shop., level: 4, category: food, source: [[basic-vocabulary]] }
+- { id: jp_325, display: カフェ, meaning: 카페 — Café; coffee shop., level: 4, category: food, source: [[basic-vocabulary]] , romaji: "kafe" }
 - { id: jp_326, display: カレー, romaji: karee, meaning: かれー (karee) — curry., level: 5, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_327, display: カード, romaji: ka-do, meaning: Card., level: 1, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_328, display: キツネ, romaji: kitsune, meaning: きつね (kitsune) — fox., level: 3, category: animal, source: [[basic-vocabulary]] }
@@ -348,7 +348,7 @@
 - { id: jp_333, display: クリスマス, romaji: kurisumasu, meaning: Christmas., level: 1, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_334, display: ケーキ, romaji: ke-ki, meaning: Cake., level: 1, category: food, source: [[basic-vocabulary]] }
 - { id: jp_335, display: ゲーム, romaji: geemu, meaning: game (게임), level: 4, category: basic, source: [[basic-vocabulary]]  }
-- { id: jp_336, display: コンパス, meaning: compass., level: 4, category: basic, source: [[basic-vocabulary]]  }
+- { id: jp_336, display: コンパス, meaning: compass., level: 4, category: basic, source: [[basic-vocabulary]]  , romaji: "konpasu" }
 - { id: jp_337, display: コンピュータ, romaji: konpyu-ta, meaning: Computer — 電子計算機。, level: 1, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_338, display: コート, romaji: kooto, meaning: こーと (kooto) — coat., level: 4, category: clothing, source: [[basic-vocabulary]] }
 - { id: jp_339, display: コーヒー, romaji: koohii, meaning: こーひー (koohii) — coffee., level: 5, category: food, source: [[basic-vocabulary]] }
@@ -376,8 +376,8 @@
 - { id: jp_361, display: チーズ, romaji: chiizu, meaning: ちーず (chiizu) — cheese., level: 4, category: food, source: [[basic-vocabulary]] }
 - { id: jp_362, display: チームリーダー, romaji: chiimuriidaa, meaning: ちーむりーだー (chiimu riidaa) — team leader., level: 4, category: food, source: [[basic-vocabulary]] }
 - { id: jp_363, display: テニス, romaji: tenisu, meaning: Tennis., level: 1, category: number, source: [[basic-vocabulary]] }
-- { id: jp_364, display: テント, meaning: tent., level: 4, category: number, source: [[basic-vocabulary]] }
-- { id: jp_365, display: デート, meaning: 데이트 — A date (romantic outing)., level: 4, category: animal, source: [[basic-vocabulary]] }
+- { id: jp_364, display: テント, meaning: tent., level: 4, category: number, source: [[basic-vocabulary]] , romaji: "tento" }
+- { id: jp_365, display: デート, meaning: 데이트 — A date (romantic outing)., level: 4, category: animal, source: [[basic-vocabulary]] , romaji: "deeto" }
 - { id: jp_366, display: トッポギ, romaji: toppogi, meaning: tteokbokki; Korean spicy rice cake (떡볶이), level: 3, category: food, source: [[basic-vocabulary]] }
 - { id: jp_367, display: トラ, romaji: tora, meaning: とら (tora) — tiger., level: 4, category: animal, source: [[basic-vocabulary]] }
 - { id: jp_368, display: ドレス, romaji: doresu, meaning: dress (드레스), level: 4, category: clothing, source: [[basic-vocabulary]] }
@@ -385,7 +385,7 @@
 - { id: jp_370, display: ハンサム, romaji: hansamu, meaning: handsome (잘생긴), level: 4, category: body, source: [[basic-vocabulary]] }
 - { id: jp_371, display: バス, romaji: basu, meaning: bus (버스), level: 5, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_372, display: 薔薇, romaji: bara, meaning: rose (장미), level: 4, category: basic, source: [[basic-vocabulary]]  }
-- { id: jp_373, display: パスポート, meaning: パスポート — passport. A government-issued travel document., level: 5, category: travel, source: [[travel]] }
+- { id: jp_373, display: パスポート, meaning: パスポート — passport. A government-issued travel document., level: 5, category: travel, source: [[travel]] , romaji: "pasupooto" }
 - { id: jp_374, display: パスワード, romaji: pasuwaado, meaning: password (비밀번호), level: 3, category: nature, source: [[basic-vocabulary]] }
 - { id: jp_375, display: パン, romaji: pan, meaning: bread (빵), level: 4, category: food, source: [[basic-vocabulary]] }
 - { id: jp_376, display: パーティー, romaji: paatii, meaning: party (파티), level: 4, category: basic, source: [[basic-vocabulary]]  }
@@ -421,7 +421,7 @@
 - { id: jp_406, display: 交渉, romaji: koushou, meaning: negotiation, level: 3, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_407, display: 交通, romaji: koutsuu, meaning: traffic; transportation, level: 4, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_408, display: 仕事, romaji: shigoto, meaning: しごと (shigoto) — work/job., level: 4, category: basic, source: [[basic-vocabulary]]  }
-- { id: jp_409, display: 付き合う, meaning: 사귀다/교제하다 — To date; to go out with; to be in a relationship., level: 3, category: body, source: [[basic-vocabulary]] }
+- { id: jp_409, display: 付き合う, meaning: 사귀다/교제하다 — To date; to go out with; to be in a relationship., level: 3, category: body, source: [[basic-vocabulary]] , romaji: "tsukiau" }
 - { id: jp_410, display: 代表, romaji: daihyou, meaning: だいひょう (daihyou) — representative., level: 4, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_411, display: 件名, romaji: kenmei, meaning: けんめい (kenmei) — subject (of email/letter)., level: 4, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_412, display: 会いたい, romaji: aitai, meaning: あいたい (aitai) — want to meet., level: 5, category: animal, source: [[basic-vocabulary]] }
@@ -460,16 +460,16 @@
 - { id: jp_445, display: 可愛い, romaji: kawaii, meaning: かわいい (kawaii) — cute., level: 4, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_446, display: 合意, romaji: goui, meaning: ごうい (goui) — agreement., level: 3, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_447, display: 同僚, romaji: douryou, meaning: どうりょう (douryou) — colleague/coworker., level: 4, category: animal, source: [[basic-vocabulary]] }
-- { id: jp_448, display: 名前, meaning: 이름 — A word by which a person is known., level: 5, category: family, source: [[basic-vocabulary]] }
+- { id: jp_448, display: 名前, meaning: 이름 — A word by which a person is known., level: 5, category: family, source: [[basic-vocabulary]] , romaji: "namae" }
 - { id: jp_449, display: 吠える, romaji: hoeru, meaning: to bark; to howl, level: 3, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_450, display: 吾輩は猫である, romaji: wagahaihanekodearu, meaning: 'I Am a Cat' (Soseki novel), level: 2, category: animal, source: [[basic-vocabulary]] }
-- { id: jp_451, display: 告白, meaning: 고백 — Confession (romantic)., level: 3, category: animal, source: [[basic-vocabulary]] }
+- { id: jp_451, display: 告白, meaning: 고백 — Confession (romantic)., level: 3, category: animal, source: [[basic-vocabulary]] , romaji: "kokuhaku" }
 - { id: jp_452, display: 和牛, romaji: wagyuu, meaning: わぎゅう (wagyuu) — Wagyu beef., level: 3, category: animal, source: [[basic-vocabulary]] }
 - { id: jp_453, display: 咲, romaji: saku, meaning: to bloom, level: 4, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_454, display: 咲く, romaji: saku, meaning: さく (saku) — to bloom., level: 4, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_455, display: 哲学, romaji: tetsugaku, meaning: philosophy, level: 3, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_456, display: 問題, romaji: mondai, meaning: problem; question; issue, level: 4, category: basic, source: [[basic-vocabulary]]  }
-- { id: jp_457, display: 地図, meaning: ちず (chizu) — map., level: 4, category: basic, source: [[basic-vocabulary]]  }
+- { id: jp_457, display: 地図, meaning: ちず (chizu) — map., level: 4, category: basic, source: [[basic-vocabulary]]  , romaji: "chizu" }
 - { id: jp_458, display: 坊っちゃん, romaji: bocchan, meaning: young master (Bocchan; Soseki novel), level: 2, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_459, display: 報告, romaji: houkoku, meaning: ほうこく (houkoku) — report., level: 4, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_460, display: 報告書, romaji: houkokusho, meaning: report (written), level: 3, category: number, source: [[basic-vocabulary]] }
@@ -482,10 +482,10 @@
 - { id: jp_467, display: 大学, romaji: daigaku, meaning: university, level: 5, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_468, display: 天ぷら, romaji: tempura, meaning: てんぷら (tempura) — tempura., level: 4, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_469, display: 天文学, romaji: tenmongaku, meaning: astronomy, level: 2, category: basic, source: [[basic-vocabulary]]  }
-- { id: jp_470, display: 天気, meaning: てんき (tenki) — weather., level: 4, category: food, source: [[basic-vocabulary]] }
+- { id: jp_470, display: 天気, meaning: てんき (tenki) — weather., level: 4, category: food, source: [[basic-vocabulary]] , romaji: "tenki" }
 - { id: jp_471, display: 太陽, romaji: taiyou, meaning: たいよう (taiyou) — sun., level: 4, category: nature, source: [[basic-vocabulary]] }
 - { id: jp_472, display: 契約, romaji: keiyaku, meaning: けいやく (keiyaku) — contract., level: 4, category: basic, source: [[basic-vocabulary]]  }
-- { id: jp_473, display: 好き, meaning: To like; affection. (Romaji: **suki**) Used for people, thin, level: 5, category: food, source: [[basic-vocabulary]] }
+- { id: jp_473, display: 好き, meaning: To like; affection. (Romaji: **suki**) Used for people, thin, level: 5, category: food, source: [[basic-vocabulary]] , romaji: "suki" }
 - { id: jp_474, display: 嫉妬, romaji: shitto, meaning: しっと (shitto) — jealousy., level: 3, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_475, display: 嫌, romaji: iya, meaning: いや (iya) — unpleasant/disliked., level: 4, category: animal, source: [[basic-vocabulary]] }
 - { id: jp_476, display: 嫌い, romaji: kirai, meaning: dislike; hate, level: 4, category: clothing, source: [[basic-vocabulary]] }
@@ -508,8 +508,8 @@
 - { id: jp_493, display: 庭, romaji: niwa, meaning: にわ (niwa) — garden., level: 4, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_494, display: 延期, romaji: enki, meaning: えんき (enki) — postponement., level: 3, category: number, source: [[basic-vocabulary]] }
 - { id: jp_495, display: 弁当, romaji: bento, meaning: べんとう (bento) — lunch box., level: 5, category: basic, source: [[basic-vocabulary]]  }
-- { id: jp_496, display: 彼女, meaning: 여자친구 / 그녀 — Girlfriend; she., level: 4, category: basic, source: [[basic-vocabulary]]  }
-- { id: jp_497, display: 彼氏, meaning: 남자친구 — Boyfriend., level: 4, category: basic, source: [[basic-vocabulary]]  }
+- { id: jp_496, display: 彼女, meaning: 여자친구 / 그녀 — Girlfriend; she., level: 4, category: basic, source: [[basic-vocabulary]]  , romaji: "kanojo" }
+- { id: jp_497, display: 彼氏, meaning: 남자친구 — Boyfriend., level: 4, category: basic, source: [[basic-vocabulary]]  , romaji: "kareshi" }
 - { id: jp_498, display: 後悔, romaji: koukai, meaning: こうかい (koukai) — regret., level: 3, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_499, display: 心配する, romaji: shinpaisuru, meaning: しんぱいする (shinpai suru) — to worry., level: 4, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_500, display: 快適だ, romaji: kaitekida, meaning: かいてきだ (kaiteki da) — comfortable., level: 4, category: basic, source: [[basic-vocabulary]]  }
@@ -517,7 +517,7 @@
 - { id: jp_502, display: 怖い, romaji: kowai, meaning: こわいい (kowai) — scary/afraid., level: 4, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_503, display: 思想, romaji: shisou, meaning: thought; ideology, level: 2, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_504, display: 怠け者, romaji: namakemono, meaning: なまけもの (namakemono) — lazy person., level: 3, category: family, source: [[basic-vocabulary]] }
-- { id: jp_505, display: 恋人, meaning: 연인 — Lover; romantic partner., level: 3, category: animal, source: [[basic-vocabulary]] }
+- { id: jp_505, display: 恋人, meaning: 연인 — Lover; romantic partner., level: 3, category: animal, source: [[basic-vocabulary]] , romaji: "koibito" }
 - { id: jp_506, display: 恥ずかしい, romaji: hazukashii, meaning: はずかしい (hazukashii) — embarrassed., level: 3, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_507, display: 悪い, romaji: warui, meaning: わるい (warui) — bad., level: 4, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_508, display: 悲しい, romaji: kanashii, meaning: かなしい (kanashii) — sad., level: 4, category: emotion, source: [[basic-vocabulary]] }
@@ -612,7 +612,7 @@
 - { id: jp_597, display: 結婚式, romaji: kekkonshiki, meaning: Wedding ceremony., level: 1, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_598, display: 絹, romaji: kinu, meaning: きぬ (kinu) — silk., level: 3, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_599, display: 継続は力なり, romaji: keizokuwachikaranari, meaning: persistence is power (Japanese proverb), level: 2, category: number, source: [[basic-vocabulary]] }
-- { id: jp_600, display: 綺麗, meaning: Beautiful (people, things, scenery); clean; pure. Two main s, level: 4, category: number, source: [[basic-vocabulary]] }
+- { id: jp_600, display: 綺麗, meaning: Beautiful (people, things, scenery); clean; pure. Two main s, level: 4, category: number, source: [[basic-vocabulary]] , romaji: "kirei" }
 - { id: jp_601, display: 綿, romaji: men, meaning: めん (men) — cotton., level: 3, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_602, display: 緊張する, romaji: kinchousuru, meaning: きんちょうする (kinchou suru) — to be nervous., level: 4, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_603, display: 締め切り, romaji: shimekiri, meaning: deadline, level: 4, category: basic, source: [[basic-vocabulary]]  }
@@ -656,7 +656,7 @@
 - { id: jp_641, display: 赤いドレス, romaji: akaidoresu, meaning: あかいどれす (akai doresu) — red dress., level: 4, category: clothing, source: [[basic-vocabulary]] }
 - { id: jp_642, display: 走る, romaji: hashiru, meaning: はしる (hashiru) — to run., level: 4, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_643, display: 走れメロス, romaji: hashiremerosu, meaning: 'Run, Melos!' (Dazai Osamu short story), level: 2, category: basic, source: [[basic-vocabulary]]  }
-- { id: jp_644, display: 趣味, meaning: 취미 — Hobby; pastime., level: 4, category: basic, source: [[basic-vocabulary]]  }
+- { id: jp_644, display: 趣味, meaning: 취미 — Hobby; pastime., level: 4, category: basic, source: [[basic-vocabulary]]  , romaji: "shumi" }
 - { id: jp_645, display: 足, romaji: ashi, meaning: Foot / leg., level: 1, category: body, source: [[basic-vocabulary]] }
 - { id: jp_646, display: 転送, romaji: tensou, meaning: transfer (forwarding); transmission, level: 3, category: basic, source: [[basic-vocabulary]]  }
 - { id: jp_647, display: 輝く, romaji: kagayaku, meaning: かがやく (kagayaku) — to shine., level: 3, category: basic, source: [[basic-vocabulary]]  }
@@ -689,7 +689,7 @@
 - { id: jp_674, display: 電話番号, romaji: denwabangou, meaning: でんわばんごう (denwabangou) — phone number., level: 5, category: number, source: [[basic-vocabulary]] }
 - { id: jp_675, display: 電車, romaji: densha, meaning: train (electric), level: 5, category: nature, source: [[basic-vocabulary]] }
 - { id: jp_676, display: 青いシャツ, romaji: aoishatsu, meaning: あおいシャツ (aoi shatsu) — blue shirt., level: 4, category: clothing, source: [[basic-vocabulary]] }
-- { id: jp_677, display: 面白い, meaning: Interesting; funny; amusing; enjoyable. Combines English "in, level: 4, category: emotion, source: [[basic-vocabulary]] }
+- { id: jp_677, display: 面白い, meaning: Interesting; funny; amusing; enjoyable. Combines English "in, level: 4, category: emotion, source: [[basic-vocabulary]] , romaji: "omoshiroi" }
 - { id: jp_678, display: 革, romaji: kawa, meaning: leather, level: 3, category: food, source: [[basic-vocabulary]] }
 - { id: jp_679, display: 靴, romaji: kutsu, meaning: くつ (kutsu) — shoes., level: 5, category: clothing, source: [[basic-vocabulary]] }
 - { id: jp_680, display: 靴下, romaji: kutsushita, meaning: くつした (kutsushita) — socks., level: 4, category: clothing, source: [[basic-vocabulary]] }
