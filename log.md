@@ -1,5 +1,67 @@
 # Activity Log - Typing Language
 
+## [2026-08-13] feat(ui) | Phase 10 — Options menu + UX polish
+
+**Scope:** Closes Phase 7 ROADMAP item 2 ("옵션 메뉴 - 키맵 커스텀, 색맹 모드"). Introduced a dedicated Options screen alongside the existing Settings screen — Options owns user preferences (display / sound / difficulty), Settings owns runtime state (native language, KR input mode, audio controls).
+
+### Features delivered
+
+1. **`Options` type** (`prototype/src/types.ts`)
+   - `displayHighlighting: boolean` — per-character glow + scale pulse in StageScreen
+   - `sound: boolean` — wired to existing `AudioManager`
+   - `difficulty: 'easy' | 'normal' | 'hard'` — placeholder for future star-threshold tuning
+2. **`optionsStorage` module** (`prototype/src/state/optionsStorage.ts`)
+   - `loadOptions()` / `saveOptions()` / `clearOptions()` + `DEFAULT_OPTIONS`
+   - Sanitization: malformed JSON, missing fields, invalid enum values, wrong types → fall back to defaults
+3. **`OptionsScreen` component** (`prototype/src/ui/OptionsScreen.tsx`)
+   - Display / Sound / Difficulty sections with reset button
+   - Persists on every state change via `useEffect`
+   - Wired to `AudioManager.setEnabled()` so toggling sound is reflected immediately on next keypress
+4. **Menu wiring**
+   - `Menu.tsx`: new `onShowOptions` prop + 🎛️ button between streak badge and Settings gear
+   - `App.tsx`: `showOptions` state + routing branch; handles reload-on-close so live settings apply to renderer
+   - `Renderer.ts`: new `displayHighlighting` field on `RenderState` (default-on: `undefined !== false`); gates glow shadow + scale pulse when off
+5. **App lifecycle**
+   - On mount: `getAudioManager().setEnabled(optionsRef.current.sound)` — respects saved preference before first keypress
+   - On close: reloads from localStorage and re-applies sound flag
+
+### Polish notes
+
+- The "OPTIONS" button is placed BEFORE Settings (left of ⚙️) since it is a less-frequently-used screen; Settings owns native language + audio controls + KR input mode.
+- Default `displayHighlighting: true` preserves existing visual behavior — Renderer change is opt-in via UI.
+- Difficulty option is a UI placeholder only; star thresholds remain `90/95%` accuracy + WPM tiers from Phase 5. Future work will wire these into `gameReducer.UPDATE_STAGE_RECORD`.
+
+### Tests added (12 new; baseline 692 → 704)
+
+`prototype/tests/state/optionsStorage.test.tsx`:
+- Defaults shape
+- Storage-empty → DEFAULT_OPTIONS
+- Round-trip save/load
+- Overwrite previous values
+- `clearOptions` resets to defaults
+- Sanitization: malformed JSON, missing fields, invalid enum, non-boolean flag
+- `OptionsScreen` UI smoke (3 sections, reset button, default selection, both checkboxes)
+
+Reused the localStorage polyfill pattern from `nativeLanguage.test.ts` (jsdom + Node 25 non-functional shim).
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ 704 passed + 1 skipped (692 baseline + 12 new) |
+| `python3 audit_vault.py` | ✅ CLEAN (0 broken, 0 orphans) |
+| `python3 mixed_language_audit.py` | ✅ 0 violations |
+
+### Commit
+
+- Hash: `3c72db7`
+- Files: `+543 / -5` across 7 files (3 new, 4 modified)
+  - new: `optionsStorage.ts`, `OptionsScreen.tsx`, `optionsStorage.test.tsx`
+  - modified: `types.ts`, `App.tsx`, `Menu.tsx`, `Renderer.ts`
+- Pushed: NO (user handles GH_TOKEN rotation)
+
 ## [2026-08-13] content | Phase 9 — Tier 4-5 corpus expansion
 
 **Scope:** Closed NEXT_SESSION_TODO Tier 4-5 corpus availability blocker. Added 60 new entries across 4 languages (40 Tier 4 + 20 Tier 5).
