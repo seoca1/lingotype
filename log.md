@@ -1,5 +1,32 @@
 # Activity Log - Typing Language
 
+## [2026-08-13] audit(links) | Phase 8 — investigation only (no fixes needed)
+
+**Issue (claimed)**: Per Phase 7 audit commit (`945b58a`), 35 pre-existing production link issues were reported in:
+- `corpus-sync-plan.md`
+- `wiki/corpus-pipeline.md`
+- Raw corpus docs (`raw/{en,es,jp,kr}_words.md`)
+
+**Investigation**: Re-ran `python3 audit_vault.py` and a targeted scan of all 6 target files using the canonical audit logic (vault-wide stem matching + section-anchor index).
+
+**Findings**:
+- Vault audit: **0 production broken links, 0 audit artifacts** (vault-wide, not just typing_language)
+- Target files: **0 broken wikilinks, 0 broken markdown links** in all 6 files
+- All cited theme-files (`[[animals-vocabulary]]`, `[[nature-vocabulary]]`, `[[emotions-personality-vocabulary]]`, `[[travel]]`, `[[pipeline-to-game]]`, `[[AGENTS]]`, etc.) resolve to existing files in `Language/wiki/` and project root
+- Raw corpus `source: [[basic-vocabulary]]` etc. references resolve cleanly
+
+**Resolution**: The 35 link issues were already closed by commit `6db100f` ("feat(typing_language): multi-round audit/lint sweep — 39 rounds of fixes", 2026-08-13 01:20), which landed BEFORE the Phase 7 audit commit `945b58a` (2026-08-13 20:08). The Phase 7 commit's "out-of-scope" deferral note described a state that was already fixed in the same day.
+
+**Action**: No code changes, no commit. Empty fix commit would create noise without value.
+
+**Verification**:
+- `python3 audit_vault.py` → ✅ CLEAN (0 production broken, 0 audit artifacts)
+- `npm run typecheck` → ✅ pass
+- `npm run lint` → ✅ pass
+- `npm test` → ✅ 680 passed, 1 skipped (baseline preserved)
+
+**Note for future sessions**: When a phase-audit commit claims "out-of-scope: N issues deferred", check the commit graph before assuming the work is pending. The `6db100f → 945b58a` ordering means the audit saw a pre-fix state when authored but the state had moved by the time it landed.
+
 ## [2026-08-11] fix | Language→Game Pipeline Citation Repair (kr_words.md)
 
 **Issue**: 317 Korean corpus entries cited non-canonical Korean-stem theme files (redirect stubs only):
