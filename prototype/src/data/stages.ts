@@ -200,6 +200,41 @@ const EN_STAGES: StageSpec[] = [
     requiresCorpus: 'passages',
     missions: defaultMissionsForTier(5),
   },
+  {
+    id: 'en_5_2',
+    language: 'en',
+    tier: 5,
+    name: 'Life Reflections',
+    description: '명상·가치관·삶의 통찰 단락',
+    difficulty: 5,
+    wordCount: 5,
+    corpusFilter: { minLevel: 5, maxLevel: 5, categories: ['passage'] },
+    missions: defaultMissionsForTier(5),
+  },
+
+  // ===== Tier 4 themed stages (Phase 9 — corpus expansion) =====
+  {
+    id: 'en_m_1',
+    language: 'en',
+    tier: 4,
+    name: 'Motivation & Mindset',
+    description: '동기부여·마인드셋 표현',
+    difficulty: 4,
+    wordCount: 6,
+    corpusFilter: { minLevel: 4, maxLevel: 4, categories: ['motivation'] },
+    missions: defaultMissionsForTier(4),
+  },
+  {
+    id: 'en_co_1',
+    language: 'en',
+    tier: 4,
+    name: 'Cooking Instructions',
+    description: '요리·조리법 표현',
+    difficulty: 4,
+    wordCount: 6,
+    corpusFilter: { minLevel: 4, maxLevel: 4, categories: ['cooking'] },
+    missions: defaultMissionsForTier(4),
+  },
 
   // ===== Travel Theme Stages (여행 테마) =====
   {
@@ -679,6 +714,44 @@ const JP_STAGES: StageSpec[] = [
     requiresCorpus: 'passages',
     missions: defaultMissionsForTier(5),
   },
+  {
+    id: 'jp_5_2',
+    language: 'jp',
+    tier: 5,
+    name: '人生の考察',
+    description: '명상·가치관·삶의 통찰 단락',
+    difficulty: 5,
+    wordCount: 5,
+    corpusFilter: { minLevel: 5, maxLevel: 5, categories: ['passage'] },
+    romajiHint: true,
+    missions: defaultMissionsForTier(5),
+  },
+
+  // ===== Tier 4 themed stages (Phase 9 — corpus expansion) =====
+  {
+    id: 'jp_m_1',
+    language: 'jp',
+    tier: 4,
+    name: '動機と心構え',
+    description: '동기부여·마인드셋 표현',
+    difficulty: 4,
+    wordCount: 6,
+    corpusFilter: { minLevel: 4, maxLevel: 4, categories: ['motivation'] },
+    romajiHint: true,
+    missions: defaultMissionsForTier(4),
+  },
+  {
+    id: 'jp_co_1',
+    language: 'jp',
+    tier: 4,
+    name: '料理の指示',
+    description: '요리·조리법 표현',
+    difficulty: 4,
+    wordCount: 6,
+    corpusFilter: { minLevel: 4, maxLevel: 4, categories: ['cooking'] },
+    romajiHint: true,
+    missions: defaultMissionsForTier(4),
+  },
 
   // ===== 旅行テーマ (Travel Theme) =====
   {
@@ -1144,6 +1217,44 @@ const ES_STAGES: StageSpec[] = [
     accentMode: 'strict',
     missions: defaultMissionsForTier(5),
   },
+  {
+    id: 'es_5_2',
+    language: 'es',
+    tier: 5,
+    name: 'Reflexiones de Vida',
+    description: '명상·가치관·삶의 통찰 단락',
+    difficulty: 5,
+    wordCount: 5,
+    corpusFilter: { minLevel: 5, maxLevel: 5, categories: ['passage'] },
+    accentMode: 'strict',
+    missions: defaultMissionsForTier(5),
+  },
+
+  // ===== Tier 4 themed stages (Phase 9 — corpus expansion) =====
+  {
+    id: 'es_m_1',
+    language: 'es',
+    tier: 4,
+    name: 'Motivación y Mentalidad',
+    description: '동기부여·마인드셋 표현',
+    difficulty: 4,
+    wordCount: 6,
+    corpusFilter: { minLevel: 4, maxLevel: 4, categories: ['motivation'] },
+    accentMode: 'loose',
+    missions: defaultMissionsForTier(4),
+  },
+  {
+    id: 'es_co_1',
+    language: 'es',
+    tier: 4,
+    name: 'Instrucciones de Cocina',
+    description: '요리·조리법 표현',
+    difficulty: 4,
+    wordCount: 6,
+    corpusFilter: { minLevel: 4, maxLevel: 4, categories: ['cooking'] },
+    accentMode: 'loose',
+    missions: defaultMissionsForTier(4),
+  },
 
   // ===== Tema Viajes (Travel Theme) =====
   {
@@ -1606,6 +1717,44 @@ const KR_STAGES: StageSpec[] = [
     corpusFilter: { minLevel: 5, maxLevel: 5 },
     requiresCorpus: 'passages',
     missions: defaultMissionsForTier(5),
+  },
+  {
+    id: 'kr_5_2',
+    language: 'kr',
+    tier: 5,
+    name: '삶의 통찰',
+    description: '명상·가치관·삶의 통찰 단락',
+    difficulty: 5,
+    wordCount: 5,
+    corpusFilter: { minLevel: 5, maxLevel: 5, categories: ['passage'] },
+    romajiHint: true,
+    missions: defaultMissionsForTier(5),
+  },
+
+  // ===== Tier 4 themed stages (Phase 9 — corpus expansion) =====
+  {
+    id: 'kr_m_1',
+    language: 'kr',
+    tier: 4,
+    name: '동기부여·마인드셋',
+    description: '동기부여·마인드셋 표현',
+    difficulty: 4,
+    wordCount: 6,
+    corpusFilter: { minLevel: 4, maxLevel: 4, categories: ['motivation'] },
+    romajiHint: true,
+    missions: defaultMissionsForTier(4),
+  },
+  {
+    id: 'kr_co_1',
+    language: 'kr',
+    tier: 4,
+    name: '요리·조리법',
+    description: '요리·조리법 표현',
+    difficulty: 4,
+    wordCount: 6,
+    corpusFilter: { minLevel: 4, maxLevel: 4, categories: ['cooking'] },
+    romajiHint: true,
+    missions: defaultMissionsForTier(4),
   },
 
   // ===== 여행 테마 (Travel Theme) =====

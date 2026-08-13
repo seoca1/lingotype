@@ -2298,6 +2298,136 @@ export const KR_SENTENCES: WordEntry[] = [
     category: 'business',
     source: 'business-vocabulary',
   },
+
+  // Tier 4: 명상/동기 부여 표현 (Mindfulness & Motivation) — source: [[emotions-personality-vocabulary]]
+  {
+    id: 'krs_501',
+    display: '오늘 하루도 최선을 다해 살아가 보겠습니다.',
+    meaning: 'I will do my best to live today as well.',
+    level: 4,
+    category: 'motivation',
+    source: 'emotions-personality-vocabulary',
+  },
+  {
+    id: 'krs_502',
+    display: '작은 진전이라도 꾸준히 노력하면 큰 성과로 이어집니다.',
+    meaning: 'Even small progress, if consistent, leads to great achievements.',
+    level: 4,
+    category: 'motivation',
+    source: 'emotions-personality-vocabulary',
+  },
+  {
+    id: 'krs_503',
+    display: '실수를 두려워하지 말고 용기 있게 도전해 보세요.',
+    meaning: "Don't fear mistakes, but try challenges with courage.",
+    level: 4,
+    category: 'motivation',
+    source: 'emotions-personality-vocabulary',
+  },
+
+  // Tier 4: 여행 세부 표현 (Travel Details) — source: [[travel]]
+  {
+    id: 'krs_504',
+    display: '여행 계획을 세우려면 먼저 예산과 일정을 정해야 합니다.',
+    meaning: 'To plan a trip, you must first set a budget and schedule.',
+    level: 4,
+    category: 'travel-detail',
+    source: 'travel',
+  },
+  {
+    id: 'krs_505',
+    display: '현지 음식을 꼭尝尝 보고 싶다고 친구에게 말했습니다.',
+    meaning: 'I told my friend that I really want to try local food.',
+    level: 4,
+    category: 'travel-detail',
+    source: 'travel',
+  },
+  {
+    id: 'krs_506',
+    display: '비행기표를 미리 예매하면 할인 가격으로 구매할 수 있어요.',
+    meaning: 'Booking your flight in advance lets you buy at a discount price.',
+    level: 4,
+    category: 'travel-detail',
+    source: 'travel',
+  },
+
+  // Tier 4: 요리/조리법 (Cooking Instructions) — source: [[food-vocabulary]]
+  {
+    id: 'krs_507',
+    display: '양파와 마늘을 잘게 썰어 팬에 기름과 함께 볶아 주세요.',
+    meaning: 'Finely chop onion and garlic and stir-fry them in oil.',
+    level: 4,
+    category: 'cooking',
+    source: 'food-vocabulary',
+  },
+  {
+    id: 'krs_508',
+    display: '재료를 모두 넣고 중간 불에서 이十分钟 동안 익혀 주세요.',
+    meaning: 'Add all ingredients and cook over medium heat for ten minutes.',
+    level: 4,
+    category: 'cooking',
+    source: 'food-vocabulary',
+  },
+
+  // Tier 4: 직장/업무 환경 (Workplace Context) — source: [[business-vocabulary]]
+  {
+    id: 'krs_509',
+    display: '동료들과 협력하면 더 좋은 결과를 얻을 수 있습니다.',
+    meaning: 'Cooperating with colleagues yields better results.',
+    level: 4,
+    category: 'workplace',
+    source: 'business-vocabulary',
+  },
+  {
+    id: 'krs_510',
+    display: '회의 시간은 한 시간 이내로 제한하는 것이 효율적입니다.',
+    meaning: 'Limiting meetings to one hour or less is efficient.',
+    level: 4,
+    category: 'workplace',
+    source: 'business-vocabulary',
+  },
+
+  // Tier 5: 문학 발췌 확장 (Literature Excerpts) — source: [[literature-vocabulary]]
+  {
+    id: 'krs_301',
+    display: '봄비가 내리면 산과 강이 푸르게 물들고 꽃이 만개하여 세상은 새 생명으로 가득 차게 됩니다.',
+    meaning: 'When spring rain falls, mountains and rivers turn green and flowers bloom, filling the world with new life.',
+    level: 5,
+    category: 'passage',
+    source: 'literature-vocabulary',
+  },
+  {
+    id: 'krs_302',
+    display: '인생은 끊임없는 선택의 연속이며 우리가 내리는 작은 결정들이 모여 우리 자신의 미래를 만들어 갑니다.',
+    meaning: 'Life is a continuous series of choices, and the small decisions we make accumulate to shape our own future.',
+    level: 5,
+    category: 'passage',
+    source: 'literature-vocabulary',
+  },
+  {
+    id: 'krs_303',
+    display: '부모님의 사랑은 말로 다 표현할 수 없으며 우리가 성장하는 동안 항상 든든한 버팀목이 되어 주셨습니다.',
+    meaning: "A parent's love cannot be expressed fully in words; they have always been a sturdy support as we grew.",
+    level: 5,
+    category: 'passage',
+    source: 'literature-vocabulary',
+  },
+  {
+    id: 'krs_304',
+    display: '기술의 발전은 인류에게 새로운 가능성을 열어 주었지만 동시에 윤리적 책임도 함께 요구하게 되었습니다.',
+    meaning: 'Technological progress has opened new possibilities for humanity, but at the same time demands ethical responsibility.',
+    level: 5,
+    category: 'passage',
+    source: 'literature-vocabulary',
+  },
+  {
+    id: 'krs_305',
+    display: '서로 다른 문화를 이해하고 존중하는 것은 우리가 함께 살아가는 지구촌 사회의 가장 중요한 기초입니다.',
+    meaning: 'Understanding and respecting different cultures is the most essential foundation of our global community where we live together.',
+    level: 5,
+    category: 'passage',
+    source: 'literature-vocabulary',
+  },
 ];
 
 export const EN_SENTENCES: WordEntry[] = [
@@ -2366,6 +2496,31 @@ export const EN_SENTENCES: WordEntry[] = [
   { id: 'ens_412', display: 'I need to speak with you about an urgent matter.', meanings: { en: 'I need to speak with you about an urgent matter.', ko: '긴급한 건으로 귀하와 통화해야 합니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary' },
   { id: 'ens_413', display: 'I am sending you the monthly progress report.', meanings: { en: 'I am sending you the monthly progress report.', ko: '월별 진행 보고서를 보내드립니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary' },
   { id: 'ens_414', display: 'Please feel free to contact me with any questions.', meanings: { en: 'Please feel free to contact me with any questions.', ko: '문의 사항 있으시면 언제든 연락 주십시오.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary' },
+
+  // Tier 4: Mindfulness & Motivation — source: [[emotions-personality-vocabulary]]
+  { id: 'ens_501', display: 'I will do my best to make today meaningful and worthwhile.', level: 4, category: 'motivation', source: 'emotions-personality-vocabulary' },
+  { id: 'ens_502', display: 'Even small progress, if consistent, leads to great achievements.', level: 4, category: 'motivation', source: 'emotions-personality-vocabulary' },
+  { id: 'ens_503', display: "Don't fear mistakes, but try new challenges with courage.", level: 4, category: 'motivation', source: 'emotions-personality-vocabulary' },
+
+  // Tier 4: Travel Details — source: [[travel]]
+  { id: 'ens_504', display: 'To plan a trip well, you must first set a budget and schedule.', level: 4, category: 'travel-detail', source: 'travel' },
+  { id: 'ens_505', display: 'I told my friend that I really want to try the local food there.', level: 4, category: 'travel-detail', source: 'travel' },
+  { id: 'ens_506', display: 'Booking your flight in advance lets you buy tickets at a discount price.', level: 4, category: 'travel-detail', source: 'travel' },
+
+  // Tier 4: Cooking Instructions — source: [[food-vocabulary]]
+  { id: 'ens_507', display: 'Finely chop the onion and garlic, then stir-fry them in a pan with oil.', level: 4, category: 'cooking', source: 'food-vocabulary' },
+  { id: 'ens_508', display: 'Add all the ingredients and cook over medium heat for ten minutes.', level: 4, category: 'cooking', source: 'food-vocabulary' },
+
+  // Tier 4: Workplace Context — source: [[business-vocabulary]]
+  { id: 'ens_509', display: 'Cooperating with colleagues can yield much better results overall.', level: 4, category: 'workplace', source: 'business-vocabulary' },
+  { id: 'ens_510', display: 'Limiting meetings to one hour or less is generally more efficient.', level: 4, category: 'workplace', source: 'business-vocabulary' },
+
+  // Tier 5: Literature Excerpts Expansion — source: [[literature-vocabulary]]
+  { id: 'ens_301', display: 'When the spring rain falls, the mountains and rivers turn green and the flowers bloom, filling the world with new life and renewed hope for the future.', level: 5, category: 'passage', source: 'literature-vocabulary' },
+  { id: 'ens_302', display: 'Life is a continuous series of choices, and the small decisions we make every day gradually accumulate to shape our own future and the world around us.', level: 5, category: 'passage', source: 'literature-vocabulary' },
+  { id: 'ens_303', display: "A parent's love cannot be fully expressed in mere words; they have always been a sturdy and steady support as we grew from children into adults.", level: 5, category: 'passage', source: 'literature-vocabulary' },
+  { id: 'ens_304', display: 'Technological progress has opened new possibilities for humanity, but at the same time it demands greater ethical responsibility from every member of society.', level: 5, category: 'passage', source: 'literature-vocabulary' },
+  { id: 'ens_305', display: 'Understanding and respecting different cultures is the most essential foundation of our global community, where we all must learn to live together in peace.', level: 5, category: 'passage', source: 'literature-vocabulary' },
 ];
 
 export const JP_SENTENCES: WordEntry[] = [
@@ -2447,6 +2602,31 @@ export const JP_SENTENCES: WordEntry[] = [
   { id: 'jps_412', display: '納品予定日についてご確認いただけますでしょうか。', romaji: 'nouhinnyouitebichinitsuitegokakuninitadakemasudeshouka', meanings: { en: 'Could you please confirm the expected delivery date?' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-email' },
   { id: 'jps_413', display: '出張の手配についてご相談したいのですが。', romaji: 'shucchinnotehaitsunitsuitegousoudanshitainodesuga', meanings: { en: 'I would like to discuss the business trip arrangements.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-email' },
   { id: 'jps_414', display: '年度末の売上目標達成に向け尽力いたします。', romaji: 'nendomatsunouriagemokuhyoutasseinimukejinnryokuuitashimasu', meanings: { en: 'I will do my best to achieve the year-end sales target.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-email' },
+
+  // Tier 4: Mindfulness & Motivation — source: [[emotions-personality-vocabulary]]
+  { id: 'jps_501', display: '今日一日を意味あるものにするために最善を尽くします。', romaji: 'kyouichinichiwoimigaiaarumononisurutamenisaizennwotsukushimasu', meanings: { en: 'I will do my best to make today a meaningful day.' }, meaningLang: 'en', level: 4, category: 'motivation', source: 'emotions-personality-vocabulary' },
+  { id: 'jps_502', display: '小さな進歩でも積み重ねれば大きな成果につながります。', romaji: 'chiisanatinnpode mo tsumikasanereba ookunaseikunitsunagarimasu', meanings: { en: 'Even small progress, accumulated steadily, leads to great results.' }, meaningLang: 'en', level: 4, category: 'motivation', source: 'emotions-personality-vocabulary' },
+  { id: 'jps_503', display: '失敗を恐れずに勇気を持って新しいことに挑戦してみましょう。', romaji: 'shippaiwoosorezu ni yuukiwomotte atarashiikotonichousenshitemimashou', meanings: { en: "Let's try new challenges with courage, without fearing failure." }, meaningLang: 'en', level: 4, category: 'motivation', source: 'emotions-personality-vocabulary' },
+
+  // Tier 4: Travel Details — source: [[travel]]
+  { id: 'jps_504', display: '旅行をうまく計画するには、まず予算と日程を決める必要があります。', romaji: 'ryokouwoumakukeikakusuruniha, mazu yosanto nitteiwo kimeru hitsuyouga arimasu', meanings: { en: 'To plan a trip well, you must first set a budget and schedule.' }, meaningLang: 'en', level: 4, category: 'travel-detail', source: 'travel' },
+  { id: 'jps_505', display: '地元の料理をぜひ味わってみたいと友だちに話しました。', romaji: 'jimotonoryouriwozehiajiwatte mitaito tomodachini hanashimashita', meanings: { en: 'I told my friend that I really want to try the local food.' }, meaningLang: 'en', level: 4, category: 'travel-detail', source: 'travel' },
+  { id: 'jps_506', display: '飛行機を早めに予約すると、割引価格で購入することができます。', romaji: 'hikoukiwome ni yoyakusurutoba, waribikikakakudekounyuusurukotogadekimasu', meanings: { en: 'Booking your flight early lets you buy at a discount price.' }, meaningLang: 'en', level: 4, category: 'travel-detail', source: 'travel' },
+
+  // Tier 4: Cooking Instructions — source: [[food-vocabulary]]
+  { id: 'jps_507', display: '玉ねぎとニンニクを細かく刻んで、油と一緒にフライパンで炒めます。', romaji: 'tamanegi to ninnnikuwokomakaku kizande, aburatoisshoni furaipannde itamemasu', meanings: { en: 'Finely chop the onion and garlic and stir-fry them in oil in a pan.' }, meaningLang: 'en', level: 4, category: 'cooking', source: 'food-vocabulary' },
+  { id: 'jps_508', display: '材料をすべて入れ、中火で十分間煮込んでください。', romaji: 'zairyouwosubete ire, chuubade juppungkan konde kudasai', meanings: { en: 'Add all ingredients and simmer over medium heat for ten minutes.' }, meaningLang: 'en', level: 4, category: 'cooking', source: 'food-vocabulary' },
+
+  // Tier 4: Workplace Context — source: [[business-vocabulary]]
+  { id: 'jps_509', display: '同僚と協力すれば、より良い結果を得ることができます。', romaji: 'douryouto kyouryokusureba, yoriyoi kekkawo erukotogadekimasu', meanings: { en: 'Cooperating with colleagues yields better results.' }, meaningLang: 'en', level: 4, category: 'workplace', source: 'business-vocabulary' },
+  { id: 'jps_510', display: '会議は一時間以内に制限するほうが効率的です。', romaji: 'kaigiha ichijikanninaini seigensuru houga kouritsutekidesu', meanings: { en: 'Limiting meetings to one hour or less is more efficient.' }, meaningLang: 'en', level: 4, category: 'workplace', source: 'business-vocabulary' },
+
+  // Tier 5: Literature Excerpts Expansion — source: [[literature-vocabulary]]
+  { id: 'jps_301', display: '春雨が降ると山や川が緑に染まり、花が満開となり、世界は新しい生命と希望に満ちあふれます。', romaji: 'haruamega furutoba yamaayakawaga midorinishibari, hanagamankaitonari, sekaiha atarashiiseimeito kibou ni michia furemasu', meanings: { en: 'When spring rain falls, mountains and rivers turn green and flowers bloom, filling the world with new life.' }, meaningLang: 'en', level: 5, category: 'passage', source: 'literature-vocabulary' },
+  { id: 'jps_302', display: '人生は絶え間ない選択の連続であり、私たちが毎日下す小さな決断が積み重なって自分の未来を形作っていきます。', romaji: 'jinseiha taemanaai sentaku no rennzokudeari, watashitachiga mainichi kudasu chiisanakedumga tsumikasanatte jibunno miraiwo katachizukutteikimasu', meanings: { en: 'Life is a continuous series of choices; the small decisions we make every day accumulate to shape our future.' }, meaningLang: 'en', level: 5, category: 'passage', source: 'literature-vocabulary' },
+  { id: 'jps_303', display: '親の愛は言葉で完全に表現することはできず、私たちが子供から大人へと成長する間、常にしっかりした支えとなってくれました。', romaji: 'oyanoaiha kotobade kanzenni hyougensurukotowa dekizu, watashitachiga kodomokara otona e to seichousuru aida, tsuneni shikkari shita sasaetonatte kuremashita', meanings: { en: "A parent's love cannot be fully expressed in words; they have always been a steady support as we grew." }, meaningLang: 'en', level: 5, category: 'passage', source: 'literature-vocabulary' },
+  { id: 'jps_304', display: '技術の進歩は人類の新しい可能性を切り開きましたが、同時に社会のすべての構成員に倫理的な責任を求めるようになりました。', romaji: 'gijutsunoshinnpoha jinrui no atarashii kanouseiwo kirihirakimashitaga, doujini shakaino subeteno kouseiinnni rinritekina sekininnwo motomeruyouninarimashita', meanings: { en: 'Technological progress has opened new possibilities for humanity, but also demands ethical responsibility from all.' }, meaningLang: 'en', level: 5, category: 'passage', source: 'literature-vocabulary' },
+  { id: 'jps_305', display: '異なる文化を理解し尊重することは、私たちが共に生きる地球規模のコミュニティ社会のもっとも重要な基盤です。', romaji: 'kotonarubunnkaworikaishi sonchousurukotoha, watashitachiga tomoni ikiru chikyuu kibanno komyunitii shakaino mottomo juuyouna kibandesu', meanings: { en: 'Understanding and respecting different cultures is the most essential foundation of our global community.' }, meaningLang: 'en', level: 5, category: 'passage', source: 'literature-vocabulary' },
 ];
 
 export const ES_SENTENCES: WordEntry[] = [
@@ -2513,6 +2693,31 @@ export const ES_SENTENCES: WordEntry[] = [
   { id: 'ess_412', display: 'Necesito hablar con usted sobre un asunto urgente.', meanings: { en: 'I need to speak with you about an urgent matter.', ko: '긴급한 건으로 귀하와 통화해야 합니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary-es' },
   { id: 'ess_413', display: 'Le envío el informe de avance mensual.', meanings: { en: 'I am sending you the monthly progress report.', ko: '월별 진행 보고서를 보내드립니다.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary-es' },
   { id: 'ess_414', display: 'Quedo a su disposición para cualquier consulta.', meanings: { en: 'I remain at your disposal for any questions.', ko: '문의 사항 있으시면 언제든 연락 주십시오.' }, meaningLang: 'ko', level: 4, category: 'business' , source: 'business-vocabulary-es' },
+
+  // Tier 4: Mindfulness & Motivation — source: [[emotions-personality-vocabulary]]
+  { id: 'ess_501', display: 'Haré mi mejor esfuerzo para que hoy sea un día significativo.', level: 4, category: 'motivation', source: 'emotions-personality-vocabulary' },
+  { id: 'ess_502', display: 'Incluso el pequeño progreso, si es constante, lleva a grandes logros.', level: 4, category: 'motivation', source: 'emotions-personality-vocabulary' },
+  { id: 'ess_503', display: 'No temas a los errores, sino enfrenta nuevos retos con valentía.', level: 4, category: 'motivation', source: 'emotions-personality-vocabulary' },
+
+  // Tier 4: Travel Details — source: [[viajes]]
+  { id: 'ess_504', display: 'Para planear bien un viaje, primero debes fijar un presupuesto y un horario.', level: 4, category: 'travel-detail', source: 'viajes' },
+  { id: 'ess_505', display: 'Le dije a mi amigo que realmente quiero probar la comida local del lugar.', level: 4, category: 'travel-detail', source: 'viajes' },
+  { id: 'ess_506', display: 'Reservar tu vuelo con anticipación te permite comprar boletos a precio reducido.', level: 4, category: 'travel-detail', source: 'viajes' },
+
+  // Tier 4: Cooking Instructions — source: [[food-vocabulary]]
+  { id: 'ess_507', display: 'Pica finamente la cebolla y el ajo, y luego sofríelos en una sartén con aceite.', level: 4, category: 'cooking', source: 'food-vocabulary' },
+  { id: 'ess_508', display: 'Añade todos los ingredientes y cocina a fuego medio durante diez minutos.', level: 4, category: 'cooking', source: 'food-vocabulary' },
+
+  // Tier 4: Workplace Context — source: [[business-vocabulary]]
+  { id: 'ess_509', display: 'Cooperar con los colegas puede producir resultados mucho mejores en general.', level: 4, category: 'workplace', source: 'business-vocabulary' },
+  { id: 'ess_510', display: 'Limitar las reuniones a una hora o menos suele ser más eficiente.', level: 4, category: 'workplace', source: 'business-vocabulary' },
+
+  // Tier 5: Literature Excerpts Expansion — source: [[literatura-hispana]]
+  { id: 'ess_301', display: 'Cuando cae la lluvia de primavera, las montañas y los ríos se tornan verdes y las flores florecen, llenando el mundo de nueva vida y esperanza renovada.', level: 5, category: 'passage', source: 'literatura-hispana' },
+  { id: 'ess_302', display: 'La vida es una serie continua de decisiones, y las pequeñas decisiones que tomamos cada día se acumulan para dar forma a nuestro propio futuro y al mundo que nos rodea.', level: 5, category: 'passage', source: 'literatura-hispana' },
+  { id: 'ess_303', display: 'El amor de los padres no puede expresarse plenamente con palabras; siempre han sido un apoyo firme y constante mientras crecimos de niños a adultos.', level: 5, category: 'passage', source: 'literatura-hispana' },
+  { id: 'ess_304', display: 'El progreso tecnológico ha abierto nuevas posibilidades para la humanidad, pero al mismo tiempo exige una mayor responsabilidad ética de cada miembro de la sociedad.', level: 5, category: 'passage', source: 'literatura-hispana' },
+  { id: 'ess_305', display: 'Comprender y respetar las diferentes culturas es el cimiento más esencial de nuestra comunidad global, donde todos debemos aprender a vivir juntos en paz.', level: 5, category: 'passage', source: 'literatura-hispana' },
 ];
 
 export const CORPUS = {
