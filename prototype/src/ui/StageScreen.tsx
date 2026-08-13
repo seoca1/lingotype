@@ -192,7 +192,12 @@ export function StageScreen({
         <div className="audio-controls">
           <h3>Audio</h3>
           <div className="audio-toggle">
-            <button onClick={toggleSound} className="toggle-btn">
+            <button
+              onClick={toggleSound}
+              className="toggle-btn"
+              aria-label={soundEnabled ? 'Mute sound effects' : 'Enable sound effects'}
+              aria-pressed={soundEnabled}
+            >
               {soundEnabled ? '🔊' : '🔇'} {soundEnabled ? 'On' : 'Off'}
             </button>
           </div>
@@ -207,12 +212,13 @@ export function StageScreen({
                   step="0.1"
                   value={volume}
                   onChange={handleVolumeChange}
+                  aria-label="Sound effects volume"
                 />
               </label>
             </div>
           )}
         </div>
-        <button onClick={onBackToMenu}>
+        <button onClick={onBackToMenu} aria-label="Back to menu (Escape)">
           Back to Menu (Esc)
         </button>
       </aside>

@@ -266,6 +266,7 @@ export function ResultScreen({
               <button
                 className="weak-word-modal__close"
                 onClick={() => setSelectedWeakWord(null)}
+                aria-label="Close weak word detail (Escape)"
               >
                 ✕
               </button>
@@ -349,7 +350,9 @@ export function ResultScreen({
         />
       )}
 
-      <button onClick={onBack}>Back to Menu</button>
+      <button onClick={onBack} aria-label="Back to menu">
+        Back to Menu
+      </button>
 
       <style>{`
         .result-mastery {

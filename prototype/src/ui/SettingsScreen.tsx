@@ -11,7 +11,7 @@
  * - Volume slider
  */
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   getNativeLanguage,
   setNativeLanguage,
@@ -80,14 +80,63 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
     setKrInputMode(mode);
   };
 
+  // Phase 14: focus management (mirrors OptionsScreen) — focus the close
+  // button on mount, restore previous focus on unmount, and let Escape
+  // dismiss the modal.
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    previouslyFocusedRef.current = document.activeElement as HTMLElement | null;
+    closeButtonRef.current?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.stopPropagation();
+        onClose();
+        return;
+      }
+      if (e.key !== 'Tab' || !containerRef.current) return;
+      const focusable = containerRef.current.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      previouslyFocusedRef.current?.focus?.();
+    };
+  }, [onClose]);
+
   return (
-    <div className="settings-screen">
+    <div
+      className="settings-screen"
+      ref={containerRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label={t('settings', native)}
+      data-testid="settings-screen"
+    >
       <div className="settings-screen__header">
         <h1>⚙️ {t('settings', native)}</h1>
         <button
+          ref={closeButtonRef}
           className="settings-screen__close"
           onClick={onClose}
-          aria-label={t('close', native)}
+          aria-label={`${t('close', native)} (Escape)`}
         >
           ✕
         </button>
@@ -103,7 +152,11 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
             {native === 'es' && 'La UI y las explicaciones se mostrarán en este idioma.'}
             {native === 'en' && 'UI and learning explanations will be shown in this language.'}
           </p>
-          <div className="settings-section__lang-grid">
+          <div
+            className="settings-section__lang-grid"
+            role="group"
+            aria-label={t('nativeLanguage', native)}
+          >
             {ALL_NATIVE_LANGS.map((lang) => (
               <button
                 key={lang}
@@ -111,6 +164,8 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
                   native === lang ? 'settings-lang-btn--active' : ''
                 }`}
                 onClick={() => handleNativeChange(lang)}
+                aria-label={`${NATIVE_LANGUAGE_LABELS[lang]}${native === lang ? ' (selected)' : ''}`}
+                aria-pressed={native === lang}
               >
                 <span className="settings-lang-btn__short">
                   {NATIVE_LANGUAGE_SHORT[lang]}
@@ -189,12 +244,18 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
               {native === 'es' && 'Selecciona el método de escritura:'}
               {native === 'en' && 'Choose your typing method:'}
             </p>
-            <div className="settings-kr-input-grid">
+            <div
+              className="settings-kr-input-grid"
+              role="group"
+              aria-label="Korean input mode"
+            >
               <button
                 className={`settings-lang-btn ${
                   krInputMode === 'jamo' ? 'settings-lang-btn--active' : ''
                 }`}
                 onClick={() => handleKrInputModeChange('jamo')}
+                aria-label={`Jamo input${krInputMode === 'jamo' ? ' (selected)' : ''}`}
+                aria-pressed={krInputMode === 'jamo'}
               >
                 <span className="settings-lang-btn__short">ㄱ</span>
                 <span className="settings-lang-btn__full">
@@ -210,6 +271,8 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
                   krInputMode === 'romanized' ? 'settings-lang-btn--active' : ''
                 }`}
                 onClick={() => handleKrInputModeChange('romanized')}
+                aria-label={`Romanized input${krInputMode === 'romanized' ? ' (selected)' : ''}`}
+                aria-pressed={krInputMode === 'romanized'}
               >
                 <span className="settings-lang-btn__short">a</span>
                 <span className="settings-lang-btn__full">
@@ -237,6 +300,10 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
           </p>
         </section>
       </div>
+
+      <footer className="settings-screen__footer">
+        <small>Press Esc to close</small>
+      </footer>
 
       <style>{`
         .settings-screen {
@@ -278,6 +345,10 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
         }
         .settings-screen__close:hover {
           background: rgba(255, 255, 255, 0.2);
+        }
+        .settings-screen__close:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
         }
         .settings-screen__body {
           flex: 1;
@@ -382,6 +453,22 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
           width: 18px;
           height: 18px;
           cursor: pointer;
+        }
+        .settings-toggle input:focus-visible,
+        .settings-volume input:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
+        }
+        .settings-lang-btn:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
+        }
+        .settings-screen__footer {
+          padding: 12px 24px 20px;
+          text-align: center;
+          color: #6a7888;
+          font-size: 12px;
+          border-top: 1px solid #1a2530;
         }
         .settings-volume label {
           display: flex;

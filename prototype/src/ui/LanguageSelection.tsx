@@ -90,6 +90,8 @@ export function LanguageSelection({
                 '--theme-color': LANGUAGE_THEME[lang.code] || '#6366f1',
               } as React.CSSProperties}
               onClick={() => onSelectLanguage(lang.code)}
+              aria-label={`Select ${lang.name} (${lang.nativeName}), press Enter to confirm`}
+              aria-pressed={selectedIndex === i}
             >
               <div className="language-flag">
                 {LANGUAGE_FLAGS[lang.code] || '🌐'}
@@ -107,17 +109,28 @@ export function LanguageSelection({
 
       <footer className="language-selection-footer">
         {onShowTutorial && (
-          <button className="tutorial-btn" onClick={onShowTutorial}>
+          <button
+            className="tutorial-btn"
+            onClick={onShowTutorial}
+            aria-label="Replay tutorial"
+          >
             📚 튜토리얼 다시 보기
           </button>
         )}
         {onStartCharTest && (
-          <button className="chartest-btn" onClick={onStartCharTest}>
+          <button
+            className="chartest-btn"
+            onClick={onStartCharTest}
+            aria-label="Open character animation test"
+          >
             🎨 캐릭터 애니메이션 테스트
           </button>
         )}
         <p className="language-selection-info">
           {languages.length}개 언어 지원 · 각 언어별 7 티어 · 140개 스테이지
+        </p>
+        <p className="language-selection-hint">
+          <small>Tip: use ↑ ↓ ← → to choose a language, Enter to confirm</small>
         </p>
       </footer>
     </div>

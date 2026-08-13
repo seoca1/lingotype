@@ -541,6 +541,21 @@ button:hover {
   margin-top: 2rem;
 }
 
+.tutorial-finish {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.tutorial-hint {
+  color: var(--text);
+  opacity: 0.7;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
 .btn-primary, .btn-secondary {
   padding: 1rem 2rem;
   font-size: 1.1rem;

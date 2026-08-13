@@ -137,10 +137,18 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
             </div>
           </div>
           <div className="tutorial-actions">
-            <button className="btn-primary" onClick={() => setCurrentPage('language')}>
+            <button
+              className="btn-primary"
+              onClick={() => setCurrentPage('language')}
+              aria-label="Start tutorial"
+            >
               시작하기
             </button>
-            <button className="btn-secondary" onClick={onComplete}>
+            <button
+              className="btn-secondary"
+              onClick={onComplete}
+              aria-label="Skip tutorial"
+            >
               튜토리얼 건너뛰기
             </button>
           </div>
@@ -166,10 +174,11 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
                   setCurrentPage('welcome');
                 }
               }}
+              aria-label="Previous step"
             >
               ← 이전
             </button>
-            <span className="tutorial-progress">
+            <span className="tutorial-progress" aria-live="polite">
               {languageStep + 1} / {steps.length}
             </span>
             <button
@@ -182,12 +191,17 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
                   setMechanicsStep(0);
                 }
               }}
+              aria-label="Next step"
             >
               다음 →
             </button>
           </div>
 
-          <div className="language-selector">
+          <div
+            className="language-selector"
+            role="group"
+            aria-label="Tutorial language selection"
+          >
             {(['en', 'jp', 'es', 'kr'] as Language[]).map((lang) => (
               <button
                 key={lang}
@@ -196,13 +210,15 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
                   setSelectedLanguage(lang);
                   setLanguageStep(0);
                 }}
+                aria-label={`Tutorial language: ${lang.toUpperCase()}`}
+                aria-pressed={selectedLanguage === lang}
               >
                 {lang.toUpperCase()}
               </button>
             ))}
           </div>
 
-          <div className="tutorial-step">
+          <div className="tutorial-step" aria-live="polite">
             <h2>{currentStep.title}</h2>
             <p className="step-content">{currentStep.content}</p>
             {currentStep.example && (
@@ -214,13 +230,17 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
           </div>
 
           {languageStep === steps.length - 1 && (
-            <div className="tutorial-actions">
-              <button
-                className="btn-primary"
-                onClick={() => onStartTutorialStage(selectedLanguage)}
-              >
-                {selectedLanguage.toUpperCase()} 튜토리얼 스테이지 시작
-              </button>
+            <div className="tutorial-finish">
+              <div className="tutorial-actions">
+                <button
+                  className="btn-primary"
+                  onClick={() => onStartTutorialStage(selectedLanguage)}
+                  aria-label={`Start ${selectedLanguage.toUpperCase()} tutorial stage`}
+                >
+                  {selectedLanguage.toUpperCase()} 튜토리얼 스테이지 시작
+                </button>
+              </div>
+              <small className="tutorial-hint">Press Enter to start the practice stage</small>
             </div>
           )}
         </div>
@@ -245,10 +265,11 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
                   setLanguageStep(TUTORIAL_STEPS[selectedLanguage].length - 1);
                 }
               }}
+              aria-label="Previous step"
             >
               ← 이전
             </button>
-            <span className="tutorial-progress">
+            <span className="tutorial-progress" aria-live="polite">
               {mechanicsStep + 1} / {GAME_MECHANICS.length}
             </span>
             <button
@@ -260,12 +281,15 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
                   onComplete();
                 }
               }}
+              aria-label={
+                mechanicsStep === GAME_MECHANICS.length - 1 ? 'Finish tutorial' : 'Next step'
+              }
             >
               {mechanicsStep === GAME_MECHANICS.length - 1 ? '완료' : '다음'} →
             </button>
           </div>
 
-          <div className="tutorial-step">
+          <div className="tutorial-step" aria-live="polite">
             <h2>{currentStep.title}</h2>
             <p className="step-content" style={{ whiteSpace: 'pre-line' }}>
               {currentStep.content}
@@ -273,10 +297,17 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
           </div>
 
           {mechanicsStep === GAME_MECHANICS.length - 1 && (
-            <div className="tutorial-actions">
-              <button className="btn-primary" onClick={onComplete}>
-                튜토리얼 완료, 시작하기!
-              </button>
+            <div className="tutorial-finish">
+              <div className="tutorial-actions">
+                <button
+                  className="btn-primary"
+                  onClick={onComplete}
+                  aria-label="Complete tutorial and enter menu"
+                >
+                  튜토리얼 완료, 시작하기!
+                </button>
+              </div>
+              <small className="tutorial-hint">Press Enter to enter the game</small>
             </div>
           )}
         </div>

@@ -48,11 +48,18 @@ export function loadOptions(): Options {
   }
 }
 
+/**
+ * Phase 14: Persist options. Throws on failure so callers can surface
+ * a user-visible error instead of silently swallowing the failure.
+ * Phase 10 used console.warn only — Phase 14 makes the error loud.
+ */
 export function saveOptions(options: Options): void {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(options));
   } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
     console.warn('[Options] failed to save:', error);
+    throw new Error(`localStorage write failed: ${message}`);
   }
 }
 

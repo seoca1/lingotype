@@ -11,7 +11,7 @@
  * - Difficulty: scoring/threshold preference
  */
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { DifficultyPreference, Options } from '../types.js';
 import {
   DEFAULT_OPTIONS,
@@ -32,9 +32,20 @@ const DIFFICULTY_LABELS: Record<DifficultyPreference, string> = {
 
 export function OptionsScreen({ onClose }: OptionsScreenProps) {
   const [options, setOptions] = useState<Options>(() => loadOptions());
+  // Phase 14: track the most recent save failure so the UI can surface it
+  // without crashing. saveOptions already catches + logs; we mirror the
+  // flag here so save state and UI feedback stay in sync.
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const [lastSavedAt, setLastSavedAt] = useState<number | null>(null);
 
   useEffect(() => {
-    saveOptions(options);
+    try {
+      saveOptions(options);
+      setSaveError(null);
+      setLastSavedAt(Date.now());
+    } catch (err) {
+      setSaveError(err instanceof Error ? err.message : 'Failed to save options');
+    }
     getAudioManager().setEnabled(options.sound);
   }, [options]);
 
@@ -48,20 +59,92 @@ export function OptionsScreen({ onClose }: OptionsScreenProps) {
 
   const resetToDefaults = () => setOptions({ ...DEFAULT_OPTIONS });
 
+  // Phase 14: focus management
+  //   - Trap Tab focus inside the modal while it's open so keyboard users
+  //     can't accidentally land on elements behind the dimmed backdrop.
+  //   - On mount, focus the close button so screen-reader users land in a
+  //     predictable spot (the modal's primary dismiss action).
+  //   - On unmount, restore focus to whatever element opened the screen
+  //     (typically the 🎛️ button on the menu).
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    previouslyFocusedRef.current = document.activeElement as HTMLElement | null;
+    closeButtonRef.current?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.stopPropagation();
+        onClose();
+        return;
+      }
+      if (e.key !== 'Tab' || !containerRef.current) return;
+      const focusable = containerRef.current.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      previouslyFocusedRef.current?.focus?.();
+    };
+  }, [onClose]);
+
   return (
-    <div className="options-screen">
+    <div
+      className="options-screen"
+      ref={containerRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Options"
+      data-testid="options-screen"
+    >
       <header className="options-screen__header">
         <h1>🎛️ OPTIONS</h1>
         <button
+          ref={closeButtonRef}
           className="options-screen__close"
           onClick={onClose}
-          aria-label="Close"
+          aria-label="Close (Escape)"
         >
           ✕
         </button>
       </header>
 
       <main className="options-screen__body">
+        {saveError && (
+          <div
+            className="options-error"
+            role="alert"
+            data-testid="options-save-error"
+          >
+            ⚠️ Could not save settings: {saveError}
+          </div>
+        )}
+        {!saveError && lastSavedAt !== null && (
+          <div
+            className="options-saved"
+            role="status"
+            aria-live="polite"
+            data-testid="options-saved-indicator"
+          >
+            ✓ Settings auto-saved
+          </div>
+        )}
         <section className="options-section">
           <h2 className="options-section__title">🖍️ Display</h2>
           <p className="options-section__desc">
@@ -73,6 +156,7 @@ export function OptionsScreen({ onClose }: OptionsScreenProps) {
               checked={options.displayHighlighting}
               onChange={toggleDisplay}
               data-testid="options-display-toggle"
+              aria-label="Display highlighting toggle"
             />
             <span>{options.displayHighlighting ? 'ON' : 'OFF'}</span>
           </label>
@@ -89,6 +173,7 @@ export function OptionsScreen({ onClose }: OptionsScreenProps) {
               checked={options.sound}
               onChange={toggleSound}
               data-testid="options-sound-toggle"
+              aria-label="Sound effects toggle"
             />
             <span>{options.sound ? 'ON' : 'OFF'}</span>
           </label>
@@ -100,7 +185,11 @@ export function OptionsScreen({ onClose }: OptionsScreenProps) {
             Preferred scoring/threshold profile. Affects star thresholds and
             mission difficulty.
           </p>
-          <div className="options-difficulty">
+          <div
+            className="options-difficulty"
+            role="group"
+            aria-label="Difficulty selection"
+          >
             {(Object.keys(DIFFICULTY_LABELS) as DifficultyPreference[]).map((d) => (
               <button
                 key={d}
@@ -122,11 +211,19 @@ export function OptionsScreen({ onClose }: OptionsScreenProps) {
         </section>
 
         <section className="options-section options-section--footer">
-          <button className="options-reset" onClick={resetToDefaults}>
+          <button
+            className="options-reset"
+            onClick={resetToDefaults}
+            aria-label="Reset options to defaults"
+          >
             ↺ Reset to defaults
           </button>
         </section>
       </main>
+
+      <footer className="options-screen__footer">
+        <small>Press Esc to close</small>
+      </footer>
 
       <style>{`
         .options-screen {
@@ -270,6 +367,31 @@ export function OptionsScreen({ onClose }: OptionsScreenProps) {
         .options-reset:focus-visible {
           outline: 2px solid #00d9ff;
           outline-offset: 2px;
+        }
+        .options-error {
+          background: rgba(255, 102, 102, 0.12);
+          border: 1px solid #ff6666;
+          color: #ffb3b3;
+          padding: 12px 16px;
+          border-radius: 8px;
+          margin-bottom: 16px;
+          font-size: 13px;
+        }
+        .options-saved {
+          background: rgba(102, 221, 102, 0.08);
+          border: 1px solid rgba(102, 221, 102, 0.4);
+          color: #aae0aa;
+          padding: 8px 12px;
+          border-radius: 8px;
+          margin-bottom: 12px;
+          font-size: 12px;
+        }
+        .options-screen__footer {
+          padding: 12px 24px 20px;
+          text-align: center;
+          color: #6a7888;
+          font-size: 12px;
+          border-top: 1px solid #1a2530;
         }
       `}</style>
     </div>

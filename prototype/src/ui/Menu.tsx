@@ -87,6 +87,14 @@ function StageCard({
       disabled={locked}
       title={locked ? lockReason : stage.description}
       data-stage-id={dataStageId}
+      aria-label={
+        locked
+          ? `${stage.name}, Tier ${stage.difficulty}, locked: ${lockReason}`
+          : `${stage.name}, Tier ${stage.difficulty}${
+              cleared ? `, cleared ${stars} stars` : ''
+            }, ${stage.wordCount} ${t('words', nativeLanguage)}`
+      }
+      aria-disabled={locked || undefined}
     >
       <div className="stage-card-header">
         <h3>
@@ -229,7 +237,11 @@ export function Menu({
     <div className="menu">
       <header className="menu-header">
         <div className="menu-header-top">
-          <button className="back-btn" onClick={() => { getAudioManager().play('menu-click'); onBackToLanguageSelect(); }}>
+          <button
+            className="back-btn"
+            onClick={() => { getAudioManager().play('menu-click'); onBackToLanguageSelect(); }}
+            aria-label="Back to language selection (Escape)"
+          >
             ← 언어 선택으로
           </button>
           <div className="menu-header-top-right">

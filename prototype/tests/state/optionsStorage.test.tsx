@@ -157,8 +157,87 @@ describe('OptionsScreen — Phase 13 UX polish (accessibility)', () => {
     expect(html).toContain('aria-pressed="false"');
   });
 
-  it('close button keeps its existing aria-label for screen readers', () => {
+  it('close button keeps an aria-label for screen readers', () => {
     const html = renderToStaticMarkup(<OptionsScreen onClose={() => {}} />);
-    expect(html).toContain('aria-label="Close"');
+    // Phase 13 had "Close" verbatim; Phase 14 upgraded it to "Close (Escape)"
+    // so screen readers announce the keyboard shortcut. The label still exists
+    // and is still callable; the suffix is intentional.
+    expect(html).toMatch(/aria-label="Close[^"]*"/);
+  });
+});
+
+describe('OptionsScreen — Phase 14 polish + accessibility', () => {
+  it('renders an aria-modal dialog with role="dialog" and aria-label', () => {
+    const html = renderToStaticMarkup(<OptionsScreen onClose={() => {}} />);
+    expect(html).toContain('role="dialog"');
+    expect(html).toContain('aria-modal="true"');
+    expect(html).toContain('aria-label="Options"');
+  });
+
+  it('close button hint mentions Escape for keyboard shortcut discovery', () => {
+    const html = renderToStaticMarkup(<OptionsScreen onClose={() => {}} />);
+    // Upgraded to "Close (Escape)" in Phase 14 so screen readers announce the shortcut.
+    expect(html).toContain('aria-label="Close (Escape)"');
+  });
+
+  it('footer shows a keyboard-shortcut hint', () => {
+    const html = renderToStaticMarkup(<OptionsScreen onClose={() => {}} />);
+    expect(html).toContain('Press Esc to close');
+  });
+
+  it('difficulty group has role="group" with descriptive aria-label', () => {
+    const html = renderToStaticMarkup(<OptionsScreen onClose={() => {}} />);
+    expect(html).toContain('role="group"');
+    expect(html).toContain('aria-label="Difficulty selection"');
+  });
+
+  it('toggle inputs expose accessible names', () => {
+    const html = renderToStaticMarkup(<OptionsScreen onClose={() => {}} />);
+    expect(html).toContain('aria-label="Display highlighting toggle"');
+    expect(html).toContain('aria-label="Sound effects toggle"');
+  });
+
+  it('reset button exposes accessible name for screen readers', () => {
+    const html = renderToStaticMarkup(<OptionsScreen onClose={() => {}} />);
+    expect(html).toContain('aria-label="Reset options to defaults"');
+  });
+
+  it('does not render the save-error banner when localStorage is healthy', () => {
+    const html = renderToStaticMarkup(<OptionsScreen onClose={() => {}} />);
+    // useEffect does not fire under renderToStaticMarkup, so the error/saved
+    // banner stays in its initial (empty) state — i.e., neither is rendered.
+    expect(html).not.toContain('Could not save settings');
+    expect(html).not.toContain('Settings auto-saved');
+  });
+
+  it('OptionsScreen imports without throwing under the current ARIA refactor', () => {
+    // Defensive: ensures the new useRef + useEffect wiring does not crash
+    // when rendered without a surrounding act() / DOM environment.
+    expect(() =>
+      renderToStaticMarkup(<OptionsScreen onClose={() => {}} />)
+    ).not.toThrow();
+  });
+});
+
+describe('optionsStorage — Phase 14 polish', () => {
+  it('saveOptions throws on localStorage failure so callers can surface errors', () => {
+    // Simulate quota-exceeded / disabled storage to verify the new throw path.
+    const originalSetItem = localStorage.setItem;
+    localStorage.setItem = () => {
+      throw new DOMException('Storage write failed', 'QuotaExceededError');
+    };
+    try {
+      expect(() =>
+        saveOptions({ displayHighlighting: true, sound: true, difficulty: 'normal' })
+      ).toThrow(/localStorage write failed/);
+    } finally {
+      localStorage.setItem = originalSetItem;
+    }
+  });
+
+  it('does not throw when storage succeeds', () => {
+    expect(() =>
+      saveOptions({ displayHighlighting: false, sound: false, difficulty: 'easy' })
+    ).not.toThrow();
   });
 });
