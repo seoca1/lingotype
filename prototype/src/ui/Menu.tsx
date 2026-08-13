@@ -21,6 +21,7 @@ import {
 import { getStreakDisplay } from '../data/dailyStreak.js';
 import { getNativeLanguage, type NativeLanguage } from '../data/nativeLanguage.js';
 import { t } from '../data/uiTranslations.js';
+import { getAudioManager } from '../audio/AudioManager.js';
 
 interface MenuProps {
   language: Language;
@@ -75,6 +76,7 @@ function StageCard({
 
   const handleClick = () => {
     if (locked) return;
+    getAudioManager().play('menu-select');
     onStart(stage);
   };
 
@@ -165,6 +167,7 @@ export function Menu({
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
+        getAudioManager().play('menu-click');
         onBackToLanguageSelect();
         return;
       }
@@ -178,6 +181,7 @@ export function Menu({
         const lock = lockMap[currentStage.id];
         const locked = lock ? !lock.unlocked : false;
         if (!locked) {
+          getAudioManager().play('menu-select');
           onStartStage(currentStage);
         }
         return;
@@ -225,7 +229,7 @@ export function Menu({
     <div className="menu">
       <header className="menu-header">
         <div className="menu-header-top">
-          <button className="back-btn" onClick={onBackToLanguageSelect}>
+          <button className="back-btn" onClick={() => { getAudioManager().play('menu-click'); onBackToLanguageSelect(); }}>
             ← 언어 선택으로
           </button>
           <div className="menu-header-top-right">
@@ -238,7 +242,7 @@ export function Menu({
             {onShowOptions && (
               <button
                 className="options-btn"
-                onClick={onShowOptions}
+                onClick={() => { getAudioManager().play('menu-click'); onShowOptions(); }}
                 aria-label="Options"
                 title="Options"
                 data-testid="menu-options-btn"
@@ -249,7 +253,7 @@ export function Menu({
             {onShowSettings && (
               <button
                 className="settings-btn"
-                onClick={onShowSettings}
+                onClick={() => { getAudioManager().play('menu-click'); onShowSettings(); }}
                 aria-label="Settings"
                 title="Settings"
               >
@@ -266,7 +270,7 @@ export function Menu({
         <div className="menu-header-buttons">
           <button
             className="character-select-btn"
-            onClick={() => onShowCharacterSelect(language)}
+            onClick={() => { getAudioManager().play('menu-click'); onShowCharacterSelect(language); }}
           >
             👤 {t('selectCharacter', nativeLanguage)} {defaultCharacter ? `(${defaultCharacter.name})` : ''}
           </button>

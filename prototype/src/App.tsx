@@ -487,6 +487,9 @@ export function App() {
     // deterministic random per language (3 characters per language).
     selectCharacterForStage(stage.language, stage.id);
     dispatch({ type: 'START_STAGE', stage, enemy: firstEnemy });
+    // Phase 12: stage-start audio cue right after dispatch so the first
+    // frame already has audio context. Gating happens inside play().
+    getAudioManager().play('stage-start');
   };
 
   const handleBackToMenu = () => {
@@ -827,8 +830,16 @@ export function App() {
       trackSessionMistake(state.currentEnemy.id);
       triggerShake(effectsRef.current, 4, 80);
     }
+    // Phase 12: combo-break is fired only when an established combo (>=2)
+    // gets reset by an error. A single mistake on a 1-combo doesn't qualify
+    // — the negative feedback is already provided by key-incorrect.
+    const hadCombo = stateRef.current.combo >= 2;
+    const willBreakCombo = hadCombo && result.errors > 0 && !result.completed;
     dispatch({ type: 'KEY_INPUT', result, romajiHint });
     const audio = getAudioManager();
+    if (willBreakCombo) {
+      audio.play('combo-break');
+    }
     if (result.buffer.length > 0) {
       audio.play('key-correct');
     } else if (char.length === 1) {

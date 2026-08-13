@@ -1,8 +1,11 @@
 /**
  * AudioManager - Web Audio API 기반 사운드 효과
- * 
+ *
  * 파일 없이 프로그래밍 방식으로 사운드 생성
  * 가볍고 빠른 반응, 용량 부담 없음
+ *
+ * Phase 12: 콤보 브레이크 / 메뉴 클릭 / 메뉴 선택 / 스테이지 시작 4종 추가
+ * (기존 6종 위에 additive 확장 — 기존 호출자는 그대로 동작)
  */
 
 export type SoundType =
@@ -11,7 +14,11 @@ export type SoundType =
   | 'enemy-defeat'     // 적 격파
   | 'stage-clear'      // 스테이지 클리어
   | 'combo'            // 콤보 달성
-  | 'perfect';         // 완벽 격파
+  | 'perfect'          // 완벽 격파
+  | 'combo-break'      // 콤보 브레이크 (콤보가 0으로 떨어질 때)
+  | 'menu-click'       // 메뉴 항목 호버/선택 (낮은 톤, 짧음)
+  | 'menu-select'      // 메뉴 항목 확정 (조금 높은 톤)
+  | 'stage-start';     // 스테이지 시작 (짧은 알림음)
 
 export class AudioManager {
   private context: AudioContext | null = null;
@@ -104,6 +111,18 @@ export class AudioManager {
         break;
       case 'perfect':
         this.playPerfect(now);
+        break;
+      case 'combo-break':
+        this.playComboBreak(now);
+        break;
+      case 'menu-click':
+        this.playMenuClick(now);
+        break;
+      case 'menu-select':
+        this.playMenuSelect(now);
+        break;
+      case 'stage-start':
+        this.playStageStart(now);
         break;
     }
   }
@@ -249,6 +268,110 @@ export class AudioManager {
 
       osc.start(startTime + i * 0.03);
       osc.stop(startTime + i * 0.03 + 0.2);
+    });
+  }
+
+  /**
+   * Phase 12: 콤보 브레이크 — 하강 톤 + 약간의 노이즈로 "아쉬운" 느낌
+   *
+   * 220Hz에서 110Hz로 약 0.18초간 내려가는 톤. 콤보가 끊긴 것을 직관적으로
+   * 전달하면서도 적(스테이지 격파) 사운드보다 명확히 약하게 유지한다.
+   */
+  private playComboBreak(startTime: number) {
+    if (!this.context || !this.masterGain) return;
+
+    const osc = this.context.createOscillator();
+    const gain = this.context.createGain();
+
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(220, startTime); // A3
+    osc.frequency.exponentialRampToValueAtTime(110, startTime + 0.18); // A2
+
+    gain.gain.setValueAtTime(0.12, startTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, startTime + 0.2);
+
+    osc.connect(gain);
+    gain.connect(this.masterGain);
+
+    osc.start(startTime);
+    osc.stop(startTime + 0.2);
+  }
+
+  /**
+   * Phase 12: 메뉴 클릭 — 아주 짧고 낮은 톤의 "틱"
+   *
+   * 메뉴 항목 위로 마우스가 지나가거나 단순 클릭 시 발생. 스테이지 카드
+   * 같은 무거운 UI에서도 과하지 않도록 진폭과 지속 시간을 작게 잡는다.
+   */
+  private playMenuClick(startTime: number) {
+    if (!this.context || !this.masterGain) return;
+
+    const osc = this.context.createOscillator();
+    const gain = this.context.createGain();
+
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(660, startTime); // E5
+
+    gain.gain.setValueAtTime(0.08, startTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.04);
+
+    osc.connect(gain);
+    gain.connect(this.masterGain);
+
+    osc.start(startTime);
+    osc.stop(startTime + 0.04);
+  }
+
+  /**
+   * Phase 12: 메뉴 선택 — 메뉴 클릭보다 약간 높은 톤의 "틱"
+   *
+   * 옵션/설정 버튼이나 스테이지 시작 같은 "확정" 액션에서 발생.
+   * menu-click보다 살짝 더 길고 높게 두어 "이건 클릭 그 자체"임을 구분.
+   */
+  private playMenuSelect(startTime: number) {
+    if (!this.context || !this.masterGain) return;
+
+    const osc = this.context.createOscillator();
+    const gain = this.context.createGain();
+
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(880, startTime); // A5
+
+    gain.gain.setValueAtTime(0.12, startTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.07);
+
+    osc.connect(gain);
+    gain.connect(this.masterGain);
+
+    osc.start(startTime);
+    osc.stop(startTime + 0.07);
+  }
+
+  /**
+   * Phase 12: 스테이지 시작 — 짧은 상승 알림음
+   *
+   * 첫 적 등장 직전에 한 번 재생해 "시작!" 신호를 준다.
+   * 기존 stage-clear(승리 팡파레)와 짝을 이루며 대칭적인 시작/종료 피드백을 형성.
+   */
+  private playStageStart(startTime: number) {
+    if (!this.context || !this.masterGain) return;
+
+    const notes = [392.0, 523.25]; // G4, C5 — 짧은 도-미 상승
+    notes.forEach((freq, i) => {
+      const osc = this.context!.createOscillator();
+      const gain = this.context!.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, startTime + i * 0.07);
+
+      gain.gain.setValueAtTime(0.18, startTime + i * 0.07);
+      gain.gain.exponentialRampToValueAtTime(0.01, startTime + i * 0.07 + 0.18);
+
+      osc.connect(gain);
+      gain.connect(this.masterGain!);
+
+      osc.start(startTime + i * 0.07);
+      osc.stop(startTime + i * 0.07 + 0.18);
     });
   }
 
