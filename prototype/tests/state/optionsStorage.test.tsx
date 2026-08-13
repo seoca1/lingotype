@@ -1,0 +1,141 @@
+/**
+ * Options Persistence Tests — Phase 10
+ *
+ * Covers:
+ * - Default options shape
+ * - localStorage round-trip (save → load returns same values)
+ * - Sanitization (corrupt / partial JSON falls back to defaults)
+ * - clearOptions behavior
+ * - OptionsScreen UI smoke (3 sections, default selection)
+ */
+
+// @vitest-environment jsdom
+import { describe, it, expect, beforeEach } from 'vitest';
+import { renderToStaticMarkup } from 'react-dom/server';
+import {
+  DEFAULT_OPTIONS,
+  clearOptions,
+  loadOptions,
+  saveOptions,
+} from '../../src/state/optionsStorage.js';
+import type { Options } from '../../src/types.js';
+import { OptionsScreen } from '../../src/ui/OptionsScreen.js';
+
+const STORAGE_KEY = 'typing-language-options';
+
+// jsdom + Node 25 may provide a non-functional localStorage shim.
+// Install a working polyfill before tests run.
+if (typeof globalThis.localStorage === 'undefined' || typeof globalThis.localStorage.setItem !== 'function') {
+  const store = new Map<string, string>();
+  globalThis.localStorage = {
+    getItem: (k: string) => (store.has(k) ? (store.get(k) as string) : null),
+    setItem: (k: string, v: string) => { store.set(k, String(v)); },
+    removeItem: (k: string) => { store.delete(k); },
+    clear: () => { store.clear(); },
+    key: (i: number) => Array.from(store.keys())[i] ?? null,
+    get length(): number { return store.size; },
+  } as Storage;
+}
+
+beforeEach(() => {
+  localStorage.removeItem(STORAGE_KEY);
+});
+
+describe('Options — defaults', () => {
+  it('DEFAULT_OPTIONS exports all required fields', () => {
+    expect(DEFAULT_OPTIONS).toEqual({
+      displayHighlighting: true,
+      sound: true,
+      difficulty: 'normal',
+    });
+  });
+
+  it('loadOptions returns DEFAULT_OPTIONS when storage is empty', () => {
+    expect(loadOptions()).toEqual(DEFAULT_OPTIONS);
+  });
+});
+
+describe('Options — persistence round-trip', () => {
+  it('saveOptions → loadOptions returns same values', () => {
+    const opts: Options = {
+      displayHighlighting: false,
+      sound: false,
+      difficulty: 'hard',
+    };
+    saveOptions(opts);
+    const raw = localStorage.getItem(STORAGE_KEY);
+    expect(raw).not.toBeNull();
+    expect(loadOptions()).toEqual(opts);
+  });
+
+  it('saveOptions overwrites previous values', () => {
+    saveOptions({ displayHighlighting: true, sound: true, difficulty: 'easy' });
+    saveOptions({ displayHighlighting: false, sound: false, difficulty: 'hard' });
+    expect(loadOptions()).toEqual({
+      displayHighlighting: false,
+      sound: false,
+      difficulty: 'hard',
+    });
+  });
+
+  it('clearOptions resets to defaults on next load', () => {
+    saveOptions({ displayHighlighting: false, sound: false, difficulty: 'hard' });
+    clearOptions();
+    expect(localStorage.getItem(STORAGE_KEY)).toBeNull();
+    expect(loadOptions()).toEqual(DEFAULT_OPTIONS);
+  });
+});
+
+describe('Options — sanitization', () => {
+  it('falls back to defaults when JSON is malformed', () => {
+    localStorage.setItem(STORAGE_KEY, '{not valid json');
+    expect(loadOptions()).toEqual(DEFAULT_OPTIONS);
+  });
+
+  it('falls back to defaults when payload is missing fields', () => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ difficulty: 'easy' }));
+    const loaded = loadOptions();
+    expect(loaded.difficulty).toBe('easy');
+    expect(loaded.displayHighlighting).toBe(true);
+    expect(loaded.sound).toBe(true);
+  });
+
+  it('rejects invalid difficulty with fallback', () => {
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({ displayHighlighting: true, sound: true, difficulty: 'xyz' })
+    );
+    expect(loadOptions().difficulty).toBe('normal');
+  });
+
+  it('rejects non-boolean highlighting flag', () => {
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({ displayHighlighting: 'yes', sound: true, difficulty: 'normal' })
+    );
+    expect(loadOptions().displayHighlighting).toBe(true);
+  });
+});
+
+describe('OptionsScreen — UI smoke', () => {
+  it('renders all three sections and a reset button', () => {
+    const html = renderToStaticMarkup(<OptionsScreen onClose={() => {}} />);
+    expect(html).toContain('OPTIONS');
+    expect(html).toContain('Display');
+    expect(html).toContain('Sound');
+    expect(html).toContain('Difficulty');
+    expect(html).toContain('Reset to defaults');
+  });
+
+  it('normal difficulty is selected by default', () => {
+    const html = renderToStaticMarkup(<OptionsScreen onClose={() => {}} />);
+    expect(html).toContain('options-difficulty__btn--active');
+    expect(html).toContain('>NORMAL<');
+  });
+
+  it('renders sound and display checkboxes', () => {
+    const html = renderToStaticMarkup(<OptionsScreen onClose={() => {}} />);
+    expect(html).toContain('options-display-toggle');
+    expect(html).toContain('options-sound-toggle');
+  });
+});

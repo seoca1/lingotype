@@ -46,6 +46,8 @@ export interface RenderState {
   currentEntry?: { id: string; display: string; meaning?: string; category?: string };
   /** Caps Lock warning for Korean jamo mode */
   capsLockWarning?: boolean;
+  /** Phase 10: per-character visual feedback. When false, suppress glow/scale pulse. */
+  displayHighlighting?: boolean;
 }
 
 export class Renderer {
@@ -380,6 +382,7 @@ export class Renderer {
 
     const now = Date.now();
     const recent = now - state.lastHitTime < 220;
+    const highlightingEnabled = state.displayHighlighting !== false;
 
     // Render target text line by line (faded if not yet typed, bright if typed)
     this.ctx.save();
@@ -409,7 +412,7 @@ export class Renderer {
         const wrong = bufChar !== undefined && bufChar !== char;
 
         let pulse = 0;
-        if (isLastHit && (correct || wrong)) {
+        if (highlightingEnabled && isLastHit && (correct || wrong)) {
           pulse = 1 - (now - state.lastHitTime) / 220;
         }
 
@@ -423,18 +426,18 @@ export class Renderer {
         this.ctx.translate(charX, charY + yOffset);
         this.ctx.scale(scale, scale);
 
-        if (correct && isLastHit) {
+        if (highlightingEnabled && correct && isLastHit) {
           this.ctx.shadowColor = '#00ff88';
           this.ctx.shadowBlur = 14;
           this.ctx.fillStyle = '#00ff88';
-        } else if (wrong && isLastHit) {
+        } else if (highlightingEnabled && wrong && isLastHit) {
           this.ctx.shadowColor = '#ff4444';
           this.ctx.shadowBlur = 14;
           this.ctx.fillStyle = '#ff4444';
         } else if (correct) {
-          this.ctx.fillStyle = '#aaffcc';
+          this.ctx.fillStyle = highlightingEnabled ? '#aaffcc' : '#888';
         } else if (wrong) {
-          this.ctx.fillStyle = '#ff7777';
+          this.ctx.fillStyle = highlightingEnabled ? '#ff7777' : '#888';
         } else {
           this.ctx.fillStyle = '#555';
         }

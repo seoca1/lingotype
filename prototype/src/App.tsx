@@ -2,6 +2,7 @@ import { useEffect, useReducer, useRef, useState } from 'react';
 import type { GameState } from './state/gameReducer.js';
 import { gameReducer, initialState } from './state/gameReducer.js';
 import { saveProgress, loadProgress } from './state/localStorage.js';
+import { loadOptions } from './state/optionsStorage.js';
 import { createInputHandler } from './input/index.js';
 import type { InputHandler } from './input/index.js';
 import { getAudioManager } from './audio/AudioManager.js';
@@ -35,6 +36,7 @@ import { CharacterSelect } from './ui/CharacterSelect.js';
 import { selectCharacterForStage } from './character/CharacterSelector.js';
 import { LanguageSelection } from './ui/LanguageSelection.js';
 import { SettingsScreen } from './ui/SettingsScreen.js';
+import { OptionsScreen } from './ui/OptionsScreen.js';
 import { KoreanKeyboardWarning } from './ui/KoreanKeyboardWarning.js';
 import { NonKoreanKeyboardWarning } from './ui/NonKoreanKeyboardWarning.js';
 import { isKoreanCharacter } from './utils/keyboardLayout.js';
@@ -89,6 +91,21 @@ export function App() {
 
   // Phase G: Settings screen overlay (accessed from menu)
   const [showSettings, setShowSettings] = useState(false);
+
+  // Phase 10: Options screen overlay (display / sound / difficulty)
+  const [showOptions, setShowOptions] = useState(false);
+
+  // Reload persisted options whenever the Options screen closes.
+  // While the screen is open, OptionsScreen writes its own state to
+  // localStorage; we re-read on close so the next render uses fresh values.
+  const reloadOptions = () => {
+    optionsRef.current = loadOptions();
+    getAudioManager().setEnabled(optionsRef.current.sound);
+  };
+  const handleCloseOptions = () => {
+    reloadOptions();
+    setShowOptions(false);
+  };
 
   // 선택된 언어 (LanguageSelection → Menu 흐름)
   const [selectedLanguage, setSelectedLanguage] = useState<Language | null>(null);
@@ -165,10 +182,18 @@ export function App() {
   const osKeyboardRef = useRef<{ focus: () => void } | null>(null);
   const characterRef = useRef<CharacterState>(createInitialCharacterState());
 
+  // Phase 10: persisted options (display / sound / difficulty)
+  const optionsRef = useRef(loadOptions());
+
   // 진행도 자동 저장
   useEffect(() => {
     saveProgress(state.player);
   }, [state.player]);
+
+  // Phase 10: apply persisted options on mount (sound on/off)
+  useEffect(() => {
+    getAudioManager().setEnabled(optionsRef.current.sound);
+  }, []);
 
   useEffect(() => {
     if (state.phase !== 'stage' || !state.currentStage) return;
@@ -292,6 +317,7 @@ export function App() {
           character: ch,
           currentEntry,
           capsLockWarning,
+          displayHighlighting: optionsRef.current.displayHighlighting,
         });
       } catch (err) {
         console.error('[App] Render error:', err);
@@ -543,6 +569,11 @@ export function App() {
     );
   }
 
+  // Phase 10: Options overlay (display / sound / difficulty preferences)
+  if (showOptions) {
+    return <OptionsScreen onClose={handleCloseOptions} />;
+  }
+
   // 메뉴 화면 (선택된 언어의 스테이지만 표시)
   if (state.phase === 'menu') {
     return (
@@ -553,6 +584,7 @@ export function App() {
           onShowCharacterSelect={handleShowCharacterSelect}
           onBackToLanguageSelect={handleBackToLanguageSelect}
           onShowSettings={() => setShowSettings(true)}
+          onShowOptions={() => setShowOptions(true)}
           stageRecords={state.player.stageRecords}
         />
         {pendingKoreanWarning && (
@@ -610,6 +642,8 @@ export function App() {
         onStartStage={handleStartStage}
         onShowCharacterSelect={handleShowCharacterSelect}
         onBackToLanguageSelect={handleBackToLanguageSelect}
+        onShowSettings={() => setShowSettings(true)}
+        onShowOptions={() => setShowOptions(true)}
         stageRecords={state.player.stageRecords}
       />
     );

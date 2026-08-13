@@ -29,6 +29,8 @@ interface MenuProps {
   onBackToLanguageSelect: () => void;
   /** Phase G: Settings screen launcher */
   onShowSettings?: () => void;
+  /** Phase 10: Options screen launcher */
+  onShowOptions?: () => void;
   stageRecords?: Record<string, StageRecord>;
 }
 
@@ -120,6 +122,7 @@ export function Menu({
   onShowCharacterSelect,
   onBackToLanguageSelect,
   onShowSettings,
+  onShowOptions,
   stageRecords,
 }: MenuProps) {
   const nativeLanguage = getNativeLanguage();
@@ -232,6 +235,17 @@ export function Menu({
             >
               {streak.icon} {streak.count > 0 ? streak.count : '—'}
             </span>
+            {onShowOptions && (
+              <button
+                className="options-btn"
+                onClick={onShowOptions}
+                aria-label="Options"
+                title="Options"
+                data-testid="menu-options-btn"
+              >
+                🎛️
+              </button>
+            )}
             {onShowSettings && (
               <button
                 className="settings-btn"

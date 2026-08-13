@@ -194,3 +194,25 @@ export interface AIResponse {
   /** 에러 여부 */
   error?: string;
 }
+
+// ===== Options (Phase 10: UX polish) =====
+
+/**
+ * User-options preferences (separate from Settings, which handles runtime
+ * language/audio state per session). Options persist via localStorage.
+ *
+ * Implemented fields (Phase 10):
+ * - displayHighlighting: visual per-character feedback in StageScreen
+ * - sound: BGM/SFX toggle (currently SFX via AudioManager; BGM not yet implemented)
+ * - difficulty: scoring/threshold preference
+ */
+export type DifficultyPreference = 'easy' | 'normal' | 'hard';
+
+export interface Options {
+  /** Per-character visual feedback (default true) */
+  displayHighlighting: boolean;
+  /** Sound on/off (default true) */
+  sound: boolean;
+  /** Difficulty preference (default 'normal') */
+  difficulty: DifficultyPreference;
+}
