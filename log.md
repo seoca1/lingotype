@@ -1,5 +1,53 @@
 # Activity Log - Typing Language
 
+## [2026-08-13] content | Phase 9 — Tier 4-5 corpus expansion
+
+**Scope:** Closed NEXT_SESSION_TODO Tier 4-5 corpus availability blocker. Added 60 new entries across 4 languages (40 Tier 4 + 20 Tier 5).
+
+### Per-language entry counts
+
+| Language | Tier 4 added | Tier 5 added | Total |
+|---|--:|--:|--:|
+| EN | +10 | +5 | +15 |
+| JP | +10 | +5 | +15 |
+| ES | +10 | +5 | +15 |
+| KR | +10 | +5 | +15 |
+| **Total** | **+40** | **+20** | **+60** |
+
+### Theme-file sources used (per `wiki/corpus-pipeline.md` citation convention)
+
+- **EN**: `[[emotions-personality-vocabulary]]`, `[[travel]]`, `[[food-vocabulary]]`, `[[business-vocabulary]]`, `[[literature-vocabulary]]`
+- **JP**: `[[emotions-personality-vocabulary]]`, `[[travel]]`, `[[food-vocabulary]]`, `[[business-vocabulary]]`, `[[literature-vocabulary]]`
+- **ES**: `[[emotions-personality-vocabulary]]`, `[[viajes]]`, `[[food-vocabulary]]`, `[[business-vocabulary]]`, `[[literatura-hispana]]`
+- **KR**: `[[emotions-personality-vocabulary]]`, `[[travel]]`, `[[food-vocabulary]]`, `[[business-vocabulary]]`, `[[literature-vocabulary]]`
+
+### New Tier 4 categories (motivation, travel-detail, cooking, workplace) — 10 entries per language
+
+Distributed across the 4 new categories for topic variety.
+
+### Tier 5 passages — 5 entries per language
+
+Long-form literature excerpts (60+ chars) sourced from `literature-vocabulary` / `literatura-hispana`. Themes: spring rain/life renewal, life as choices, parental love, technology and ethics, cultural understanding.
+
+### Stages enabled (12 new)
+
+- **Tier 4 themed**: `en_m_1` (Motivation), `en_co_1` (Cooking), `jp_m_1`, `jp_co_1`, `es_m_1`, `es_co_1`, `kr_m_1`, `kr_co_1`
+- **Tier 5 themed**: `en_5_2` (Life Reflections), `jp_5_2` (人生の考察), `es_5_2` (Reflexiones de Vida), `kr_5_2` (삶의 통찰)
+
+### Validation results
+
+- `npm run typecheck` → ✅ 0 errors
+- `npm run lint` → ✅ 0 errors
+- `npm test` → ✅ **692 passed, 1 skipped** (baseline 680 + 12 new tests)
+- `python3 audit_vault.py` → ✅ CLEAN (0 production broken, 0 orphans)
+- `python3 mixed_language_audit.py` → ✅ 0 violations
+
+### Commit
+
+- Hash: `c2c1464`
+- Files: `prototype/src/data/corpus.ts` (+205 lines), `prototype/src/data/stages.ts` (+149 lines)
+- Pushed: NO (user handles GH_TOKEN rotation)
+
 ## [2026-08-13] audit(links) | Phase 8 — investigation only (no fixes needed)
 
 **Issue (claimed)**: Per Phase 7 audit commit (`945b58a`), 35 pre-existing production link issues were reported in:
