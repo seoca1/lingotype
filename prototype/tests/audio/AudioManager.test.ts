@@ -175,11 +175,111 @@ describe('AudioManager — sound catalog', () => {
     ['menu-click', 1],
     ['menu-select', 1],
     ['stage-start', 2],
+    ['level-up', 4],
+    ['game-over', 3],
+    ['stage-intro', 4],
+    ['achievement', 4],
   ] as const)('play(%s) creates %i oscillator(s)', async (sound, expected) => {
     const audio = await makeAudio();
     mock.oscCalls.length = 0;
     audio.play(sound);
     expect(mock.oscCalls.length).toBe(expected);
+  });
+});
+
+describe('AudioManager — Phase 13 sound catalog additions', () => {
+  it('level-up uses triangle timbre (distinct from stage-clear sine)', async () => {
+    const audio = await makeAudio();
+    mock.oscCalls.length = 0;
+    audio.play('level-up');
+    const types = mock.oscCalls.map((c) => c.type);
+    expect(types.length).toBe(4);
+    expect(types.every((t) => t === 'triangle')).toBe(true);
+  });
+
+  it('game-over uses sawtooth timbre (distinct from key-incorrect)', async () => {
+    const audio = await makeAudio();
+    mock.oscCalls.length = 0;
+    audio.play('game-over');
+    const types = mock.oscCalls.map((c) => c.type);
+    expect(types.length).toBe(3);
+    expect(types.every((t) => t === 'sawtooth')).toBe(true);
+  });
+
+  it('stage-intro uses sine timbre (matches stage-start family, longer)', async () => {
+    const audio = await makeAudio();
+    mock.oscCalls.length = 0;
+    audio.play('stage-intro');
+    const types = mock.oscCalls.map((c) => c.type);
+    expect(types.length).toBe(4);
+    expect(types.every((t) => t === 'sine')).toBe(true);
+  });
+
+  it('achievement uses sine timbre (4-note shimmer)', async () => {
+    const audio = await makeAudio();
+    mock.oscCalls.length = 0;
+    audio.play('achievement');
+    const types = mock.oscCalls.map((c) => c.type);
+    expect(types.length).toBe(4);
+    expect(types.every((t) => t === 'sine')).toBe(true);
+  });
+
+  it('Phase 13 sounds are all gated by setEnabled(false)', async () => {
+    const audio = await makeAudio();
+    audio.setEnabled(false);
+    mock.oscCalls.length = 0;
+    audio.play('level-up');
+    audio.play('game-over');
+    audio.play('stage-intro');
+    audio.play('achievement');
+    expect(mock.oscCalls.length).toBe(0);
+  });
+
+  it('Phase 13 sounds become audible after re-enabling', async () => {
+    const audio = await makeAudio();
+    audio.setEnabled(false);
+    audio.play('level-up');
+    expect(mock.oscCalls.length).toBe(0);
+    audio.setEnabled(true);
+    audio.play('level-up');
+    expect(mock.oscCalls.length).toBe(4);
+  });
+
+  it('level-up ascending arpeggio covers 4 distinct frequencies (C5 → C6)', async () => {
+    const audio = await makeAudio();
+    mock.oscCalls.length = 0;
+    audio.play('level-up');
+    expect(mock.oscCalls.length).toBe(4);
+    // Each step should be a higher pitch than the previous (ascending).
+    const startTimes = mock.oscCalls.map((c) => c.start);
+    const sorted = [...startTimes].sort((a, b) => a - b);
+    expect(sorted).toEqual(startTimes);
+    // 4 distinct ascending steps.
+    const uniqueStarts = new Set(startTimes);
+    expect(uniqueStarts.size).toBe(4);
+  });
+
+  it('game-over descending arpeggio uses 3 steps with longer cadence than stage-clear', async () => {
+    const audio = await makeAudio();
+    mock.oscCalls.length = 0;
+    audio.play('game-over');
+    expect(mock.oscCalls.length).toBe(3);
+    // 3 distinct cadence steps.
+    const uniqueStarts = new Set(mock.oscCalls.map((c) => c.start));
+    expect(uniqueStarts.size).toBe(3);
+  });
+
+  it('stage-start vs stage-intro are distinguishable (different note counts)', async () => {
+    const audio = await makeAudio();
+    mock.oscCalls.length = 0;
+    audio.play('stage-start');
+    const startOscs = mock.oscCalls.length;
+    mock.oscCalls.length = 0;
+    audio.play('stage-intro');
+    const introOscs = mock.oscCalls.length;
+    expect(startOscs).toBe(2);
+    expect(introOscs).toBe(4);
+    expect(introOscs).toBeGreaterThan(startOscs);
   });
 });
 

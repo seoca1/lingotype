@@ -108,6 +108,8 @@ export function OptionsScreen({ onClose }: OptionsScreenProps) {
                   options.difficulty === d ? 'options-difficulty__btn--active' : ''
                 }`}
                 onClick={() => setDifficulty(d)}
+                aria-label={`Difficulty ${DIFFICULTY_LABELS[d]}${options.difficulty === d ? ' (selected)' : ''}`}
+                aria-pressed={options.difficulty === d}
                 data-testid={`options-difficulty-${d}`}
               >
                 {DIFFICULTY_LABELS[d]}
@@ -165,6 +167,10 @@ export function OptionsScreen({ onClose }: OptionsScreenProps) {
           line-height: 1;
         }
         .options-screen__close:hover { background: rgba(255, 255, 255, 0.2); }
+        .options-screen__close:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
+        }
         .options-screen__body {
           flex: 1;
           padding: 24px;
@@ -203,6 +209,10 @@ export function OptionsScreen({ onClose }: OptionsScreenProps) {
           height: 18px;
           cursor: pointer;
         }
+        .options-toggle input:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
+        }
         .options-difficulty {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -223,6 +233,10 @@ export function OptionsScreen({ onClose }: OptionsScreenProps) {
           transition: all 0.15s;
         }
         .options-difficulty__btn:hover { background: #233040; }
+        .options-difficulty__btn:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
+        }
         .options-difficulty__btn--active {
           background: rgba(0, 217, 255, 0.15);
           border-color: #00d9ff;
@@ -253,6 +267,10 @@ export function OptionsScreen({ onClose }: OptionsScreenProps) {
           font-size: 13px;
         }
         .options-reset:hover { color: #c5d4e3; border-color: #c5d4e3; }
+        .options-reset:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
+        }
       `}</style>
     </div>
   );

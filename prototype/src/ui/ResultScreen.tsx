@@ -24,6 +24,7 @@ import {
 import { lookupWordById } from '../data/wordById.js';
 import { lookupWikiPage } from '../data/wikiLookup.js';
 import { MarkdownView } from './MarkdownView.js';
+import { getAudioManager } from '../audio/AudioManager.js';
 
 interface ResultScreenProps {
   score: number;
@@ -97,6 +98,18 @@ export function ResultScreen({
       }
     }
   }, [stageRecords, clearedStageId]);
+
+  // Phase 13: game-over cue fires when the player reached the results screen
+  // without having cleared the stage. clearedStageId is only populated when
+  // the stage was fully cleared (see App.handleWordComplete). A stage ending
+  // mid-run (e.g. user gave up, ran out of time, or just stopped after
+  // partial progress) lands here with clearedStageId === undefined, which is
+  // the natural game-over moment.
+  useEffect(() => {
+    if (!clearedStageId) {
+      getAudioManager().play('game-over');
+    }
+  }, [clearedStageId]);
 
   // Phase B-4: Weak Words from this session
   const sessionWeakWords = useMemo(() => {

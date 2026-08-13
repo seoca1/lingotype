@@ -139,3 +139,26 @@ describe('OptionsScreen — UI smoke', () => {
     expect(html).toContain('options-sound-toggle');
   });
 });
+
+describe('OptionsScreen — Phase 13 UX polish (accessibility)', () => {
+  it('difficulty buttons expose aria-label announcing selection state', () => {
+    const html = renderToStaticMarkup(<OptionsScreen onClose={() => {}} />);
+    // Normal is selected by default → its label includes "(selected)"
+    expect(html).toContain('aria-label="Difficulty NORMAL (selected)"');
+    // Easy and hard are NOT selected → no "(selected)" suffix on their labels.
+    expect(html).toContain('aria-label="Difficulty EASY"');
+    expect(html).toContain('aria-label="Difficulty HARD"');
+  });
+
+  it('difficulty buttons use aria-pressed to indicate toggle state', () => {
+    const html = renderToStaticMarkup(<OptionsScreen onClose={() => {}} />);
+    // Normal is pressed (true), Easy / Hard are not (false).
+    expect(html).toContain('aria-pressed="true"');
+    expect(html).toContain('aria-pressed="false"');
+  });
+
+  it('close button keeps its existing aria-label for screen readers', () => {
+    const html = renderToStaticMarkup(<OptionsScreen onClose={() => {}} />);
+    expect(html).toContain('aria-label="Close"');
+  });
+});

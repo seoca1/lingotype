@@ -18,7 +18,11 @@ export type SoundType =
   | 'combo-break'      // 콤보 브레이크 (콤보가 0으로 떨어질 때)
   | 'menu-click'       // 메뉴 항목 호버/선택 (낮은 톤, 짧음)
   | 'menu-select'      // 메뉴 항목 확정 (조금 높은 톤)
-  | 'stage-start';     // 스테이지 시작 (짧은 알림음)
+  | 'stage-start'      // 스테이지 시작 (짧은 알림음)
+  | 'level-up'         // Phase 13: 레벨업 / 마일스톤 달성 (상승 장3화음)
+  | 'game-over'        // Phase 13: 게임 오버 (하강 단3화음)
+  | 'stage-intro'      // Phase 13: 튜토리얼/첫 스테이지 인트로 (stage-start보다 더 풍부)
+  | 'achievement';     // Phase 13: 업적 달성 (장7 화음이 상향 글로우)
 
 export class AudioManager {
   private context: AudioContext | null = null;
@@ -123,6 +127,18 @@ export class AudioManager {
         break;
       case 'stage-start':
         this.playStageStart(now);
+        break;
+      case 'level-up':
+        this.playLevelUp(now);
+        break;
+      case 'game-over':
+        this.playGameOver(now);
+        break;
+      case 'stage-intro':
+        this.playStageIntro(now);
+        break;
+      case 'achievement':
+        this.playAchievement(now);
         break;
     }
   }
@@ -372,6 +388,122 @@ export class AudioManager {
 
       osc.start(startTime + i * 0.07);
       osc.stop(startTime + i * 0.07 + 0.18);
+    });
+  }
+
+  /**
+   * Phase 13: 레벨업 / 마일스톤 달성 — 4음 상승 장3 화음 (C-E-G-C)
+   *
+   * stage-clear(승리 팡파레)와 짝을 이루지만 더 길고 더 위로 올라가는
+   * "성장" 느낌. Player가 의미 있는 마일스톤(첫 클리어, 다음 레벨,
+   * 연속 클리어 등)에 도달했을 때 함께 재생한다.
+   */
+  private playLevelUp(startTime: number) {
+    if (!this.context || !this.masterGain) return;
+
+    // C5, E5, G5, C6 — ascending major triad with octave pop
+    const notes = [523.25, 659.25, 783.99, 1046.50];
+    notes.forEach((freq, i) => {
+      const osc = this.context!.createOscillator();
+      const gain = this.context!.createGain();
+
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq, startTime + i * 0.08);
+
+      gain.gain.setValueAtTime(0.22, startTime + i * 0.08);
+      gain.gain.exponentialRampToValueAtTime(0.01, startTime + i * 0.08 + 0.32);
+
+      osc.connect(gain);
+      gain.connect(this.masterGain!);
+
+      osc.start(startTime + i * 0.08);
+      osc.stop(startTime + i * 0.08 + 0.32);
+    });
+  }
+
+  /**
+   * Phase 13: 게임 오버 — 3음 하강 단3 (diminished) 화음
+   *
+   * key-incorrect(짧은 버즈)보다 길고 더 "결말" 느낌. 마감을 못 맞추거나
+   * 모든 미션을 실패로 끝냈을 때 stage-clear 대신 재생한다.
+   */
+  private playGameOver(startTime: number) {
+    if (!this.context || !this.masterGain) return;
+
+    // A4, F4, D4 — descending minor-ish feel
+    const notes = [440.0, 349.23, 293.66];
+    notes.forEach((freq, i) => {
+      const osc = this.context!.createOscillator();
+      const gain = this.context!.createGain();
+
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(freq, startTime + i * 0.18);
+
+      gain.gain.setValueAtTime(0.14, startTime + i * 0.18);
+      gain.gain.exponentialRampToValueAtTime(0.01, startTime + i * 0.18 + 0.35);
+
+      osc.connect(gain);
+      gain.connect(this.masterGain!);
+
+      osc.start(startTime + i * 0.18);
+      osc.stop(startTime + i * 0.18 + 0.35);
+    });
+  }
+
+  /**
+   * Phase 13: 스테이지 인트로 — 튜토리얼/첫 스테이지용 풍부한 4음 아르페지오
+   *
+   * 기존 stage-start(G4, C5 짧은 도-미)와 달리 C5-E5-G5-C6 4음을 0.1초 간격으로
+   * 길게 울려 "첫 등장" 또는 튜토리얼 첫 시작 신호로 사용한다.
+   */
+  private playStageIntro(startTime: number) {
+    if (!this.context || !this.masterGain) return;
+
+    const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+    notes.forEach((freq, i) => {
+      const osc = this.context!.createOscillator();
+      const gain = this.context!.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, startTime + i * 0.1);
+
+      gain.gain.setValueAtTime(0.22, startTime + i * 0.1);
+      gain.gain.exponentialRampToValueAtTime(0.01, startTime + i * 0.1 + 0.28);
+
+      osc.connect(gain);
+      gain.connect(this.masterGain!);
+
+      osc.start(startTime + i * 0.1);
+      osc.stop(startTime + i * 0.1 + 0.28);
+    });
+  }
+
+  /**
+   * Phase 13: 업적 달성 — 장7 화음 (C-E-G-B)
+   *
+   * 4음을 동시에 울리는 shimmering chord로, "방금 무언가 멋진 일이
+   * 일어났다"는 알림음. achievement system이 도입되면 hook 자리.
+   * 현재는 SFX catalog에 노출만 하고 호출자는 보류.
+   */
+  private playAchievement(startTime: number) {
+    if (!this.context || !this.masterGain) return;
+
+    const notes = [523.25, 659.25, 783.99, 987.77]; // C5, E5, G5, B5 (major7)
+    notes.forEach((freq, i) => {
+      const osc = this.context!.createOscillator();
+      const gain = this.context!.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, startTime + i * 0.04);
+
+      gain.gain.setValueAtTime(0.18, startTime + i * 0.04);
+      gain.gain.exponentialRampToValueAtTime(0.01, startTime + i * 0.04 + 0.45);
+
+      osc.connect(gain);
+      gain.connect(this.masterGain!);
+
+      osc.start(startTime + i * 0.04);
+      osc.stop(startTime + i * 0.04 + 0.45);
     });
   }
 

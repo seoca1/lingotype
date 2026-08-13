@@ -522,11 +522,16 @@ export function App() {
     // 튜토리얼 스테이지 시작 (Tier 1 첫 스테이지)
     localStorage.setItem(TUTORIAL_KEY, 'true');
     setShowTutorial(false);
-    
+
     // 해당 언어의 첫 스테이지 찾기
     const firstStage = SAMPLE_STAGES.find((s) => s.language === language);
     if (firstStage) {
       handleStartStage(firstStage);
+      // Phase 13: distinct intro cue for first-ever stage start. Longer, richer
+      // arpeggio than the regular stage-start so the player feels "this is
+      // the beginning of something." actuallyStartStage's own stage-start fires
+      // a beat later when the canvas is ready.
+      getAudioManager().play('stage-intro');
     }
   };
 
@@ -788,6 +793,13 @@ export function App() {
         triggerShake(fx, 12, 250);
 
         applyStageCleared(characterRef.current, performance.now());
+
+        // Phase 13: stage-clear fanfare + level-up milestone cue
+        // level-up fires alongside stage-clear so a full clear feels rewarding
+        // without forcing two stacked chords (level-up's 4-note ascending arpeggio
+        // naturally plays over stage-clear's 4-note pad).
+        audio.play('stage-clear');
+        audio.play('level-up');
       }
     }
   };

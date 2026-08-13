@@ -1,5 +1,71 @@
 # Activity Log - Typing Language
 
+## [2026-08-14] feat(audio+ux) | Phase 13 — More SFX + UX polish
+
+**Scope:** Extend the Phase 12 SFX catalog (10 → 14) and add accessibility polish to the OptionsScreen. All new SFX remain gated by `Options.sound`.
+
+### SFX additions (4 new, total 14)
+
+| Sound | Timbre | Notes | Trigger site |
+|---|---|---|---|
+| `level-up` | triangle | 4-note ascending major triad (C5-E5-G5-C6) | Alongside `stage-clear` on full stage completion in `App.handleWordComplete` |
+| `game-over` | sawtooth | 3-note descending arpeggio (A4-F4-D4) | `ResultScreen` mount when `clearedStageId` is undefined |
+| `stage-intro` | sine | 4-note C5-E5-G5-C6 arpeggio (richer than `stage-start`'s G4-C5) | `App.handleStartTutorialStage` (first-ever stage start) |
+| `achievement` | sine | 4-note major-7 shimmer (C5-E5-G5-B5) | Reserved — no achievement event site exists yet, SFX exposed for future hook |
+
+Each plays into the existing `masterGain` so global mute (`setEnabled(false)`) silences all of them, matching the `key-correct`/`wrong_key`/etc. family.
+
+### UX polish (OptionsScreen.tsx)
+
+1. **Focus indicators**: Added `:focus-visible` rules to close button, sound/display checkboxes, difficulty buttons, and reset button. Color: `#00d9ff` 2px outline with 2px offset — visible against both the dark background and the active-state cyan glow without clashing.
+2. **Difficulty aria-label/aria-pressed**: Each difficulty button announces its selection state via `aria-label="Difficulty NORMAL (selected)"` and toggles `aria-pressed`. Screen readers now read e.g. "Difficulty HARD, not pressed" so the user knows which is active.
+3. The `Close` button keeps its existing `aria-label="Close"` (verified by test).
+
+### Tests added (+16; baseline 722 → 738)
+
+`prototype/tests/audio/AudioManager.test.ts`:
+- 4 new entries in the `it.each` sound catalog matrix (`level-up` → 4, `game-over` → 3, `stage-intro` → 4, `achievement` → 4 oscillators)
+- 8 dedicated tests in a new `AudioManager — Phase 13 sound catalog additions` block:
+  - Timbre sanity (triangle/sawtooth/sine/sine per sound)
+  - `setEnabled(false)` gates all 4 new sounds
+  - Re-enabling restores playback
+  - `level-up` ascending cadence (4 distinct start times)
+  - `game-over` 3 distinct cadence steps
+  - `stage-start` (2 oscillators) vs `stage-intro` (4 oscillators) distinguishable
+
+`prototype/tests/state/optionsStorage.test.tsx`:
+- 3 new tests in a new `OptionsScreen — Phase 13 UX polish (accessibility)` block:
+  - Difficulty buttons expose `aria-label` with selection suffix
+  - `aria-pressed` reflects selection (true for selected, false otherwise)
+  - Close button keeps existing `aria-label`
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **738 passed** + 1 skipped (722 baseline + 16 new) |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. The 1 pre-existing Fiction/wiki link issue (`[[a-insley-lowbeer]]` in `Fiction/wiki/wiki-quality-status.md`) is out of scope. |
+| `python3 mixed_language_audit.py` | ✅ 0 violations |
+
+### Files changed (6, all in `Game/typing_language/`)
+
+| File | +/− | Purpose |
+|---|--:|---|
+| `prototype/src/audio/AudioManager.ts` | +132 / −1 | 4 new `play*` methods + switch case wiring |
+| `prototype/src/App.tsx` | +11 / −1 | Wire `stage-clear` + `level-up` on full clear; `stage-intro` on tutorial first stage |
+| `prototype/src/ui/ResultScreen.tsx` | +11 / −1 | `game-over` on mount when `clearedStageId` undefined |
+| `prototype/src/ui/OptionsScreen.tsx` | +18 / 0 | `:focus-visible` rules + aria-label/aria-pressed on difficulty buttons |
+| `prototype/tests/audio/AudioManager.test.ts` | +99 / 0 | 4 catalog rows + 8 dedicated Phase 13 tests |
+| `prototype/tests/state/optionsStorage.test.tsx` | +23 / 0 | 3 new accessibility tests |
+
+### Commit
+
+- Hash: `6d7bcfb`
+- Files: `+300 / -2` across 6 files
+- Pushed: NO (user handles GH_TOKEN rotation)
+
 ## [2026-08-13] content | Phase 11 — Korean cultural context pages
 
 **Scope:** Closed ROADMAP future-work item `Language/wiki/Korean/culture/ 페이지 (한국 문화 컨텍스트)`. Note: original brief assumed 0 culture pages, but Language wiki already had 43 culture entries from the 2026-08-11 batch. Created 3 NEW pages covering genuine gaps instead of duplicating existing pages.
