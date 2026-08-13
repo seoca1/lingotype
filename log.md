@@ -3711,3 +3711,85 @@ Now dating_match is captured the FIRST time a dating culture page is seen, regar
 - 3 critical bugs in build-daily-lessons.py fixed
 
 **세션 종료 (2026-08-12) — typing_language AI-scope work complete.**
+
+## [2026-08-14] feat(audio) | Phase 12 — Sound effects (combat + menu)
+
+**Commit:** `a8cb0ce`
+
+### Scope
+
+Phase 7 ROADMAP future-work item `사운드 — BGM, SFX (optional)` — implemented
+the SFX half (BGM is a separate decision and out of scope for an optional
+incremental feature). AudioManager already existed with 6 sounds; this phase
+extends the catalog to 10 and wires all of them to live game events.
+
+### Sounds added (4 new — total 10)
+
+| Sound | Type | Use site |
+|---|---|---|
+| `combo-break` | Descending triangle (A3 → A2, 200ms) | App.tsx handleOSChar — fires when combo ≥ 2 is reset by a wrong key |
+| `menu-click` | Short low-volume sine tick (E5, 40ms, 0.08 gain) | Menu.tsx — Back/Options/Settings/Character buttons + Esc key |
+| `menu-select` | Slightly higher sine tick (A5, 70ms, 0.12 gain) | Menu.tsx — Stage card click + Enter/Space on selected card |
+| `stage-start` | Two-note ascending arpeggio (G4 → C5, 140ms) | App.tsx actuallyStartStage — paired with existing stage-clear |
+
+### Existing 6 sounds (untouched, all gated by Options.sound)
+
+`key-correct`, `key-incorrect`, `enemy-defeat`, `stage-clear`, `combo`,
+`perfect` — unchanged. All pass through the same `setEnabled()` gating that
+the new 4 use.
+
+### Wiring decisions
+
+- **combo-break threshold = 2, not 1.** A single mistake on a 1-combo is
+  already covered by `key-incorrect`. Only "established" combos (≥ 2)
+  deserve the distinct "downer" sound, otherwise every stage start would
+  have an unavoidable combo-break on the first typo.
+- **menu-click vs menu-select distinction.** Menu-click is the "I'm just
+  navigating/clicking something" tick (Options/Settings/Character/Back).
+  Menu-select is the "I'm committing an action" tick (Start Stage). Same
+  family of sound (sine ticks), different pitch and duration so the user
+  hears the difference without it being a different SFX category.
+- **stage-start fires after `dispatch({ type: 'START_STAGE' })`** so the
+  audio context already exists by the time the first frame paints.
+
+### Tests (+18)
+
+`prototype/tests/audio/AudioManager.test.ts` — fresh directory. Mocks
+`window.AudioContext` with oscillator/gain stubs that record every node
+created. Covers:
+
+- Instantiation + getter round-trips
+- Volume clamping to [0, 1]
+- Parameterized sound→oscillator-count for all 10 sounds
+- `setEnabled(false)` blocks all playback
+- Re-enable after disable works
+- AudioContext unavailable: graceful disable + no throw
+- Master gain routing invariants (1 master connect, N per-osc gains)
+
+### Validation
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **722 passed** (1 skipped) — 704 baseline + 18 new |
+| `python3 audit_vault.py` | ✅ 0 broken |
+| `python3 mixed_language_audit.py` | ✅ 0 violations |
+
+### Files modified
+
+- `prototype/src/audio/AudioManager.ts` (+89, additive 4 sounds + switch cases)
+- `prototype/src/App.tsx` (+13, stage-start after START_STAGE + combo-break detector)
+- `prototype/src/ui/Menu.tsx` (+10, menu-click on 5 buttons + menu-select on 2 sites)
+- `prototype/tests/audio/AudioManager.test.ts` (new, +270)
+
+### Not done (deferred)
+
+- **BGM.** Out of scope per Phase 7 ROADMAP; if pursued, would need its own
+  ADR and would justify an AudioManager refactor (BGM loops vs one-shot SFX).
+- **Audio context lazy-init.** Current AudioManager creates the context on
+  construction, gated by iOS unlock listeners. Works in browsers; the test
+  suite verifies graceful failure when the constructor runs without
+  AudioContext.
+
+**세션 종료 (2026-08-14) — Phase 12 SFX complete; push pending.**
