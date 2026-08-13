@@ -1,5 +1,56 @@
 # Activity Log - Typing Language
 
+## [2026-08-13] content | Phase 11 — Korean cultural context pages
+
+**Scope:** Closed ROADMAP future-work item `Language/wiki/Korean/culture/ 페이지 (한국 문화 컨텍스트)`. Note: original brief assumed 0 culture pages, but Language wiki already had 43 culture entries from the 2026-08-11 batch. Created 3 NEW pages covering genuine gaps instead of duplicating existing pages.
+
+### Pages created (3)
+
+| File | Words | Theme |
+|---|--:|---|
+| `korean-hanbok-culture.md` | 664 | Korean traditional clothing (한복) — structure, 오방색, modern revival, **direct game character connection** (companion wears 한복 per `CharacterData.ts → CULTURAL_APPEARENCES`) |
+| `korean-proverbs-quotes.md` | 701 | Korean wisdom tradition — 속담 (sokdam) + 사자성어 (4-char idioms) + 한강 (2024 Nobel Literature) + BTS inspirational quotes; fills gap for `category: 'quote'` corpus |
+| `korean-coffee-cafe-culture.md` | 640 | Korean café scene — 1인당 377잔/년, 스타벅스 Korea (1,800 stores), 스터디 카페, 디저트 카페; fills gap for modern `category: 'food'` corpus |
+
+All pages:
+- 200+ words each (averaged 668)
+- Bilingual KO/EN headings (matching existing format)
+- Cross-language connections (Spanish flamenco / Japanese kimono / Chinese hanfu, etc.)
+- Wikilinks to existing Language wiki vocabulary + culture pages
+
+### Index update
+
+`Language/wiki/Korean/index.md`: Culture section header changed from "43 entries; 24 added 2026-08-11" → "46 entries; 24 added 2026-08-11, 3 added 2026-08-13", with 3 new entries listed.
+
+### Pages NOT created (already existed)
+
+- `korean-food-culture` (508 words, 2026-08-10)
+- `korean-family-structure` (475 words, 2026-08-11) + `korean-family-holidays`
+- `korean-religious-holidays` / `korean-seollal-traditions` / `korean-chuseok-traditions` (multiple)
+- `korean-communication-style` (459 words, 2026-08-08) + `korean-confucian-roots` / `korean-workplace-hierarchy`
+- `korean-pop-culture` (500 words, 2026-08-11) + `korean-hallyu-wave`
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ 704 passed + 1 skipped (baseline preserved) |
+| `python3 audit_vault.py` | ✅ CLEAN (0 production broken, 0 orphans) |
+| `python3 mixed_language_audit.py` | ✅ 0 violations |
+
+### Commit
+
+- Hash: `ee47933`
+- Repo: **Language/** (cross-project convention: wiki lives in Language git, not Game/typing_language)
+- Files: `+148 / -1` across 4 files (3 new culture pages + 1 index update)
+- Pushed: NO (user handles GH_TOKEN rotation)
+
+### Cross-project note
+
+Per root `AGENTS.md` §3, wiki content is in `Language/` repo, game content in `Game/typing_language/` repo. This task touched only Language/ (no game source code, no prototype files). The log entry here documents the work for cross-project traceability.
+
 ## [2026-08-13] feat(ui) | Phase 10 — Options menu + UX polish
 
 **Scope:** Closes Phase 7 ROADMAP item 2 ("옵션 메뉴 - 키맵 커스텀, 색맹 모드"). Introduced a dedicated Options screen alongside the existing Settings screen — Options owns user preferences (display / sound / difficulty), Settings owns runtime state (native language, KR input mode, audio controls).
