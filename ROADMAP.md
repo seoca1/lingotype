@@ -257,6 +257,7 @@ Phase 7: 알파 빌드              [🔄 현재 진행]
 2. ✅ 메타 태그/OG 이미지 추가 (완료 — SVG favicon + OG/Twitter Card)
 3. README 업데이트 (라이브 데모 링크)
 4. 사운드 (BGM, SFX) — optional
+5. Phase 7 안정화 후 신규 언어/대형 확장 검토
 
 **프로젝트 현황**:
 - **코드베이스**: 15,000+ LOC
@@ -266,5 +267,5 @@ Phase 7: 알파 빌드              [🔄 현재 진행]
 - **스테이지**: 140
 - **Daily Lessons**: 52 (100% culture coverage)
 - **Corpus**: 4,038 entries (EN 1,054 + JP 502 + ES 1,246 + KR 1,236)
-- **Daily Lessons**: 45
-- **총 코퍼스**: EN 155 / JP 117 / ES 137 / KR 105
+- **Daily Lessons**: 52
+- **총 코퍼스**: EN 1,054 / JP 502 / ES 1,246 / KR 1,236
