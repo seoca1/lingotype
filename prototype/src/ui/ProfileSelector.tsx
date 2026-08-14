@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { UserProfile } from '../types.js';
 
 interface ProfileSelectorProps {
@@ -27,7 +27,7 @@ function ProfileCard({
 
   return (
     <div className="profile-card">
-      <div className="profile-avatar">{profile.avatar || '👤'}</div>
+      <div className="profile-avatar" aria-hidden="true">{profile.avatar || '👤'}</div>
       <h3>{profile.name}</h3>
       <div className="profile-stats">
         <p>레벨 {profile.progress.level}</p>
@@ -35,7 +35,7 @@ function ProfileCard({
         <p>✅ {clearedCount} 스테이지</p>
       </div>
       <div className="profile-actions">
-        <button className="btn-primary" onClick={onSelect}>
+        <button className="btn-primary" onClick={onSelect} aria-label={`Play as ${profile.name}`}>
           플레이
         </button>
         <button
@@ -46,6 +46,7 @@ function ProfileCard({
               onDelete();
             }
           }}
+          aria-label={`Delete profile ${profile.name}`}
         >
           삭제
         </button>
@@ -58,6 +59,28 @@ export function ProfileSelector({ profiles, onSelect, onCreate, onDelete }: Prof
   const [showCreate, setShowCreate] = useState(false);
   const [newName, setNewName] = useState('');
   const [selectedAvatar, setSelectedAvatar] = useState(AVATAR_OPTIONS[0]);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
+  const cancelButtonRef = useRef<HTMLButtonElement | null>(null);
+
+  // Phase 21: focus management for the create modal — focus cancel on open,
+  // restore previous focus on close, Escape dismisses.
+  useEffect(() => {
+    if (!showCreate) return;
+    previouslyFocusedRef.current = document.activeElement as HTMLElement | null;
+    cancelButtonRef.current?.focus();
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.stopPropagation();
+        setShowCreate(false);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      previouslyFocusedRef.current?.focus?.();
+    };
+  }, [showCreate]);
 
   const handleCreate = () => {
     if (newName.trim().length === 0) {
@@ -76,7 +99,7 @@ export function ProfileSelector({ profiles, onSelect, onCreate, onDelete }: Prof
         <p>프로필을 선택하거나 새로 만드세요</p>
       </header>
 
-      <div className="profile-grid">
+      <div className="profile-grid" role="list" aria-label="Existing profiles">
         {profiles.map((profile) => (
           <ProfileCard
             key={profile.id}
@@ -87,51 +110,81 @@ export function ProfileSelector({ profiles, onSelect, onCreate, onDelete }: Prof
         ))}
 
         {!showCreate && (
-          <div className="profile-card profile-card-add" onClick={() => setShowCreate(true)}>
-            <div className="profile-avatar">➕</div>
+          <button
+            type="button"
+            className="profile-card profile-card-add"
+            onClick={() => setShowCreate(true)}
+            aria-label="Create new profile"
+          >
+            <div className="profile-avatar" aria-hidden="true">➕</div>
             <h3>새 프로필</h3>
             <p>클릭하여 생성</p>
-          </div>
+          </button>
         )}
       </div>
 
       {showCreate && (
-        <div className="profile-create-modal">
-          <div className="modal-content">
+        <div className="profile-create-modal" onClick={() => setShowCreate(false)}>
+          <div
+            className="modal-content"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Create new profile"
+            onClick={(e) => e.stopPropagation()}
+          >
             <h2>새 프로필 만들기</h2>
 
             <div className="form-group">
-              <label>이름</label>
+              <label htmlFor="profile-name-input">이름</label>
               <input
+                id="profile-name-input"
                 type="text"
                 value={newName}
                 onChange={(e) => setNewName(e.target.value)}
                 placeholder="닉네임 입력"
                 maxLength={20}
-                autoFocus
               />
             </div>
 
             <div className="form-group">
-              <label>아바타</label>
-              <div className="avatar-grid">
+              <label id="avatar-group-label">아바타</label>
+              <div
+                className="avatar-grid"
+                role="radiogroup"
+                aria-labelledby="avatar-group-label"
+              >
                 {AVATAR_OPTIONS.map((avatar) => (
                   <button
                     key={avatar}
+                    type="button"
                     className={`avatar-option ${avatar === selectedAvatar ? 'selected' : ''}`}
                     onClick={() => setSelectedAvatar(avatar)}
+                    role="radio"
+                    aria-checked={avatar === selectedAvatar}
+                    aria-label={`Avatar ${avatar}`}
                   >
-                    {avatar}
+                    <span aria-hidden="true">{avatar}</span>
                   </button>
                 ))}
               </div>
             </div>
 
             <div className="modal-actions">
-              <button className="btn-secondary" onClick={() => setShowCreate(false)}>
+              <button
+                ref={cancelButtonRef}
+                type="button"
+                className="btn-secondary"
+                onClick={() => setShowCreate(false)}
+                aria-label="Cancel and close dialog (Escape)"
+              >
                 취소
               </button>
-              <button className="btn-primary" onClick={handleCreate}>
+              <button
+                type="button"
+                className="btn-primary"
+                onClick={handleCreate}
+                aria-label="Create profile"
+              >
                 생성
               </button>
             </div>

@@ -106,12 +106,27 @@ export function CharacterSelect({ language, dispatch }: CharacterSelectProps) {
       <h1>Choose Your Character</h1>
       <p className="language-label">Language: {language.toUpperCase()}</p>
 
-      <div className="character-grid">
+      <div
+        className="character-grid"
+        role="radiogroup"
+        aria-label="Choose your character"
+      >
         {characters.map((char, index) => (
           <div
             key={char.id}
+            role="radio"
+            aria-checked={index === selectedIndex}
+            aria-label={`${char.name}, ${char.style} style. Press ${index + 1} to select, Enter to confirm.`}
+            tabIndex={index === selectedIndex ? 0 : -1}
             className={`character-card ${index === selectedIndex ? 'selected' : ''}`}
             onClick={() => handleCharacterClick(index)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleCharacterClick(index);
+                handleConfirm();
+              }
+            }}
           >
             <div className="character-image-container">
               <img
@@ -124,18 +139,18 @@ export function CharacterSelect({ language, dispatch }: CharacterSelectProps) {
                 }}
               />
               {!imagesLoaded && (
-                <div className="character-loading">Loading...</div>
+                <div className="character-loading" aria-live="polite">Loading...</div>
               )}
             </div>
             <h2>{char.name}</h2>
             <p className="character-description">{char.description}</p>
             <p className="character-style">Style: {char.style}</p>
-            <div className="key-hint">Press {index + 1}</div>
+            <div className="key-hint" aria-hidden="true">Press {index + 1}</div>
           </div>
         ))}
       </div>
 
-      <div className="controls">
+      <div className="controls" aria-label="Keyboard shortcuts">
         <p>
           <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> Select character
         </p>
@@ -150,7 +165,11 @@ export function CharacterSelect({ language, dispatch }: CharacterSelectProps) {
         </p>
       </div>
 
-      <button onClick={handleConfirm} className="confirm-button">
+      <button
+        onClick={handleConfirm}
+        className="confirm-button"
+        aria-label={`Confirm selection of ${characters[selectedIndex].name}`}
+      >
         Select {characters[selectedIndex].name}
       </button>
     </div>

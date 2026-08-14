@@ -147,8 +147,13 @@ export function ResultScreen({
 
       {/* Phase I: Newly Unlocked Stages Banner */}
       {newlyUnlocked.length > 0 && (
-        <div className="result-unlock-banner">
-          <div className="result-unlock-banner__icon">🔓</div>
+        <div
+          className="result-unlock-banner"
+          role="status"
+          aria-live="polite"
+          aria-label={`${newlyUnlocked.length} new stage${newlyUnlocked.length > 1 ? 's' : ''} unlocked`}
+        >
+          <div className="result-unlock-banner__icon" aria-hidden="true">�</div>
           <div className="result-unlock-banner__text">
             <strong>+{newlyUnlocked.length} new stage{newlyUnlocked.length > 1 ? 's' : ''} unlocked!</strong>
             <div className="result-unlock-banner__list">
@@ -165,8 +170,17 @@ export function ResultScreen({
 
       {/* Phase J: Daily Streak Celebration */}
       {streakInfo && (
-        <div className={`result-streak-banner ${streakInfo.newMilestone ? 'result-streak-banner--milestone' : ''}`}>
-          <div className="result-streak-banner__icon">
+        <div
+          className={`result-streak-banner ${streakInfo.newMilestone ? 'result-streak-banner--milestone' : ''}`}
+          role="status"
+          aria-live="polite"
+          aria-label={
+            streakInfo.newMilestone
+              ? `New streak milestone: ${streakInfo.newMilestone.label}`
+              : `Current streak: ${streakInfo.state.currentStreak} days`
+          }
+        >
+          <div className="result-streak-banner__icon" aria-hidden="true">
             {streakInfo.newMilestone?.icon ||
               (streakInfo.state.currentStreak >= 7 ? '🔥' : '📅')}
           </div>
@@ -226,10 +240,11 @@ export function ResultScreen({
                   key={id}
                   className="weak-word-chip"
                   onClick={() => word && setSelectedWeakWord({ id, display, input, meaning, source: word.source, language: lang })}
+                  aria-label={`View details for ${display}, ${stats?.mistakeCount ?? 0} mistakes`}
                 >
                   <span className="weak-word-display">{display}</span>
                   <span className="weak-word-meaning">{meaning}</span>
-                  <span className="weak-word-mistakes">
+                  <span className="weak-word-mistakes" aria-hidden="true">
                     {stats?.mistakeCount ?? 0}{' '}
                     {(() => {
                       const nl = getNativeLanguage();

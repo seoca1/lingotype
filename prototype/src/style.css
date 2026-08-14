@@ -2220,3 +2220,16 @@ button:hover {
   outline-offset: 3px;
   border-color: var(--theme-color, #6366f1);
 }
+
+/* Phase 21: focus-visible for CharacterSelect radio cards + ProfileSelector
+   add-profile card. Phase 14/19/20 covered modal + landing buttons; Phase 21
+   covers the remaining divs-as-buttons that need keyboard visibility. */
+.character-card:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: 3px;
+}
+
+.profile-card-add:focus-visible {
+  outline: 2px solid var(--good);
+  outline-offset: 3px;
+}
