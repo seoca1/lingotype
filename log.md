@@ -4120,4 +4120,8 @@ The wiki already had 70+ theme files (`basic-vocabulary.md`, `numbers-vocabulary
 
 **No push** — user handles GH_TOKEN rotation.
 
+### Commit
+
+- `Game/typing_language`: `2134433` — `feat(lang): Phase 18 — Chinese language scaffold`
+
 **7개 언어 안정 단계 진입 — Phase 18 Chinese language scaffold complete.**
