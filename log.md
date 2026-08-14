@@ -1,5 +1,61 @@
 # Activity Log - Typing Language
 
+## [2026-08-14] chore(a11y) | Phase 19 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on Phase 18 (Chinese) and Phase 14/17 polish rounds. No new languages, no corpus expansion, no audio changes. Targets gaps where Chinese support was incomplete and the existing options/stage screens were silent for screen-reader/visual feedback.
+
+### Improvements (3 small, focused)
+
+| # | Area | Change |
+|---|---|---|
+| 1 | `OSKeyboardInput.getLangCode` | Added BCP 47 cases for `fr`/`de` (existed as language codes but fell through to `'en'`) and `zh` → `'zh-CN'` (Simplified Chinese pinyin IME). Previously Chinese users on mobile got an English keyboard because `zh` had no switch branch. |
+| 2 | `StageScreen` audio + back button a11y | Volume slider now uses `id="stage-volume-slider"` + label `htmlFor` binding (was a label-less lone range input). Added `aria-valuetext` for screen readers, `class="stage-back-btn"` for CSS targeting, and `:focus-visible` 2px cyan outlines on the audio toggle, volume slider, and Back button via `style.css`. |
+| 3 | `OptionsScreen` reset feedback | New transient `↺ Reset to defaults` toast (`role="status"` + `aria-live="polite"`, `data-testid="options-reset-indicator"`) appears for 2s when the user clicks "↺ Reset to defaults". Mirrors the Phase 14 saved-indicator pattern so the silent reset now has visible confirmation. |
+
+### Tests added (+11; baseline 926 → 937)
+
+New `tests/ui/phase19-a11y.test.tsx`:
+
+1. `OSKeyboardInput`'s `zh` language emits `lang="zh-CN"` for the hidden input
+2. All 7 supported languages map to a valid BCP 47 tag (en/jp/kr/es/fr/de/zh)
+3. Unknown language gracefully falls back to English
+4. `StageScreen` back button keeps the `(Escape)` suffix
+5. `StageScreen` `stage-back-btn` class wired for CSS focus-visible targeting
+6. Audio toggle always renders, with `(Mute|Enable) sound effects` label
+7. Audio toggle exposes `aria-pressed`
+8. `StageScreen` source binds volume slider `id` to its `htmlFor` label
+9. `OptionsScreen` renders without throwing (new reset timer ref wired safely)
+10. `OptionsScreen` does NOT show reset indicator on first render (zero state)
+11. `style.css` ships focus-visible rules for all 3 new selectors
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **937 passed** + 1 skipped (926 baseline + 11 new) |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 4 broken wikilinks (`[[recurring-themes-synthesis]]` + `[[connections/jackpot-universe-stub]]`) are in `Fiction/wiki/log.md`, out of scope per AGENTS.md §3. |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Files changed (5, all in `Game/typing_language/prototype/`)
+
+| File | +/− | Purpose |
+|---|--:|---|
+| `src/ui/OSKeyboardInput.tsx` | +7 / −0 | BCP 47 mapping for `fr`/`de`/`zh` (was `en` fallback) |
+| `src/ui/StageScreen.tsx` | +18 / −10 | Volume slider label-id pairing + aria-valuetext + `stage-back-btn` class |
+| `src/ui/OptionsScreen.tsx` | +42 / −1 | `resetAt` state + 2s auto-clear timer + indicator banner + `--reset` CSS variant |
+| `src/style.css` | +14 / −0 | Focus-visible rules for 3 StageScreen selectors |
+| `tests/ui/phase19-a11y.test.tsx` | new file, +155 | 11 new Phase 19 tests |
+
+### Out-of-scope (preserved)
+
+- No new languages (already have 7)
+- No raw/ edits (read-only per AGENTS.md §2)
+- No Accepted ADRs touched
+- No BGM/SFX additions
+- No other projects (Fiction/, Game/roguelike_sprawl/, Language/) touched
+
 ## [2026-08-14] feat(lang) | Phase 15 — French language scaffold
 
 **Scope:** Add full French (`fr`) language support — InputHandler with accent + ASCII fallback + `œ` ligature, LanguageConfig registration, FR_WORDS/FR_SENTENCES corpus (theme-stem cited from `Language/wiki/French/`), 6 French stages (Tier 1-3), Menu/LanguageSelection entries, and tests.

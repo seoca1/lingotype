@@ -2189,3 +2189,17 @@ button:hover {
   text-align: center;
   line-height: 1.5;
 }
+
+/* Phase 19: focus-visible indicators for StageScreen audio + back controls.
+   Mirrors OptionsScreen / SettingsScreen patterns: 2px cyan outline with
+   2px offset — visible against the dark stage-info aside. */
+.stage-info .toggle-btn:focus-visible,
+.stage-info input[type="range"]:focus-visible,
+.stage-back-btn:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: 2px;
+}
+
+.stage-back-btn:focus-visible {
+  outline-offset: 3px;
+}

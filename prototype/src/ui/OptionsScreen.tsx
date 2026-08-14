@@ -37,6 +37,10 @@ export function OptionsScreen({ onClose }: OptionsScreenProps) {
   // flag here so save state and UI feedback stay in sync.
   const [saveError, setSaveError] = useState<string | null>(null);
   const [lastSavedAt, setLastSavedAt] = useState<number | null>(null);
+  // Phase 19: surface a transient "reset" toast so users know the silent
+  // resetToDefaults() call actually ran. Auto-clears after 2s (matches the
+  // saved-indicator pattern so feedback stays predictable).
+  const [resetAt, setResetAt] = useState<number | null>(null);
 
   useEffect(() => {
     try {
@@ -49,6 +53,25 @@ export function OptionsScreen({ onClose }: OptionsScreenProps) {
     getAudioManager().setEnabled(options.sound);
   }, [options]);
 
+  // Phase 19: auto-clear the reset indicator after 2s so it doesn't linger.
+  // Uses a ref-backed timer so multiple rapid resets collapse correctly.
+  const resetTimerRef = useRef<number | null>(null);
+  useEffect(() => {
+    if (resetAt === null) return;
+    if (resetTimerRef.current !== null) {
+      window.clearTimeout(resetTimerRef.current);
+    }
+    resetTimerRef.current = window.setTimeout(() => {
+      setResetAt(null);
+      resetTimerRef.current = null;
+    }, 2000);
+    return () => {
+      if (resetTimerRef.current !== null) {
+        window.clearTimeout(resetTimerRef.current);
+      }
+    };
+  }, [resetAt]);
+
   const toggleDisplay = () =>
     setOptions((o) => ({ ...o, displayHighlighting: !o.displayHighlighting }));
 
@@ -57,7 +80,10 @@ export function OptionsScreen({ onClose }: OptionsScreenProps) {
   const setDifficulty = (d: DifficultyPreference) =>
     setOptions((o) => ({ ...o, difficulty: d }));
 
-  const resetToDefaults = () => setOptions({ ...DEFAULT_OPTIONS });
+  const resetToDefaults = () => {
+    setOptions({ ...DEFAULT_OPTIONS });
+    setResetAt(Date.now());
+  };
 
   // Phase 14: focus management
   //   - Trap Tab focus inside the modal while it's open so keyboard users
@@ -143,6 +169,16 @@ export function OptionsScreen({ onClose }: OptionsScreenProps) {
             data-testid="options-saved-indicator"
           >
             ✓ Settings auto-saved
+          </div>
+        )}
+        {resetAt !== null && (
+          <div
+            className="options-saved options-saved--reset"
+            role="status"
+            aria-live="polite"
+            data-testid="options-reset-indicator"
+          >
+            ↺ Reset to defaults
           </div>
         )}
         <section className="options-section">
@@ -385,6 +421,11 @@ export function OptionsScreen({ onClose }: OptionsScreenProps) {
           border-radius: 8px;
           margin-bottom: 12px;
           font-size: 12px;
+        }
+        .options-saved--reset {
+          background: rgba(255, 170, 85, 0.08);
+          border-color: rgba(255, 170, 85, 0.4);
+          color: #ffd9b3;
         }
         .options-screen__footer {
           padding: 12px 24px 20px;

@@ -69,6 +69,13 @@ function getLangCode(lang: Language): string {
       return 'ko';
     case 'es':
       return 'es';
+    case 'fr':
+      return 'fr';
+    case 'de':
+      return 'de';
+    case 'zh':
+      // Phase 19: 'zh-CN' = Simplified Chinese (pinyin IME); 'zh-TW' = Bopomo.
+      return 'zh-CN';
     case 'en':
     default:
       return 'en';

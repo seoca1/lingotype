@@ -203,22 +203,28 @@ export function StageScreen({
           </div>
           {soundEnabled && (
             <div className="volume-slider">
-              <label>
+              <label htmlFor="stage-volume-slider">
                 Volume: {Math.round(volume * 100)}%
-                <input
-                  type="range"
-                  min="0"
-                  max="1"
-                  step="0.1"
-                  value={volume}
-                  onChange={handleVolumeChange}
-                  aria-label="Sound effects volume"
-                />
               </label>
+              <input
+                id="stage-volume-slider"
+                type="range"
+                min="0"
+                max="1"
+                step="0.1"
+                value={volume}
+                onChange={handleVolumeChange}
+                aria-label="Sound effects volume"
+                aria-valuetext={`${Math.round(volume * 100)} percent`}
+              />
             </div>
           )}
         </div>
-        <button onClick={onBackToMenu} aria-label="Back to menu (Escape)">
+        <button
+          onClick={onBackToMenu}
+          aria-label="Back to menu (Escape)"
+          className="stage-back-btn"
+        >
           Back to Menu (Esc)
         </button>
       </aside>
