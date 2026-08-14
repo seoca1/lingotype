@@ -3010,6 +3010,123 @@ export const FR_SENTENCES: WordEntry[] = [
   { id: 'frs_202', display: 'Je voudrais réserver une chambre pour deux nuits.', meanings: { en: 'I would like to book a room for two nights.' }, meaningLang: 'en', level: 4, category: 'travel', source: 'travel-vocabulary' },
 ];
 
+// ===== ZH (Chinese) Words — Phase 18 seed =====
+// 출처: Language/wiki/Chinese/vocabulary/*.md (theme-stem 인용: basic-vocabulary, numbers-vocabulary, etc.)
+// 표기: display=한자, romaji=pinyin (tone marks or ASCII tone numbers — handler accepts both).
+
+export const ZH_WORDS: WordEntry[] = [
+  // Tier 1 (Level 1) — 인사 / 기본
+  { id: 'zh_001', display: '你好', romaji: 'nǐ hǎo', meanings: { en: 'hello', ko: '안녕' }, meaningLang: 'ko', level: 1, category: 'greeting', source: 'basic-vocabulary' },
+  { id: 'zh_002', display: '您好', romaji: 'nín hǎo', meanings: { en: 'hello (formal)', ko: '안녕하세요 (격식)' }, meaningLang: 'ko', level: 1, category: 'greeting', source: 'polite-expressions' },
+  { id: 'zh_003', display: '再见', romaji: 'zàijiàn', meanings: { en: 'goodbye', ko: '안녕' }, meaningLang: 'ko', level: 1, category: 'greeting', source: 'basic-vocabulary' },
+  { id: 'zh_004', display: '谢谢', romaji: 'xièxie', meanings: { en: 'thanks', ko: '고마워' }, meaningLang: 'ko', level: 1, category: 'expression', source: 'polite-expressions' },
+  { id: 'zh_005', display: '不客气', romaji: 'bú kèqi', meanings: { en: 'you\'re welcome', ko: '천만에요' }, meaningLang: 'ko', level: 1, category: 'expression', source: 'polite-expressions' },
+  { id: 'zh_006', display: '对不起', romaji: 'duìbùqǐ', meanings: { en: 'sorry', ko: '미안해요' }, meaningLang: 'ko', level: 1, category: 'expression', source: 'polite-expressions' },
+  { id: 'zh_007', display: '没关系', romaji: 'méiguānxi', meanings: { en: 'no problem', ko: '괜찮아요' }, meaningLang: 'ko', level: 1, category: 'expression', source: 'polite-expressions' },
+  { id: 'zh_008', display: '请', romaji: 'qǐng', meanings: { en: 'please', ko: '부탁합니다' }, meaningLang: 'ko', level: 1, category: 'expression', source: 'polite-expressions' },
+  { id: 'zh_009', display: '是', romaji: 'shì', meanings: { en: 'yes / to be', ko: '네/~이다' }, meaningLang: 'ko', level: 1, category: 'basic', source: 'basic-vocabulary' },
+  { id: 'zh_010', display: '不是', romaji: 'búshì', meanings: { en: 'no / not to be', ko: '아니오/~가 아니다' }, meaningLang: 'ko', level: 1, category: 'basic', source: 'basic-vocabulary' },
+
+  // Tier 1 — 숫자
+  { id: 'zh_021', display: '一', romaji: 'yī', meanings: { en: 'one', ko: '하나' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+  { id: 'zh_022', display: '二', romaji: 'èr', meanings: { en: 'two', ko: '둘' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+  { id: 'zh_023', display: '三', romaji: 'sān', meanings: { en: 'three', ko: '셋' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+  { id: 'zh_024', display: '四', romaji: 'sì', meanings: { en: 'four', ko: '넷' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+  { id: 'zh_025', display: '五', romaji: 'wǔ', meanings: { en: 'five', ko: '다섯' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+  { id: 'zh_026', display: '六', romaji: 'liù', meanings: { en: 'six', ko: '여섯' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+  { id: 'zh_027', display: '七', romaji: 'qī', meanings: { en: 'seven', ko: '일곱' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+  { id: 'zh_028', display: '八', romaji: 'bā', meanings: { en: 'eight', ko: '여덟' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+  { id: 'zh_029', display: '九', romaji: 'jiǔ', meanings: { en: 'nine', ko: '아홉' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+  { id: 'zh_030', display: '十', romaji: 'shí', meanings: { en: 'ten', ko: '열' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+
+  // Tier 1 — 색깔
+  { id: 'zh_041', display: '红色', romaji: 'hóngsè', meanings: { en: 'red', ko: '빨강' }, meaningLang: 'ko', level: 1, category: 'color', source: 'colors-vocabulary' },
+  { id: 'zh_042', display: '蓝色', romaji: 'lánsè', meanings: { en: 'blue', ko: '파랑' }, meaningLang: 'ko', level: 1, category: 'color', source: 'colors-vocabulary' },
+  { id: 'zh_043', display: '绿色', romaji: 'lǜsè', meanings: { en: 'green', ko: '초록' }, meaningLang: 'ko', level: 1, category: 'color', source: 'colors-vocabulary' },
+  { id: 'zh_044', display: '黄色', romaji: 'huángsè', meanings: { en: 'yellow', ko: '노랑' }, meaningLang: 'ko', level: 1, category: 'color', source: 'colors-vocabulary' },
+  { id: 'zh_045', display: '白色', romaji: 'báisè', meanings: { en: 'white', ko: '하양' }, meaningLang: 'ko', level: 1, category: 'color', source: 'colors-vocabulary' },
+  { id: 'zh_046', display: '黑色', romaji: 'hēisè', meanings: { en: 'black', ko: '검정' }, meaningLang: 'ko', level: 1, category: 'color', source: 'colors-vocabulary' },
+
+  // Tier 1 — 가족
+  { id: 'zh_061', display: '爸爸', romaji: 'bàba', meanings: { en: 'father', ko: '아빠' }, meaningLang: 'ko', level: 1, category: 'family', source: 'family-vocabulary' },
+  { id: 'zh_062', display: '妈妈', romaji: 'māma', meanings: { en: 'mother', ko: '엄마' }, meaningLang: 'ko', level: 1, category: 'family', source: 'family-vocabulary' },
+  { id: 'zh_063', display: '哥哥', romaji: 'gēge', meanings: { en: 'older brother', ko: '오빠/형' }, meaningLang: 'ko', level: 1, category: 'family', source: 'family-vocabulary' },
+  { id: 'zh_064', display: '姐姐', romaji: 'jiějie', meanings: { en: 'older sister', ko: '언니/누나' }, meaningLang: 'ko', level: 1, category: 'family', source: 'family-vocabulary' },
+  { id: 'zh_065', display: '弟弟', romaji: 'dìdi', meanings: { en: 'younger brother', ko: '남동생' }, meaningLang: 'ko', level: 1, category: 'family', source: 'family-vocabulary' },
+  { id: 'zh_066', display: '妹妹', romaji: 'mèimei', meanings: { en: 'younger sister', ko: '여동생' }, meaningLang: 'ko', level: 1, category: 'family', source: 'family-vocabulary' },
+  { id: 'zh_067', display: '朋友', romaji: 'péngyou', meanings: { en: 'friend', ko: '친구' }, meaningLang: 'ko', level: 1, category: 'family', source: 'family-vocabulary' },
+
+  // Tier 1 — 일상 사물 / 음식
+  { id: 'zh_081', display: '水', romaji: 'shuǐ', meanings: { en: 'water', ko: '물' }, meaningLang: 'ko', level: 1, category: 'food', source: 'food-vocabulary' },
+  { id: 'zh_082', display: '茶', romaji: 'chá', meanings: { en: 'tea', ko: '차' }, meaningLang: 'ko', level: 1, category: 'food', source: 'food-vocabulary' },
+  { id: 'zh_083', display: '米饭', romaji: 'mǐfàn', meanings: { en: 'rice', ko: '밥' }, meaningLang: 'ko', level: 1, category: 'food', source: 'food-vocabulary' },
+  { id: 'zh_084', display: '面条', romaji: 'miàntiáo', meanings: { en: 'noodles', ko: '국수' }, meaningLang: 'ko', level: 1, category: 'food', source: 'food-vocabulary' },
+  { id: 'zh_085', display: '苹果', romaji: 'píngguǒ', meanings: { en: 'apple', ko: '사과' }, meaningLang: 'ko', level: 1, category: 'food', source: 'food-vocabulary' },
+  { id: 'zh_086', display: '茶馆', romaji: 'cháguǎn', meanings: { en: 'tea house', ko: '찻집' }, meaningLang: 'ko', level: 1, category: 'place', source: 'food-vocabulary' },
+
+  // Tier 1 — 시간
+  { id: 'zh_101', display: '今天', romaji: 'jīntiān', meanings: { en: 'today', ko: '오늘' }, meaningLang: 'ko', level: 1, category: 'time', source: 'time-vocabulary' },
+  { id: 'zh_102', display: '明天', romaji: 'míngtiān', meanings: { en: 'tomorrow', ko: '내일' }, meaningLang: 'ko', level: 1, category: 'time', source: 'time-vocabulary' },
+  { id: 'zh_103', display: '昨天', romaji: 'zuótiān', meanings: { en: 'yesterday', ko: '어제' }, meaningLang: 'ko', level: 1, category: 'time', source: 'time-vocabulary' },
+  { id: 'zh_104', display: '现在', romaji: 'xiànzài', meanings: { en: 'now', ko: '지금' }, meaningLang: 'ko', level: 1, category: 'time', source: 'time-vocabulary' },
+  { id: 'zh_105', display: '早上', romaji: 'zǎoshang', meanings: { en: 'morning', ko: '아침' }, meaningLang: 'ko', level: 1, category: 'time', source: 'time-vocabulary' },
+  { id: 'zh_106', display: '晚上', romaji: 'wǎnshang', meanings: { en: 'evening', ko: '저녁' }, meaningLang: 'ko', level: 1, category: 'time', source: 'time-vocabulary' },
+
+  // Tier 2 — 여행
+  { id: 'zh_201', display: '飞机', romaji: 'fēijī', meanings: { en: 'airplane', ko: '비행기' }, meaningLang: 'ko', level: 1, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'zh_202', display: '机场', romaji: 'jīchǎng', meanings: { en: 'airport', ko: '공항' }, meaningLang: 'ko', level: 1, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'zh_203', display: '护照', romaji: 'hùzhào', meanings: { en: 'passport', ko: '여권' }, meaningLang: 'ko', level: 1, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'zh_204', display: '酒店', romaji: 'jiǔdiàn', meanings: { en: 'hotel', ko: '호텔' }, meaningLang: 'ko', level: 1, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'zh_205', display: '出租车', romaji: 'chūzūchē', meanings: { en: 'taxi', ko: '택시' }, meaningLang: 'ko', level: 1, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'zh_206', display: '地铁', romaji: 'dìtiě', meanings: { en: 'subway', ko: '지하철' }, meaningLang: 'ko', level: 1, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'zh_207', display: '火车站', romaji: 'huǒchēzhàn', meanings: { en: 'train station', ko: '기차역' }, meaningLang: 'ko', level: 1, category: 'travel', source: 'travel-vocabulary' },
+
+  // Tier 2 — 비즈니스
+  { id: 'zh_301', display: '邮件', romaji: 'yóujiàn', meanings: { en: 'email', ko: '이메일' }, meaningLang: 'ko', level: 2, category: 'business', source: 'business-vocabulary' },
+  { id: 'zh_302', display: '会议', romaji: 'huìyì', meanings: { en: 'meeting', ko: '회의' }, meaningLang: 'ko', level: 2, category: 'business', source: 'business-vocabulary' },
+  { id: 'zh_303', display: '办公室', romaji: 'bàngōngshì', meanings: { en: 'office', ko: '사무실' }, meaningLang: 'ko', level: 2, category: 'business', source: 'business-vocabulary' },
+  { id: 'zh_304', display: '工作', romaji: 'gōngzuò', meanings: { en: 'work', ko: '일/작업' }, meaningLang: 'ko', level: 2, category: 'business', source: 'business-vocabulary' },
+  { id: 'zh_305', display: '公司', romaji: 'gōngsī', meanings: { en: 'company', ko: '회사' }, meaningLang: 'ko', level: 2, category: 'business', source: 'business-vocabulary' },
+
+  // Tier 2 — 일상 (verbs)
+  { id: 'zh_401', display: '吃', romaji: 'chī', meanings: { en: 'to eat', ko: '먹다' }, meaningLang: 'ko', level: 1, category: 'verb', source: 'basic-vocabulary' },
+  { id: 'zh_402', display: '喝', romaji: 'hē', meanings: { en: 'to drink', ko: '마시다' }, meaningLang: 'ko', level: 1, category: 'verb', source: 'basic-vocabulary' },
+  { id: 'zh_403', display: '去', romaji: 'qù', meanings: { en: 'to go', ko: '가다' }, meaningLang: 'ko', level: 1, category: 'verb', source: 'basic-vocabulary' },
+  { id: 'zh_404', display: '来', romaji: 'lái', meanings: { en: 'to come', ko: '오다' }, meaningLang: 'ko', level: 1, category: 'verb', source: 'basic-vocabulary' },
+  { id: 'zh_405', display: '看', romaji: 'kàn', meanings: { en: 'to see / to watch', ko: '보다' }, meaningLang: 'ko', level: 1, category: 'verb', source: 'basic-vocabulary' },
+  { id: 'zh_406', display: '学习', romaji: 'xuéxí', meanings: { en: 'to study', ko: '배우다' }, meaningLang: 'ko', level: 1, category: 'verb', source: 'basic-vocabulary' },
+  { id: 'zh_407', display: '工作', romaji: 'gōngzuò', meanings: { en: 'to work', ko: '일하다' }, meaningLang: 'ko', level: 1, category: 'verb', source: 'basic-vocabulary' },
+  { id: 'zh_408', display: '睡觉', romaji: 'shuìjiào', meanings: { en: 'to sleep', ko: '자다' }, meaningLang: 'ko', level: 1, category: 'verb', source: 'basic-vocabulary' },
+
+  // Tier 2 — 추가 어휘
+  { id: 'zh_501', display: '中国', romaji: 'zhōngguó', meanings: { en: 'China', ko: '중국' }, meaningLang: 'ko', level: 1, category: 'place', source: 'basic-vocabulary' },
+  { id: 'zh_502', display: '北京', romaji: 'běijīng', meanings: { en: 'Beijing', ko: '베이징' }, meaningLang: 'ko', level: 1, category: 'place', source: 'basic-vocabulary' },
+  { id: 'zh_503', display: '上海', romaji: 'shànghǎi', meanings: { en: 'Shanghai', ko: '상하이' }, meaningLang: 'ko', level: 1, category: 'place', source: 'basic-vocabulary' },
+  { id: 'zh_504', display: '老师', romaji: 'lǎoshī', meanings: { en: 'teacher', ko: '선생님' }, meaningLang: 'ko', level: 2, category: 'family', source: 'basic-vocabulary' },
+  { id: 'zh_505', display: '学生', romaji: 'xuésheng', meanings: { en: 'student', ko: '학생' }, meaningLang: 'ko', level: 2, category: 'family', source: 'basic-vocabulary' },
+  { id: 'zh_506', display: '书', romaji: 'shū', meanings: { en: 'book', ko: '책' }, meaningLang: 'ko', level: 1, category: 'object', source: 'basic-vocabulary' },
+  { id: 'zh_507', display: '猫', romaji: 'māo', meanings: { en: 'cat', ko: '고양이' }, meaningLang: 'ko', level: 1, category: 'animal', source: 'basic-vocabulary' },
+  { id: 'zh_508', display: '狗', romaji: 'gǒu', meanings: { en: 'dog', ko: '개' }, meaningLang: 'ko', level: 1, category: 'animal', source: 'basic-vocabulary' },
+];
+
+export const ZH_SENTENCES: WordEntry[] = [
+  // Tier 3: Short sentences (greeting + basic)
+  { id: 'zhs_001', display: '你好, 你叫什么名字?', romaji: 'nǐ hǎo, nǐ jiào shénme míngzi?', meanings: { en: 'Hello, what is your name?' }, meaningLang: 'en', level: 3, category: 'greeting', source: 'basic-vocabulary' },
+  { id: 'zhs_002', display: '很高兴认识你', romaji: 'hěn gāoxìng rènshí nǐ', meanings: { en: 'Nice to meet you.' }, meaningLang: 'en', level: 3, category: 'greeting', source: 'polite-expressions' },
+  { id: 'zhs_003', display: '你是中国人吗?', romaji: 'nǐ shì zhōngguó rén ma?', meanings: { en: 'Are you Chinese?' }, meaningLang: 'en', level: 3, category: 'question', source: 'basic-vocabulary' },
+  { id: 'zhs_004', display: '我不知道', romaji: 'wǒ bù zhīdào', meanings: { en: 'I don\'t know.' }, meaningLang: 'en', level: 3, category: 'expression', source: 'daily-life-vocabulary' },
+
+  // Tier 3: Daily-life sentences
+  { id: 'zhs_101', display: '我现在在工作', romaji: 'wǒ xiànzài zài gōngzuò', meanings: { en: 'I am working now.' }, meaningLang: 'en', level: 3, category: 'daily', source: 'basic-vocabulary' },
+  { id: 'zhs_102', display: '我今天很忙', romaji: 'wǒ jīntiān hěn máng', meanings: { en: 'I am busy today.' }, meaningLang: 'en', level: 3, category: 'daily', source: 'time-vocabulary' },
+  { id: 'zhs_103', display: '我们一起去吃饭吧', romaji: 'wǒmen yīqǐ qù chīfàn ba', meanings: { en: 'Let\'s go eat together.' }, meaningLang: 'en', level: 3, category: 'food', source: 'food-vocabulary' },
+
+  // Tier 4: Travel sentences
+  { id: 'zhs_201', display: '请问机场在哪里?', romaji: 'qǐngwèn jīchǎng zài nǎlǐ?', meanings: { en: 'Excuse me, where is the airport?' }, meaningLang: 'en', level: 4, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'zhs_202', display: '我要去北京出差', romaji: 'wǒ yào qù běijīng chūchāi', meanings: { en: 'I am going to Beijing on a business trip.' }, meaningLang: 'en', level: 4, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'zhs_203', display: '我明天去上海', romaji: 'wǒ míngtiān qù shànghǎi', meanings: { en: 'I am going to Shanghai tomorrow.' }, meaningLang: 'en', level: 4, category: 'travel', source: 'travel-vocabulary' },
+];
+
 export const CORPUS = {
   en: EN_WORDS,
   jp: JP_WORDS,
@@ -3017,6 +3134,7 @@ export const CORPUS = {
   kr: KR_WORDS,
   fr: FR_WORDS,
   de: DE_WORDS,
+  zh: ZH_WORDS,
 } as const;
 
 export const SENTENCES = {
@@ -3026,6 +3144,7 @@ export const SENTENCES = {
   kr: KR_SENTENCES,
   fr: FR_SENTENCES,
   de: DE_SENTENCES,
+  zh: ZH_SENTENCES,
 } as const;
 
 // JP character corpuses (Tier 0)

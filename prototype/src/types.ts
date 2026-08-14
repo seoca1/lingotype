@@ -22,6 +22,7 @@ export const LANGUAGE_LABEL: Record<string, string> = {
   kr: '한국어',
   fr: 'Français',
   de: 'Deutsch',
+  zh: '中文',
 };
 
 export interface Target {

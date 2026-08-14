@@ -4076,3 +4076,48 @@ Both repos: **no push** — user will handle GH_TOKEN rotation.
 **No push** — user handles GH_TOKEN rotation.
 
 **세션 종료 (2026-08-14) — Phase 17 final polish complete; 6 languages stable, 871 tests passing.**
+
+## [2026-08-14] feat(lang) | Phase 18 — Chinese language scaffold
+
+**Scope:** Add full Chinese (`zh`) language support — InputHandler with pinyin→Hanzi mapping (tone-mark + ASCII tone-number modes), permissive letters-only canonicalization, LanguageConfig registration, ZH_WORDS (64) + ZH_SENTENCES (10) corpus (theme-stem cited from `Language/wiki/Chinese/`), 6 Chinese stages (Tier 1-3), Menu entry, and tests.
+
+### New files
+
+- `prototype/src/input/ChineseHandler.ts` — pinyin → Hanzi with two input modes (`tone`: tone-mark pinyin `nǐ hǎo`; `ascii`: tone-number pinyin `ni3hao3`). Permissive canonicalization strips both tone-marks and tone-digits, so users can mix notation. Handles `zh/ch/sh` and `ü/v`. Spaces optional (Chinese has none).
+- `prototype/src/language/languages/chinese.ts` — `CHINESE_CONFIG` (code `zh`, nativeName in config, theme `#DE2910`, PRC red).
+- `prototype/tests/input/ChineseHandler.test.ts` — 30 tests covering tone-marks, ASCII tone-numbers, cross-mode matching, special initials (zh/ch/sh), `ü/v` aliases, optional spaces, hint/expected char, accuracy tracking.
+- `prototype/tests/language/chinese.test.ts` — 17 tests covering registration, citation integrity (theme-stem), pinyin field coverage, special-initials coverage, tone-mark coverage.
+
+### Modified files
+
+- `prototype/src/data/corpus.ts` — added `ZH_WORDS` (64 entries: greetings, numbers, colors, family, food, time, travel, business, verbs, places, animals, polite expressions) and `ZH_SENTENCES` (10 entries, Tier 3-4). Extended `CORPUS` and `SENTENCES` maps with `zh` key.
+- `prototype/src/data/stages.ts` — added `ZH_STAGES` array (6 stages: `zh_1_1` basic, `zh_1_2` greetings+family, `zh_1_3` daily objects, `zh_2_1` daily verbs, `zh_2_2` travel essentials, `zh_3_1` short phrases). Tier 3 uses `requiresCorpus: 'sentences'` gate.
+- `prototype/src/language/index.ts` — registered `CHINESE_CONFIG` after German.
+- `prototype/src/types.ts` — added `zh: '中文'` to `LANGUAGE_LABEL` (display-only).
+- `prototype/src/ui/Menu.tsx` — added `🇨🇳` flag and `zh: { native: 'Chinese', en: '중국어' }` to `languageNames` (no Hanzi in code, per workspace AGENTS.md §7).
+
+### Chinese wiki (Language/)
+
+The wiki already had 70+ theme files (`basic-vocabulary.md`, `numbers-vocabulary.md`, `food-and-dining.md`, etc.), so no seed was required. All ZH corpus entries cite existing theme-stems via `source` field per AGENTS.md §1.5.
+
+### Validation
+
+| Check | Result |
+|-------|--------|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **926 passed** (1 skipped) — 871 baseline + 55 new |
+| `npm run build` | ✅ bundle built (1242 KB / 349 KB gzip) |
+| `python3 audit_vault.py` | ⚠️ 2 pre-existing (log.md broken wikilinks unrelated to Phase 18) |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Stats
+
+- 64 ZH words + 10 ZH sentences
+- 6 Chinese stages enabled (Tier 1-3, with `zh_3_1` gated on `requiresCorpus: 'sentences'`)
+- 55 new tests (30 ChineseHandler + 17 chinese config + corpus registration tests)
+- Test totals: 871 → **926** (+55)
+
+**No push** — user handles GH_TOKEN rotation.
+
+**7개 언어 안정 단계 진입 — Phase 18 Chinese language scaffold complete.**

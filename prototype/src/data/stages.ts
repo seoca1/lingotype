@@ -2259,6 +2259,81 @@ const DE_STAGES: StageSpec[] = [
   },
 ];
 
+const ZH_STAGES: StageSpec[] = [
+  // Tier 1 — basic vocabulary (greeting, numbers, colors, family)
+  {
+    id: 'zh_1_1',
+    language: 'zh',
+    tier: 1,
+    name: 'First Characters',
+    description: '기본 한자 (인사·숫자·색)',
+    difficulty: 1,
+    wordCount: 10,
+    corpusFilter: { minLevel: 1, maxLevel: 1, categories: ['greeting', 'basic', 'number', 'color'] },
+    missions: defaultMissionsForTier(1),
+  },
+  {
+    id: 'zh_1_2',
+    language: 'zh',
+    tier: 1,
+    name: 'Greetings & Family',
+    description: '인사·정중 표현·가족',
+    difficulty: 1,
+    wordCount: 12,
+    corpusFilter: { minLevel: 1, maxLevel: 1, categories: ['greeting', 'expression', 'family'] },
+    missions: defaultMissionsForTier(1),
+  },
+  {
+    id: 'zh_1_3',
+    language: 'zh',
+    tier: 1,
+    name: 'Daily Objects',
+    description: '일상 사물·시간 표현',
+    difficulty: 1,
+    wordCount: 10,
+    corpusFilter: { minLevel: 1, maxLevel: 1, categories: ['food', 'time', 'object', 'animal', 'place'] },
+    missions: defaultMissionsForTier(1),
+  },
+
+  // Tier 2 — extended vocabulary (verbs, food, travel, business)
+  {
+    id: 'zh_2_1',
+    language: 'zh',
+    tier: 2,
+    name: 'Daily Verbs',
+    description: '일상 동사 (먹다·가다·오다·보다·일하다·자다)',
+    difficulty: 2,
+    wordCount: 10,
+    corpusFilter: { minLevel: 1, maxLevel: 2, categories: ['verb'] },
+    missions: defaultMissionsForTier(2),
+  },
+  {
+    id: 'zh_2_2',
+    language: 'zh',
+    tier: 2,
+    name: 'Travel Essentials',
+    description: '여행 필수 어휘 (공항·호텔·교통수단)',
+    difficulty: 2,
+    wordCount: 12,
+    corpusFilter: { minLevel: 1, maxLevel: 2, categories: ['travel', 'food'] },
+    missions: defaultMissionsForTier(2),
+  },
+
+  // Tier 3 — short sentences
+  {
+    id: 'zh_3_1',
+    language: 'zh',
+    tier: 3,
+    name: 'Short Phrases',
+    description: '짧은 문장 (인사·기본·일상·여행)',
+    difficulty: 3,
+    wordCount: 8,
+    corpusFilter: { minLevel: 3, maxLevel: 3 },
+    requiresCorpus: 'sentences',
+    missions: defaultMissionsForTier(3),
+  },
+];
+
 const ALL_STAGE_SPECS: StageSpec[] = [
   ...EN_STAGES,
   ...JP_STAGES,
@@ -2266,6 +2341,7 @@ const ALL_STAGE_SPECS: StageSpec[] = [
   ...KR_STAGES,
   ...FR_STAGES,
   ...DE_STAGES,
+  ...ZH_STAGES,
 ];
 
 /**
