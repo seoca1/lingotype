@@ -153,7 +153,7 @@ export function ResultScreen({
           aria-live="polite"
           aria-label={`${newlyUnlocked.length} new stage${newlyUnlocked.length > 1 ? 's' : ''} unlocked`}
         >
-          <div className="result-unlock-banner__icon" aria-hidden="true">�</div>
+          <div className="result-unlock-banner__icon" aria-hidden="true">🎉</div>
           <div className="result-unlock-banner__text">
             <strong>+{newlyUnlocked.length} new stage{newlyUnlocked.length > 1 ? 's' : ''} unlocked!</strong>
             <div className="result-unlock-banner__list">
@@ -276,8 +276,15 @@ export function ResultScreen({
           const result = results.find((r) => r.missionId === m.id);
           const cleared = result?.cleared ?? false;
           return (
-            <div key={m.id} className={`mission-result ${cleared ? 'cleared' : 'failed'}`}>
-              <strong>{cleared ? '✓' : '✗'} {m.name}</strong>
+            <div
+              key={m.id}
+              className={`mission-result ${cleared ? 'cleared' : 'failed'}`}
+              role="status"
+              aria-label={`${m.name}: ${cleared ? 'cleared' : 'failed'}`}
+            >
+              <strong>
+                <span aria-hidden="true">{cleared ? '✓' : '✗'}</span> {m.name}
+              </strong>
               <p>{m.description}</p>
             </div>
           );
@@ -302,9 +309,24 @@ export function ResultScreen({
         />
       )}
 
-      <button onClick={onBack} aria-label="Back to menu">
-        Back to Menu
+      <button onClick={onBack} aria-label="Back to menu (Escape)">
+        Back to Menu (Esc)
       </button>
+
+      <p
+        className="result-kbd-hint"
+        aria-label="Keyboard shortcuts"
+        style={{
+          color: '#6a7888',
+          fontSize: '11px',
+          marginTop: '8px',
+          textAlign: 'center',
+        }}
+      >
+        <small>
+          <kbd>Esc</kbd> return to menu
+        </small>
+      </p>
 
       <style>{`
         .result-mastery {
