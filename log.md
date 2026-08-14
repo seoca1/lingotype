@@ -1,5 +1,80 @@
 # Activity Log - Typing Language
 
+## [2026-08-15] chore(a11y) | Phase 25 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24. Closes gaps where the keyboard mismatch warnings (shown before stage starts and on-the-fly during gameplay) were silent modals, the on-screen virtual keyboard buttons were unlabeled glyphs for SR users, and the hover tooltip over an enemy lacked dialog semantics.
+
+### Improvements (3 small, focused)
+
+| # | Area | Change |
+|---|---|---|
+| 1 | `KoreanKeyboardWarning` + `NonKoreanKeyboardWarning` dialog semantics | Both blocking keyboard-mismatch modals now expose `role="dialog"` + `aria-modal="true"` + `aria-labelledby` pointing at the modal title. The mismatch alert (English-keyboard-detected on a KR stage, or Korean-input on a non-KR stage) now uses `role="alert"` with a descriptive English `aria-label` so SR users hear the warning immediately on mount. The dismiss button auto-focuses on open, prior focus restores on close (matching the Phase 17 `WeakWordModal` + Phase 14 `OptionsScreen` pattern), and Tab is trapped between the dismiss/continue buttons so keyboard users can't escape the blocking modal. Dismiss button now carries the `(Escape)` suffix and continue button carries `(Enter)`, both mirroring the Phase 24 `ResultScreen` pattern. |
+| 2 | `VirtualKeyboard` accessible key labels | The on-screen virtual keyboard wrapper now exposes `role="group"` + `aria-label="Virtual keyboard"`. Every key button now carries `aria-label="key <glyph>"` (e.g. `"key k"`, `"key ㅎ"`, `"key ñ"`) so SR users hear the key name rather than just the visible character. The expected next key announces `aria-pressed="true"` and appends `, expected next` to its label. The shift toggle uses `aria-pressed` to mirror shift state, and Space / Backspace / Enter controls get descriptive aria-labels. |
+| 3 | `EnemyTooltip` dialog semantics + (Escape) suffix | The hover tooltip (z-index 1000 overlay) over an in-game enemy now exposes `role="dialog"` + `aria-label="<word> details"` so SR users get a labelled container for meaning + pronunciation + category. The close button's aria-label now carries the `(Escape)` suffix, matching the Phase 24 `ResultScreen` pattern. Decorative meta chips (📁 category, 📊 level) are now `aria-hidden` so SR users don't get a redundant "📁 greeting" reading on top of the dialog label. |
+
+### Tests added (+16; baseline 999 → 1015)
+
+New `tests/ui/phase25-a11y.test.tsx`:
+
+**KoreanKeyboardWarning** (4 tests):
+1. `overlay is a dialog with aria-modal + aria-labelledby`
+2. `dismiss button exposes (Escape) suffix in aria-label`
+3. `continue button exposes (Enter) suffix in aria-label`
+4. `keyboard header icon is aria-hidden so SR users hear only the title`
+
+**NonKoreanKeyboardWarning** (4 tests):
+5. `overlay is a dialog with aria-modal + aria-labelledby`
+6. `mismatch alert uses role="alert" with descriptive aria-label`
+7. `dismiss button exposes (Escape) suffix`
+8. `continue button exposes (Enter) suffix`
+
+**VirtualKeyboard** (5 tests):
+9. `keyboard wrapper exposes role="group" + aria-label`
+10. `each key carries an aria-label starting with "key "` (spot-check QWERTY a/s/d/z)
+11. `expected key announces aria-pressed + ", expected next" suffix`
+12. `non-expected keys do NOT carry aria-pressed`
+13. `control buttons expose descriptive aria-labels (Space / Backspace / Enter / Shift)`
+
+**EnemyTooltip** (3 tests):
+14. `tooltip is a dialog labelled with the word details`
+15. `close button exposes (Escape) suffix in its aria-label`
+16. `decorative meta chips are aria-hidden so SR users do not hear "folder greeting"`
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **1015 passed** + 1 skipped (999 baseline + 16 new) |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. The 2 pre-existing false-positive hits documented in Phase 20–24 logs persist (backtick-escaped inline text referencing a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Files changed (5, all in `Game/typing_language/prototype/`)
+
+| File | +/− | Purpose |
+|---|--:|---|
+| `src/ui/KoreanKeyboardWarning.tsx` | +40 / −4 | `role="dialog"` + `aria-modal` + `aria-labelledby` + `role="alert"` on alert + Tab focus trap + focus restoration + auto-focus dismiss button + `(Escape)`/`(Enter)` aria-labels on action buttons + `aria-hidden` on decorative icon |
+| `src/ui/NonKoreanKeyboardWarning.tsx` | +33 / −1 | Same pattern as KoreanKeyboardWarning (dialog + alert + focus trap + restoration + `(Escape)`/`(Enter)` aria-labels) |
+| `src/ui/VirtualKeyboard.tsx` | +23 / −0 | `role="group"` + `aria-label` on wrapper; `aria-label="key <glyph>"` + `aria-pressed` on every key; descriptive aria-labels on Space/Backspace/Enter/Shift controls |
+| `src/ui/EnemyTooltip.tsx` | +7 / −0 | `role="dialog"` + `aria-label` + `(Escape)` suffix on close button + `aria-hidden` on decorative meta chips |
+| `tests/ui/phase25-a11y.test.tsx` | new file, +250 | 16 new Phase 25 tests |
+
+### Out-of-scope (preserved)
+
+- No new languages (already have 7)
+- No raw/ edits (read-only per AGENTS.md §2)
+- No Accepted ADRs touched
+- No BGM/SFX additions
+- No other projects (Fiction/, Game/roguelike_sprawl/, Language/) touched
+- No push (user handles GH_TOKEN rotation)
+
+### Commit
+
+- Hash: `95bd5b6`
+- Files: `+489 / −30` across 5 files (4 modified, 1 new)
+- Pushed: NO (user handles GH_TOKEN rotation)
+
 ## [2026-08-15] chore(a11y) | Phase 23 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22. Closes the remaining gaps where the in-game canvas (the primary "display" of the current target), the per-vocab detail modal, and the Menu keyboard navigation were silent for screen readers.

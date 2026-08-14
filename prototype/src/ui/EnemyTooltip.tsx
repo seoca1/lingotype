@@ -55,16 +55,23 @@ export function EnemyTooltip({
     onTtsPlay(text, ttsLang);
   };
 
+  // Phase 25: Close-button label gets the (Escape) suffix so the keyboard
+  // shortcut is discoverable from the dialog's only persistent action.
+  const closeLabel = `${t('close', nativeLanguage)} (Escape)`;
+
   return (
     <div
       className="enemy-tooltip"
       style={{ left: tooltipX, top: tooltipY }}
       onMouseEnter={(e) => e.stopPropagation()}
+      role="dialog"
+      aria-modal="false"
+      aria-label={`${target.text} details`}
     >
       <button
         className="enemy-tooltip__close"
         onClick={onClose}
-        aria-label={t('close', nativeLanguage)}
+        aria-label={closeLabel}
       >
         ✕
       </button>
@@ -104,10 +111,10 @@ export function EnemyTooltip({
 
       <div className="enemy-tooltip__meta">
         {target.category && (
-          <span className="enemy-tooltip__cat">📁 {target.category}</span>
+          <span className="enemy-tooltip__cat" aria-hidden="true">📁 {target.category}</span>
         )}
         {target.level !== undefined && (
-          <span className="enemy-tooltip__level">
+          <span className="enemy-tooltip__level" aria-hidden="true">
             📊 {t('level', nativeLanguage)} {target.level}
           </span>
         )}

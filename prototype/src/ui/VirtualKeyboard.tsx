@@ -64,8 +64,15 @@ export function VirtualKeyboard({ language, onKeyPress, expectedChar }: VirtualK
 
   const isKorean = language === 'kr';
 
+  // Phase 25: helper to build an accessible key label so SR users hear
+  // "key K" rather than just "K", and the expected key announces itself.
+  const keyAriaLabel = (displayKey: string, isExpected: boolean): string => {
+    const base = `key ${displayKey}`;
+    return isExpected ? `${base}, expected next` : base;
+  };
+
   return (
-    <div className="virtual-keyboard">
+    <div className="virtual-keyboard" role="group" aria-label="Virtual keyboard">
       {layout.map((row, rowIndex) => (
         <div key={rowIndex} className={`keyboard-row ${isKorean && rowIndex === 2 ? 'keyboard-row-kr-vowels' : ''}`}>
           {row.map((key) => {
@@ -77,6 +84,8 @@ export function VirtualKeyboard({ language, onKeyPress, expectedChar }: VirtualK
                 key={key}
                 className={`key ${isExpected ? 'key-expected' : ''} ${isKorean ? 'key-kr' : ''}`}
                 onClick={() => handleKeyClick(key)}
+                aria-label={keyAriaLabel(displayKey, !!isExpected)}
+                aria-pressed={isExpected ? 'true' : undefined}
               >
                 {displayKey}
               </button>
@@ -86,17 +95,22 @@ export function VirtualKeyboard({ language, onKeyPress, expectedChar }: VirtualK
       ))}
       <div className="keyboard-row keyboard-controls">
         {!isKorean && (
-          <button className="key key-shift" onClick={() => setShift(!shift)}>
+          <button
+            className="key key-shift"
+            onClick={() => setShift(!shift)}
+            aria-label={shift ? 'Shift, on' : 'Shift, off'}
+            aria-pressed={shift}
+          >
             {shift ? '⬆' : '⇧'}
           </button>
         )}
-        <button className="key key-space" onClick={handleSpace}>
+        <button className="key key-space" onClick={handleSpace} aria-label="Space">
           Space
         </button>
-        <button className="key key-backspace" onClick={handleBackspace}>
+        <button className="key key-backspace" onClick={handleBackspace} aria-label="Backspace">
           ⌫
         </button>
-        <button className="key key-enter" onClick={handleEnter}>
+        <button className="key key-enter" onClick={handleEnter} aria-label="Enter">
           Enter
         </button>
       </div>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { KOREAN_KEYBOARD_LAYOUT } from '../utils/keyboardLayout.js';
 
 interface KoreanKeyboardWarningProps {
@@ -9,6 +9,12 @@ interface KoreanKeyboardWarningProps {
 export function KoreanKeyboardWarning({ onDismiss, onContinue }: KoreanKeyboardWarningProps) {
   const [detectedEnglish, setDetectedEnglish] = useState(false);
   const [typedKeys, setTypedKeys] = useState<string[]>([]);
+  // Phase 25: focus management — auto-focus the dismiss button on mount,
+  // restore prior focus on unmount. Mirrors the WeakWordModal (Phase 17)
+  // and OptionsScreen (Phase 14) dialog pattern.
+  const dismissButtonRef = useRef<HTMLButtonElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
@@ -24,6 +30,16 @@ export function KoreanKeyboardWarning({ onDismiss, onContinue }: KoreanKeyboardW
   }, [onContinue]);
 
   useEffect(() => {
+    if (typeof document === 'undefined') return;
+    // Phase 25: remember the previously focused element so we can restore it
+    // when this blocking modal closes.
+    previouslyFocusedRef.current = document.activeElement as HTMLElement | null;
+    // Phase 25: land focus on the dismiss button — gives keyboard users an
+    // obvious starting point and matches the WeakWordModal / OptionsScreen
+    // dialog pattern. SR users hear the modal label first, then the focused
+    // button label.
+    dismissButtonRef.current?.focus();
+
     const handler = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         e.stopPropagation();
@@ -38,11 +54,30 @@ export function KoreanKeyboardWarning({ onDismiss, onContinue }: KoreanKeyboardW
         });
       } else if (e.key === 'Enter' || e.key === ' ') {
         onContinue();
+      } else if (e.key === 'Tab' && containerRef.current) {
+        // Phase 25: Tab focus trap — keep Tab cycling between the dismiss and
+        // continue buttons so keyboard users can't escape the blocking modal.
+        const focusable = containerRef.current.querySelectorAll<HTMLElement>(
+          'button:not([disabled])'
+        );
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
       }
     };
 
     document.addEventListener('keydown', handler, true);
-    return () => document.removeEventListener('keydown', handler, true);
+    return () => {
+      document.removeEventListener('keydown', handler, true);
+      previouslyFocusedRef.current?.focus?.();
+    };
   }, [handleKeyDown, onDismiss, onContinue]);
 
   useEffect(() => {
@@ -52,15 +87,24 @@ export function KoreanKeyboardWarning({ onDismiss, onContinue }: KoreanKeyboardW
   }, [typedKeys]);
 
   return (
-    <div className="keyboard-warning-overlay">
-      <div className="keyboard-warning-modal">
+    <div
+      className="keyboard-warning-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="kr-keyboard-warning-title"
+    >
+      <div className="keyboard-warning-modal" ref={containerRef}>
         <div className="keyboard-warning-header">
-          <span className="warning-icon">⌨️</span>
-          <h2>한국어 키보드 필요</h2>
+          <span className="warning-icon" aria-hidden="true">⌨️</span>
+          <h2 id="kr-keyboard-warning-title">한국어 키보드 필요</h2>
         </div>
 
         {detectedEnglish && (
-          <div className="keyboard-warning-alert">
+          <div
+            className="keyboard-warning-alert"
+            role="alert"
+            aria-label="English keyboard detected, please switch to Korean keyboard"
+          >
             ⚠️ 영어 키보드로 감지됨. 한글 키보드로 전환하세요.
           </div>
         )}
@@ -70,7 +114,7 @@ export function KoreanKeyboardWarning({ onDismiss, onContinue }: KoreanKeyboardW
           한글 2벌식 키보드에서 자모를 직접 입력하세요.
         </p>
 
-        <div className="keyboard-layout-preview">
+        <div className="keyboard-layout-preview" aria-hidden="true">
           <h3>한글 키보드 자판</h3>
           <div className="keyboard-row">
             {KOREAN_KEYBOARD_LAYOUT.row1.map(k => (
@@ -98,7 +142,7 @@ export function KoreanKeyboardWarning({ onDismiss, onContinue }: KoreanKeyboardW
           </div>
         </div>
 
-        <div className="keyboard-warning-example">
+        <div className="keyboard-warning-example" aria-hidden="true">
           <h3>예시</h3>
           <div className="example-row">
             <span className="example-expected">한</span>
@@ -108,10 +152,19 @@ export function KoreanKeyboardWarning({ onDismiss, onContinue }: KoreanKeyboardW
         </div>
 
         <div className="keyboard-warning-actions">
-          <button onClick={onDismiss} className="warning-btn warning-btn-secondary">
+          <button
+            ref={dismissButtonRef}
+            onClick={onDismiss}
+            className="warning-btn warning-btn-secondary"
+            aria-label="Back to menu (Escape)"
+          >
             메뉴로 돌아가기 (Esc)
           </button>
-          <button onClick={onContinue} className="warning-btn warning-btn-primary">
+          <button
+            onClick={onContinue}
+            className="warning-btn warning-btn-primary"
+            aria-label="Continue to stage (Enter)"
+          >
             계속 진행 (Enter)
           </button>
         </div>
