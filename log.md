@@ -1,5 +1,89 @@
 # Activity Log - Typing Language
 
+## [2026-08-15] chore(a11y) | Phase 21 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20. Closes gaps where the result-screen celebrations and the pre-game character/profile pickers were silent for screen readers and unreachable for keyboard-only users.
+
+### Improvements (3 small, focused)
+
+| # | Area | Change |
+|---|---|---|
+| 1 | `ResultScreen` banner + chip a11y | `result-unlock-banner` and `result-streak-banner` now expose `role="status"` + `aria-live="polite"` + descriptive `aria-label` (e.g. "3 new stages unlocked", "Current streak: 5 days"). Previously these celebration banners were visual-only — SR users missed the unlock + streak events entirely. Weak-word chips also got `aria-label="View details for X, N mistakes"` (mirroring the existing emoji + text content but announced cleanly). |
+| 2 | `ProfileSelector` dialog + a11y | Add-profile card was a `div` with no keyboard access — converted to `<button type="button">` with `aria-label="Create new profile"`. The profile grid is now `role="list" aria-label="Existing profiles"`. The create modal is a proper dialog: `role="dialog"` + `aria-modal="true"` + `aria-label="Create new profile"`, with `htmlFor`/`id` binding on the name input and `role="radiogroup"`/`role="radio"` on the avatar grid. Phase 21 focus management: cancel button auto-focuses on mount, prior focus restores on close, Escape dismisses. |
+| 3 | `CharacterSelect` radio a11y | Character cards were `div`s without `role`/`tabIndex` — converted to `role="radio"` with `aria-checked` + roving `tabIndex` (selected = 0, others = -1) + Enter/Space keyboard activation. The grid is now `role="radiogroup" aria-label="Choose your character"`. Each card carries a descriptive `aria-label="<Name>, <Style> style. Press N to select, Enter to confirm."` and the confirm button + controls block also got `aria-label`s. New `:focus-visible` rules in `style.css` for both `.character-card` and `.profile-card-add` complete the keyboard visibility story. |
+
+### Tests added (+23; baseline 946 → 969)
+
+New `tests/ui/phase21-a11y.test.tsx`:
+
+**ResultScreen** (5 tests):
+1. `unlock banner exposes role="status" + aria-live="polite"`
+2. `unlock banner exposes an aria-label summarizing the count`
+3. `streak banner exposes role="status" + aria-live="polite"`
+4. `streak banner exposes an aria-label summarizing the streak state`
+5. `weak-word chip button exposes a descriptive aria-label`
+
+**ProfileSelector** (5 tests):
+6. `renders the add-profile card as a <button>, not a <div>`
+7. `add-profile card exposes an aria-label so SR users hear "Create new profile"`
+8. `modal container exposes role="dialog" + aria-modal="true" + aria-label`
+9. `name input is bound via id + htmlFor (label association)`
+10. `avatar options are exposed as role=radio with aria-checked`
+
+**ProfileSelector profile-card buttons** (2 tests):
+11. `play button on a profile card uses an aria-label that names the profile`
+12. `delete button on a profile card uses an aria-label that names the profile`
+
+**CharacterSelect** (6 tests):
+13. `character-grid is a radiogroup with an aria-label`
+14. `each character card is role=radio with aria-checked` (count = 3)
+15. `the selected card has aria-checked="true" and others aria-checked="false"`
+16. `each character card exposes a descriptive aria-label`
+17. `confirm button exposes an aria-label naming the chosen character`
+18. `controls block has an aria-label so SR users hear "Keyboard shortcuts"`
+
+**style.css coverage** (5 tests):
+19. `:focus-visible` rule for `.character-card`
+20. `:focus-visible` rule for `.profile-card-add`
+21. Phase 21 block has a phase-anchor comment (matches Phase 14/17/19/20 convention)
+22. **Regression guard**: Phase 20 Menu + LanguageSelection focus-visible rules preserved
+23. **Regression guard**: Phase 19 StageScreen focus-visible rules preserved
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **969 passed** + 1 skipped (946 baseline + 23 new) |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 1 broken wikilink (`Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md → [[count_zero]]`) is out of scope per AGENTS.md §3 — also documented in Phase 20 log. |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Files changed (5, all in `Game/typing_language/prototype/`)
+
+| File | +/− | Purpose |
+|---|--:|---|
+| `src/ui/ResultScreen.tsx` | +21 / −5 | `role="status"` + `aria-live` + `aria-label` on both banners + `aria-label` on weak-word chips |
+| `src/ui/ProfileSelector.tsx` | +47 / −5 | Add-profile `<button>` + dialog `role/aria-modal/aria-label` + htmlFor/id + role=radio + focus management |
+| `src/ui/CharacterSelect.tsx` | +27 / −2 | `role="radiogroup"/"radio"` + `aria-checked` + `tabIndex` + keyboard activation + `aria-label`s |
+| `src/style.css` | +11 / −0 | `:focus-visible` rules for `.character-card` + `.profile-card-add` |
+| `tests/ui/phase21-a11y.test.tsx` | new file, +295 | 23 new Phase 21 tests |
+
+### Out-of-scope (preserved)
+
+- No new languages (already have 7)
+- No raw/ edits (read-only per AGENTS.md §2)
+- No Accepted ADRs touched
+- No BGM/SFX additions
+- No other projects (Fiction/, Game/roguelike_sprawl/, Language/) touched
+- No push (user handles GH_TOKEN rotation)
+
+### Commit
+
+- Hash: `38a95b0`
+- Files: `+401 / -26` across 5 files (4 modified, 1 new)
+- Pushed: NO (user handles GH_TOKEN rotation)
+
 ## [2026-08-14] chore(a11y) | Phase 20 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 14/17/19. Closes the gap where Phase 14 added accessible labels to the persistent Menu / LanguageSelection buttons but never added matching `:focus-visible` rules, and where `DailyLessonCard` shipped three buttons without `aria-label`s.
