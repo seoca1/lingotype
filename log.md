@@ -73,6 +73,7 @@ New `tests/ui/phase25-a11y.test.tsx`:
 
 - Hash: `efad03e`
 - Files: `+489 / −30` across 5 files (4 modified, 1 new)
+- Log hash update commit: `75bc9e5`
 - Pushed: NO (user handles GH_TOKEN rotation)
 
 ## [2026-08-15] chore(a11y) | Phase 23 — Polish + accessibility
