@@ -1,5 +1,58 @@
 # Activity Log - Typing Language
 
+## [2026-08-15] chore(a11y) | Phase 23 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22. Closes the remaining gaps where the in-game canvas (the primary "display" of the current target), the per-vocab detail modal, and the Menu keyboard navigation were silent for screen readers.
+
+### Improvements (3 small, focused)
+
+| # | Area | Change |
+|---|---|---|
+| 1 | `StageScreen` canvas a11y | The game `<canvas>` now exposes `role="img"` + a descriptive `aria-label` that names the current target text, language, meaning, and category, plus the player's typed buffer. The label is reactive: it updates as the enemy changes so SR users hear the new word on switch. Previously SR users heard nothing during gameplay — the HUD aria-live (Phase 22) reported score/WPM but never told them what to type. |
+| 2 | `LearnScreen` vocab detail modal | The per-vocab detail modal now exposes `role="dialog"` + `aria-modal="true"` + `aria-label="{display} details"`. Wires Tab focus trap between the close and TTS buttons (mirrors the Phase 17 WeakWordModal pattern), auto-focuses the close button on open, and restores prior focus on close. Close button now carries `(Escape)` suffix in its aria-label so the keyboard shortcut is discoverable. |
+| 3 | `Menu` stage cards `aria-current` | The keyboard-selected stage card now exposes `aria-current="true"` + appends `, currently selected` to its aria-label. SR users previously had no way to know which card was navigated to via arrow keys — the visual `stage-selected` highlight was sighted-only. Now exactly one card announces "currently selected" when keyboard nav is active. |
+
+### Tests added (+10; baseline 981 → 991)
+
+New `tests/ui/phase23-a11y.test.tsx`:
+
+**StageScreen canvas** (4 tests):
+1. `canvas exposes role="img"`
+2. `canvas aria-label names the current target text + language + meaning + category`
+3. `canvas aria-label reflects the current buffer state` (e.g. "Typed so far: he.")
+4. `canvas aria-label falls back to stage context when no enemy is active` (e.g. "Game canvas for EN.")
+
+**LearnScreen vocab modal** (4 tests):
+5. `does not render the modal initially (no role="dialog" before selection)` — confirms the modal is conditional
+6. `vocab modal exposes role="dialog" + aria-modal="true" + aria-label` (source contract)
+7. `vocab modal close button exposes (Escape) suffix in aria-label` (source contract)
+8. `vocab modal wires focus trap + focus restoration on open` (source contract — `previouslyFocusedRef` + `vocabModalCloseRef`)
+
+**Menu stage cards** (2 tests):
+9. `marks the keyboard-selected card with aria-current="true"` (initial render has no selection, so no aria-current appears)
+10. `source contract: StageCard accepts selected prop and emits aria-current when true` (source contract — `aria-current={selected ? 'true' : undefined}` + "currently selected" in aria-label)
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **991 passed** + 1 skipped (981 baseline + 10 new) |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[[count_zero]]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 + 22 logs. |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Files changed (4, all in `Game/typing_language/prototype/`)
+
+- `src/ui/StageScreen.tsx` — canvas a11y (role + reactive aria-label)
+- `src/ui/LearnScreen.tsx` — vocab modal focus trap + dialog semantics
+- `src/ui/Menu.tsx` — stage card aria-current + selected-state aria-label
+- `tests/ui/phase23-a11y.test.tsx` — new (10 tests)
+
+### Commit
+
+`ced9c4f chore(a11y): Phase 23 — Polish + accessibility` (no push — user handles GH_TOKEN)
+
 ## [2026-08-15] chore(a11y) | Phase 22 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21. Closes gaps where the in-game HUD, the pre-stage vocab preview cards, and the daily-lesson tier selector were silent for screen readers.
