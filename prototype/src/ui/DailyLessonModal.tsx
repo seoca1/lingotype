@@ -259,7 +259,7 @@ export function DailyLessonModal({ lesson, onClose, onPractice }: DailyLessonMod
         </div>
 
         {/* Tier Selector */}
-        <div className="daily-lesson-modal__tier-selector">
+        <div className="daily-lesson-modal__tier-selector" role="group" aria-label="Lesson depth">
           {(Object.keys(TIER_META) as Tier[]).map((t) => {
             const meta = TIER_META[t];
             return (
@@ -269,9 +269,11 @@ export function DailyLessonModal({ lesson, onClose, onPractice }: DailyLessonMod
                   tier === t ? 'daily-lesson-modal__tier-btn--active' : ''
                 }`}
                 onClick={() => setTier(t)}
+                aria-pressed={tier === t}
+                aria-label={`${meta.label} tier, ~${meta.minutes} minute${meta.minutes === 1 ? '' : 's'}${tier === t ? ', selected' : ''}`}
                 style={tier === t ? { background: meta.color, color: 'white' } : {}}
               >
-                <span className="daily-lesson-modal__tier-icon">{meta.icon}</span>
+                <span className="daily-lesson-modal__tier-icon" aria-hidden="true">{meta.icon}</span>
                 <span className="daily-lesson-modal__tier-label">{meta.label}</span>
                 <span className="daily-lesson-modal__tier-time">~{meta.minutes}분</span>
               </button>
@@ -408,6 +410,7 @@ export function DailyLessonModal({ lesson, onClose, onPractice }: DailyLessonMod
                 onPractice(lesson.meta.relatedStages[0]);
                 onClose();
               }}
+              aria-label={`${t('practice', getNativeLanguage())} ${lesson.meta.relatedStages[0]}`}
             >
               🎮 {t('practice', getNativeLanguage())} ({lesson.meta.relatedStages[0]})
             </button>
@@ -416,9 +419,14 @@ export function DailyLessonModal({ lesson, onClose, onPractice }: DailyLessonMod
               {t('relatedStageComingSoon', getNativeLanguage())}
             </span>
           )}
-          <button className="daily-lesson-modal__close-btn" onClick={onClose}>
+          <button
+            className="daily-lesson-modal__close-btn"
+            onClick={onClose}
+            aria-label={`${t('close', getNativeLanguage())} (Escape)`}
+          >
             {t('close', getNativeLanguage())}
           </button>
+          <small className="daily-lesson-modal__kbd-hint" aria-hidden="true">Esc to close</small>
         </div>
       </div>
 
@@ -541,6 +549,10 @@ export function DailyLessonModal({ lesson, onClose, onPractice }: DailyLessonMod
         }
         .daily-lesson-modal__tier-btn:hover {
           background: #233040;
+        }
+        .daily-lesson-modal__tier-btn:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
         }
         .daily-lesson-modal__tier-btn--active {
           font-weight: 600;
@@ -703,6 +715,13 @@ export function DailyLessonModal({ lesson, onClose, onPractice }: DailyLessonMod
           color: #6a7888;
           font-style: italic;
           flex: 1;
+        }
+
+        .daily-lesson-modal__kbd-hint {
+          color: #555;
+          font-size: 11px;
+          font-style: italic;
+          align-self: center;
         }
 
         /* Wikilink sub-modal */

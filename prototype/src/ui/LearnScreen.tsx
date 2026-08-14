@@ -165,6 +165,7 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
               key={v.id}
               className="learn-screen__vocab-card"
               onClick={() => setSelectedVocab(v)}
+              aria-label={`${v.display}, meaning ${v.meaning || 'unavailable'}, level ${v.level}, category ${v.category || 'general'}. Activate to view details.`}
             >
               <div className="learn-screen__vocab-display">{v.display}</div>
               <div className="learn-screen__vocab-input">

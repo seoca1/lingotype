@@ -179,7 +179,12 @@ export function StageScreen({
             </div>
           ))}
         </div>
-        <div className="hud-info">
+        <div
+          className="hud-info"
+          role="status"
+          aria-live="polite"
+          aria-label={`Score ${state.score}, ${state.enemiesDefeated} defeated, combo ${state.combo}, words per minute ${state.wpm.toFixed(0)}, accuracy ${state.accuracy.toFixed(0)} percent`}
+        >
           <p>Score: {state.score}</p>
           <p>Defeated: {state.enemiesDefeated}</p>
           <p>Combo: {state.combo} (max: {state.comboMax})</p>
