@@ -26,6 +26,7 @@ const LANGUAGE_FLAGS: Record<string, string> = {
   es: '🇪🇸',
   kr: '🇰🇷',
   fr: '🇫🇷',
+  de: '🇩🇪',
 };
 
 const LANGUAGE_THEME: Record<string, string> = {
@@ -34,6 +35,7 @@ const LANGUAGE_THEME: Record<string, string> = {
   es: '#f59e0b',
   kr: '#10b981',
   fr: '#0055A4',
+  de: '#1a1a1a',
 };
 
 export function LanguageSelection({
@@ -91,7 +93,14 @@ export function LanguageSelection({
               style={{
                 '--theme-color': LANGUAGE_THEME[lang.code] || '#6366f1',
               } as React.CSSProperties}
-              onClick={() => onSelectLanguage(lang.code)}
+              onClick={() => {
+                // Sync visual + a11y state on mouse click; keyboard arrows
+                // already keep selectedIndex up to date. Without this, a
+                // mouse-clicked card would not announce aria-pressed=true
+                // and the highlight class would drift from real focus.
+                setSelectedIndex(i);
+                onSelectLanguage(lang.code);
+              }}
               aria-label={`Select ${lang.name} (${lang.nativeName}), press Enter to confirm`}
               aria-pressed={selectedIndex === i}
             >

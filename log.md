@@ -4031,3 +4031,48 @@ created. Covers:
 Both repos: **no push** — user will handle GH_TOKEN rotation.
 
 **세션 종료 (2026-08-14) — Phase 16 German complete; push pending.**
+
+---
+
+## [2026-08-14] chore(a11y) | Phase 17 — Final polish + accessibility
+
+**Scope:** UI 컴포넌트 전반에 대한 최종 접근성 감사 + 마무리 폴리시. Phase 16(German 6번째 언어) 직후, 메이저 워크 사이클 종료 전 마지막 1회성 정리 단계.
+
+### Accessibility (3 항목)
+
+1. **Tutorial FR/DE 누락 보완** — Phase 15/16에서 추가된 프랑스어/독일어가 튜토리얼의 `TUTORIAL_STEPS`에 없었음. FR(`café → c,a,f,é` + 악센트/cedilla), DE(`Bär → B,ä,r` + Eszett ß) 스텝 추가. 언어 선택 그룹을 6개(en/jp/es/kr/fr/de)로 확장, 환영 카피의 "4개 언어" → "6개 언어" + 6개 언어명 나열.
+2. **LearnScreen 필터 a11y** — 코어/전체 필터 버튼에 `aria-pressed` 부재, 컨테이너 `role="group"` 부재, 선택 상태 미통보. `aria-pressed={tier==='core'|'all'}` + `role="group"` + `aria-live="polite"`의 `role="status"` 비가시 영역(스크린리더 전용) 추가.
+3. **ResultScreen weak-word 모달 dialog화** — 기존 `<div>` 오버레이 모달은 `role=dialog`, 포커스 트랩, Escape 닫기 모두 부재. `WeakWordModal` 컴포넌트로 추출: `role=dialog` + `aria-modal=true` + 열림 시 close 버튼 포커스 + 닫힘 시 이전 포커스 복원 + Tab 포커스 트랩 + Escape 처리. `OptionsScreen` / `SettingsScreen`(Phase 13/14)와 동일 패턴.
+
+### UX Polish (3 항목)
+
+1. **LanguageSelection 클릭 동기화** — 마우스 클릭이 `selectedIndex`를 갱신하지 않아 `aria-pressed`와 `language-card-selected` 클래스가 키보드 포커스와 어긋남. 클릭 핸들러에 `setSelectedIndex(i)` 추가. 🇩🇪 German flag도 LANGUAGE_FLAGS에 등록.
+2. **Menu 키보드 단축키 힌트** — LanguageSelection에는 footer hint가 있는데 Menu에는 없음. `←/→/↑/↓ navigate · Enter start · Esc back` 형식의 `<kbd>` 기반 hint를 `aria-label="Keyboard shortcuts"` 영역으로 추가. 캐릭터 선택 버튼에 명시적 `aria-label` 부여.
+3. **Settings 영속성 검증** — `nativeLanguage`(`typing-language-native-language`)와 `setKoreanInputMode`(`typing-language-kr-input-mode`)가 각각 독립적으로 localStorage에 저장·복원되는지 통합 테스트로 검증. 잘못된 저장값은 기본값으로 폴백하는 기존 sanitization 경로도 함께 확인.
+
+### Tests — +18 (tests/ui/phase17-a11y.test.tsx)
+
+- Tutorial 4개: 환영 카피(6개 언어), 6개 언어명 나열, TUTORIAL_STEPS FR/DE 키 존재, Start/Skip 버튼
+- LearnScreen 3개: filter `aria-pressed` 양분, container `role="group"`, `role="status"`+`aria-live="polite"` 비가시 영역
+- WeakWordModal 3개: `role="dialog"` + `aria-modal` + `aria-label`, close 버튼 라벨, SSR 안전성
+- LanguageSelection 3개: 🇺🇸/🇯🇵/🇪🇸/🇰🇷 flags + 카드 클래스, 첫 카드 `aria-pressed="true"`, `language-card-selected` 클래스
+- Menu 2개: kbd hint + aria-label="Keyboard shortcuts", 캐릭터 선택 `aria-label`
+- Settings 영속성 3개: native language 라운드트립, KR 입력 모드 독립 영속, 잘못된 저장값 폴백
+
+### Validation
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **871 passed** (1 skipped) — 853 baseline + 18 new |
+| `python3 audit_vault.py` | ⚠️ 2 pre-existing (log.md broken wikilinks unrelated to Phase 17) |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Commit
+
+- `Game/typing_language`: `1e2277c` — `chore(a11y): Phase 17 — Final polish + accessibility`
+
+**No push** — user handles GH_TOKEN rotation.
+
+**세션 종료 (2026-08-14) — Phase 17 final polish complete; 6 languages stable, 871 tests passing.**

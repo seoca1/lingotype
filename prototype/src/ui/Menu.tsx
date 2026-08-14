@@ -287,6 +287,7 @@ export function Menu({
           <button
             className="character-select-btn"
             onClick={() => { getAudioManager().play('menu-click'); onShowCharacterSelect(language); }}
+            aria-label={t('selectCharacter', nativeLanguage)}
           >
             👤 {t('selectCharacter', nativeLanguage)} {defaultCharacter ? `(${defaultCharacter.name})` : ''}
           </button>
@@ -354,6 +355,20 @@ export function Menu({
       <footer className="menu-footer">
         <p>
           {t('menuFooter', nativeLanguage).replace('{count}', String(languageStages.length)).replace('{stages}', t('stages', nativeLanguage))}
+        </p>
+        <p
+          className="menu-kbd-hint"
+          aria-label="Keyboard shortcuts"
+          style={{
+            color: '#6a7888',
+            fontSize: '11px',
+            marginTop: '8px',
+          }}
+        >
+          <small>
+            <kbd>←</kbd>/<kbd>→</kbd>/<kbd>↑</kbd>/<kbd>↓</kbd> navigate ·{' '}
+            <kbd>Enter</kbd> start · <kbd>Esc</kbd> back
+          </small>
         </p>
       </footer>
     </div>

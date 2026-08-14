@@ -78,6 +78,34 @@ const TUTORIAL_STEPS: Record<Language, TutorialStep[]> = {
       example: '값 → ㄱ, ㅏ, ㅂ, ㅅ (ㅂ+ㅅ=ㅄ)',
     },
   ],
+  fr: [
+    {
+      title: '프랑스어 (French)',
+      content:
+        'QWERTY 키보드로 프랑스어를 그대로 입력합니다. 악센트 문자(é, à, ç...)는 그대로 타이핑합니다.',
+      example: 'café → c, a, f, é',
+    },
+    {
+      title: '악센트와 cedilla',
+      content:
+        'é, è, ê, ë는 모두 별개의 글자입니다. 스테이지 설정에 따라 ASCII 폴백(a→á, e→é)도 지원됩니다.',
+      example: 'naïve → n, a, ï, v, e',
+    },
+  ],
+  de: [
+    {
+      title: '독일어 (German)',
+      content:
+        'QWERTY 키보드로 독일어를 그대로 입력합니다. 움라우트(ä, ö, ü)와 ß는 표준 독일어 문자입니다.',
+      example: 'Bär → B, ä, r',
+    },
+    {
+      title: 'Eszett (ß)',
+      content:
+        'ß는 "ss" 발음을 단일 문자로 표기한 것입니다. 예: Straße → S, t, r, a, ß, e',
+      example: 'heiß → h, e, i, ß',
+    },
+  ],
 };
 
 const GAME_MECHANICS: TutorialStep[] = [
@@ -115,12 +143,12 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
         <div className="tutorial-content">
           <h1>Typing Language에 오신 것을 환영합니다!</h1>
           <p>
-            외국어 타자 연습 게임입니다. 영어, 일본어, 스페인어, 한국어의 <strong>실제 입력
-            방식</strong>을 그대로 체험할 수 있습니다.
+            외국어 타자 연습 게임입니다. 영어, 일본어, 스페인어, 한국어, 프랑스어, 독일어의
+            <strong>실제 입력 방식</strong>을 그대로 체험할 수 있습니다.
           </p>
           <div className="tutorial-features">
             <div className="feature">
-              <h3>🌍 4개 언어</h3>
+              <h3>🌍 6개 언어</h3>
               <p>각 언어의 고유한 입력 방식 지원</p>
             </div>
             <div className="feature">
@@ -202,7 +230,7 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
             role="group"
             aria-label="Tutorial language selection"
           >
-            {(['en', 'jp', 'es', 'kr'] as Language[]).map((lang) => (
+            {(['en', 'jp', 'es', 'kr', 'fr', 'de'] as Language[]).map((lang) => (
               <button
                 key={lang}
                 className={`lang-btn ${selectedLanguage === lang ? 'active' : ''}`}

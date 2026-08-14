@@ -112,7 +112,11 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
       </div>
 
       <div className="learn-screen__body">
-        <div className="learn-screen__filter">
+        <div
+          className="learn-screen__filter"
+          role="group"
+          aria-label={t('preview', nativeLanguage)}
+        >
           <span className="learn-screen__filter-label">
             {t('preview', nativeLanguage)}:
           </span>
@@ -121,6 +125,8 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
               tier === 'core' ? 'learn-screen__filter-btn--active' : ''
             }`}
             onClick={() => setTier('core')}
+            aria-pressed={tier === 'core'}
+            aria-label={`${t('core', nativeLanguage)} (${Math.min(8, vocabList.length)})`}
           >
             {t('core', nativeLanguage)} ({Math.min(8, vocabList.length)})
           </button>
@@ -129,9 +135,28 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
               tier === 'all' ? 'learn-screen__filter-btn--active' : ''
             }`}
             onClick={() => setTier('all')}
+            aria-pressed={tier === 'all'}
+            aria-label={`${t('all', nativeLanguage)} (${vocabList.length})`}
           >
             {t('all', nativeLanguage)} ({vocabList.length})
           </button>
+          <span
+            className="learn-screen__filter-status"
+            role="status"
+            aria-live="polite"
+            data-testid="learn-screen-filter-status"
+            style={{
+              position: 'absolute',
+              left: '-9999px',
+              width: '1px',
+              height: '1px',
+              overflow: 'hidden',
+            }}
+          >
+            {tier === 'core'
+              ? `${t('core', nativeLanguage)}: ${Math.min(8, vocabList.length)}`
+              : `${t('all', nativeLanguage)}: ${vocabList.length}`}
+          </span>
         </div>
 
         <div className="learn-screen__vocab-grid">

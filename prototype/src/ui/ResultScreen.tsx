@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import type { MissionConfig, StageRecord, Language } from '../types.js';
 import { DailyLessonCard } from './DailyLessonCard.js';
 import { DailyLessonModal } from './DailyLessonModal.js';
@@ -246,76 +246,13 @@ export function ResultScreen({
         </div>
       )}
 
-      {/* Weak Word Detail Modal */}
+      {/* Weak Word Detail Modal — focus is trapped, Esc restores prior focus */}
       {selectedWeakWord && (
-        <div
-          className="weak-word-modal"
-          onClick={() => setSelectedWeakWord(null)}
-        >
-          <div
-            className="weak-word-modal__content"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="weak-word-modal__header">
-              <div>
-                <h2>{selectedWeakWord.display}</h2>
-                <div className="weak-word-modal__input">
-                  {selectedWeakWord.input}
-                </div>
-              </div>
-              <button
-                className="weak-word-modal__close"
-                onClick={() => setSelectedWeakWord(null)}
-                aria-label="Close weak word detail (Escape)"
-              >
-                ✕
-              </button>
-            </div>
-            <div className="weak-word-modal__body">
-              <p className="weak-word-modal__meaning">
-                <strong>Meaning:</strong> {selectedWeakWord.meaning}
-              </p>
-              <div className="weak-word-modal__tts">
-                <button
-                  className="weak-word-modal__tts-btn"
-                  onClick={() => {
-                    if ('speechSynthesis' in window) {
-                      window.speechSynthesis.cancel();
-                      const u = new SpeechSynthesisUtterance(selectedWeakWord.input);
-                      const langMap: Record<string, string> = {
-                        en: 'en-US',
-                        jp: 'ja-JP',
-                        es: 'es-ES',
-                        kr: 'ko-KR',
-                      };
-                      u.lang = langMap[selectedWeakWord.language] ?? 'en-US';
-                      u.rate = 0.85;
-                      window.speechSynthesis.speak(u);
-                    }
-                  }}
-                >
-                  🔊 Listen
-                </button>
-              </div>
-              {(() => {
-                const wikiPage = lookupWikiPage(selectedWeakWord.source, selectedWeakWord.language);
-                if (wikiPage) {
-                  return (
-                    <div className="weak-word-modal__section">
-                      <h3>📖 Wiki</h3>
-                      <MarkdownView
-                        source={wikiPage.body}
-                        ttsLanguage={selectedWeakWord.language}
-                        enableTts={true}
-                      />
-                    </div>
-                  );
-                }
-                return null;
-              })()}
-            </div>
-          </div>
-        </div>
+        <WeakWordModal
+          selected={selectedWeakWord}
+          language={currentLanguage}
+          onClose={() => setSelectedWeakWord(null)}
+        />
       )}
 
       <div className="result-missions">
@@ -613,6 +550,138 @@ export function ResultScreen({
           margin: 0 0 8px 0;
         }
       `}</style>
+    </div>
+  );
+}
+
+/**
+ * WeakWordModal — focused dialog for the per-word detail view on the
+ * result screen. Phase 17 added:
+ * - role="dialog" + aria-modal="true"
+ * - Focus close button on open, restore previous focus on close
+ * - Escape key closes
+ * - Tab focus is trapped inside the dialog
+ */
+interface WeakWordModalProps {
+  selected: {
+    id: string;
+    display: string;
+    input: string;
+    meaning: string;
+    source?: string;
+    language: Language;
+  };
+  language?: 'en' | 'jp' | 'es' | 'kr';
+  onClose: () => void;
+}
+
+export function WeakWordModal({ selected, language: _language, onClose }: WeakWordModalProps) {
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    previouslyFocusedRef.current = document.activeElement as HTMLElement | null;
+    closeButtonRef.current?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.stopPropagation();
+        onClose();
+        return;
+      }
+      if (e.key !== 'Tab' || !containerRef.current) return;
+      const focusable = containerRef.current.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      previouslyFocusedRef.current?.focus?.();
+    };
+  }, [onClose]);
+
+  const wikiPage = lookupWikiPage(selected.source, selected.language);
+
+  return (
+    <div
+      className="weak-word-modal"
+      onClick={onClose}
+      ref={containerRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${selected.display} details`}
+      data-testid="weak-word-modal"
+    >
+      <div
+        className="weak-word-modal__content"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="weak-word-modal__header">
+          <div>
+            <h2>{selected.display}</h2>
+            <div className="weak-word-modal__input">{selected.input}</div>
+          </div>
+          <button
+            ref={closeButtonRef}
+            className="weak-word-modal__close"
+            onClick={onClose}
+            aria-label="Close weak word detail (Escape)"
+          >
+            ✕
+          </button>
+        </div>
+        <div className="weak-word-modal__body">
+          <p className="weak-word-modal__meaning">
+            <strong>Meaning:</strong> {selected.meaning}
+          </p>
+          <div className="weak-word-modal__tts">
+            <button
+              className="weak-word-modal__tts-btn"
+              onClick={() => {
+                if ('speechSynthesis' in window) {
+                  window.speechSynthesis.cancel();
+                  const u = new SpeechSynthesisUtterance(selected.input);
+                  const langMap: Record<string, string> = {
+                    en: 'en-US',
+                    jp: 'ja-JP',
+                    es: 'es-ES',
+                    kr: 'ko-KR',
+                  };
+                  u.lang = langMap[selected.language] ?? 'en-US';
+                  u.rate = 0.85;
+                  window.speechSynthesis.speak(u);
+                }
+              }}
+            >
+              🔊 Listen
+            </button>
+          </div>
+          {wikiPage && (
+            <div className="weak-word-modal__section">
+              <h3>📖 Wiki</h3>
+              <MarkdownView
+                source={wikiPage.body}
+                ttsLanguage={selected.language}
+                enableTts={true}
+              />
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
