@@ -71,7 +71,7 @@ New `tests/ui/phase25-a11y.test.tsx`:
 
 ### Commit
 
-- Hash: `95bd5b6`
+- Hash: `efad03e`
 - Files: `+489 / −30` across 5 files (4 modified, 1 new)
 - Pushed: NO (user handles GH_TOKEN rotation)
 
