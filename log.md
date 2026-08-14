@@ -1,5 +1,75 @@
 # Activity Log - Typing Language
 
+## [2026-08-15] chore(a11y) | Phase 22 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21. Closes gaps where the in-game HUD, the pre-stage vocab preview cards, and the daily-lesson tier selector were silent for screen readers.
+
+### Improvements (3 small, focused)
+
+| # | Area | Change |
+|---|---|---|
+| 1 | `StageScreen` HUD a11y | `hud-info` block now exposes `role="status"` + `aria-live="polite"` + descriptive `aria-label` summarizing score, defeated count, combo, WPM, and accuracy. Previously SR users heard nothing during gameplay — only sighted users saw the live numbers update. The aria-label uses plain English ("Score 1234, 7 defeated, combo 3, words per minute 42, accuracy 87 percent") so SR users can track progress without sighted cues. |
+| 2 | `LearnScreen` vocab cards | Each preview card now exposes `aria-label="<display>, meaning <meaning>, level <n>, category <cat>. Activate to view details."`. Previously the only accessible name came from the visual layout (display / input / meaning / meta spans), so SR users heard "한, 한, 인사, L1, greeting, button" with no semantic grouping. The new aria-label gives SR users the same digest sighted users get at a glance. |
+| 3 | `DailyLessonModal` tier selector + footer a11y | Tier-selector wrapper now exposes `role="group"` + `aria-label="Lesson depth"`. Each Quick/Standard/Deep button carries `aria-pressed` reflecting the active tier + `aria-label` naming tier, duration, and selection state ("Standard tier, ~5 minutes, selected"). Practice button + close button both get descriptive `aria-labels` (close uses `(Escape)` suffix matching Phase 14 keyboard-shortcut hint pattern). New visible `Esc to close` keyboard-shortcut hint footer matches the Phase 14 Options/Settings pattern. New `:focus-visible` outline on tier buttons keeps keyboard navigation visible. Tier icons marked `aria-hidden="true"` so SR users don't hear "🟢 Quick" — they hear "Quick tier, ~1 minute" cleanly. |
+
+### Tests added (+12; baseline 969 → 981)
+
+New `tests/ui/phase22-a11y.test.tsx`:
+
+**StageScreen HUD** (3 tests):
+1. `hud-info block exposes role="status"`
+2. `hud-info block exposes aria-live="polite"`
+3. `hud-info block exposes a descriptive aria-label summarizing all metrics`
+
+**LearnScreen vocab cards** (2 tests):
+4. `vocab card exposes aria-label with display + meaning + level + category`
+5. `each vocab card carries its own descriptive aria-label (no silent buttons)` — multi-enemy render confirms no card is missing
+
+**DailyLessonModal tier-selector** (6 tests):
+6. `tier-selector wrapper exposes role="group" with accessible label`
+7. `tier buttons expose aria-pressed reflecting selection (3 tiers, 1 pressed)` — exactly one pressed at any time
+8. `tier buttons expose aria-label describing tier + duration + selection state` — confirms all 3 tiers (Quick, Standard, Deep) announce properly
+9. `close button exposes (Escape) suffix in aria-label`
+10. `practice button exposes aria-label naming the related stage`
+11. `footer exposes a visible keyboard-shortcut hint for Escape`
+
+**DailyLessonModal focus-visible** (1 test):
+12. `DailyLessonModal ships :focus-visible rule for tier buttons` — source-level check (jsdom limitation)
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **981 passed** + 1 skipped (969 baseline + 12 new) |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[[count_zero]]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 logs. |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Files changed (4, all in `Game/typing_language/prototype/`)
+
+| File | +/− | Purpose |
+|---|--:|---|
+| `src/ui/StageScreen.tsx` | +6 / −1 | `role="status"` + `aria-live="polite"` + `aria-label` on `.hud-info` block |
+| `src/ui/LearnScreen.tsx` | +1 / −0 | `aria-label` on each `.learn-screen__vocab-card` |
+| `src/ui/DailyLessonModal.tsx` | +23 / −3 | `role="group"` + `aria-label` on tier-selector; `aria-pressed` + `aria-label` on each tier button; descriptive aria-labels on practice + close buttons; new `Esc to close` keyboard hint; new `:focus-visible` outline on tier buttons; `aria-hidden` on decorative tier icons |
+| `tests/ui/phase22-a11y.test.tsx` | new file, +252 | 12 new Phase 22 tests |
+
+### Out-of-scope (preserved)
+
+- No new languages (already have 7)
+- No raw/ edits (read-only per AGENTS.md §2)
+- No Accepted ADRs touched
+- No BGM/SFX additions
+- No other projects (Fiction/, Game/roguelike_sprawl/, Language/) touched
+- No push (user handles GH_TOKEN rotation)
+
+### Commit
+
+- Hash: `ca70172`
+- Files: `+281 / -4` across 4 files (3 modified, 1 new)
+- Pushed: NO (user handles GH_TOKEN rotation)
+
 ## [2026-08-15] chore(a11y) | Phase 21 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20. Closes gaps where the result-screen celebrations and the pre-game character/profile pickers were silent for screen readers and unreachable for keyboard-only users.
