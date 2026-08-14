@@ -4450,3 +4450,43 @@ The wiki already had 70+ theme files (`basic-vocabulary.md`, `numbers-vocabulary
 - `Game/typing_language`: `2134433` — `feat(lang): Phase 18 — Chinese language scaffold`
 
 **7개 언어 안정 단계 진입 — Phase 18 Chinese language scaffold complete.**
+
+## [2026-08-15] chore(a11y) | Phase 24 — Polish + accessibility
+
+**Scope:** Three small UX/accessibility improvements layered on top of Phase 14/17/19/20/21/22/23 polish rounds.
+
+### Improvements
+
+1. **ResultScreen unlock banner — fix mojibake icon**. The Phase I banner rendered a U+FFFD replacement character (mojibake from an emoji encoding issue). Phase 24 replaces it with a proper `🎉` (U+1F389) celebration emoji so sighted users see a recognizable icon. The icon stays `aria-hidden="true"`; the wrapper div's `aria-label` remains the source of truth for screen readers.
+
+2. **ResultScreen mission rows — screen-reader status announcements**. Each mission result row now carries `role="status"` + an `aria-label` of the form `"{mission name}: cleared"` / `"{mission name}: failed"`. The visual checkmark/cross is wrapped in an `aria-hidden` span so the wrapper is the single source of truth. Without this, SR users would hear only the mission description with no cleared/failed indicator.
+
+3. **ResultScreen footer — Escape keyboard hint**. The "Back to Menu" button now shows `(Esc)` in its visible label and carries `(Escape)` in its `aria-label`. A small `<kbd>Esc</kbd> return to menu` hint sits below it, mirroring the Menu's Phase 20 pattern so the Escape affordance is discoverable on the result screen too.
+
+### New file
+
+- `prototype/tests/ui/phase24-a11y.test.tsx` — 8 tests covering all three improvements (mojibake fix at source level, mission `role="status"` markup, kbd hint presence, aria-label contract).
+
+### Validation
+
+| Check | Result |
+|-------|--------|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **999 passed** (1 skipped) — 991 baseline + 8 new |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[[count_zero]]` from prior log entries documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Stats
+
+- 3 small UX/a11y improvements (mojibake fix, mission a11y, kbd hint)
+- 8 new tests
+- Test totals: 991 → **999** (+8)
+
+**No push** — user handles GH_TOKEN rotation.
+
+### Commit
+
+- `Game/typing_language`: `007c44b` — `chore(a11y): Phase 24 — Polish + accessibility`
+
+**Phase 24 polish round complete — final UX/a11y gaps on ResultScreen closed.**
