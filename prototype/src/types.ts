@@ -21,6 +21,7 @@ export const LANGUAGE_LABEL: Record<string, string> = {
   es: 'Español',
   kr: '한국어',
   fr: 'Français',
+  de: 'Deutsch',
 };
 
 export interface Target {

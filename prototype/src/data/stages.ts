@@ -2178,12 +2178,94 @@ const KR_STAGES: StageSpec[] = [
   },
 ];
 
+const DE_STAGES: StageSpec[] = [
+  // Tier 1 — basic vocabulary (greeting, numbers, colors, family, articles)
+  {
+    id: 'de_1_1',
+    language: 'de',
+    tier: 1,
+    name: 'Erste Wörter',
+    description: '기본 어휘 (인사·숫자·색)',
+    difficulty: 1,
+    wordCount: 10,
+    corpusFilter: { minLevel: 1, maxLevel: 1, categories: ['greeting', 'basic', 'number', 'color'] },
+    accentMode: 'loose',
+    missions: defaultMissionsForTier(1),
+  },
+  {
+    id: 'de_1_2',
+    language: 'de',
+    tier: 1,
+    name: 'Begrüßungen',
+    description: '인사·정중 표현',
+    difficulty: 1,
+    wordCount: 12,
+    corpusFilter: { minLevel: 1, maxLevel: 1, categories: ['greeting', 'expression'] },
+    accentMode: 'loose',
+    missions: defaultMissionsForTier(1),
+  },
+  {
+    id: 'de_1_3',
+    language: 'de',
+    tier: 1,
+    name: 'Familie und Objekte',
+    description: '가족·일상 사물·관사',
+    difficulty: 1,
+    wordCount: 10,
+    corpusFilter: { minLevel: 1, maxLevel: 1, categories: ['family', 'place', 'object', 'animal', 'article'] },
+    accentMode: 'loose',
+    missions: defaultMissionsForTier(1),
+  },
+
+  // Tier 2 — extended vocabulary (verbs, food, travel)
+  {
+    id: 'de_2_1',
+    language: 'de',
+    tier: 2,
+    name: 'Umlaute (Strict)',
+    description: '움라우트 단어 (Strict 모드 시작)',
+    difficulty: 2,
+    wordCount: 10,
+    corpusFilter: { minLevel: 2, maxLevel: 2 },
+    accentMode: 'strict',
+    missions: defaultMissionsForTier(2),
+  },
+  {
+    id: 'de_2_2',
+    language: 'de',
+    tier: 2,
+    name: 'Reise Grundwortschatz',
+    description: '여행 필수 어휘 (공항·호텔·방향)',
+    difficulty: 2,
+    wordCount: 12,
+    corpusFilter: { minLevel: 1, maxLevel: 2, categories: ['travel', 'food'] },
+    accentMode: 'loose',
+    missions: defaultMissionsForTier(2),
+  },
+
+  // Tier 3 — short sentences
+  {
+    id: 'de_3_1',
+    language: 'de',
+    tier: 3,
+    name: 'Kurze Sätze',
+    description: '짧은 문장 (인사·기본)',
+    difficulty: 3,
+    wordCount: 8,
+    corpusFilter: { minLevel: 3, maxLevel: 3 },
+    requiresCorpus: 'sentences',
+    accentMode: 'strict',
+    missions: defaultMissionsForTier(3),
+  },
+];
+
 const ALL_STAGE_SPECS: StageSpec[] = [
   ...EN_STAGES,
   ...JP_STAGES,
   ...ES_STAGES,
   ...KR_STAGES,
   ...FR_STAGES,
+  ...DE_STAGES,
 ];
 
 /**

@@ -13,6 +13,7 @@ import { JAPANESE_CONFIG } from './languages/japanese.js';
 import { SPANISH_CONFIG } from './languages/spanish.js';
 import { KOREAN_CONFIG } from './languages/korean.js';
 import { FRENCH_CONFIG } from './languages/french.js';
+import { GERMAN_CONFIG } from './languages/german.js';
 
 // 모든 언어 자동 등록
 registerLanguage(ENGLISH_CONFIG);
@@ -20,6 +21,7 @@ registerLanguage(JAPANESE_CONFIG);
 registerLanguage(SPANISH_CONFIG);
 registerLanguage(KOREAN_CONFIG);
 registerLanguage(FRENCH_CONFIG);
+registerLanguage(GERMAN_CONFIG);
 
 // Re-export registry functions
 export {

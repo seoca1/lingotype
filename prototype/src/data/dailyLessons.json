@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T21:39:29.025401",
+  "generatedAt": "2026-08-14T01:28:24.176990",
   "schemaVersion": "1.2",
   "lessonCount": 94,
   "byLanguage": {
@@ -242,8 +242,8 @@
   },
   "lessons": [
     {
-      "id": "en_first-travel-japan_20260812",
-      "date": "2026-08-12",
+      "id": "en_first-travel-japan_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "first-travel-japan.md",
       "difficulty": {
@@ -295,8 +295,8 @@
       }
     },
     {
-      "id": "en_technology-and-internet_20260812",
-      "date": "2026-08-12",
+      "id": "en_technology-and-internet_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "technology-and-internet.md",
       "difficulty": {
@@ -350,8 +350,8 @@
       }
     },
     {
-      "id": "en_nature-vocabulary_20260812",
-      "date": "2026-08-12",
+      "id": "en_nature-vocabulary_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "nature-vocabulary.md",
       "difficulty": {
@@ -405,8 +405,8 @@
       }
     },
     {
-      "id": "en_health-and-body_20260812",
-      "date": "2026-08-12",
+      "id": "en_health-and-body_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "health-and-body.md",
       "difficulty": {
@@ -460,8 +460,8 @@
       }
     },
     {
-      "id": "en_travel-adventure_20260812",
-      "date": "2026-08-12",
+      "id": "en_travel-adventure_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "travel-adventure.md",
       "difficulty": {
@@ -513,8 +513,8 @@
       }
     },
     {
-      "id": "en_work-and-career_20260812",
-      "date": "2026-08-12",
+      "id": "en_work-and-career_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "work-and-career.md",
       "difficulty": {
@@ -568,8 +568,8 @@
       }
     },
     {
-      "id": "en_holidays-and-celebrations_20260812",
-      "date": "2026-08-12",
+      "id": "en_holidays-and-celebrations_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "holidays-and-celebrations.md",
       "difficulty": {
@@ -623,8 +623,8 @@
       }
     },
     {
-      "id": "en_animals-vocabulary_20260812",
-      "date": "2026-08-12",
+      "id": "en_animals-vocabulary_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "animals-vocabulary.md",
       "difficulty": {
@@ -678,8 +678,8 @@
       }
     },
     {
-      "id": "en_shopping-and-money_20260812",
-      "date": "2026-08-12",
+      "id": "en_shopping-and-money_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "shopping-and-money.md",
       "difficulty": {
@@ -733,8 +733,8 @@
       }
     },
     {
-      "id": "en_travel_20260812",
-      "date": "2026-08-12",
+      "id": "en_travel_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "travel.md",
       "difficulty": {
@@ -786,8 +786,8 @@
       }
     },
     {
-      "id": "en_food-and-dining_20260812",
-      "date": "2026-08-12",
+      "id": "en_food-and-dining_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "food-and-dining.md",
       "difficulty": {
@@ -841,8 +841,8 @@
       }
     },
     {
-      "id": "en_dating-romance_20260812",
-      "date": "2026-08-12",
+      "id": "en_dating-romance_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "dating-romance.md",
       "difficulty": {
@@ -893,8 +893,8 @@
       }
     },
     {
-      "id": "en_literature-passages_20260812",
-      "date": "2026-08-12",
+      "id": "en_literature-passages_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "literature-passages.md",
       "difficulty": {
@@ -948,8 +948,8 @@
       }
     },
     {
-      "id": "en_emotions-personality-vocabulary_20260812",
-      "date": "2026-08-12",
+      "id": "en_emotions-personality-vocabulary_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "emotions-personality-vocabulary.md",
       "difficulty": {
@@ -1003,8 +1003,8 @@
       }
     },
     {
-      "id": "en_clothing-vocabulary_20260812",
-      "date": "2026-08-12",
+      "id": "en_clothing-vocabulary_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "clothing-vocabulary.md",
       "difficulty": {
@@ -1058,8 +1058,8 @@
       }
     },
     {
-      "id": "en_movie-quotes_20260812",
-      "date": "2026-08-12",
+      "id": "en_movie-quotes_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "movie-quotes.md",
       "difficulty": {
@@ -1113,8 +1113,8 @@
       }
     },
     {
-      "id": "en_travel-basics_20260812",
-      "date": "2026-08-12",
+      "id": "en_travel-basics_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "travel-basics.md",
       "difficulty": {
@@ -1166,8 +1166,8 @@
       }
     },
     {
-      "id": "en_daily-life-basics_20260812",
-      "date": "2026-08-12",
+      "id": "en_daily-life-basics_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "daily-life-basics.md",
       "difficulty": {
@@ -1221,8 +1221,8 @@
       }
     },
     {
-      "id": "en_sports-and-hobbies_20260812",
-      "date": "2026-08-12",
+      "id": "en_sports-and-hobbies_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "sports-and-hobbies.md",
       "difficulty": {
@@ -1276,8 +1276,8 @@
       }
     },
     {
-      "id": "en_food-vocabulary_20260812",
-      "date": "2026-08-12",
+      "id": "en_food-vocabulary_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "food-vocabulary.md",
       "difficulty": {
@@ -1331,8 +1331,8 @@
       }
     },
     {
-      "id": "en_business-vocabulary_20260812",
-      "date": "2026-08-12",
+      "id": "en_business-vocabulary_20260814",
+      "date": "2026-08-14",
       "language": "en",
       "sourceTopic": "business-vocabulary.md",
       "difficulty": {
@@ -1386,8 +1386,8 @@
       }
     },
     {
-      "id": "jp_business-vocabulary-jp_20260812",
-      "date": "2026-08-12",
+      "id": "jp_business-vocabulary-jp_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "business-vocabulary-jp.md",
       "difficulty": {
@@ -1441,8 +1441,8 @@
       }
     },
     {
-      "id": "jp_technology-and-internet_20260812",
-      "date": "2026-08-12",
+      "id": "jp_technology-and-internet_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "technology-and-internet.md",
       "difficulty": {
@@ -1496,8 +1496,8 @@
       }
     },
     {
-      "id": "jp_travel-basics-jp_20260812",
-      "date": "2026-08-12",
+      "id": "jp_travel-basics-jp_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "travel-basics-jp.md",
       "difficulty": {
@@ -1549,8 +1549,8 @@
       }
     },
     {
-      "id": "jp_health-and-body_20260812",
-      "date": "2026-08-12",
+      "id": "jp_health-and-body_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "health-and-body.md",
       "difficulty": {
@@ -1604,8 +1604,8 @@
       }
     },
     {
-      "id": "jp_travel-adventure_20260812",
-      "date": "2026-08-12",
+      "id": "jp_travel-adventure_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "travel-adventure.md",
       "difficulty": {
@@ -1657,8 +1657,8 @@
       }
     },
     {
-      "id": "jp_dating-romance-jp_20260812",
-      "date": "2026-08-12",
+      "id": "jp_dating-romance-jp_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "dating-romance-jp.md",
       "difficulty": {
@@ -1709,8 +1709,8 @@
       }
     },
     {
-      "id": "jp_business-email_20260812",
-      "date": "2026-08-12",
+      "id": "jp_business-email_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "business-email.md",
       "difficulty": {
@@ -1764,8 +1764,8 @@
       }
     },
     {
-      "id": "jp_anime-drama-quotes_20260812",
-      "date": "2026-08-12",
+      "id": "jp_anime-drama-quotes_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "anime-drama-quotes.md",
       "difficulty": {
@@ -1819,8 +1819,8 @@
       }
     },
     {
-      "id": "jp_animals-vocabulary-jp_20260812",
-      "date": "2026-08-12",
+      "id": "jp_animals-vocabulary-jp_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "animals-vocabulary-jp.md",
       "difficulty": {
@@ -1874,8 +1874,8 @@
       }
     },
     {
-      "id": "jp_holidays-and-celebrations_20260812",
-      "date": "2026-08-12",
+      "id": "jp_holidays-and-celebrations_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "holidays-and-celebrations.md",
       "difficulty": {
@@ -1929,8 +1929,8 @@
       }
     },
     {
-      "id": "jp_shopping-and-money_20260812",
-      "date": "2026-08-12",
+      "id": "jp_shopping-and-money_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "shopping-and-money.md",
       "difficulty": {
@@ -1984,8 +1984,8 @@
       }
     },
     {
-      "id": "jp_food-and-dining_20260812",
-      "date": "2026-08-12",
+      "id": "jp_food-and-dining_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "food-and-dining.md",
       "difficulty": {
@@ -2039,8 +2039,8 @@
       }
     },
     {
-      "id": "jp_literature-passages_20260812",
-      "date": "2026-08-12",
+      "id": "jp_literature-passages_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "literature-passages.md",
       "difficulty": {
@@ -2094,8 +2094,8 @@
       }
     },
     {
-      "id": "jp_2026-07-13_Kanji_N5_100_20260812",
-      "date": "2026-08-12",
+      "id": "jp_2026-07-13_Kanji_N5_100_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "2026-07-13_Kanji_N5_100.md",
       "difficulty": {
@@ -2149,8 +2149,8 @@
       }
     },
     {
-      "id": "jp_clothing-vocabulary-jp_20260812",
-      "date": "2026-08-12",
+      "id": "jp_clothing-vocabulary-jp_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "clothing-vocabulary-jp.md",
       "difficulty": {
@@ -2204,8 +2204,8 @@
       }
     },
     {
-      "id": "jp_travel-basics_20260812",
-      "date": "2026-08-12",
+      "id": "jp_travel-basics_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "travel-basics.md",
       "difficulty": {
@@ -2257,8 +2257,8 @@
       }
     },
     {
-      "id": "jp_emotions-personality-vocabulary-jp_20260812",
-      "date": "2026-08-12",
+      "id": "jp_emotions-personality-vocabulary-jp_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "emotions-personality-vocabulary-jp.md",
       "difficulty": {
@@ -2312,8 +2312,8 @@
       }
     },
     {
-      "id": "jp_nature-vocabulary-jp_20260812",
-      "date": "2026-08-12",
+      "id": "jp_nature-vocabulary-jp_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "nature-vocabulary-jp.md",
       "difficulty": {
@@ -2367,8 +2367,8 @@
       }
     },
     {
-      "id": "jp_daily-life-basics_20260812",
-      "date": "2026-08-12",
+      "id": "jp_daily-life-basics_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "daily-life-basics.md",
       "difficulty": {
@@ -2422,8 +2422,8 @@
       }
     },
     {
-      "id": "jp_sports-and-hobbies_20260812",
-      "date": "2026-08-12",
+      "id": "jp_sports-and-hobbies_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "sports-and-hobbies.md",
       "difficulty": {
@@ -2477,8 +2477,8 @@
       }
     },
     {
-      "id": "jp_food-vocabulary-jp_20260812",
-      "date": "2026-08-12",
+      "id": "jp_food-vocabulary-jp_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "food-vocabulary-jp.md",
       "difficulty": {
@@ -2532,8 +2532,8 @@
       }
     },
     {
-      "id": "jp_first-travel-korea_20260812",
-      "date": "2026-08-12",
+      "id": "jp_first-travel-korea_20260814",
+      "date": "2026-08-14",
       "language": "jp",
       "sourceTopic": "first-travel-korea.md",
       "difficulty": {
@@ -2585,8 +2585,8 @@
       }
     },
     {
-      "id": "es_fiestas-y-celebraciones_20260812",
-      "date": "2026-08-12",
+      "id": "es_fiestas-y-celebraciones_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "fiestas-y-celebraciones.md",
       "difficulty": {
@@ -2640,8 +2640,8 @@
       }
     },
     {
-      "id": "es_2026-05-17_Travel_Directions_20260812",
-      "date": "2026-08-12",
+      "id": "es_2026-05-17_Travel_Directions_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "2026-05-17_Travel_Directions.md",
       "difficulty": {
@@ -2695,8 +2695,8 @@
       }
     },
     {
-      "id": "es_first-travel-spain_20260812",
-      "date": "2026-08-12",
+      "id": "es_first-travel-spain_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "first-travel-spain.md",
       "difficulty": {
@@ -2748,8 +2748,8 @@
       }
     },
     {
-      "id": "es_business-vocabulary-es_20260812",
-      "date": "2026-08-12",
+      "id": "es_business-vocabulary-es_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "business-vocabulary-es.md",
       "difficulty": {
@@ -2803,8 +2803,8 @@
       }
     },
     {
-      "id": "es_tango-argentino_20260812",
-      "date": "2026-08-12",
+      "id": "es_tango-argentino_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "tango-argentino.md",
       "difficulty": {
@@ -2858,8 +2858,8 @@
       }
     },
     {
-      "id": "es_viaje-aventura_20260812",
-      "date": "2026-08-12",
+      "id": "es_viaje-aventura_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "viaje-aventura.md",
       "difficulty": {
@@ -2913,8 +2913,8 @@
       }
     },
     {
-      "id": "es_como-agua-para-chocolate-cap1_20260812",
-      "date": "2026-08-12",
+      "id": "es_como-agua-para-chocolate-cap1_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "como-agua-para-chocolate-cap1.md",
       "difficulty": {
@@ -2968,8 +2968,8 @@
       }
     },
     {
-      "id": "es_technology-and-internet_20260812",
-      "date": "2026-08-12",
+      "id": "es_technology-and-internet_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "technology-and-internet.md",
       "difficulty": {
@@ -3023,8 +3023,8 @@
       }
     },
     {
-      "id": "es_mexico-comida-callejera_20260812",
-      "date": "2026-08-12",
+      "id": "es_mexico-comida-callejera_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "mexico-comida-callejera.md",
       "difficulty": {
@@ -3078,8 +3078,8 @@
       }
     },
     {
-      "id": "es_health-and-body_20260812",
-      "date": "2026-08-12",
+      "id": "es_health-and-body_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "health-and-body.md",
       "difficulty": {
@@ -3133,8 +3133,8 @@
       }
     },
     {
-      "id": "es_travel-adventure_20260812",
-      "date": "2026-08-12",
+      "id": "es_travel-adventure_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "travel-adventure.md",
       "difficulty": {
@@ -3186,8 +3186,8 @@
       }
     },
     {
-      "id": "es_work-and-career_20260812",
-      "date": "2026-08-12",
+      "id": "es_work-and-career_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "work-and-career.md",
       "difficulty": {
@@ -3241,8 +3241,8 @@
       }
     },
     {
-      "id": "es_dating-romance-es_20260812",
-      "date": "2026-08-12",
+      "id": "es_dating-romance-es_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "dating-romance-es.md",
       "difficulty": {
@@ -3293,8 +3293,8 @@
       }
     },
     {
-      "id": "es_comida-y-restaurante_20260812",
-      "date": "2026-08-12",
+      "id": "es_comida-y-restaurante_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "comida-y-restaurante.md",
       "difficulty": {
@@ -3348,8 +3348,8 @@
       }
     },
     {
-      "id": "es_notes-in-spanish-listening-log_20260812",
-      "date": "2026-08-12",
+      "id": "es_notes-in-spanish-listening-log_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "notes-in-spanish-listening-log.md",
       "difficulty": {
@@ -3403,8 +3403,8 @@
       }
     },
     {
-      "id": "es_animals-vocabulary-es_20260812",
-      "date": "2026-08-12",
+      "id": "es_animals-vocabulary-es_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "animals-vocabulary-es.md",
       "difficulty": {
@@ -3458,8 +3458,8 @@
       }
     },
     {
-      "id": "es_holidays-and-celebrations_20260812",
-      "date": "2026-08-12",
+      "id": "es_holidays-and-celebrations_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "holidays-and-celebrations.md",
       "difficulty": {
@@ -3513,8 +3513,8 @@
       }
     },
     {
-      "id": "es_shopping-and-money_20260812",
-      "date": "2026-08-12",
+      "id": "es_shopping-and-money_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "shopping-and-money.md",
       "difficulty": {
@@ -3568,8 +3568,8 @@
       }
     },
     {
-      "id": "es_food-and-dining_20260812",
-      "date": "2026-08-12",
+      "id": "es_food-and-dining_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "food-and-dining.md",
       "difficulty": {
@@ -3623,8 +3623,8 @@
       }
     },
     {
-      "id": "es_notes-in-spanish-planes-de-verano_20260812",
-      "date": "2026-08-12",
+      "id": "es_notes-in-spanish-planes-de-verano_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "notes-in-spanish-planes-de-verano.md",
       "difficulty": {
@@ -3678,8 +3678,8 @@
       }
     },
     {
-      "id": "es_literature-passages_20260812",
-      "date": "2026-08-12",
+      "id": "es_literature-passages_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "literature-passages.md",
       "difficulty": {
@@ -3733,8 +3733,8 @@
       }
     },
     {
-      "id": "es_clothing-vocabulary-es_20260812",
-      "date": "2026-08-12",
+      "id": "es_clothing-vocabulary-es_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "clothing-vocabulary-es.md",
       "difficulty": {
@@ -3788,8 +3788,8 @@
       }
     },
     {
-      "id": "es_el-ahogado-mas-hermoso-del-mundo_20260812",
-      "date": "2026-08-12",
+      "id": "es_el-ahogado-mas-hermoso-del-mundo_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "el-ahogado-mas-hermoso-del-mundo.md",
       "difficulty": {
@@ -3843,8 +3843,8 @@
       }
     },
     {
-      "id": "es_movie-quotes_20260812",
-      "date": "2026-08-12",
+      "id": "es_movie-quotes_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "movie-quotes.md",
       "difficulty": {
@@ -3898,8 +3898,8 @@
       }
     },
     {
-      "id": "es_2026-06-16_Restaurant_Ordering_20260812",
-      "date": "2026-08-12",
+      "id": "es_2026-06-16_Restaurant_Ordering_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "2026-06-16_Restaurant_Ordering.md",
       "difficulty": {
@@ -3953,8 +3953,8 @@
       }
     },
     {
-      "id": "es_emotions-personality-vocabulary-es_20260812",
-      "date": "2026-08-12",
+      "id": "es_emotions-personality-vocabulary-es_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "emotions-personality-vocabulary-es.md",
       "difficulty": {
@@ -4008,8 +4008,8 @@
       }
     },
     {
-      "id": "es_nature-vocabulary-es_20260812",
-      "date": "2026-08-12",
+      "id": "es_nature-vocabulary-es_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "nature-vocabulary-es.md",
       "difficulty": {
@@ -4063,8 +4063,8 @@
       }
     },
     {
-      "id": "es_daily-life-basics_20260812",
-      "date": "2026-08-12",
+      "id": "es_daily-life-basics_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "daily-life-basics.md",
       "difficulty": {
@@ -4118,8 +4118,8 @@
       }
     },
     {
-      "id": "es_sports-and-hobbies_20260812",
-      "date": "2026-08-12",
+      "id": "es_sports-and-hobbies_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "sports-and-hobbies.md",
       "difficulty": {
@@ -4173,8 +4173,8 @@
       }
     },
     {
-      "id": "es_2026-05-17_Daily_Routine_20260812",
-      "date": "2026-08-12",
+      "id": "es_2026-05-17_Daily_Routine_20260814",
+      "date": "2026-08-14",
       "language": "es",
       "sourceTopic": "2026-05-17_Daily_Routine.md",
       "difficulty": {
@@ -4228,8 +4228,8 @@
       }
     },
     {
-      "id": "kr_particles-ko_20260812",
-      "date": "2026-08-12",
+      "id": "kr_particles-ko_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "particles-ko.md",
       "difficulty": {
@@ -4283,8 +4283,8 @@
       }
     },
     {
-      "id": "kr_first-travel-japan_20260812",
-      "date": "2026-08-12",
+      "id": "kr_first-travel-japan_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "first-travel-japan.md",
       "difficulty": {
@@ -4336,8 +4336,8 @@
       }
     },
     {
-      "id": "kr_technology-and-internet_20260812",
-      "date": "2026-08-12",
+      "id": "kr_technology-and-internet_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "technology-and-internet.md",
       "difficulty": {
@@ -4391,8 +4391,8 @@
       }
     },
     {
-      "id": "kr_nature-vocabulary_20260812",
-      "date": "2026-08-12",
+      "id": "kr_nature-vocabulary_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "nature-vocabulary.md",
       "difficulty": {
@@ -4446,8 +4446,8 @@
       }
     },
     {
-      "id": "kr_health-and-body_20260812",
-      "date": "2026-08-12",
+      "id": "kr_health-and-body_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "health-and-body.md",
       "difficulty": {
@@ -4501,8 +4501,8 @@
       }
     },
     {
-      "id": "kr_holidays-and-celebrations_20260812",
-      "date": "2026-08-12",
+      "id": "kr_holidays-and-celebrations_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "holidays-and-celebrations.md",
       "difficulty": {
@@ -4556,8 +4556,8 @@
       }
     },
     {
-      "id": "kr_animals-vocabulary_20260812",
-      "date": "2026-08-12",
+      "id": "kr_animals-vocabulary_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "animals-vocabulary.md",
       "difficulty": {
@@ -4611,8 +4611,8 @@
       }
     },
     {
-      "id": "kr_shopping-and-money_20260812",
-      "date": "2026-08-12",
+      "id": "kr_shopping-and-money_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "shopping-and-money.md",
       "difficulty": {
@@ -4666,8 +4666,8 @@
       }
     },
     {
-      "id": "kr_food-and-dining_20260812",
-      "date": "2026-08-12",
+      "id": "kr_food-and-dining_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "food-and-dining.md",
       "difficulty": {
@@ -4721,8 +4721,8 @@
       }
     },
     {
-      "id": "kr_dating-romance-kr_20260812",
-      "date": "2026-08-12",
+      "id": "kr_dating-romance-kr_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "dating-romance-kr.md",
       "difficulty": {
@@ -4773,8 +4773,8 @@
       }
     },
     {
-      "id": "kr_speech-levels-ko_20260812",
-      "date": "2026-08-12",
+      "id": "kr_speech-levels-ko_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "speech-levels-ko.md",
       "difficulty": {
@@ -4828,8 +4828,8 @@
       }
     },
     {
-      "id": "kr_literature-passages_20260812",
-      "date": "2026-08-12",
+      "id": "kr_literature-passages_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "literature-passages.md",
       "difficulty": {
@@ -4883,8 +4883,8 @@
       }
     },
     {
-      "id": "kr_topik1-starter_20260812",
-      "date": "2026-08-12",
+      "id": "kr_topik1-starter_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "topik1-starter.md",
       "difficulty": {
@@ -4938,8 +4938,8 @@
       }
     },
     {
-      "id": "kr_emotions-personality-vocabulary_20260812",
-      "date": "2026-08-12",
+      "id": "kr_emotions-personality-vocabulary_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "emotions-personality-vocabulary.md",
       "difficulty": {
@@ -4993,8 +4993,8 @@
       }
     },
     {
-      "id": "kr_clothing-vocabulary_20260812",
-      "date": "2026-08-12",
+      "id": "kr_clothing-vocabulary_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "clothing-vocabulary.md",
       "difficulty": {
@@ -5048,8 +5048,8 @@
       }
     },
     {
-      "id": "kr_travel-basics_20260812",
-      "date": "2026-08-12",
+      "id": "kr_travel-basics_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "travel-basics.md",
       "difficulty": {
@@ -5101,8 +5101,8 @@
       }
     },
     {
-      "id": "kr_daily-life-basics_20260812",
-      "date": "2026-08-12",
+      "id": "kr_daily-life-basics_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "daily-life-basics.md",
       "difficulty": {
@@ -5156,8 +5156,8 @@
       }
     },
     {
-      "id": "kr_sports-and-hobbies_20260812",
-      "date": "2026-08-12",
+      "id": "kr_sports-and-hobbies_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "sports-and-hobbies.md",
       "difficulty": {
@@ -5211,8 +5211,8 @@
       }
     },
     {
-      "id": "kr_food-vocabulary_20260812",
-      "date": "2026-08-12",
+      "id": "kr_food-vocabulary_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "food-vocabulary.md",
       "difficulty": {
@@ -5266,8 +5266,8 @@
       }
     },
     {
-      "id": "kr_travel-basics-kr_20260812",
-      "date": "2026-08-12",
+      "id": "kr_travel-basics-kr_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "travel-basics-kr.md",
       "difficulty": {
@@ -5319,8 +5319,8 @@
       }
     },
     {
-      "id": "kr_business-vocabulary_20260812",
-      "date": "2026-08-12",
+      "id": "kr_business-vocabulary_20260814",
+      "date": "2026-08-14",
       "language": "kr",
       "sourceTopic": "business-vocabulary.md",
       "difficulty": {
