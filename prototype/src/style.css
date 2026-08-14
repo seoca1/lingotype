@@ -2203,3 +2203,20 @@ button:hover {
 .stage-back-btn:focus-visible {
   outline-offset: 3px;
 }
+
+/* Phase 20: focus-visible for Menu header buttons + LanguageSelection cards.
+   Phase 14/19 covered modal screens; Phase 20 covers persistent landing
+   and menu-screen buttons. Same 2px cyan outline + 2px offset as before. */
+.back-btn:focus-visible,
+.options-btn:focus-visible,
+.settings-btn:focus-visible,
+.character-select-btn:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: 2px;
+}
+
+.language-card:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: 3px;
+  border-color: var(--theme-color, #6366f1);
+}

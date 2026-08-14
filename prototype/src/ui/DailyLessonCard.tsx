@@ -101,6 +101,7 @@ export function DailyLessonCard({ lesson, onOpen, onSkip, onPractice }: DailyLes
           className="daily-lesson-card__btn daily-lesson-card__btn--primary"
           style={{ background: color }}
           onClick={() => onOpen(lesson)}
+          aria-label={t('readMore', nativeLanguage)}
         >
           📖 {t('readMore', nativeLanguage)}
         </button>
@@ -108,6 +109,7 @@ export function DailyLessonCard({ lesson, onOpen, onSkip, onPractice }: DailyLes
           <button
             className="daily-lesson-card__btn daily-lesson-card__btn--secondary"
             onClick={() => onPractice(lesson.meta.relatedStages[0])}
+            aria-label={t('practice', nativeLanguage)}
           >
             🎮 {t('practice', nativeLanguage)}
           </button>
@@ -115,6 +117,7 @@ export function DailyLessonCard({ lesson, onOpen, onSkip, onPractice }: DailyLes
         <button
           className="daily-lesson-card__btn daily-lesson-card__btn--tertiary"
           onClick={onSkip}
+          aria-label={t('later', nativeLanguage)}
         >
           {t('later', nativeLanguage)}
         </button>
