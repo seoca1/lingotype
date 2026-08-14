@@ -1,5 +1,67 @@
 # Activity Log - Typing Language
 
+## [2026-08-14] chore(a11y) | Phase 20 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on Phase 14/17/19. Closes the gap where Phase 14 added accessible labels to the persistent Menu / LanguageSelection buttons but never added matching `:focus-visible` rules, and where `DailyLessonCard` shipped three buttons without `aria-label`s.
+
+### Improvements (3 small, focused)
+
+| # | Area | Change |
+|---|---|---|
+| 1 | `style.css` — Menu header focus-visible | New `:focus-visible` rules for `.back-btn` / `.options-btn` / `.settings-btn` / `.character-select-btn`. Same 2px cyan outline + 2px offset as Phase 14/19 — keyboard users now see which Menu button is focused. Phase 14 had `aria-label`s on these buttons but no visible focus indicator. |
+| 2 | `style.css` — LanguageSelection focus-visible | New `:focus-visible` rule for `.language-card` landing-screen selector (uses `var(--theme-color)` border + 3px offset so it stays visible against the radial-gradient background). Closes the gap where the keyboard-navigated landing had no visible focus. |
+| 3 | `DailyLessonCard` accessible names | All 3 action buttons (`Read more` / `Practice` / `Later`) now expose `aria-label`. Previously the only accessible name came from the emoji prefix + translated text in the button body; SR users got "📖 자세히 보기" instead of just "자세히 보기". Now `aria-label` mirrors the translated text so SR users hear the action verb first. |
+
+### Tests added (+9; baseline 937 → 946)
+
+New `tests/ui/phase20-a11y.test.tsx`:
+
+**DailyLessonCard** (4 tests):
+1. Primary read-more button exposes `aria-label`
+2. Secondary practice button gets `aria-label` when related stages exist
+3. Tertiary later button exposes `aria-label`
+4. All 3 buttons each carry their own `aria-label` (no duplicates, no missing)
+
+**style.css coverage** (5 tests):
+5. `:focus-visible` rules for Menu header buttons (Back / Options / Settings / Character-select)
+6. `:focus-visible` rule for `.language-card` landing selector
+7. **Regression guard**: Phase 19 StageScreen focus-visible rules preserved
+8. **Regression guard**: Phase 14 OptionsScreen / SettingsScreen focus-visible rules preserved (in component-internal `<style>` blocks)
+9. Phase 20 block has a phase-anchor comment (matches Phase 14/17/19 convention)
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **946 passed** + 1 skipped (937 baseline + 9 new) |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 1 broken wikilink (`Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md → [[count_zero]]`) is out of scope per AGENTS.md §3. |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Files changed (3, all in `Game/typing_language/prototype/`)
+
+| File | +/− | Purpose |
+|---|--:|---|
+| `src/style.css` | +17 / −0 | `:focus-visible` rules for 4 Menu buttons + `.language-card` |
+| `src/ui/DailyLessonCard.tsx` | +3 / −0 | `aria-label` on 3 action buttons |
+| `tests/ui/phase20-a11y.test.tsx` | new file, +168 | 9 new Phase 20 tests |
+
+### Out-of-scope (preserved)
+
+- No new languages (already have 7)
+- No raw/ edits (read-only per AGENTS.md §2)
+- No Accepted ADRs touched
+- No BGM/SFX additions
+- No other projects (Fiction/, Game/roguelike_sprawl/, Language/) touched
+- No push (user handles GH_TOKEN rotation)
+
+### Commit
+
+- Hash: `9508899`
+- Files: `+188 / -0` across 3 files (2 modified, 1 new)
+- Pushed: NO (user handles GH_TOKEN rotation)
+
 ## [2026-08-14] chore(a11y) | Phase 19 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 18 (Chinese) and Phase 14/17 polish rounds. No new languages, no corpus expansion, no audio changes. Targets gaps where Chinese support was incomplete and the existing options/stage screens were silent for screen-reader/visual feedback.
