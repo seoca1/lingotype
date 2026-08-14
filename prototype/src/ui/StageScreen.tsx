@@ -139,6 +139,16 @@ export function StageScreen({
     window.speechSynthesis.speak(u);
   }, []);
 
+  // Phase 23: canvas a11y — expose target text + language to screen readers.
+  const canvasAriaLabel = state.currentEnemy
+    ? (() => {
+        const target = state.currentEnemy.target;
+        const meaning = target.meaning ? `, meaning ${target.meaning}` : '';
+        const category = target.category ? `, category ${target.category}` : '';
+        return `Game canvas. Type ${target.text} in ${languageLabel}${meaning}${category}. Typed so far: ${state.buffer || 'nothing'}.`;
+      })()
+    : `Game canvas for ${languageLabel}. ${stage?.name ?? 'Stage ready.'}`;
+
   return (
     <div className="stage-screen">
       <canvas
@@ -150,6 +160,8 @@ export function StageScreen({
         onMouseMove={handleCanvasMouseMove}
         onMouseLeave={handleCanvasMouseLeave}
         style={{ cursor: onCanvasClick ? 'pointer' : 'default' }}
+        role="img"
+        aria-label={canvasAriaLabel}
       />
       <aside className="stage-info">
         <h2>

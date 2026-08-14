@@ -95,9 +95,12 @@ function StageCard({
           ? `${stage.name}, Tier ${stage.difficulty}, locked: ${lockReason}`
           : `${stage.name}, Tier ${stage.difficulty}${
               cleared ? `, cleared ${stars} stars` : ''
-            }, ${stage.wordCount} ${t('words', nativeLanguage)}`
+            }, ${stage.wordCount} ${t('words', nativeLanguage)}${
+              selected ? ', currently selected' : ''
+            }`
       }
       aria-disabled={locked || undefined}
+      aria-current={selected ? 'true' : undefined}
     >
       <div className="stage-card-header">
         <h3>

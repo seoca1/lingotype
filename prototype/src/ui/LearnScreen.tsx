@@ -12,7 +12,7 @@
  * and gameplay, leveraging the existing daily lesson content.
  */
 
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useRef } from 'react';
 import type { StageConfig, Enemy } from '../types.js';
 import { LANGUAGE_LABEL, type Language } from '../types.js';
 import { getNativeLanguage, type NativeLanguage } from '../data/nativeLanguage.js';
@@ -86,6 +86,43 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
   }, [onBack, onStart, selectedVocab]);
+
+  // Phase 23: vocab-modal focus trap — focus the close button when a card
+  // opens, restore prior focus on close, and trap Tab between the close
+  // button and the TTS button. Mirrors the Phase 17 WeakWordModal pattern.
+  const vocabModalRef = useRef<HTMLDivElement | null>(null);
+  const vocabModalCloseRef = useRef<HTMLButtonElement | null>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (!selectedVocab) return;
+    if (typeof document === 'undefined') return;
+    previouslyFocusedRef.current = document.activeElement as HTMLElement | null;
+    vocabModalCloseRef.current?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab' || !vocabModalRef.current) return;
+      const focusable = vocabModalRef.current.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0]!;
+      const last = focusable[focusable.length - 1]!;
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      previouslyFocusedRef.current?.focus?.();
+    };
+  }, [selectedVocab]);
 
   return (
     <div className="learn-screen">
@@ -224,6 +261,11 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
         <div
           className="learn-screen__vocab-modal"
           onClick={() => setSelectedVocab(null)}
+          ref={vocabModalRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selectedVocab.display} details`}
+          data-testid="learn-screen-vocab-modal"
         >
           <div
             className="learn-screen__vocab-modal-content"
@@ -240,9 +282,10 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
                 </div>
               </div>
               <button
+                ref={vocabModalCloseRef}
                 className="learn-screen__vocab-modal-close"
                 onClick={() => setSelectedVocab(null)}
-                aria-label={t('close', nativeLanguage)}
+                aria-label={`${t('close', nativeLanguage)} (Escape)`}
               >
                 ✕
               </button>
