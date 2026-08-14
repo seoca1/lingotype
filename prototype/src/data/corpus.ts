@@ -1910,6 +1910,113 @@ export const KR_WORDS: WordEntry[] = [
   { id: 'kr_pa_003', display: '봄날이 따뜻하고 꽃이 활짝 핀 때', romaji: 'bomnal ttatteuthago kkochi hwaljjik pin ttae', jamo: 'ㅂㅗㅁㄴㅏㄹㅇㅣ ㄸㅏㅆㅡㄷㅎㅏㄴㄷㅗ ㄲㅗㅊㅣ ㅎㅘㄹㅉㅣㄱ ㅍㅣㄴ ㄸㅡ', meanings: { en: 'When spring days are warm and flowers are in full bloom', ja: '春の日は暖かく、花が満開のとき', ko: '봄날이 따뜻하고 꽃이 활짝 핀 때' }, meaningLang: 'ko', level: 5, category: 'passage', source: 'literature-passages' },
 ];
 
+// ===== FR (French) — Phase 15 seed =====
+// 출처: Language/wiki/French/vocabulary/*.md (theme-stem 인용)
+
+export const FR_WORDS: WordEntry[] = [
+  // Tier 1 (Level 1) — basic vocabulary (greeting, number, color, family)
+  { id: 'fr_001', display: 'bonjour', meanings: { en: 'hello', es: 'hola', ja: 'こんにちは', ko: '안녕' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_002', display: 'merci', meanings: { en: 'thank you', es: 'gracias', ja: 'ありがとう', ko: '고마워' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_003', display: 'au revoir', meanings: { en: 'goodbye', es: 'adiós', ja: 'さようなら', ko: '안녕히' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_004', display: 'oui', meanings: { ko: '네' }, meaningLang: 'ko', level: 1, category: 'basic', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_005', display: 'non', meanings: { en: 'no', es: 'no', ja: 'いいえ', ko: '아니오' }, meaningLang: 'ko', level: 1, category: 'basic', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_006', display: 'un', meanings: { ko: '하나' }, meaningLang: 'ko', level: 1, category: 'number', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_007', display: 'deux', meanings: { ko: '둘' }, meaningLang: 'ko', level: 1, category: 'number', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_008', display: 'trois', meanings: { ko: '셋' }, meaningLang: 'ko', level: 1, category: 'number', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_009', display: 'quatre', meanings: { ko: '넷' }, meaningLang: 'ko', level: 1, category: 'number', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_010', display: 'cinq', meanings: { ko: '다섯' }, meaningLang: 'ko', level: 1, category: 'number', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_011', display: 'dix', meanings: { ko: '열' }, meaningLang: 'ko', level: 1, category: 'number', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_012', display: 'rouge', meanings: { ko: '빨강' }, meaningLang: 'ko', level: 1, category: 'color', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_013', display: 'bleu', meanings: { ko: '파랑' }, meaningLang: 'ko', level: 1, category: 'color', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_014', display: 'vert', meanings: { ko: '초록' }, meaningLang: 'ko', level: 1, category: 'color', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_015', display: 'blanc', meanings: { ko: '하양' }, meaningLang: 'ko', level: 1, category: 'color', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_016', display: 'noir', meanings: { ko: '검정' }, meaningLang: 'ko', level: 1, category: 'color', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_017', display: 'jaune', meanings: { ko: '노랑' }, meaningLang: 'ko', level: 1, category: 'color', accentMode: 'loose', source: 'basic-vocabulary' },
+  { id: 'fr_018', display: 'père', meanings: { ko: '아버지' }, meaningLang: 'ko', level: 1, category: 'family', accentMode: 'loose', source: 'basic-vocabulary' },
+  { id: 'fr_019', display: 'mère', meanings: { ko: '어머니' }, meaningLang: 'ko', level: 1, category: 'family', accentMode: 'loose', source: 'basic-vocabulary' },
+  { id: 'fr_020', display: 'ami', meanings: { ko: '친구 (m)' }, meaningLang: 'ko', level: 1, category: 'family', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_021', display: 'maison', meanings: { ko: '집' }, meaningLang: 'ko', level: 1, category: 'place', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_022', display: 'école', meanings: { ko: '학교' }, meaningLang: 'ko', level: 1, category: 'place', accentMode: 'strict', source: 'basic-vocabulary' },
+  { id: 'fr_023', display: 'livre', meanings: { ko: '책' }, meaningLang: 'ko', level: 1, category: 'object', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_024', display: 'eau', meanings: { ko: '물' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'loose', source: 'basic-vocabulary' },
+  { id: 'fr_025', display: 'chat', meanings: { ko: '고양이' }, meaningLang: 'ko', level: 1, category: 'animal', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_026', display: 'chien', meanings: { ko: '개' }, meaningLang: 'ko', level: 1, category: 'animal', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_027', display: 'France', meanings: { ko: '프랑스' }, meaningLang: 'ko', level: 1, category: 'place', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_028', display: 'café', meanings: { ko: '커피/카페' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'strict', source: 'basic-vocabulary' },
+
+  // Tier 1 (Level 1) — daily verbs
+  { id: 'fr_101', display: 'être', meanings: { ko: '~이다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'loose', source: 'daily-life-vocabulary' },
+  { id: 'fr_102', display: 'avoir', meanings: { ko: '가지다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'fr_103', display: 'aller', meanings: { ko: '가다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'fr_104', display: 'faire', meanings: { ko: '하다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'loose', source: 'daily-life-vocabulary' },
+  { id: 'fr_105', display: 'vouloir', meanings: { ko: '원하다' }, meaningLang: 'ko', level: 2, category: 'verb', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'fr_106', display: 'pouvoir', meanings: { ko: '~할 수 있다' }, meaningLang: 'ko', level: 2, category: 'verb', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'fr_107', display: 'aujourd\'hui', meanings: { ko: '오늘' }, meaningLang: 'ko', level: 1, category: 'time', accentMode: 'loose', source: 'daily-life-vocabulary' },
+  { id: 'fr_108', display: 'demain', meanings: { ko: '내일' }, meaningLang: 'ko', level: 1, category: 'time', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'fr_109', display: 'matin', meanings: { ko: '아침' }, meaningLang: 'ko', level: 1, category: 'time', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'fr_110', display: 'soir', meanings: { ko: '저녁' }, meaningLang: 'ko', level: 1, category: 'time', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'fr_111', display: 'heure', meanings: { ko: '시간' }, meaningLang: 'ko', level: 1, category: 'time', accentMode: 'loose', source: 'daily-life-vocabulary' },
+
+  // Tier 1-2 — food vocabulary
+  { id: 'fr_201', display: 'pain', meanings: { ko: '빵' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'fr_202', display: 'fromage', meanings: { ko: '치즈' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'fr_203', display: 'viande', meanings: { ko: '고기' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'fr_204', display: 'poisson', meanings: { ko: '생선' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'fr_205', display: 'légume', meanings: { ko: '야채' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'strict', source: 'food-vocabulary' },
+  { id: 'fr_206', display: 'fruit', meanings: { ko: '과일' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'fr_207', display: 'pomme', meanings: { ko: '사과' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'fr_208', display: 'vin', meanings: { ko: '와인' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'fr_209', display: 'bière', meanings: { ko: '맥주' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'strict', source: 'food-vocabulary' },
+  { id: 'fr_210', display: 'thé', meanings: { ko: '차' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'strict', source: 'food-vocabulary' },
+  { id: 'fr_211', display: 'jus', meanings: { ko: '주스' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'fr_212', display: 'déjeuner', meanings: { ko: '점심' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'strict', source: 'food-vocabulary' },
+  { id: 'fr_213', display: 'dîner', meanings: { ko: '저녁 식사' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'strict', source: 'food-vocabulary' },
+  { id: 'fr_214', display: 'restaurant', meanings: { ko: '식당' }, meaningLang: 'ko', level: 1, category: 'place', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'fr_215', display: 'menu', meanings: { ko: '메뉴 (정식)' }, meaningLang: 'ko', level: 1, category: 'object', accentMode: 'any', source: 'food-vocabulary' },
+
+  // Tier 2 — business
+  { id: 'fr_301', display: 'courriel', meanings: { ko: '이메일' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'any', source: 'business-vocabulary' },
+  { id: 'fr_302', display: 'adresse', meanings: { ko: '주소' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'strict', source: 'business-vocabulary' },
+  { id: 'fr_303', display: 'réunion', meanings: { ko: '회의' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'strict', source: 'business-vocabulary' },
+  { id: 'fr_304', display: 'rendez-vous', meanings: { ko: '약속' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'any', source: 'business-vocabulary' },
+  { id: 'fr_305', display: 'entreprise', meanings: { ko: '회사' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'strict', source: 'business-vocabulary' },
+  { id: 'fr_306', display: 'bureau', meanings: { ko: '사무실' }, meaningLang: 'ko', level: 2, category: 'place', accentMode: 'any', source: 'business-vocabulary' },
+  { id: 'fr_307', display: 'envoyer', meanings: { ko: '보내다' }, meaningLang: 'ko', level: 2, category: 'verb', accentMode: 'any', source: 'business-vocabulary' },
+  { id: 'fr_308', display: 'recevoir', meanings: { ko: '받다' }, meaningLang: 'ko', level: 2, category: 'verb', accentMode: 'any', source: 'business-vocabulary' },
+  { id: 'fr_309', display: 'répondre', meanings: { ko: '답하다' }, meaningLang: 'ko', level: 2, category: 'verb', accentMode: 'strict', source: 'business-vocabulary' },
+
+  // Tier 2 — travel
+  { id: 'fr_401', display: 'aéroport', meanings: { ko: '공항' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'strict', source: 'travel-vocabulary' },
+  { id: 'fr_402', display: 'passeport', meanings: { ko: '여권' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'fr_403', display: 'valise', meanings: { ko: '여행가방' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'fr_404', display: 'avion', meanings: { ko: '비행기' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'fr_405', display: 'train', meanings: { ko: '기차' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'fr_406', display: 'métro', meanings: { ko: '지하철' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'strict', source: 'travel-vocabulary' },
+  { id: 'fr_407', display: 'hôtel', meanings: { ko: '호텔' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'strict', source: 'travel-vocabulary' },
+  { id: 'fr_408', display: 'chambre', meanings: { ko: '방' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'fr_409', display: 'clé', meanings: { ko: '열쇠' }, meaningLang: 'ko', level: 2, category: 'travel', accentMode: 'strict', source: 'travel-vocabulary' },
+  { id: 'fr_410', display: 'musée', meanings: { ko: '박물관' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'strict', source: 'travel-vocabulary' },
+  { id: 'fr_411', display: 'cathédrale', meanings: { ko: '대성당' }, meaningLang: 'ko', level: 2, category: 'travel', accentMode: 'strict', source: 'travel-vocabulary' },
+  { id: 'fr_412', display: 'plage', meanings: { ko: '해변' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'fr_413', display: 'montagne', meanings: { ko: '산' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'fr_414', display: 'Paris', meanings: { ko: '파리' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'fr_415', display: 'gauche', meanings: { ko: '왼쪽' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'loose', source: 'travel-vocabulary' },
+  { id: 'fr_416', display: 'droite', meanings: { ko: '오른쪽' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+
+  // Tier 1 — polite expressions (greetings, courtesy)
+  { id: 'fr_501', display: 'bonsoir', meanings: { ko: '안녕히 주무세요 (저녁)' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'fr_502', display: 'bonne nuit', meanings: { ko: '잘 자요' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'fr_503', display: 's\'il vous plaît', meanings: { ko: '부탁드립니다' }, meaningLang: 'ko', level: 1, category: 'expression', accentMode: 'loose', source: 'polite-expressions' },
+  { id: 'fr_504', display: 'pardon', meanings: { ko: '실례합니다' }, meaningLang: 'ko', level: 1, category: 'expression', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'fr_505', display: 'excusez-moi', meanings: { ko: '죄송합니다' }, meaningLang: 'ko', level: 1, category: 'expression', accentMode: 'strict', source: 'polite-expressions' },
+  { id: 'fr_506', display: 'merci beaucoup', meanings: { ko: '대단히 감사합니다' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'fr_507', display: 'de rien', meanings: { ko: '천만에요' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'fr_508', display: 'bienvenue', meanings: { ko: '환영합니다' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'fr_509', display: 'enchanté', meanings: { ko: '반가워요 (m)' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'strict', source: 'polite-expressions' },
+  { id: 'fr_510', display: 'français', meanings: { ko: '프랑스어' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'strict', source: 'basic-vocabulary' },
+  { id: 'fr_511', display: 'garçon', meanings: { ko: '소년/남자' }, meaningLang: 'ko', level: 1, category: 'person', accentMode: 'strict', source: 'basic-vocabulary' },
+];
+
 export const KR_SENTENCES: WordEntry[] = [
   // Tier 3: Short sentences (10-30 chars)
   {
@@ -2720,11 +2827,32 @@ export const ES_SENTENCES: WordEntry[] = [
   { id: 'ess_305', display: 'Comprender y respetar las diferentes culturas es el cimiento más esencial de nuestra comunidad global, donde todos debemos aprender a vivir juntos en paz.', level: 5, category: 'passage', source: 'literatura-hispana' },
 ];
 
+// ===== FR (French) Sentences — Phase 15 seed =====
+// 출처: Language/wiki/French/vocabulary/*.md (theme-stem 인용)
+
+export const FR_SENTENCES: WordEntry[] = [
+  // Tier 3: Short sentences (greeting + basic)
+  { id: 'frs_001', display: 'Bonjour, comment allez-vous ?', meanings: { en: 'Hello, how are you?' }, meaningLang: 'en', level: 3, category: 'greeting', source: 'polite-expressions' },
+  { id: 'frs_002', display: 'Merci beaucoup, madame.', meanings: { en: 'Thank you very much, ma\'am.' }, meaningLang: 'en', level: 3, category: 'greeting', source: 'polite-expressions' },
+  { id: 'frs_003', display: 'Enchanté, je suis étudiant.', meanings: { en: 'Nice to meet you, I am a student.' }, meaningLang: 'en', level: 3, category: 'greeting', source: 'polite-expressions' },
+  { id: 'frs_004', display: 'Où est la bibliothèque ?', meanings: { en: 'Where is the library?' }, meaningLang: 'en', level: 3, category: 'question', source: 'basic-vocabulary' },
+
+  // Tier 3: Daily-life sentences
+  { id: 'frs_101', display: 'Je voudrais un café, s\'il vous plaît.', meanings: { en: 'I would like a coffee, please.' }, meaningLang: 'en', level: 3, category: 'restaurant', source: 'food-vocabulary' },
+  { id: 'frs_102', display: 'Aujourd\'hui, je vais au bureau.', meanings: { en: 'Today, I am going to the office.' }, meaningLang: 'en', level: 3, category: 'daily', source: 'daily-life-vocabulary' },
+  { id: 'frs_103', display: 'Nous avons une réunion demain matin.', meanings: { en: 'We have a meeting tomorrow morning.' }, meaningLang: 'en', level: 3, category: 'business', source: 'business-vocabulary' },
+
+  // Tier 4: Travel sentences
+  { id: 'frs_201', display: 'Où est l\'aéroport, s\'il vous plaît ?', meanings: { en: 'Where is the airport, please?' }, meaningLang: 'en', level: 4, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'frs_202', display: 'Je voudrais réserver une chambre pour deux nuits.', meanings: { en: 'I would like to book a room for two nights.' }, meaningLang: 'en', level: 4, category: 'travel', source: 'travel-vocabulary' },
+];
+
 export const CORPUS = {
   en: EN_WORDS,
   jp: JP_WORDS,
   es: ES_WORDS,
   kr: KR_WORDS,
+  fr: FR_WORDS,
 } as const;
 
 export const SENTENCES = {
@@ -2732,6 +2860,7 @@ export const SENTENCES = {
   jp: JP_SENTENCES,
   es: ES_SENTENCES,
   kr: KR_SENTENCES,
+  fr: FR_SENTENCES,
 } as const;
 
 // JP character corpuses (Tier 0)

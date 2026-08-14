@@ -1,5 +1,129 @@
 # Activity Log - Typing Language
 
+## [2026-08-14] feat(lang) | Phase 15 — French language scaffold
+
+**Scope:** Add full French (`fr`) language support — InputHandler with accent + ASCII fallback + `œ` ligature, LanguageConfig registration, FR_WORDS/FR_SENTENCES corpus (theme-stem cited from `Language/wiki/French/`), 6 French stages (Tier 1-3), Menu/LanguageSelection entries, and tests.
+
+### New files
+
+- `prototype/src/input/FrenchHandler.ts` — strict/loose modes; ASCII fallback (`e` → `é`/`è`/`ê`, `a` → `à`/`â`, `c` → `ç`, `u` → `ù`/`û`, `o` → `ô`, `i` → `ï`/`î`); `œ` ligature → `oe`.
+- `prototype/src/language/languages/french.ts` — `FRENCH_CONFIG` (code `fr`, nativeName `Français`, theme `#0055A4`).
+- `prototype/tests/input/FrenchHandler.test.ts` — 41 handler tests (accent fallback, ligature, apostrophe, backspace, accuracy, mode switch, long sentences).
+- `prototype/tests/language/french.test.ts` — 13 config/corpus integrity tests (registration, citation stems, unique IDs, diacritic coverage).
+- `Language/raw/French/README.md` — Phase 15 source attribution (DELF A1/A2 + Le Robert + CNRTL + Office du Tourisme de Paris).
+- `Language/wiki/French/{index,log}.md` + `vocabulary/{basic,daily-life,food,business,travel}-vocabulary.md` + `expressions/polite-expressions.md` — 6 theme-files (5 vocab + 1 expressions) seeded with citation stems.
+
+### Modified files
+
+- `prototype/src/language/index.ts` — `registerLanguage(FRENCH_CONFIG)` added.
+- `prototype/src/types.ts` — `LANGUAGE_LABEL.fr = 'Français'`.
+- `prototype/src/ui/Menu.tsx` — French flag (`🇫🇷`), theme color, languageNames entry.
+- `prototype/src/ui/LanguageSelection.tsx` — French flag + theme color in LANGUAGE_THEME.
+- `prototype/src/data/corpus.ts` — `FR_WORDS` (74 entries: 28 Tier-1 basic, 11 daily verbs, 15 food, 9 business, 16 travel, 9 polite expressions) and `FR_SENTENCES` (9 entries) added; `CORPUS.fr` and `SENTENCES.fr` extended.
+- `prototype/src/data/stages.ts` — 6 French stages (`fr_1_1`, `fr_1_2`, `fr_1_3`, `fr_2_1`, `fr_2_2`, `fr_3_1`) added; spread into `ALL_STAGE_SPECS`.
+
+### Validation
+
+- `npm run typecheck` — 0 errors.
+- `npm run lint` — 0 errors.
+- `npm test` — **802 passed | 1 skipped (803)** — baseline 748 → +54 new tests (41 handler + 13 language).
+- `python3 audit_vault.py` — 0 broken links, 0 orphans.
+- `python3 mixed_language_audit.py` — 0 CJK violations.
+
+### Corpus citations
+
+Every FR entry has `source: '[테마 stem]'` per AGENTS.md §1.5:
+`basic-vocabulary`, `daily-life-vocabulary`, `food-vocabulary`, `business-vocabulary`, `travel-vocabulary`, `polite-expressions`.
+
+## [2026-08-14] feat(a11y) | Phase 14 — Polish + accessibility improvements
+
+**Scope:** Extend the Phase 13 UX polish into real accessibility coverage (focus management + screen-reader friendly buttons) across every modal-bearing screen, plus visible polish for failed-save errors and keyboard-shortcut hints.
+
+### Accessibility improvements
+
+| Area | Change |
+|---|---|
+| `OptionsScreen` modal | Added `role="dialog"` + `aria-modal="true"` + `aria-label="Options"`; focus trap (Tab + Shift+Tab cycle inside the modal); focus restored to the previously-focused element on unmount; close button auto-focused on mount so screen readers land on the dismiss action. |
+| `SettingsScreen` modal | Same focus-trap / restoration / Escape-to-close wiring as OptionsScreen; previously had no `:focus-visible` rules — added them for the close button, language buttons, toggle checkbox, and volume slider. |
+| `OptionsScreen` toggle inputs | Added accessible names `Display highlighting toggle` and `Sound effects toggle` so the existing emoji + ON/OFF label isn't the only cue. |
+| `OptionsScreen` reset button | Added `aria-label="Reset options to defaults"`. |
+| `OptionsScreen` difficulty group | Wrapped in `role="group"` + `aria-label="Difficulty selection"`. |
+| `StageScreen` audio controls | Audio toggle got `aria-label` + `aria-pressed`; volume slider got `aria-label`. |
+| `StageScreen` back button | Added `aria-label="Back to menu (Escape)"`. |
+| `Menu` back button | Added `aria-label="Back to language selection (Escape)"`. |
+| `Menu` stage cards | `aria-label` summarizes name / tier / cleared+stars / lock reason; `aria-disabled` reflects lock state. |
+| `LanguageSelection` language cards | `aria-label` + `aria-pressed` reflect selection. |
+| `LanguageSelection` footer buttons | Replay tutorial + char-test buttons now expose `aria-label`. |
+| `SettingsScreen` native-language buttons | `aria-label` + `aria-pressed` mirror OptionsScreen's difficulty pattern. |
+| `SettingsScreen` KR input-mode buttons | `aria-label` + `aria-pressed` on both Jamo and Romanized buttons. |
+| `Tutorial` nav buttons | Prev / Next / Start-tutorial / Tutorial-stage-start / Skip / Complete all got accessible labels. |
+| `Tutorial` progress + step content | `aria-live="polite"` so screen readers announce each new step and step number. |
+| `Tutorial` tutorial-tab buttons | `aria-pressed` reflects current language. |
+| `ResultScreen` back-to-menu + weak-word modal close | Both buttons got `aria-label`s. |
+
+### Polish improvements
+
+| Area | Change |
+|---|---|
+| `optionsStorage.saveOptions` | Was silently `console.warn`-ing on failure; **Phase 14** makes it `throw` so callers can surface a user-visible error. The console warn stays, so devs still see it. |
+| `OptionsScreen` save-error banner | Renders with `role="alert"` whenever a save throws; banner has clear "⚠️ Could not save settings: …" text in addition to the existing background-color cue. |
+| `OptionsScreen` saved indicator | `role="status"` + `aria-live="polite"` banner that appears on successful saves. |
+| Keyboard shortcut hints | Added `Press Esc to close` footer in Options + Settings; "Press Enter to …" hints on Tutorial's last-step action buttons; tip text on LanguageSelection (↑ ↓ ← → + Enter). |
+| Close button labels | All close buttons now say "Close (Escape)" / "닫기 (Escape)" / localized equivalent — screen readers announce the keyboard shortcut for free. |
+
+### Persistence verification
+
+Settings persistence was already working from Phase 10 (storage round-trip tested in `optionsStorage.test.tsx`); Phase 14 layered the throw-on-failure path on top so a broken `localStorage` no longer hides behind a console.warn. Verified by the new `saveOptions throws on localStorage failure` test that injects a failing `localStorage.setItem`.
+
+### Tests added (+10; baseline 738 → 748)
+
+`prototype/tests/state/optionsStorage.test.tsx` — new `OptionsScreen — Phase 14 polish + accessibility` block (7 tests):
+1. `renders an aria-modal dialog with role="dialog" and aria-label`
+2. `close button hint mentions Escape for keyboard shortcut discovery`
+3. `footer shows a keyboard-shortcut hint`
+4. `difficulty group has role="group" with descriptive aria-label`
+5. `toggle inputs expose accessible names`
+6. `reset button exposes accessible name for screen readers`
+7. `does not render the save-error banner when localStorage is healthy`
+
+New `optionsStorage — Phase 14 polish` block (2 tests + the renamed existing one):
+1. `saveOptions throws on localStorage failure so callers can surface errors`
+2. `does not throw when storage succeeds`
+
+Plus an updated `close button keeps an aria-label for screen readers` test (loosened regex to accept the new "Close (Escape)" suffix introduced by the keyboard-shortcut hint upgrade).
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **748 passed** + 1 skipped (738 baseline + 10 new) |
+| `npm run build` | ✅ built in ~770ms (1185KB raw, 338KB gzip) |
+| `python3 audit_vault.py` | ✅ CLEAN (0 production broken, 0 orphans) |
+| `python3 mixed_language_audit.py` | ✅ 0 violations |
+
+### Files changed (10, all in `Game/typing_language/prototype/`)
+
+| File | +/− | Purpose |
+|---|--:|---|
+| `src/ui/OptionsScreen.tsx` | +121 / −13 | focus trap + restoration + dialog ARIA + save-error banner + saved indicator + keyboard hint footer |
+| `src/ui/SettingsScreen.tsx` | +89 / −8 | focus trap + restoration + dialog ARIA + `:focus-visible` rules + `aria-pressed` on language + KR input buttons + Esc hint footer |
+| `src/ui/Tutorial.tsx` | +54 / −13 | accessible labels on every nav / action button + `aria-live` on progress + step content + `aria-pressed` on language tabs + keyboard hint on last-step actions |
+| `src/ui/LanguageSelection.tsx` | +13 / −4 | `aria-label` + `aria-pressed` on language cards + footer button labels + keyboard hint |
+| `src/ui/Menu.tsx` | +10 / −4 | `aria-label` on Back button, `aria-label` + `aria-disabled` on each stage card |
+| `src/ui/StageScreen.tsx` | +7 / −3 | `aria-label` on Back / Audio / Volume / Sound toggle / `aria-pressed` on Sound toggle |
+| `src/ui/ResultScreen.tsx` | +3 / −2 | `aria-label` on back-to-menu + weak-word modal close |
+| `src/state/optionsStorage.ts` | +6 / −1 | `saveOptions` throws on failure (was silent console.warn) |
+| `src/style.css` | +14 / −1 | `.tutorial-finish`, `.tutorial-hint` styles |
+| `tests/state/optionsStorage.test.tsx` | +75 / −8 | 8 new Phase 14 tests + 1 updated existing test |
+
+### Commit
+
+- Hash: `c206848`
+- Files: `+412 / -37` across 10 files
+- Pushed: NO (user handles GH_TOKEN rotation)
+
 ## [2026-08-14] feat(audio+ux) | Phase 13 — More SFX + UX polish
 
 **Scope:** Extend the Phase 12 SFX catalog (10 → 14) and add accessibility polish to the OptionsScreen. All new SFX remain gated by `Options.sound`.

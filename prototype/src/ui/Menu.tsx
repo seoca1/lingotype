@@ -49,6 +49,7 @@ const LANGUAGE_FLAGS: Record<string, string> = {
   jp: '🇯🇵',
   es: '🇪🇸',
   kr: '🇰🇷',
+  fr: '🇫🇷',
 };
 
 function StageCard({
@@ -226,6 +227,7 @@ export function Menu({
     jp: { native: '日本語', en: '일본어' },
     es: { native: 'Español', en: '스페인어' },
     kr: { native: '한국어', en: '한국어' },
+    fr: { native: 'Français', en: '프랑스어' },
   };
 
   const langInfo = languageNames[language] || { native: language, en: language };

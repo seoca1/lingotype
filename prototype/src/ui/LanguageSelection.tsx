@@ -25,6 +25,7 @@ const LANGUAGE_FLAGS: Record<string, string> = {
   jp: '🇯🇵',
   es: '🇪🇸',
   kr: '🇰🇷',
+  fr: '🇫🇷',
 };
 
 const LANGUAGE_THEME: Record<string, string> = {
@@ -32,6 +33,7 @@ const LANGUAGE_THEME: Record<string, string> = {
   jp: '#ec4899',
   es: '#f59e0b',
   kr: '#10b981',
+  fr: '#0055A4',
 };
 
 export function LanguageSelection({

@@ -20,6 +20,7 @@ export const LANGUAGE_LABEL: Record<string, string> = {
   jp: '日本語',
   es: 'Español',
   kr: '한국어',
+  fr: 'Français',
 };
 
 export interface Target {

@@ -1600,6 +1600,87 @@ const ES_STAGES: StageSpec[] = [
   },
 ];
 
+const FR_STAGES: StageSpec[] = [
+  // Tier 1 — basic vocabulary (greeting, numbers, colors, family)
+  {
+    id: 'fr_1_1',
+    language: 'fr',
+    tier: 1,
+    name: 'Premiers Mots',
+    description: '기본 어휘 (인사·기본·숫자·색)',
+    difficulty: 1,
+    wordCount: 10,
+    corpusFilter: { minLevel: 1, maxLevel: 1, categories: ['greeting', 'basic', 'number', 'color'] },
+    accentMode: 'loose',
+    missions: defaultMissionsForTier(1),
+  },
+  {
+    id: 'fr_1_2',
+    language: 'fr',
+    tier: 1,
+    name: 'Salutations',
+    description: '인사·정중 표현',
+    difficulty: 1,
+    wordCount: 12,
+    corpusFilter: { minLevel: 1, maxLevel: 1, categories: ['greeting', 'expression'] },
+    accentMode: 'loose',
+    missions: defaultMissionsForTier(1),
+  },
+  {
+    id: 'fr_1_3',
+    language: 'fr',
+    tier: 1,
+    name: 'Famille et Objets',
+    description: '가족·일상 사물',
+    difficulty: 1,
+    wordCount: 10,
+    corpusFilter: { minLevel: 1, maxLevel: 1, categories: ['family', 'place', 'object', 'animal'] },
+    accentMode: 'loose',
+    missions: defaultMissionsForTier(1),
+  },
+
+  // Tier 2 — extended vocabulary (verbs, food, travel)
+  {
+    id: 'fr_2_1',
+    language: 'fr',
+    tier: 2,
+    name: 'Accents (Strict)',
+    description: '액센트 단어 (Strict 모드 시작)',
+    difficulty: 2,
+    wordCount: 10,
+    corpusFilter: { minLevel: 2, maxLevel: 2 },
+    accentMode: 'strict',
+    missions: defaultMissionsForTier(2),
+  },
+  {
+    id: 'fr_2_2',
+    language: 'fr',
+    tier: 2,
+    name: 'Voyage Essentiel',
+    description: '여행 필수 어휘 (공항·호텔·방향)',
+    difficulty: 2,
+    wordCount: 12,
+    corpusFilter: { minLevel: 1, maxLevel: 2, categories: ['travel', 'food'] },
+    accentMode: 'loose',
+    missions: defaultMissionsForTier(2),
+  },
+
+  // Tier 3 — short sentences
+  {
+    id: 'fr_3_1',
+    language: 'fr',
+    tier: 3,
+    name: 'Phrases Courtes',
+    description: '짧은 문장 (인사·기본)',
+    difficulty: 3,
+    wordCount: 8,
+    corpusFilter: { minLevel: 3, maxLevel: 3 },
+    requiresCorpus: 'sentences',
+    accentMode: 'strict',
+    missions: defaultMissionsForTier(3),
+  },
+];
+
 const KR_STAGES: StageSpec[] = [
   // Tier 1
   {
@@ -2102,6 +2183,7 @@ const ALL_STAGE_SPECS: StageSpec[] = [
   ...JP_STAGES,
   ...ES_STAGES,
   ...KR_STAGES,
+  ...FR_STAGES,
 ];
 
 /**
