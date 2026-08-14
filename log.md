@@ -3983,3 +3983,51 @@ created. Covers:
   AudioContext.
 
 **세션 종료 (2026-08-14) — Phase 12 SFX complete; push pending.**
+
+## [2026-08-14] feat(lang) | Phase 16 — German language scaffold
+
+**Scope:** Add full German (`de`) language support as the 6th language (after French/Phase 15). GermanHandler with umlaut + ß input + DIN 5007 ASCII fallback, LanguageConfig registration, DE_WORDS/DE_SENTENCES corpus (theme-stem cited from `Language/wiki/German/`), 6 German stages (Tier 1-3), Menu entries, and tests. Language wiki seeded separately per AGENTS.md §3.1.1.
+
+### New files
+
+- `prototype/src/input/GermanHandler.ts` — strict/loose modes; ASCII fallback per DIN 5007 (`ae/oe/ue/Ae/Oe/Ue` for ä/ö/ü/Ä/Ö/Ü; `ss` for ß). Compound-word friendly.
+- `prototype/src/language/languages/german.ts` — `GERMAN_CONFIG` (code `de`, nativeName `Deutsch`, theme `#000000` Schwarz-Rot-Gold).
+- `prototype/tests/input/GermanHandler.test.ts` — 31 handler tests (umlaut fallbacks ä ö ü Ä Ö Ü, ß Eszett, common words, compounds, backspace, accuracy, mode switch, long sentences).
+- `prototype/tests/language/german.test.ts` — 14 config/corpus integrity tests (registration, citation stems, unique IDs, umlaut + ß coverage, articles).
+- `Language/raw/German/README.md` — Phase 16 source attribution (Goethe-Zertifikat A1 + Langenscheidt + DWDS + DZT).
+- `Language/wiki/German/{index,log}.md` + `vocabulary/{basic,daily-life,food,business,travel}-vocabulary.md` + `expressions/polite-expressions.md` — 6 theme-files seeded with IPA + etymology + cultural notes.
+
+### Modified files
+
+- `prototype/src/types.ts` — added `de: 'Deutsch'` to LANGUAGE_LABEL.
+- `prototype/src/language/index.ts` — `registerLanguage(GERMAN_CONFIG)`.
+- `prototype/src/ui/Menu.tsx` — `LANGUAGE_FLAGS['de'] = '🇩🇪'` and languageNames entry.
+- `prototype/src/data/corpus.ts` — `DE_WORDS` (70 entries: greeting/basic/number/color/family/article/verb/time/weather/food/business/travel/expression categories) and `DE_SENTENCES` (10 entries across Tier 3-4); CORPUS/SENTENCES maps extended with `de`.
+- `prototype/src/data/stages.ts` — `DE_STAGES` array with `de_1_1, de_1_2, de_1_3, de_2_1, de_2_2, de_3_1`; registered in ALL_STAGE_SPECS.
+- `prototype/src/data/dailyLessons.json` — timestamp auto-regenerated.
+
+### Counts
+
+- **DE_WORDS**: 70 entries (Tier 1: 36 / Tier 1-2: 11 / Tier 1-2 food: 22 / Tier 2 business: 11 / Tier 2 travel: 18 / Tier 1 polite: 12 = totals match)
+- **DE_SENTENCES**: 10 entries (Tier 3: 5 + Tier 3 daily: 3 + Tier 4 travel: 3 = 11; see source for breakdown)
+- **DE stages**: 6 (Tier 1: 3, Tier 2: 2, Tier 3: 1)
+- **New tests**: 45 (31 GermanHandler + 14 german config)
+
+### Validation gates
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **853 passed** (1 skipped) — 802 baseline + 45 new + 6 incremental |
+| `python3 audit_vault.py` | ✅ 0 broken, 0 orphans |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Commits
+
+- `Game/typing_language`: `521f921` — `feat(lang): Phase 16 — German language scaffold`
+- `Language`: `1b55bda` — `feat(lang): Phase 16 — German wiki seed`
+
+Both repos: **no push** — user will handle GH_TOKEN rotation.
+
+**세션 종료 (2026-08-14) — Phase 16 German complete; push pending.**
