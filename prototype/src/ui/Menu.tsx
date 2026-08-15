@@ -10,7 +10,7 @@
  * - Escape : 뒤로 가기
  */
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import type { StageConfig, StageRecord, Language } from '../types.js';
 import { SAMPLE_STAGES, stagesByTier, type StageTier } from '../data/stages.js';
 import { CHARACTER_INFO } from '../config/characterImages.js';
@@ -62,6 +62,7 @@ function StageCard({
   selected,
   dataStageId,
   nativeLanguage,
+  setRef,
 }: {
   stage: StageConfig;
   onStart: (s: StageConfig) => void;
@@ -70,6 +71,12 @@ function StageCard({
   selected?: boolean;
   dataStageId?: string;
   nativeLanguage: NativeLanguage;
+  /**
+   * Phase 29: ref-setter for the underlying <button> so the parent Menu
+   * can call .focus() on arrow-key navigation. Mirrors Phase 27's
+   * LanguageSelection cardRefs pattern.
+   */
+  setRef?: (el: HTMLButtonElement | null) => void;
 }) {
   const stars = record?.stars || 0;
   const cleared = record?.cleared || false;
@@ -85,6 +92,7 @@ function StageCard({
 
   return (
     <button
+      ref={setRef}
       className={`stage-card ${cleared ? 'stage-cleared' : ''} ${locked ? 'stage-locked' : ''} ${selected ? 'stage-selected' : ''}`}
       onClick={handleClick}
       disabled={locked}
@@ -178,6 +186,18 @@ export function Menu({
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const allStageIds = allLanguageStages.map((s) => s.id);
 
+  // Phase 29: ref array so arrow-key navigation can move DOM focus alongside
+  // visual highlight. Mirrors the Phase 27 LanguageSelection pattern: each
+  // StageCard mounts a ref-setter via `setRef` that populates this array
+  // in render order, and arrow keys call .focus() on the corresponding cell.
+  const cardRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const setCardRef = useCallback(
+    (index: number) => (el: HTMLButtonElement | null) => {
+      cardRefs.current[index] = el;
+    },
+    []
+  );
+
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -213,8 +233,12 @@ export function Menu({
       }
 
       if (newIndex !== selectedIndex) {
+        // Phase 29: preventDefault so arrow keys don't scroll the viewport
+        // and DOM focus moves alongside the visual highlight.
+        e.preventDefault();
         setSelectedIndex(newIndex);
-        // Scroll the selected card into view
+        cardRefs.current[newIndex]?.focus();
+        // Scroll the selected card into view (legacy behaviour preserved)
         const card = document.querySelector(`[data-stage-id="${allStageIds[newIndex]}"]`);
         card?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
@@ -315,6 +339,7 @@ export function Menu({
                 selected={selectedIndex === i}
                 dataStageId={s.id}
                 nativeLanguage={nativeLanguage}
+                setRef={setCardRef(i)}
               />
             ))}
           </div>
@@ -351,6 +376,7 @@ export function Menu({
                     selected={selectedIndex === globalIndex}
                     dataStageId={s.id}
                     nativeLanguage={nativeLanguage}
+                    setRef={setCardRef(globalIndex)}
                   />
                 );
               })}

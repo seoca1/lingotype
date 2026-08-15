@@ -2233,3 +2233,15 @@ button:hover {
   outline: 2px solid var(--good);
   outline-offset: 3px;
 }
+
+/* Phase 29: focus-visible for Menu stage cards. Phase 20 covered the
+   persistent Menu header buttons (back / options / settings / character-
+   select) and Phase 27 added a:focus-visible rule via Phase 27's
+   LanguageSelection ref pattern, but the stage-card <button>s themselves
+   never had a visible focus indicator. Phase 29 pairs with the new
+   arrow-key focus tracking so the keyboard-selected card is visible.
+   Same 2px cyan outline + 3px offset as the .language-card rule. */
+.stage-card:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: 3px;
+}

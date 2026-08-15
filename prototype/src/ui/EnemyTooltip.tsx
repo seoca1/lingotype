@@ -148,6 +148,13 @@ export function EnemyTooltip({
           padding: 2px 6px;
         }
         .enemy-tooltip__close:hover { color: #fff; }
+        /* Phase 29: visible focus ring for keyboard users. Mirrors the
+           Phase 25 dialog + Phase 27 tooltip close-button pattern. */
+        .enemy-tooltip__close:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
+          color: #fff;
+        }
         .enemy-tooltip__header {
           margin-bottom: 8px;
           padding-right: 24px;
