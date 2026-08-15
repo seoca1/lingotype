@@ -1,5 +1,71 @@
 # Activity Log - Typing Language
 
+## [2026-08-15] chore(a11y) | Phase 26 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25. Closes remaining gaps where the SettingsScreen sound toggle + volume slider lacked explicit `htmlFor`/`id` pairings (so SR tools walking the accessibility tree couldn't pair them), and where the MarkdownView TTS button's speaking state was conveyed only by emoji (invisible to SR users).
+
+### Improvements (3 small, focused)
+
+| # | Area | Change |
+|---|---|---|
+| 1 | `SettingsScreen` sound toggle | The 🔊 on/off checkbox now uses `id="settings-sound-toggle"` + `htmlFor` binding on its label (previously the label wrapped the input but had no explicit pairing — gap for SR tools that walk the tree rather than relying on DOM nesting). The checkbox input also got an explicit `aria-label={t('sound', native)}` so the accessible name resolves through i18n regardless of which native language the user has selected. |
+| 2 | `SettingsScreen` volume slider | The range slider now uses `id="settings-volume-slider"` + `htmlFor` binding on the label, plus `aria-label={t('volume', native)}` + `aria-valuetext="${Math.round(volume * 100)} percent"`. Mirrors the Phase 19 fix to StageScreen's volume slider so SR users hear the numeric percentage when focusing the slider. (Slider is conditionally rendered when sound is enabled, so verified via source contract + static markup smoke test.) |
+| 3 | `MarkdownView` TtsButton | The 🔊/⏸ TTS button now exposes `aria-pressed={speaking}` + a dynamic `aria-label={speaking ? 'Stop pronunciation' : 'Listen to pronunciation'}`. Previously the only state indicator was the emoji glyph (⏸ vs 🔊), which is invisible to SR users. Now SR users hear the toggle state announce its purpose as it flips. The change is verified via static markup (default `aria-pressed="false"` + `aria-label="Listen to pronunciation"`) and source contract (`aria-pressed={speaking}` + dynamic aria-label ternary). |
+
+### Tests added (+11; baseline 1015 → 1026)
+
+New `tests/ui/phase26-a11y.test.tsx`:
+
+**SettingsScreen sound toggle** (3 tests, source-level):
+1. `toggle label has htmlFor="settings-sound-toggle"`
+2. `toggle input has id="settings-sound-toggle"`
+3. `toggle input exposes aria-label naming the sound preference`
+
+**SettingsScreen volume slider** (3 tests, source-level + smoke):
+4. `volume label has htmlFor="settings-volume-slider"`
+5. `volume input has id="settings-volume-slider"`
+6. `volume input exposes aria-label + aria-valuetext for SR users`
+
+**MarkdownView TtsButton** (5 tests):
+7. `TtsButton source wires aria-pressed={speaking} on the button`
+8. `TtsButton source uses dynamic aria-label (Listen vs Stop)`
+9. `list-item TtsButton renders aria-pressed="false" by default`
+10. `callout TtsButton renders aria-pressed="false" by default`
+11. `every TtsButton has aria-pressed wired (regression guard across paragraph + list + callout)`
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **1026 passed** + 1 skipped (1015 baseline + 11 new) |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[[count_zero]]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 + 22 + 23 + 24 + 25 logs. |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Files changed (3, all in `Game/typing_language/prototype/`)
+
+| File | +/− | Purpose |
+|---|--:|---|
+| `src/ui/SettingsScreen.tsx` | +12 / −3 | `id="settings-sound-toggle"` + `htmlFor` + `aria-label` on toggle; `id="settings-volume-slider"` + `htmlFor` + `aria-label` + `aria-valuetext` on volume slider |
+| `src/ui/MarkdownView.tsx` | +2 / −1 | `aria-pressed={speaking}` + dynamic `aria-label` ternary on TtsButton |
+| `tests/ui/phase26-a11y.test.tsx` | new file, +156 | 11 new Phase 26 tests |
+
+### Out-of-scope (preserved)
+
+- No new languages (already have 7)
+- No raw/ edits (read-only per AGENTS.md §2)
+- No Accepted ADRs touched
+- No BGM/SFX additions
+- No other projects (Fiction/, Game/roguelike_sprawl/, Language/) touched
+- No push (user handles GH_TOKEN rotation)
+
+### Commit
+
+- Hash: `4ed0bc7`
+- Files: `+165 / −3` across 3 files (2 modified, 1 new)
+- Pushed: NO (user handles GH_TOKEN rotation)
+
 ## [2026-08-15] chore(a11y) | Phase 25 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24. Closes gaps where the keyboard mismatch warnings (shown before stage starts and on-the-fly during gameplay) were silent modals, the on-screen virtual keyboard buttons were unlabeled glyphs for SR users, and the hover tooltip over an enemy lacked dialog semantics.
