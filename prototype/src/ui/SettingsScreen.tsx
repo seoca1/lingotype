@@ -42,10 +42,16 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
   const [volume, setVolume] = useState(audio.getVolume());
   const [soundEnabled, setSoundEnabled] = useState(audio.isEnabled());
   const [krInputMode, setKrInputMode] = useState<KoreanInputMode>(getKoreanInputMode());
+  // Phase 30: transient "Settings saved" indicator. Mirrors the Phase 19
+  // OptionsScreen pattern (`options-saved` + `aria-live="polite"`) so
+  // Settings persistence now has a visible + audible confirmation instead
+  // of silently auto-saving on every change.
+  const [savedAt, setSavedAt] = useState<number | null>(null);
 
   const handleNativeChange = (lang: NativeLanguage) => {
     setNative(lang);
     setNativeLanguage(lang);
+    setSavedAt(Date.now());
     // Optional: visual feedback by playing TTS for the new language
     if (soundEnabled && 'speechSynthesis' in window) {
       const label = NATIVE_LANGUAGE_LABELS[lang];
@@ -67,17 +73,20 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
     const v = parseFloat(e.target.value);
     setVolume(v);
     audio.setVolume(v);
+    setSavedAt(Date.now());
   };
 
   const toggleSound = () => {
     const newEnabled = !soundEnabled;
     setSoundEnabled(newEnabled);
     audio.setEnabled(newEnabled);
+    setSavedAt(Date.now());
   };
 
   const handleKrInputModeChange = (mode: KoreanInputMode) => {
     setKoreanInputMode(mode);
     setKrInputMode(mode);
+    setSavedAt(Date.now());
   };
 
   // Phase 14: focus management (mirrors OptionsScreen) — focus the close
@@ -121,6 +130,14 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
     };
   }, [onClose]);
 
+  // Phase 30: auto-clear the "Settings saved" indicator 2.5s after it
+  // appears. Mirrors the Phase 19 OptionsScreen `resetAt` pattern.
+  useEffect(() => {
+    if (savedAt === null) return;
+    const handle = setTimeout(() => setSavedAt(null), 2500);
+    return () => clearTimeout(handle);
+  }, [savedAt]);
+
   return (
     <div
       className="settings-screen"
@@ -143,6 +160,20 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
       </div>
 
       <div className="settings-screen__body">
+        {/* Phase 30: visible + audible confirmation that a setting
+            change was persisted. Mirrors the Phase 19 OptionsScreen
+            `options-saved` indicator — same role + aria-live pattern so
+            SR users hear "Settings saved" when the debounced save lands. */}
+        {savedAt !== null && (
+          <div
+            className="settings-saved"
+            role="status"
+            aria-live="polite"
+            data-testid="settings-saved-indicator"
+          >
+            ✓ Settings saved
+          </div>
+        )}
         {/* Native Language Section */}
         <section className="settings-section">
           <h2 className="settings-section__title">🌐 {t('nativeLanguage', native)}</h2>
@@ -479,6 +510,21 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
           color: #6a7888;
           font-size: 12px;
           border-top: 1px solid #1a2530;
+        }
+        /* Phase 30: transient "Settings saved" indicator. Matches the
+           Phase 19 OptionsScreen options-saved palette (cyan check) so
+           visual feedback is consistent across the two auto-saving
+           modals. */
+        .settings-saved {
+          background: rgba(0, 217, 255, 0.08);
+          color: #00d9ff;
+          padding: 8px 14px;
+          border-radius: 8px;
+          border: 1px solid rgba(0, 217, 255, 0.3);
+          font-size: 13px;
+          font-weight: 600;
+          margin-bottom: 16px;
+          text-align: center;
         }
         .settings-volume label {
           display: flex;

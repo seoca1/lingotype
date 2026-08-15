@@ -2245,3 +2245,16 @@ button:hover {
   outline: 2px solid #00d9ff;
   outline-offset: 3px;
 }
+
+/* Phase 30: focus-visible for the blocking KeyboardWarning modal buttons
+   (KoreanKeyboardWarning + NonKoreanKeyboardWarning). Phase 14/25 added
+   role="dialog" + aria-label + the (Escape)/(Enter) keyboard hints, plus
+   focus-trap wiring that auto-focuses the dismiss button on mount — but
+   the only persistent actions (Back / Continue) had no visible focus
+   indicator. Same 2px cyan outline + 2px offset as the Phase 14 modal
+   close buttons, so keyboard users tabbing through the trap see a
+   consistent cyan ring on every actionable element. */
+.warning-btn:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: 2px;
+}

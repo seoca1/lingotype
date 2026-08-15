@@ -209,6 +209,16 @@ export function DailyLessonCard({ lesson, onOpen, onSkip, onPractice }: DailyLes
           min-width: 70px;
         }
         .daily-lesson-card__btn:hover { opacity: 0.85; }
+        /* Phase 30: focus-visible for the 3 action buttons (Read more /
+           Practice / Later). Phase 20 added aria-label to each one but no
+           visible focus indicator existed — keyboard users tabbing
+           through the Result screen got no visual confirmation of which
+           card-action was selected. 2px cyan outline + 2px offset
+           matches the .warning-btn rule and the Phase 14 modal pattern. */
+        .daily-lesson-card__btn:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
+        }
       `}</style>
     </div>
   );
