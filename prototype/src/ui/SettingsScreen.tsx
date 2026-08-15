@@ -185,25 +185,35 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
             🔊 {t('sound', native)}
           </h2>
           <div className="settings-section__row">
-            <label className="settings-toggle">
+            {/* Phase 26: explicit htmlFor/id pairing on the sound toggle so screen
+                readers can associate the label text with the checkbox. */}
+            <label className="settings-toggle" htmlFor="settings-sound-toggle">
               <input
+                id="settings-sound-toggle"
                 type="checkbox"
                 checked={soundEnabled}
                 onChange={toggleSound}
+                aria-label={t('sound', native)}
               />
               <span>{soundEnabled ? t('on', native) : t('off', native)}</span>
             </label>
             {soundEnabled && (
               <div className="settings-volume">
-                <label>
+                {/* Phase 26: id/htmlFor pairing + aria-valuetext on the volume
+                    slider so SR users hear the numeric value (mirrors Phase 19's
+                    StageScreen fix). */}
+                <label htmlFor="settings-volume-slider">
                   {t('volume', native)}: {Math.round(volume * 100)}%
                   <input
+                    id="settings-volume-slider"
                     type="range"
                     min="0"
                     max="1"
                     step="0.1"
                     value={volume}
                     onChange={handleVolumeChange}
+                    aria-label={t('volume', native)}
+                    aria-valuetext={`${Math.round(volume * 100)} percent`}
                   />
                 </label>
               </div>

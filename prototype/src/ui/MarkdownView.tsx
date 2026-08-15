@@ -86,7 +86,8 @@ function TtsButton({ text, lang }: { text: string; lang: string }): ReactNode {
       className={`md-tts-btn ${speaking ? 'md-tts-btn--active' : ''}`}
       onClick={handleClick}
       title={speaking ? 'Stop' : 'Listen to pronunciation'}
-      aria-label="Listen to pronunciation"
+      aria-label={speaking ? 'Stop pronunciation' : 'Listen to pronunciation'}
+      aria-pressed={speaking}
     >
       {speaking ? '⏸' : '🔊'}
     </button>
