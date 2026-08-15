@@ -1,5 +1,80 @@
 # Activity Log - Typing Language
 
+## [2026-08-15] chore(a11y) | Phase 29 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28. Closes gaps where the Menu arrow-key handler moved `selectedIndex` state but never moved DOM focus (so SR users pressing arrows heard stale content), where the stage-card `<button>`s had no `:focus-visible` outline (Phase 20 covered the Menu header buttons but not the cards), and where the in-game `EnemyTooltip` close button had the (Escape) hint + dialog role from Phase 25 but no visible focus ring.
+
+### Improvements (3 small, focused)
+
+| # | Area | Change |
+|---|---|---|
+| 1 | `Menu` arrow-key DOM focus | New `cardRefs` ref array + `setCardRef` factory wire each `StageCard` mount to a `ref={setRef}` prop. The arrow-key handler now calls `cardRefs.current[newIndex]?.focus()` after `setSelectedIndex(newIndex)`, so DOM focus follows the visual highlight. Previously state moved but DOM focus stayed put, so SR users pressing arrows heard stale content. Arrow keys also call `e.preventDefault()` so they don't scroll the viewport. Mirrors Phase 27's `LanguageSelection` pattern exactly. |
+| 2 | `style.css` `.stage-card:focus-visible` | New 2px cyan outline + 3px offset rule on `.stage-card:focus-visible`. Phase 20 covered the persistent Menu header buttons (Back / Options / Settings / Character-select) but the stage-card `<button>`s themselves never had a visible focus indicator. Paired with the new arrow-key focus tracking so the keyboard-selected card is visible — uses the same 3px offset as the Phase 27 `.language-card:focus-visible` rule for visual cadence consistency. |
+| 3 | `EnemyTooltip` close-button focus-visible | The hover tooltip's only persistent action (the ✕ close button) now ships a 2px cyan outline + 2px offset rule on `.enemy-tooltip__close:focus-visible`. The dialog already had `role="dialog"` + `aria-label` (Phase 25) and the `(Escape)` keyboard-shortcut hint (Phase 25), but no visible focus indicator. Now keyboard users tabbing to the close button see the cyan ring against the dark tooltip body. The `(Escape)` aria-label regression guard is preserved. |
+
+### Tests added (+15; baseline 1045 → 1060)
+
+New `tests/ui/phase29-a11y.test.tsx` — 15 tests covering all three improvements:
+
+**Menu arrow-key focus tracking** (5 tests, source-level):
+1. `menu source wires a cardRefs ref array via useRef<(HTMLButtonElement | null)[]>([])`
+2. `menu source wires a setCardRef factory that takes an index (setCardRef(i) → setter)`
+3. `arrow-key handler calls .focus() on the new index after setSelectedIndex(newIndex)`
+4. `arrow-key handler calls e.preventDefault() so arrows do not scroll the page`
+5. `every StageCard mount wires a setRef={setCardRef(...)} prop (both Tier 0 and Tier 1-5 paths)`
+
+**StageCard ref-setter prop** (2 tests, source-level):
+6. `StageCard prop type includes an optional setRef field`
+7. `StageCard <button> ref attribute is bound to setRef`
+
+**Menu renderToStaticMarkup smoke** (2 tests, regression guards):
+8. `Menu renders without throwing (no JSX / prop regressions)`
+9. `Menu renders at least one stage-card button (no silent empty render)`
+
+**`style.css` `.stage-card:focus-visible` rule** (3 tests):
+10. `declares .stage-card:focus-visible with a 2px cyan outline (#00d9ff)`
+11. `uses a 3px outline-offset matching the .language-card Phase 27 rule`
+12. `Phase 29 block carries a phase-anchor comment (matches Phase 14/19/20/21/27 convention)`
+
+**`EnemyTooltip` close-button `:focus-visible` rule** (3 tests):
+13. `close button keeps the (Escape) aria-label (Phase 25 regression guard)`
+14. `EnemyTooltip source wires .enemy-tooltip__close:focus-visible rule (inline style block)`
+15. `.enemy-tooltip__close:focus-visible uses the 2px cyan outline pattern`
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **1060 passed** + 1 skipped (1045 baseline + 15 new) |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[[count_zero]]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 + 22 + 23 + 24 + 25 + 26 + 27 + 28 logs. |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Files changed (4, all in `Game/typing_language/prototype/`)
+
+| File | +/− | Purpose |
+|---|--:|---|
+| `src/ui/Menu.tsx` | +28 / −2 | `useRef` import; `cardRefs` ref array + `setCardRef` factory; `ref={setRef}` on every StageCard `<button>`; arrow-key handler calls `e.preventDefault()` + `cardRefs.current[newIndex]?.focus()` after `setSelectedIndex(newIndex)` |
+| `src/style.css` | +12 / −0 | New `.stage-card:focus-visible` rule (2px cyan outline + 3px offset) with Phase 29 phase-anchor comment |
+| `src/ui/EnemyTooltip.tsx` | +7 / −0 | New `.enemy-tooltip__close:focus-visible` rule (2px cyan outline + 2px offset) inside the existing inline `<style>` block |
+| `tests/ui/phase29-a11y.test.tsx` | new file, +268 | 15 new Phase 29 tests (source-level contracts + renderToStaticMarkup smoke + style.css coverage) |
+
+### Out-of-scope (preserved)
+
+- No new languages (already have 7)
+- No raw/ edits (read-only per AGENTS.md §2)
+- No Accepted ADRs touched
+- No BGM/SFX additions
+- No other projects (Fiction/, Game/roguelike_sprawl/, Language/) touched
+- No push (user handles GH_TOKEN rotation)
+
+### Commit
+
+- Hash: `627b595`
+- Files: `+268 / −2` across 4 files (3 modified source, 1 new test)
+- Pushed: NO (user handles GH_TOKEN rotation)
+
 ## [2026-08-15] chore(a11y) | Phase 27 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26. Closes remaining gaps where the ResultScreen wrapper had no landmark semantics (so SR users navigating by landmarks couldn't jump straight to the result region), where the ResultScreen mission rows used `role="status"` per-row (causing an announcement burst with 3+ missions), and where LanguageSelection arrow-key state moved but DOM focus stayed put (so SR users pressing arrows heard stale content).
