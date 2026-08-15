@@ -142,9 +142,10 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
         <button
           className="learn-screen__start"
           onClick={onStart}
+          aria-label={`${t('start', nativeLanguage)} ${stage.name} (Enter)`}
           style={{ background: color }}
         >
-          ⚔️ {t('start', nativeLanguage)}
+          ⚔️ {t('start', nativeLanguage)} <kbd style={{ marginLeft: '6px', opacity: 0.85 }}>(Enter)</kbd>
         </button>
       </div>
 
@@ -254,6 +255,21 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
         <div className="learn-screen__tip">
           💡 <strong>{t('tipHoverForMeaning', nativeLanguage).split('💡')[1]?.trim() || t('tipHoverForMeaning', nativeLanguage)}</strong>
         </div>
+
+        <p
+          className="learn-screen__kbd-hint"
+          aria-label="Keyboard shortcuts"
+          style={{
+            color: '#6a7888',
+            fontSize: '11px',
+            marginTop: '12px',
+            textAlign: 'center',
+          }}
+        >
+          <small>
+            <kbd>Enter</kbd> start stage · <kbd>Esc</kbd> back to menu
+          </small>
+        </p>
       </div>
 
       {/* Vocab Detail Modal */}

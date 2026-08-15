@@ -182,10 +182,14 @@ export function StageScreen({
             )}
           </div>
         )}
-        <div className="missions">
-          <h3>Missions</h3>
+        <div
+          className="missions"
+          role="list"
+          aria-label={`Stage missions for ${stage?.name ?? 'this stage'}`}
+        >
+          <h3 id="stage-missions-heading">Missions</h3>
           {stage?.missions.map((m) => (
-            <div key={m.id} className="mission">
+            <div key={m.id} className="mission" role="listitem">
               <strong>{m.name}</strong>
               <p>{m.description}</p>
             </div>

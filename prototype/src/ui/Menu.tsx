@@ -257,6 +257,8 @@ export function Menu({
             <span
               className={`streak-badge streak-badge--${streak.status}`}
               title={streak.text}
+              role="status"
+              aria-label={`Daily streak: ${streak.text}`}
             >
               {streak.icon} {streak.count > 0 ? streak.count : '—'}
             </span>
