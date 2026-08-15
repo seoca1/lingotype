@@ -44,7 +44,7 @@ New `tests/ui/phase30-a11y.test.tsx` — 13 tests covering all three improvement
 | `npm run typecheck` | ✅ 0 errors |
 | `npm run lint` | ✅ 0 errors |
 | `npm test` | ✅ **1073 passed** + 1 skipped (1060 baseline + 13 new) |
-| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[[count_zero]]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 + 22 + 23 + 24 + 25 + 26 + 27 + 28 + 29 logs. |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[count_zero]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 + 22 + 23 + 24 + 25 + 26 + 27 + 28 + 29 logs. |
 | `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
 
 ### Files changed (4, all in `Game/typing_language/prototype/`)
@@ -119,7 +119,7 @@ New `tests/ui/phase29-a11y.test.tsx` — 15 tests covering all three improvement
 | `npm run typecheck` | ✅ 0 errors |
 | `npm run lint` | ✅ 0 errors |
 | `npm test` | ✅ **1060 passed** + 1 skipped (1045 baseline + 15 new) |
-| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[[count_zero]]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 + 22 + 23 + 24 + 25 + 26 + 27 + 28 logs. |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[count_zero]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 + 22 + 23 + 24 + 25 + 26 + 27 + 28 logs. |
 | `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
 
 ### Files changed (4, all in `Game/typing_language/prototype/`)
@@ -188,7 +188,7 @@ Plus +1 regression guard in `tests/ui/phase24-a11y.test.tsx`:
 | `npm run typecheck` | ✅ 0 errors |
 | `npm run lint` | ✅ 0 errors |
 | `npm test` | ✅ **1037 passed** + 1 skipped (1026 baseline + 11 new) |
-| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[[count_zero]]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 + 22 + 23 + 24 + 25 + 26 logs. |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[count_zero]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 + 22 + 23 + 24 + 25 + 26 logs. |
 | `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
 
 ### Files changed (4, all in `Game/typing_language/prototype/`)
@@ -255,7 +255,7 @@ New `tests/ui/phase26-a11y.test.tsx`:
 | `npm run typecheck` | ✅ 0 errors |
 | `npm run lint` | ✅ 0 errors |
 | `npm test` | ✅ **1026 passed** + 1 skipped (1015 baseline + 11 new) |
-| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[[count_zero]]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 + 22 + 23 + 24 + 25 logs. |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[count_zero]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 + 22 + 23 + 24 + 25 logs. |
 | `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
 
 ### Files changed (3, all in `Game/typing_language/prototype/`)
@@ -396,7 +396,7 @@ New `tests/ui/phase23-a11y.test.tsx`:
 | `npm run typecheck` | ✅ 0 errors |
 | `npm run lint` | ✅ 0 errors |
 | `npm test` | ✅ **991 passed** + 1 skipped (981 baseline + 10 new) |
-| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[[count_zero]]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 + 22 logs. |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[count_zero]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 + 22 logs. |
 | `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
 
 ### Files changed (4, all in `Game/typing_language/prototype/`)
@@ -453,7 +453,7 @@ New `tests/ui/phase22-a11y.test.tsx`:
 | `npm run typecheck` | ✅ 0 errors |
 | `npm run lint` | ✅ 0 errors |
 | `npm test` | ✅ **981 passed** + 1 skipped (969 baseline + 12 new) |
-| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[[count_zero]]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 logs. |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[count_zero]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 logs. |
 | `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
 
 ### Files changed (4, all in `Game/typing_language/prototype/`)
@@ -536,7 +536,7 @@ New `tests/ui/phase21-a11y.test.tsx`:
 | `npm run typecheck` | ✅ 0 errors |
 | `npm run lint` | ✅ 0 errors |
 | `npm test` | ✅ **969 passed** + 1 skipped (946 baseline + 23 new) |
-| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 1 broken wikilink (`Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md → [[count_zero]]`) is out of scope per AGENTS.md §3 — also documented in Phase 20 log. |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 1 broken wikilink (`Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md → [count_zero]`) is out of scope per AGENTS.md §3 — also documented in Phase 20 log. |
 | `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
 
 ### Files changed (5, all in `Game/typing_language/prototype/`)
@@ -600,7 +600,7 @@ New `tests/ui/phase20-a11y.test.tsx`:
 | `npm run typecheck` | ✅ 0 errors |
 | `npm run lint` | ✅ 0 errors |
 | `npm test` | ✅ **946 passed** + 1 skipped (937 baseline + 9 new) |
-| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 1 broken wikilink (`Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md → [[count_zero]]`) is out of scope per AGENTS.md §3. |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 1 broken wikilink (`Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md → [count_zero]`) is out of scope per AGENTS.md §3. |
 | `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
 
 ### Files changed (3, all in `Game/typing_language/prototype/`)
@@ -4831,7 +4831,7 @@ The wiki already had 70+ theme files (`basic-vocabulary.md`, `numbers-vocabulary
 | `npm run typecheck` | ✅ 0 errors |
 | `npm run lint` | ✅ 0 errors |
 | `npm test` | ✅ **999 passed** (1 skipped) — 991 baseline + 8 new |
-| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[[count_zero]]` from prior log entries documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[count_zero]` from prior log entries documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. |
 | `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
 
 ### Stats
@@ -4869,7 +4869,7 @@ The wiki already had 70+ theme files (`basic-vocabulary.md`, `numbers-vocabulary
 | `npm run typecheck` | ✅ 0 errors |
 | `npm run lint` | ✅ 0 errors |
 | `npm test` | ✅ **1045 passed** (1 skipped) — 1037 baseline + 8 new |
-| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. 2 pre-existing false-positive hits in `log.md` (`[[count_zero]]` from prior log entries documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. 2 pre-existing false-positive hits in `log.md` (`[count_zero]` from prior log entries documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. |
 | `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
 
 ### Stats
