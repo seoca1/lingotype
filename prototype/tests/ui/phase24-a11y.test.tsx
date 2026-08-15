@@ -7,10 +7,13 @@
  *   the proper `🎉` emoji so sighted users see a celebration icon. The icon
  *   remains `aria-hidden="true"` so the aria-label on the banner is what
  *   screen readers announce.
- * - ResultScreen mission result rows: each `<div>` now carries
- *   `role="status"` + an aria-label naming the mission and whether it was
- *   cleared or failed. The decorative ✓/✗ is `aria-hidden` so the wrapper
- *   is the source of truth for SR users.
+ * - ResultScreen mission result rows: each `<div>` now carries an
+ *   aria-label naming the mission and whether it was cleared or failed.
+ *   The decorative ✓/✗ is `aria-hidden` so the wrapper is the source of
+ *   truth for SR users. (Phase 27 removed the original `role="status"`
+ *   here because 3+ missions rendering simultaneously caused a burst of
+ *   SR announcements; the aria-label is still the single source of truth
+ *   for SR users, which is the Phase 24 contract this file verifies.)
  * - ResultScreen footer: a small keyboard shortcut hint makes the Escape
  *   affordance for "back to menu" discoverable, mirroring the Menu's
  *   Phase 20/22 pattern.
@@ -100,18 +103,18 @@ describe('Phase 24 — ResultScreen unlock banner renders a proper emoji (no moj
 // ResultScreen — mission result rows announce cleared/failed to SR users
 // ============================================================================
 
-describe('Phase 24 — ResultScreen mission results expose role + aria-label to screen readers', () => {
-  it('mission result rows are rendered with role="status" + cleared/failed aria-label', () => {
+describe('Phase 24 — ResultScreen mission results expose aria-label naming cleared/failed', () => {
+  it('mission result rows are rendered with cleared/failed aria-label', () => {
     const html = renderToStaticMarkup(
       <ResultScreen {...baseProps} />
     );
     // Cleared mission
     expect(html).toMatch(
-      /<div[^>]*class="mission-result cleared"[^>]*role="status"[^>]*aria-label="Defeat 5 enemies: cleared"/
+      /<div[^>]*class="mission-result cleared"[^>]*aria-label="Defeat 5 enemies: cleared"/
     );
     // Failed mission
     expect(html).toMatch(
-      /<div[^>]*class="mission-result failed"[^>]*role="status"[^>]*aria-label="90% accuracy: failed"/
+      /<div[^>]*class="mission-result failed"[^>]*aria-label="90% accuracy: failed"/
     );
   });
 
@@ -123,9 +126,19 @@ describe('Phase 24 — ResultScreen mission results expose role + aria-label to 
     expect(html).toMatch(/<span aria-hidden="true">✗<\/span>/);
   });
 
-  it('source contract: role="status" is applied to every mission result row', () => {
+  it('source contract: aria-label pattern is preserved on mission result rows', () => {
     const src = readFileSync(resolve(here, '../../src/ui/ResultScreen.tsx'), 'utf-8');
-    expect(src).toMatch(/role="status"[\s\S]{0,200}aria-label=\{`\$\{m\.name\}: \$\{cleared \? 'cleared' : 'failed'\}`\}/);
+    expect(src).toMatch(/aria-label=\{`\$\{m\.name\}: \$\{cleared \? 'cleared' : 'failed'\}`\}/);
+  });
+
+  it('Phase 27 regression guard: per-row role="status" was removed to stop SR announcement burst', () => {
+    // 3+ missions firing role="status" simultaneously caused a SR
+    // announcement burst. aria-label remains the source of truth.
+    const html = renderToStaticMarkup(<ResultScreen {...baseProps} />);
+    const missionDivs = html.match(/<div[^>]*class="mission-result[^"]*"[^>]*>/g) || [];
+    for (const div of missionDivs) {
+      expect(div).not.toMatch(/role="status"/);
+    }
   });
 });
 

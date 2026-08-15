@@ -10,7 +10,7 @@
  * - Enter : 언어 선택
  */
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import type { LanguageConfig } from '../language/LanguageRegistry.js';
 import { getAllLanguages } from '../language/index.js';
 
@@ -46,18 +46,30 @@ export function LanguageSelection({
   const languages = getAllLanguages();
   const COLS = 2;
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const cardRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
+      // Phase 27: move DOM focus alongside state so SR arrows land on the
+      // selected card. Previously state moved but focus stayed put.
+      const moveTo = (next: number) => {
+        setSelectedIndex(next);
+        cardRefs.current[next]?.focus();
+      };
       if (e.key === 'ArrowRight') {
-        setSelectedIndex((i) => Math.min(i + 1, languages.length - 1));
+        e.preventDefault();
+        moveTo(Math.min(selectedIndex + 1, languages.length - 1));
       } else if (e.key === 'ArrowLeft') {
-        setSelectedIndex((i) => Math.max(i - 1, 0));
+        e.preventDefault();
+        moveTo(Math.max(selectedIndex - 1, 0));
       } else if (e.key === 'ArrowDown') {
-        setSelectedIndex((i) => Math.min(i + COLS, languages.length - 1));
+        e.preventDefault();
+        moveTo(Math.min(selectedIndex + COLS, languages.length - 1));
       } else if (e.key === 'ArrowUp') {
-        setSelectedIndex((i) => Math.max(i - COLS, 0));
+        e.preventDefault();
+        moveTo(Math.max(selectedIndex - COLS, 0));
       } else if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
         const lang = languages[selectedIndex];
         if (lang) onSelectLanguage(lang.code);
       }
@@ -85,19 +97,22 @@ export function LanguageSelection({
           다른 언어로 바꾸려면 메인 화면으로 돌아가야 합니다.
         </p>
 
-        <div className="language-grid">
+        <div
+          className="language-grid"
+          role="grid"
+          aria-label="Available languages"
+        >
           {languages.map((lang: LanguageConfig, i: number) => (
             <button
               key={lang.code}
+              ref={(el) => {
+                cardRefs.current[i] = el;
+              }}
               className={`language-card ${selectedIndex === i ? 'language-card-selected' : ''}`}
               style={{
                 '--theme-color': LANGUAGE_THEME[lang.code] || '#6366f1',
               } as React.CSSProperties}
               onClick={() => {
-                // Sync visual + a11y state on mouse click; keyboard arrows
-                // already keep selectedIndex up to date. Without this, a
-                // mouse-clicked card would not announce aria-pressed=true
-                // and the highlight class would drift from real focus.
                 setSelectedIndex(i);
                 onSelectLanguage(lang.code);
               }}

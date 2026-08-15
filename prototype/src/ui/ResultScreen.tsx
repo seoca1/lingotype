@@ -138,8 +138,13 @@ export function ResultScreen({
   };
 
   return (
-    <div className="result-screen">
-      <h1>Stage Result</h1>
+    // Phase 27: labelled region landmark for screen-reader landmark nav.
+    <div
+      className="result-screen"
+      role="region"
+      aria-labelledby="result-screen-title"
+    >
+      <h1 id="result-screen-title">Stage Result</h1>
       <div className="result-summary">
         <p>Score: <strong>{score}</strong></p>
         <p>Defeated: <strong>{enemiesDefeated}</strong></p>
@@ -276,10 +281,11 @@ export function ResultScreen({
           const result = results.find((r) => r.missionId === m.id);
           const cleared = result?.cleared ?? false;
           return (
+            // Phase 27: drop per-row role="status" — caused SR announcement
+            // burst with 3+ missions. aria-label still names cleared/failed.
             <div
               key={m.id}
               className={`mission-result ${cleared ? 'cleared' : 'failed'}`}
-              role="status"
               aria-label={`${m.name}: ${cleared ? 'cleared' : 'failed'}`}
             >
               <strong>
