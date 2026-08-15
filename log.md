@@ -1,5 +1,74 @@
 # Activity Log - Typing Language
 
+## [2026-08-15] chore(a11y) | Phase 27 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26. Closes remaining gaps where the ResultScreen wrapper had no landmark semantics (so SR users navigating by landmarks couldn't jump straight to the result region), where the ResultScreen mission rows used `role="status"` per-row (causing an announcement burst with 3+ missions), and where LanguageSelection arrow-key state moved but DOM focus stayed put (so SR users pressing arrows heard stale content).
+
+### Improvements (3 small, focused)
+
+| # | Area | Change |
+|---|---|---|
+| 1 | `ResultScreen` region landmark | The outer `.result-screen` wrapper now exposes `role="region"` + `aria-labelledby="result-screen-title"`, with `id="result-screen-title"` on the page H1. SR users navigating by landmarks can now jump straight to the result region, and the H1 is programmatically tied to the wrapper (matches the Phase 14 dialog pattern). |
+| 2 | `ResultScreen` mission rows | Dropped per-row `role="status"`. With 3+ missions rendering simultaneously this caused a burst of SR announcements on mount. The wrapper's `aria-label` (still names cleared/failed) is the single source of truth — verified by renderToStaticMarkup. The Phase 24 tests were updated to reflect the new (correct) behavior + add a regression guard. |
+| 3 | `LanguageSelection` arrow-key DOM focus | The arrow-key handler now also calls `.focus()` on the corresponding card via a `cardRefs` ref array, so DOM focus follows the visual highlight. Previously state moved but DOM focus stayed put, so SR users pressing arrows heard stale content. The arrow keys also call `e.preventDefault()` so they don't scroll the viewport. The grid wrapper now exposes `role="grid"` + `aria-label="Available languages"` for a labelled group landmark. |
+
+### Tests added (+11; baseline 1026 → 1037)
+
+New `tests/ui/phase27-a11y.test.tsx` — 10 tests covering all three improvements:
+
+**ResultScreen region landmark** (2 tests):
+1. `outer div carries role="region" tied to the H1 via aria-labelledby`
+2. `h1 carries the matching id so aria-labelledby resolves`
+
+**ResultScreen mission rows** (3 tests):
+3. `mission rows render without role="status" (was announcement noise)`
+4. `mission rows keep aria-label naming cleared vs failed`
+5. `visual cleared/failed glyphs remain aria-hidden`
+
+**LanguageSelection arrow keys + grid landmark** (5 tests):
+6. `grid wrapper exposes role="grid" + accessible name`
+7. `arrow-key handler source wires focus() alongside setSelectedIndex`
+8. `each language card mounts a ref callback to populate cardRefs`
+9. `arrow keys call e.preventDefault to avoid scrolling the page`
+10. `Enter and Space call onSelectLanguage for the currently selected card`
+
+Plus +1 regression guard in `tests/ui/phase24-a11y.test.tsx`:
+11. `Phase 27 regression guard: per-row role="status" was removed to stop SR announcement burst`
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **1037 passed** + 1 skipped (1026 baseline + 11 new) |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[[count_zero]]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 + 22 + 23 + 24 + 25 + 26 logs. |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Files changed (4, all in `Game/typing_language/prototype/`)
+
+| File | +/− | Purpose |
+|---|--:|---|
+| `src/ui/ResultScreen.tsx` | +9 / −3 | `role="region"` + `aria-labelledby` + matching `id` on H1; drop per-row `role="status"` |
+| `src/ui/LanguageSelection.tsx` | +24 / −11 | `cardRefs` ref array + `.focus()` on arrow keys; `e.preventDefault()` for arrows/Enter/Space; `role="grid"` + `aria-label` on wrapper |
+| `tests/ui/phase27-a11y.test.tsx` | new file, +215 | 10 new Phase 27 tests |
+| `tests/ui/phase24-a11y.test.tsx` | +24 / −9 | Updated mission-row assertions to match new behavior + add regression guard |
+
+### Out-of-scope (preserved)
+
+- No new languages (already have 7)
+- No raw/ edits (read-only per AGENTS.md §2)
+- No Accepted ADRs touched
+- No BGM/SFX additions
+- No other projects (Fiction/, Game/roguelike_sprawl/, Language/) touched
+- No push (user handles GH_TOKEN rotation)
+
+### Commit
+
+- Hash: `1d15a30`
+- Files: `+272 / −23` across 4 files (2 modified source, 1 modified test, 1 new test)
+- Pushed: NO (user handles GH_TOKEN rotation)
+
 ## [2026-08-15] chore(a11y) | Phase 26 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25. Closes remaining gaps where the SettingsScreen sound toggle + volume slider lacked explicit `htmlFor`/`id` pairings (so SR tools walking the accessibility tree couldn't pair them), and where the MarkdownView TTS button's speaking state was conveyed only by emoji (invisible to SR users).
