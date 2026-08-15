@@ -1,5 +1,76 @@
 # Activity Log - Typing Language
 
+## [2026-08-15] chore(a11y) | Phase 30 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29. Closes gaps where the KeyboardWarning blocking modals had focus-trap + aria-label wiring but no visible focus ring on the persistent actions, where the DailyLessonCard's 3 action buttons shipped aria-label but no `:focus-visible` outline, and where the SettingsScreen auto-saved on every change with no visible or audible confirmation (the OptionsScreen got this fix in Phase 19; SettingsScreen hadn't).
+
+### Improvements (3 small, focused)
+
+| # | Area | Change |
+|---|---|---|
+| 1 | `style.css` `.warning-btn:focus-visible` | New 2px cyan outline + 2px offset rule for the blocking KeyboardWarning modal buttons (covers both `KoreanKeyboardWarning` and `NonKoreanKeyboardWarning`). Phase 14/25 added `role="dialog"` + aria-label + the `(Escape)`/`(Enter)` keyboard hints, plus focus-trap wiring that auto-focuses the dismiss button on mount — but the only persistent actions (Back / Continue) had no visible focus indicator. Same 2px cyan outline + 2px offset as the Phase 14 modal close buttons, so keyboard users tabbing through the trap see a consistent cyan ring on every actionable element. |
+| 2 | `DailyLessonCard` `.daily-lesson-card__btn:focus-visible` | New 2px cyan outline + 2px offset rule in the inline `<style>` block (covers all 3 action buttons — Read more / Practice / Later). Phase 20 added `aria-label` to each one but no visible focus indicator existed — keyboard users tabbing through the Result screen got no visual confirmation of which card-action was selected. |
+| 3 | `SettingsScreen` saved indicator (UX polish) | New transient `✓ Settings saved` banner (`role="status"` + `aria-live="polite"`, 2.5s auto-clear) wired to every persist-trigger (native language / volume / sound / KR input mode). Mirrors the Phase 19 OptionsScreen `options-saved` pattern so Settings persistence now has both visible and audible confirmation instead of silently auto-saving on every change. Closes a real persistence feedback gap. |
+
+### Tests added (+13; baseline 1060 → 1073)
+
+New `tests/ui/phase30-a11y.test.tsx` — 13 tests covering all three improvements:
+
+**`style.css` `.warning-btn:focus-visible` rule** (3 tests):
+1. `declares .warning-btn:focus-visible with a 2px cyan outline (#00d9ff)`
+2. `uses a 2px outline-offset matching the Phase 14 modal close-button pattern`
+3. `Phase 30 block carries a phase-anchor comment (matches Phase 14/19/20/21/27/29 convention)`
+
+**DailyLessonCard `:focus-visible` rule** (4 tests):
+4. `renders all 3 action buttons without throwing (smoke)`
+5. `DailyLessonCard source wires .daily-lesson-card__btn:focus-visible rule`
+6. `.daily-lesson-card__btn:focus-visible uses the 2px cyan outline pattern`
+7. `Phase 30 block in DailyLessonCard carries a phase-anchor comment`
+
+**Keyboard warning modals regression guards** (2 tests):
+8. `KoreanKeyboardWarning keeps role="dialog" + (Escape)/(Enter) buttons (regression guard)`
+9. `NonKoreanKeyboardWarning keeps role="dialog" + (Escape)/(Enter) buttons (regression guard)`
+
+**SettingsScreen saved indicator** (4 tests):
+10. `SettingsScreen renders without throwing (Phase 30 savedAt state is initialised safely)`
+11. `SettingsScreen source declares the savedAt state`
+12. `SettingsScreen source wires an aria-live="polite" saved indicator`
+13. `SettingsScreen does NOT show the saved indicator on first render (zero state)`
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **1073 passed** + 1 skipped (1060 baseline + 13 new) |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[[count_zero]]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 + 22 + 23 + 24 + 25 + 26 + 27 + 28 + 29 logs. |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Files changed (4, all in `Game/typing_language/prototype/`)
+
+| File | +/− | Purpose |
+|---|--:|---|
+| `src/style.css` | +13 / −0 | New `.warning-btn:focus-visible` rule (2px cyan outline + 2px offset) with Phase 30 phase-anchor comment |
+| `src/ui/DailyLessonCard.tsx` | +10 / −0 | New `.daily-lesson-card__btn:focus-visible` rule (2px cyan outline + 2px offset) inside the existing inline `<style>` block, with Phase 30 phase-anchor comment |
+| `src/ui/SettingsScreen.tsx` | +46 / −0 | `savedAt` state + 2.5s auto-clear effect + indicator banner (`role="status"` + `aria-live="polite"` + `data-testid="settings-saved-indicator"`) + `.settings-saved` CSS rule; `setSavedAt(Date.now())` wired into every persist handler (native language / volume / sound / KR input mode) |
+| `tests/ui/phase30-a11y.test.tsx` | new file, +238 | 13 new Phase 30 tests (source-level contracts + renderToStaticMarkup smoke + style.css coverage + regression guards) |
+
+### Out-of-scope (preserved)
+
+- No new languages (already have 7)
+- No raw/ edits (read-only per AGENTS.md §2)
+- No Accepted ADRs touched
+- No BGM/SFX additions
+- No other projects (Fiction/, Game/roguelike_sprawl/, Language/) touched
+- No push (user handles GH_TOKEN rotation)
+
+### Commit
+
+- Hash: `f9efd31`
+- Files: `+307 / −0` across 4 files (3 modified source, 1 new test)
+- Pushed: NO (user handles GH_TOKEN rotation)
+
 ## [2026-08-15] chore(a11y) | Phase 29 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28. Closes gaps where the Menu arrow-key handler moved `selectedIndex` state but never moved DOM focus (so SR users pressing arrows heard stale content), where the stage-card `<button>`s had no `:focus-visible` outline (Phase 20 covered the Menu header buttons but not the cards), and where the in-game `EnemyTooltip` close button had the (Escape) hint + dialog role from Phase 25 but no visible focus ring.
