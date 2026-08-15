@@ -4700,4 +4700,43 @@ The wiki already had 70+ theme files (`basic-vocabulary.md`, `numbers-vocabulary
 
 - `Game/typing_language`: `007c44b` — `chore(a11y): Phase 24 — Polish + accessibility`
 
+## [2026-08-15] chore(a11y) | Phase 28 — Polish + accessibility
+
+**Scope:** Three small UX/accessibility improvements layered on top of Phase 14/17/19/20/21/22/23/24/25/26/27.
+
+### Improvements
+
+1. **LearnScreen start button — aria-label + visible (Enter) hint**. The `⚔️ {start}` button now exposes `aria-label="Start {stageName} (Enter)"` plus a visible `<kbd>(Enter)</kbd>` badge inside the label. A small kbd-hint footer (Enter start stage · Esc back to menu) mirrors the Phase 25/26/27 footer pattern. Previously the Enter handler existed in useEffect but the button had no aria-label and no visible shortcut, so sighted users had no way to discover the shortcut and SR users heard only the icon+translation.
+
+2. **StageScreen missions list — proper list semantics**. The `.missions` wrapper now exposes `role="list"` + `aria-label="Stage missions for {stageName}"`, and each `.mission` row carries `role="listitem"`. The h3 heading now carries `id="stage-missions-heading"` for heading semantics. Previously missions were plain `<div>` siblings with no group landmark and no item semantics — SR users heard them as a run of unlabelled content.
+
+3. **Menu streak badge — `role="status"` + aria-label**. The streak badge (high-traffic element on every Menu render) now exposes `role="status"` + `aria-label="Daily streak: {streak.text}"`. SR users now hear the full streak description (e.g. "Daily streak: 5-day streak (play today!)") instead of just "fire 5" or "calendar dash". The existing `title=` tooltip is preserved for sighted hover.
+
+### New file
+
+- `prototype/tests/ui/phase28-a11y.test.tsx` — 8 tests covering all three improvements (start button aria-label + kbd badge, footer kbd hint, missions role=list + listitem, streak badge role=status + aria-label, title attribute regression guard).
+
+### Validation
+
+| Check | Result |
+|-------|--------|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **1045 passed** (1 skipped) — 1037 baseline + 8 new |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. 2 pre-existing false-positive hits in `log.md` (`[[count_zero]]` from prior log entries documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Stats
+
+- 3 small UX/a11y improvements (LearnScreen start button, StageScreen missions list, Menu streak badge)
+- 8 new tests
+- Test totals: 1037 → **1045** (+8)
+- Files touched: 3 modified (`LearnScreen.tsx`, `StageScreen.tsx`, `Menu.tsx`), 1 new (`phase28-a11y.test.tsx`)
+
+**No push** — user handles GH_TOKEN rotation.
+
+### Commit
+
+- `Game/typing_language`: `5047465` — `chore(a11y): Phase 28 — Polish + accessibility`
+
 **Phase 24 polish round complete — final UX/a11y gaps on ResultScreen closed.**
