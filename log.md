@@ -1,5 +1,82 @@
 # Activity Log - Typing Language
 
+## [2026-08-17] chore(a11y) | Phase 36 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35. Closes three remaining gaps where `MarkdownView` tables rendered with no `<caption>` and no `scope="col"` on `<th>` so SR users heard each cell as an isolated "column N row M" position with no header context (WCAG 1.3.1: info-and-relationships), where the `SettingsScreen` volume slider carried only `aria-valuetext="N percent"` with no `aria-valuenow/valuemin/valuemax` so older VoiceOver / NVDA versions that ignore `aria-valuetext` in favour of `valuenow` left keyboard users hearing only "Volume" with no numeric feedback as they dragged the slider, and where the `ProfileSelector` avatar picker shipped `role="radiogroup"` + 12 `role="radio"` buttons but the ONLY way to change the selected avatar was a mouse click — keyboard-only users got the radio announcement but no way to act on it (WAI-ARIA Authoring Practices violation: a radiogroup MUST support arrow-key navigation between options).
+
+### Improvements (3 small, focused)
+
+| # | Area | Change |
+|---|---|---|
+| 1 | `MarkdownView` `<table>` `+ scope="col"` + `<caption>` | Every `case 'table':` now synthesizes a `<caption className="visually-hidden">` (programmatic table name, e.g. `"Type table"`, falling back to `"Data table"` when the markdown doesn't carry captionable content) + tags every `<th>` with `scope="col"`. Mirrors the Phase 32 `.visually-hidden` utility for the caption so sighted users see no layout change. SR users navigating to the table hear its name on landmark entry, then each `<td>` is announced with the column header context ("Type: ojala", "Mode: subjuntivo", "When: wishing"). Closes the WCAG 1.3.1 info-and-relationships gap that the Phase 22 inline-form fields, Phase 24 progressbar, and Phase 35 region landmark fixes did not address. |
+| 2 | `SettingsScreen` volume slider ARIA progressbar-value tuple | Added `aria-valuenow={Math.round(volume * 100)}` + `aria-valuemin={0}` + `aria-valuemax={100}` alongside the existing `aria-valuetext={`${percent} percent`}`. Phase 26 added `htmlFor`/`id` + `aria-valuetext`, but a keyboard user dragging the slider would hear just the label "Volume" with no live numeric feedback on SR engines that report only `valuenow`. The full progressbar-value tuple (WAI-ARIA 1.2) makes every engine hear the live numeric value, while `aria-valuetext` continues to carry the natural-language phrasing for engines that prefer it. |
+| 3 | `ProfileSelector` avatar radiogroup arrow-key navigation | New `avatarRefs: useRef<(HTMLButtonElement \| null)[]>` + `handleAvatarKeyDown(e, index)` factory wired to every avatar `<button>` via `onKeyDown={(e) => handleAvatarKeyDown(e, idx)}`. Handles `ArrowLeft` / `ArrowRight` / `ArrowUp` / `ArrowDown` / `Home` / `End` with wrap-around at the list edges, calls `e.preventDefault()` so arrows don't scroll the page or move caret inside the name-input above, then `setSelectedAvatar(next)` + `avatarRefs.current[nextIndex]?.focus()` so DOM focus follows the visual highlight. Space / Enter fall through to the existing click handler so activation still works. Mirrors the Phase 27/29 `LanguageSelection` + `Menu` arrow-key focus-tracking pattern exactly. Also adds the `(selected)` suffix to the per-avatar aria-label so SR users hear the selection state on entry. |
+
+### Tests added (+16; baseline 1150 → 1166)
+
+New `tests/ui/phase36-a11y.test.tsx` — 16 tests covering all three improvements:
+
+**MarkdownView table semantics** (5 tests, source-level + renderToStaticMarkup):
+1. `renders a visually-hidden <caption> on every table (programmatic table name)`
+2. `derives the caption text from the first header (e.g. "Type table")`
+3. `tag every <th> with scope="col" so SR engines announce header context per cell`
+4. `table cell content still renders correctly after adding scope="col" (regression guard)`
+5. `MarkdownView source declares the case-tables branch with the new caption + scope attrs`
+
+**SettingsScreen volume slider ARIA progressbar-value** (3 tests, source-level):
+6. `volume slider source exposes aria-valuenow on a 0-100 percent scale`
+7. `volume slider preserves the existing aria-valuetext (regression guard)`
+8. `SettingsScreen source ships a phase-36 anchor comment for the ARIA progressbar-value upgrade`
+
+**ProfileSelector avatar radiogroup arrow-key navigation** (8 tests, source-level):
+9. `ProfileSelector source declares avatarRefs as a ref array (focus tracking)`
+10. `ProfileSelector source declares a handleAvatarKeyDown function`
+11. `handleAvatarKeyDown calls e.preventDefault() so arrows do not scroll the page or move caret`
+12. `handleAvatarKeyDown wraps around the avatar list (last → first, first → last)`
+13. `handleAvatarKeyDown updates selectedAvatar state AND focuses the new button via the ref`
+14. `every avatar button source wires the ref-setter callback (focusable target available)`
+15. `every avatar button source wires onKeyDown to handleAvatarKeyDown(idx)`
+16. `ProfileSelector renders the avatar radiogroup with role="radiogroup" + role="radio" (regression guard)`
+
+Plus 2 updated regression guards in `tests/ui/MarkdownView.test.tsx`:
+- The pre-existing `renders simple table with header + separator + rows` and `handles table with leading/trailing pipes` tests asserted the literal `<th>Type</th>` / `<th>A</th>` sub-strings, which were defending the *pre-Phase-36* markup. Phase 36 rewires them to assert the new contract: `<th[^>]*scope="col"[^>]*>Type</th>` / `<th[^>]*scope="col"[^>]*>A</th>` regex matches so the header content must appear inside a `scope="col"` wrapping `<th>`. The same Phase 22/25/31/34/35 convention of migrating prior-phase assertions to defend the corrected contract.
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **1166 passed** + 1 skipped (1150 baseline + 16 new Phase 36) |
+| `python3 audit_vault.py` | ✅ CLEAN (67 false-positive artifacts only — pre-existing HTTPS URL / vault_root_relative / build_log categories from Phase 20-35; out of scope per AGENTS.md §3) |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Files changed (5, all in `Game/typing_language/prototype/`)
+
+| File | +/− | Purpose |
+|---|--:|---|
+| `src/ui/MarkdownView.tsx` | +27 / −9 | `case 'table':` rewrites to synthesize a `<caption className="visually-hidden">` (programmatic table name) + wrap every `<th>` in `scope="col"`; captionText derived from first header + " table" with "Data table" fallback |
+| `src/ui/SettingsScreen.tsx` | +18 / −0 | Added `aria-valuenow={Math.round(volume * 100)}` + `aria-valuemin={0}` + `aria-valuemax={100}` to the volume slider input alongside the existing `aria-valuetext`, with Phase 36 anchor comment (mirrors the Phase 26 / Phase 34 progressbar-value pattern) |
+| `src/ui/ProfileSelector.tsx` | +64 / −1 | New `avatarRefs` ref array + `handleAvatarKeyDown(e, index)` factory handling ArrowLeft / Right / Up / Down / Home / End with wrap-around + `e.preventDefault()` + state-update + DOM-focus tracking; `<button>` map wires `ref={(el) => { avatarRefs.current[idx] = el; }}` + `onKeyDown={(e) => handleAvatarKeyDown(e, idx)}`; aria-label now includes `(selected)` suffix when active |
+| `tests/ui/MarkdownView.test.tsx` | +13 / −2 | Two existing table header literal-string assertions re-wired to regex matches defending the new `scope="col"` contract (Phase 22/25/31/34/35 prior-phase migration pattern) |
+| `tests/ui/phase36-a11y.test.tsx` | new file, +250 | 16 new Phase 36 tests (source-level contracts + renderToStaticMarkup smoke + regression guards) |
+
+### Out-of-scope (preserved)
+
+- No new languages (already have 7)
+- No raw/ edits (read-only per AGENTS.md §2)
+- No Accepted ADRs touched
+- No BGM/SFX additions
+- No other projects (Fiction/, Game/roguelike_sprawl/, Language/) touched
+- No push (user handles GH_TOKEN rotation)
+
+### Commit
+
+- Hash: `012498f`
+- Files: 5 changed (3 modified source + 1 modified existing test + 1 new test; +339 / −8 total. The 3 source files total +109 / −10; the 1 modified-test file totals +13 / −2; the new test file adds +226.)
+- Pushed: NO (user handles GH_TOKEN rotation)
+
+---
 ## [2026-08-17] chore(a11y) | Phase 35 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34. Closes three remaining gaps where the StageScreen HUD was wired as `role="status" aria-live="polite" aria-label="Score X, ..."` and re-rendered ~60 times a second during gameplay, firing a polite SR announcement on every score/combo/WPM update (a real SR-spam bug that drowned out Phase 23's canvas aria-label), where the global `.btn-primary / .btn-secondary / .btn-danger` classes shipped inside `.tutorial` focus-visible rules (Phase 33) but never outside the tutorial scope — leaving ProfileSelector's per-card Play/Delete buttons and the profile-create-modal's Cancel/Create buttons with no visible focus ring, and where the DailyLessonModal search input relied on a `placeholder` only with no programmatic label, leaving SR users landing on it hearing just "edit text" with no context (WCAG 1.3.1 + 4.1.2).

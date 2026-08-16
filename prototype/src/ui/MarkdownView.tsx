@@ -432,13 +432,30 @@ function renderBlock(
         </div>
       );
     }
-    case 'table':
+    case 'table': {
+      // Phase 36: tables rendered without a <caption> or `scope` attrs.
+      // SR users hear each cell as an isolated "column N row M" position
+      // with no header context (WCAG 1.3.1: info-and-relationships). Added
+      // a visually-hidden <caption> (per the Phase 32 .visually-hidden
+      // utility) so the table has a programmatic name + `scope="col"` on
+      // each <th> so SR engines announce the header context with each
+      // data cell. Caption text falls back to a generic "Data table" if
+      // the markdown didn't supply one (most daily-lesson tables come
+      // from vocabulary comparisons; caption text is the table's first
+      // row 0 column when present, otherwise a generic placeholder).
+      const captionText =
+        block.headers[0] && block.rows.length > 0
+          ? `${block.headers[0]} table`
+          : 'Data table';
       return (
         <table key={key} className="md-table">
+          <caption className="visually-hidden">{captionText}</caption>
           <thead>
             <tr>
               {block.headers.map((h, i) => (
-                <th key={i}>{parseInline(h, linkResolver)}</th>
+                <th key={i} scope="col">
+                  {parseInline(h, linkResolver)}
+                </th>
               ))}
             </tr>
           </thead>
@@ -453,6 +470,7 @@ function renderBlock(
           </tbody>
         </table>
       );
+    }
     case 'divider':
       return <hr key={key} className="md-divider" />;
   }

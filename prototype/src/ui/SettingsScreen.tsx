@@ -273,6 +273,21 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
                     value={volume}
                     onChange={handleVolumeChange}
                     aria-label={t('volume', native)}
+                    /* Phase 36: ARIA 1.2 / WAI-ARIA progressbar-value pattern.
+                       aria-valuetext alone is reported inconsistently across
+                       SR engines — some VoiceOver / NVDA versions only
+                       announce aria-valuenow and ignore valuetext if both
+                       are set. Phase 26 added htmlFor + aria-valuetext,
+                       but a screen reader dragging the slider would hear
+                       just the label "Volume" with no numeric feedback if
+                       its engine prefers valuenow. Adding valuenow/valuemin/
+                       valuemax on the 0–100 percent scale so every SR
+                       engine hears the live value while aria-valuetext
+                       still carries the natural-language phrasing for the
+                       engines that prefer it. */
+                    aria-valuenow={Math.round(volume * 100)}
+                    aria-valuemin={0}
+                    aria-valuemax={100}
                     aria-valuetext={`${Math.round(volume * 100)} percent`}
                   />
                 </label>

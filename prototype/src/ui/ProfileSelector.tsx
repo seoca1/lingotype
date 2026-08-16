@@ -92,6 +92,58 @@ export function ProfileSelector({ profiles, onSelect, onCreate, onDelete }: Prof
     setShowCreate(false);
   };
 
+  /**
+   * Phase 36: WAI-ARIA radiogroup arrow-key navigation.
+   *
+   * The 12-avatar picker is wired with role="radiogroup" + each avatar
+   * as role="radio" so screen readers announce the group semantics on
+   * entry. But before Phase 36 the ONLY way to change the selected
+   * avatar was a mouse click — keyboard-only users got the radio
+   * announcement but no way to act on it. This is a real WAI-ARIA
+   * Authoring Practices violation: a radiogroup MUST support arrow-key
+   * navigation between options (Tab moves INTO the group, arrows move
+   * WITHIN it, Tab again moves OUT).
+   *
+   * onKeyDown handles LeftArrow / RightArrow / UpArrow / DownArrow /
+   * Home / End on any avatar button. The handler:
+   *  - Wraps around the start/end of the grid.
+   *  - Calls e.preventDefault() so the arrow doesn't move caret in
+   *    the name-input above (the grid is laid out 6 per row but we
+   *    treat it as a 1D ring for keyboard navigation since CSS grid
+   *    column count is responsive).
+   *  - Calls setSelectedAvatar + manually focuses the new button via
+   *    avatarRefs so SR users + DOM focus follow.
+   *  - Tab is left untouched (default browser behaviour moves focus
+   *    to the next focusable element, which is the correct radiogroup
+   *    pattern — arrows inside, Tab outside).
+   */
+  const avatarRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const handleAvatarKeyDown = (
+    e: React.KeyboardEvent<HTMLButtonElement>,
+    index: number
+  ) => {
+    const last = AVATAR_OPTIONS.length - 1;
+    let nextIndex: number | null = null;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      nextIndex = index === last ? 0 : index + 1;
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      nextIndex = index === 0 ? last : index - 1;
+    } else if (e.key === 'Home') {
+      nextIndex = 0;
+    } else if (e.key === 'End') {
+      nextIndex = last;
+    } else if (e.key === ' ' || e.key === 'Enter') {
+      // Let the button click handler run (select avatar).
+      return;
+    } else {
+      return;
+    }
+    e.preventDefault();
+    const next = AVATAR_OPTIONS[nextIndex];
+    setSelectedAvatar(next);
+    avatarRefs.current[nextIndex]?.focus();
+  };
+
   return (
     <div className="profile-selector">
       <header className="profile-header">
@@ -153,15 +205,17 @@ export function ProfileSelector({ profiles, onSelect, onCreate, onDelete }: Prof
                 role="radiogroup"
                 aria-labelledby="avatar-group-label"
               >
-                {AVATAR_OPTIONS.map((avatar) => (
+                {AVATAR_OPTIONS.map((avatar, idx) => (
                   <button
                     key={avatar}
+                    ref={(el) => { avatarRefs.current[idx] = el; }}
                     type="button"
                     className={`avatar-option ${avatar === selectedAvatar ? 'selected' : ''}`}
                     onClick={() => setSelectedAvatar(avatar)}
+                    onKeyDown={(e) => handleAvatarKeyDown(e, idx)}
                     role="radio"
                     aria-checked={avatar === selectedAvatar}
-                    aria-label={`Avatar ${avatar}`}
+                    aria-label={`Avatar ${avatar}${avatar === selectedAvatar ? ' (selected)' : ''}`}
                   >
                     <span aria-hidden="true">{avatar}</span>
                   </button>

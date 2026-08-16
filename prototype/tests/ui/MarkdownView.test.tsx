@@ -221,6 +221,13 @@ describe('MarkdownView — Callouts', () => {
 });
 
 describe('MarkdownView — Tables', () => {
+  // Phase 36 — table a11y: every <th> now ships scope="col" so SR engines
+  // announce column headers when announcing each <td>. The two assertions
+  // that pinned the literal "<th>Type</th>" / "<th>A</th>" sub-strings
+  // were defending the *pre-Phase-36* markup; they have been rewired to
+  // defend the *current* contract (regex matches the header content
+  // inside a scope="col" wrapping <th>) so future regressions in either
+  // direction fail loudly.
   it('renders simple table with header + separator + rows', () => {
     const md = `
 | Type | Mode | When |
@@ -230,9 +237,9 @@ describe('MarkdownView — Tables', () => {
 `;
     const html = render(md);
     expect(html).toContain('<table');
-    expect(html).toContain('<th>Type</th>');
-    expect(html).toContain('<th>Mode</th>');
-    expect(html).toContain('<th>When</th>');
+    expect(html).toMatch(/<th[^>]*scope="col"[^>]*>Type<\/th>/);
+    expect(html).toMatch(/<th[^>]*scope="col"[^>]*>Mode<\/th>/);
+    expect(html).toMatch(/<th[^>]*scope="col"[^>]*>When<\/th>/);
     expect(html).toContain('<td>ojala</td>');
     expect(html).toContain('<td>subjuntivo</td>');
   });
@@ -255,7 +262,7 @@ describe('MarkdownView — Tables', () => {
 | 1 | 2 |
 `;
     const html = render(md);
-    expect(html).toContain('<th>A</th>');
+    expect(html).toMatch(/<th[^>]*scope="col"[^>]*>A<\/th>/);
     expect(html).toContain('<td>1</td>');
   });
 });
