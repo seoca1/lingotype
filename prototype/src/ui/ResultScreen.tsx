@@ -282,17 +282,29 @@ export function ResultScreen({
         />
       )}
 
-      <div className="result-missions">
-        <h2>Missions</h2>
+      <div
+        className="result-missions"
+        // Phase 37: tag the missions container as a list so SR users
+        // navigating by landmark hear "Missions, list, N items" instead
+        // of a run of unlabelled <div> siblings. Mirrors the Phase 28
+        // StageScreen missions list fix (role="list" + role="listitem")
+        // so the two mission surfaces share the same semantic contract.
+        role="list"
+        aria-labelledby="result-missions-heading"
+      >
+        <h2 id="result-missions-heading">Missions</h2>
         {missions.map((m) => {
           const result = results.find((r) => r.missionId === m.id);
           const cleared = result?.cleared ?? false;
           return (
             // Phase 27: drop per-row role="status" — caused SR announcement
             // burst with 3+ missions. aria-label still names cleared/failed.
+            // Phase 37: tag each row as listitem so the list container has
+            // a real group of items instead of loose divs.
             <div
               key={m.id}
               className={`mission-result ${cleared ? 'cleared' : 'failed'}`}
+              role="listitem"
               aria-label={`${m.name}: ${cleared ? 'cleared' : 'failed'}`}
             >
               <strong>
@@ -715,6 +727,12 @@ export function WeakWordModal({ selected, language: _language, onClose }: WeakWo
                   window.speechSynthesis.speak(u);
                 }
               }}
+              // Phase 37: explicit aria-label so SR users hear what the
+              // button does (the visible "🔊 Listen" text is icon-prefixed
+              // — without this, SR engines announce only "Listen" with no
+              // context about which word is being spoken). Mirrors the
+              // Phase 25 EnemyTooltip TTS-button pattern.
+              aria-label={`Listen to pronunciation of ${selected.display}`}
             >
               🔊 Listen
             </button>

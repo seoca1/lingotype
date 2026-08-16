@@ -23,16 +23,19 @@ interface CharacterSelectProps {
 }
 
 export function CharacterSelect({ language, dispatch }: CharacterSelectProps) {
-  const imgRefs = [
-    useRef<HTMLImageElement>(null),
-    useRef<HTMLImageElement>(null),
-    useRef<HTMLImageElement>(null),
-  ];
-
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const characterIds = LANGUAGE_CHARACTERS[language] || LANGUAGE_CHARACTERS['en'];
   const characters: CharacterInfo[] = characterIds.map(id => CHARACTER_INFO[id]);
+
+  // Phase 37: ref array so arrow-key navigation can move DOM focus alongside
+  // the visual highlight. Mirrors the Phase 29 Menu + Phase 36 ProfileSelector
+  // avatar radiogroup pattern: each card mounts a ref-setter via
+  // `setCardRef` so the keyboard handler can call .focus() on the new cell
+  // as well as setSelectedIndex. Without this, the state moved but DOM
+  // focus stayed put — SR users would hear the aria-checked flip but the
+  // focused element was the same card.
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   // Find current default character index
   useEffect(() => {
@@ -66,13 +69,27 @@ export function CharacterSelect({ language, dispatch }: CharacterSelectProps) {
   // Handle keyboard input
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.key === '1') setSelectedIndex(0);
-      else if (e.key === '2') setSelectedIndex(1);
-      else if (e.key === '3') setSelectedIndex(2);
-      else if (e.key === 'ArrowLeft') {
-        setSelectedIndex(prev => (prev - 1 + 3) % 3);
+      if (e.key === '1') {
+        setSelectedIndex(0);
+        // Phase 37: move DOM focus to the first card so SR users follow
+        // the 1-key shortcut visually.
+        cardRefs.current[0]?.focus();
+      } else if (e.key === '2') {
+        setSelectedIndex(1);
+        cardRefs.current[1]?.focus();
+      } else if (e.key === '3') {
+        setSelectedIndex(2);
+        cardRefs.current[2]?.focus();
+      } else if (e.key === 'ArrowLeft') {
+        // Phase 37: wrap-around + DOM focus move. Previously state moved
+        // but the same card stayed focused. Focus now follows the state.
+        const next = (selectedIndex - 1 + 3) % 3;
+        setSelectedIndex(next);
+        cardRefs.current[next]?.focus();
       } else if (e.key === 'ArrowRight') {
-        setSelectedIndex(prev => (prev + 1) % 3);
+        const next = (selectedIndex + 1) % 3;
+        setSelectedIndex(next);
+        cardRefs.current[next]?.focus();
       } else if (e.key === 'Enter' || e.key === ' ') {
         const selectedCharacterId = characterIds[selectedIndex];
         setCharacter(selectedCharacterId);
@@ -114,6 +131,13 @@ export function CharacterSelect({ language, dispatch }: CharacterSelectProps) {
         {characters.map((char, index) => (
           <div
             key={char.id}
+            ref={(el) => {
+              // Phase 37: populate the ref array in render order so the
+              // arrow-key handler can call .focus() on the cell that just
+              // became selected. Mirrors the Phase 27 LanguageSelection
+              // cardRefs pattern.
+              cardRefs.current[index] = el;
+            }}
             role="radio"
             aria-checked={index === selectedIndex}
             aria-label={`${char.name}, ${char.style} style. Press ${index + 1} to select, Enter to confirm.`}
@@ -130,7 +154,6 @@ export function CharacterSelect({ language, dispatch }: CharacterSelectProps) {
           >
             <div className="character-image-container">
               <img
-                ref={imgRefs[index]}
                 src={getCharacterImage(char.id)}
                 alt={char.name}
                 className="character-preview"
