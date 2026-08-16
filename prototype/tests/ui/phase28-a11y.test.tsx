@@ -96,8 +96,15 @@ describe('Phase 28 — LearnScreen start button exposes aria-label + Enter hint'
   it('footer kbd hint advertises Enter and Esc shortcuts', () => {
     const html = renderToStaticMarkup(<LearnScreen {...baseProps} />);
     // The footer kbd hint mirrors the Phase 25/26/27 footer pattern.
+    // Phase 34 regression fix: the previous aria-label="Keyboard
+    // shortcuts" OVERRODE the readable <small><kbd>Enter</kbd> start
+    // stage · <kbd>Esc</kbd> back to menu</small> content — same SR
+    // regression Phase 32 fixed in the Menu screen. SR users heard only
+    // "Keyboard shortcuts" and never learned the actual shortcuts.
+    // Phase 34 removes the aria-label so SR users now hear the full
+    // hint content.
     expect(html).toContain('learn-screen__kbd-hint');
-    expect(html).toContain('aria-label="Keyboard shortcuts"');
+    expect(html).not.toContain('aria-label="Keyboard shortcuts"');
     expect(html).toMatch(/<kbd>Enter<\/kbd>\s*start stage/);
     expect(html).toMatch(/<kbd>Esc<\/kbd>\s*back to menu/);
   });

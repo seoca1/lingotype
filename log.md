@@ -1,5 +1,84 @@
 # Activity Log - Typing Language
 
+## [2026-08-16] chore(a11y) | Phase 34 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33. Closes three remaining gaps where the ResultScreen's kbd-hint footer carried the same `aria-label="Keyboard shortcuts"` regression Phase 32 fixed in the Menu (SR users heard only the label and never the actual `<kbd>Esc</kbd>` content), where the ResultScreen's overall mastery bar was a 0%-width styled div that SR users heard nothing about (the user's overall mastery % was completely invisible to screen readers), and where the LearnScreen's kbd-hint footer carried the same Phase 32 regression pattern for its `Enter` / `Esc` shortcuts.
+
+### Improvements (3 small, focused)
+
+| # | Area | Change |
+|---|---|---|
+| 1 | `ResultScreen` `.result-kbd-hint` SR-regression fix | Removed `aria-label="Keyboard shortcuts"` from the `<p className="result-kbd-hint">` footer. The previous aria-label OVERRODE the readable `<small><kbd>Esc</kbd> return to menu</small>` content — a real SR regression (mirror of the Phase 32 Menu bug). SR users heard only "Keyboard shortcuts" and never learned the ESC shortcut. Phase 34 removes the aria-label so SR users now hear the full `<kbd>Esc</kbd> return to menu` content naturally. The visible `<kbd>` element + visible text are untouched. Also updated the Phase 24 test (`result-kbd-hint footer announces keyboard shortcuts`) to assert the absence of the bogus aria-label, with a regression guard confirming the `<kbd>Esc</kbd>` content still renders. |
+| 2 | `ResultScreen` `.mastery-bar` `role="progressbar"` | The only place where the user's overall mastery % lives is inside a 0%-width styled `<div role="img">`-style bar with `style={{ width: 0% }}`. The visible `${overallMastery}%` label inside the fill collapses to nothing when the bar is 0% wide, and SR users got ZERO audible feedback about mastery progress. Phase 34 wraps the bar in `role="progressbar"` + `aria-valuenow={overallMastery}` + `aria-valuemin={0}` + `aria-valuemax={100}` + `aria-label={`Learning progress: ${overallMastery} percent`}` so SR users hear the same number sighted users see. The visible `mastery-bar__label` gets `aria-hidden="true"` so it isn't double-announced on top of the progressbar label (an SR-spam guard). Matches the WAI-ARIA progressbar pattern. |
+| 3 | `LearnScreen` `.learn-screen__kbd-hint` SR-regression fix | Same Phase 32 regression pattern: the `<p className="learn-screen__kbd-hint">` carried `aria-label="Keyboard shortcuts"` which OVERRODE the readable `<small><kbd>Enter</kbd> start stage · <kbd>Esc</kbd> back to menu</small>` content. SR users heard only "Keyboard shortcuts" and never learned the actual Start / Back shortcuts. Phase 34 removes the aria-label so SR users now hear the full hint content. The visible `<kbd>` elements + visible text are untouched. Also updated the Phase 28 test (`footer kbd hint advertises Enter and Esc shortcuts`) to assert the absence of the bogus aria-label, with regression guards confirming the `<kbd>Enter</kbd>` / `<kbd>Esc</kbd>` content still renders. |
+
+### Tests added (+14; baseline 1124 → 1138)
+
+New `tests/ui/phase34-a11y.test.tsx` — 14 tests covering all three improvements:
+
+**ResultScreen kbd-hint SR-regression fix** (3 tests, source-level + renderToStaticMarkup):
+1. `ResultScreen source REMOVED the aria-label="Keyboard shortcuts" on result-kbd-hint`
+2. `ResultScreen kbd-hint still preserves the <kbd>Esc</kbd> return to menu text`
+3. `ResultScreen renders the <kbd>Esc</kbd> hint footer (renderToStaticMarkup smoke)`
+
+**ResultScreen mastery-bar role="progressbar"`** (5 tests, source-level + renderToStaticMarkup):
+4. `mastery-bar container has role="progressbar" so SR users hear mastery %`
+5. `mastery-bar exposes aria-valuenow tied to overallMastery`
+6. `mastery-bar exposes an aria-label announcing the mastery %`
+7. `mastery-bar__label is aria-hidden so it is not double-announced`
+8. `ResultScreen renders the mastery-bar with role="progressbar" (renderToStaticMarkup smoke)`
+
+**LearnScreen kbd-hint SR-regression fix** (3 tests, source-level + renderToStaticMarkup):
+9. `LearnScreen source REMOVED the aria-label="Keyboard shortcuts" on learn-screen__kbd-hint`
+10. `LearnScreen kbd-hint still preserves the <kbd>Enter</kbd> · <kbd>Esc</kbd> text`
+11. `LearnScreen renders the <kbd>Enter</kbd>/<kbd>Esc</kbd> hint footer (renderToStaticMarkup smoke)`
+
+**Regression guards** (3 tests):
+12. `Phase 33 StageScreen caps-lock-warning-sr live region still wired`
+13. `Phase 32 Menu kbd-hint still has no aria-label="Keyboard shortcuts"`
+14. `Phase 32 visually-hidden utility still in style.css (no removal)`
+
+Plus 2 updated regression guards in pre-existing test files:
+- `tests/ui/phase24-a11y.test.tsx` — the `result-kbd-hint footer announces keyboard shortcuts` test now asserts `not.toContain('aria-label="Keyboard shortcuts"')` instead of `toMatch(/<p[^>]*class="result-kbd-hint"[^>]*aria-label="Keyboard shortcuts"/)`, with regression guards confirming the `<kbd>Esc</kbd>` content still renders.
+- `tests/ui/phase28-a11y.test.tsx` — the `footer kbd hint advertises Enter and Esc shortcuts` test now asserts `not.toContain('aria-label="Keyboard shortcuts"')` instead of `toContain(...)`, with regression guards confirming the `<kbd>Enter</kbd>` / `<kbd>Esc</kbd>` content still renders.
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **1138 passed** + 1 skipped (1124 baseline + 14 new) |
+| `python3 audit_vault.py` | ✅ CLEAN (67 false-positive artifacts only — pre-existing HTTPS URL / vault_root_relative / build_log categories from Phase 20-33; out of scope per AGENTS.md §3) |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Files changed (5, all in `Game/typing_language/prototype/`)
+
+| File | +/− | Purpose |
+|---|--:|---|
+| `src/ui/ResultScreen.tsx` | +13 / −2 | Removed `aria-label="Keyboard shortcuts"` from `.result-kbd-hint`; wrapped `.mastery-bar` in `role="progressbar"` + `aria-valuenow={overallMastery}` + `aria-valuemin={0}` + `aria-valuemax={100}` + `aria-label="Learning progress: ${overallMastery} percent"`; marked the visible `.mastery-bar__label` aria-hidden so the visible % isn't double-announced on top of the progressbar label |
+| `src/ui/LearnScreen.tsx` | +0 / −1 | Removed `aria-label="Keyboard shortcuts"` from `.learn-screen__kbd-hint` so SR users hear the actual `<kbd>Enter</kbd>` · `<kbd>Esc</kbd>` content (mirrors the Phase 32 Menu fix) |
+| `tests/ui/phase34-a11y.test.tsx` | new file, +213 | 14 new Phase 34 tests (source-level contracts + renderToStaticMarkup smoke + regression guards) |
+| `tests/ui/phase24-a11y.test.tsx` | +8 / −1 | Updated `result-kbd-hint footer announces keyboard shortcuts` assertion to verify the `aria-label` is gone (matches the Phase 34 SR regression fix) + regression guard confirming the `<kbd>Esc</kbd>` content still renders |
+| `tests/ui/phase28-a11y.test.tsx` | +7 / −1 | Updated `footer kbd hint advertises Enter and Esc shortcuts` assertion to verify the `aria-label` is gone (matches the Phase 34 SR regression fix) + regression guards confirming the `<kbd>Enter</kbd>` / `<kbd>Esc</kbd>` content still renders |
+
+### Out-of-scope (preserved)
+
+- No new languages (already have 7)
+- No raw/ edits (read-only per AGENTS.md §2)
+- No Accepted ADRs touched
+- No BGM/SFX additions
+- No other projects (Fiction/, Game/roguelike_sprawl/, Language/) touched
+- No push (user handles GH_TOKEN rotation)
+
+### Commit
+
+- Hash: `fc1ae2c`
+- Files: 6 changed (2 modified source + 1 new test + 2 modified tests + 1 modified log; +375 / −6 total. The 2 source file changes total +13 / −3; the +213 of the new test file dominates; the 2 modified-test files add +15 / −2; the log.md entry adds ~+147)
+- Pushed: NO (user handles GH_TOKEN rotation)
+
+---
+
 ## [2026-08-16] chore(a11y) | Phase 33 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30/31/32. Closes gaps where the Tutorial screen shipped 6 actionable button classes with no visible focus indicator (welcome primary CTAs, language + mechanics nav buttons, the 6 language-selector pills), where the Caps Lock warning was rendered as a canvas overlay only (invisible to screen readers — the Renderer draws Korean text onto the 2D canvas, but SR users got no aria-live announcement), and where the hidden OSKeyboardInput still had `aria-label` + tab focusability so SR users hearing the Phase 23 canvas aria-label would also hear a phantom "KR typing input" right after.

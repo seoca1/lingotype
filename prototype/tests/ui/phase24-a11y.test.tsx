@@ -159,7 +159,14 @@ describe('Phase 24 — ResultScreen announces Escape-to-back via a visible kbd h
 
   it('result-kbd-hint footer announces keyboard shortcuts', () => {
     const html = renderToStaticMarkup(<ResultScreen {...baseProps} />);
-    expect(html).toMatch(/<p[^>]*class="result-kbd-hint"[^>]*aria-label="Keyboard shortcuts"/);
+    // Phase 34 regression fix: the previous aria-label="Keyboard
+    // shortcuts" OVERRODE the readable <small><kbd>Esc</kbd> return to
+    // menu</small> content — same SR regression Phase 32 fixed in the
+    // Menu screen. SR users heard only "Keyboard shortcuts" and never
+    // learned the actual shortcut. Phase 34 removes the aria-label so
+    // SR users now hear the full hint content.
+    expect(html).toMatch(/<p[^>]*class="result-kbd-hint"/);
+    expect(html).not.toContain('aria-label="Keyboard shortcuts"');
     expect(html).toMatch(/<kbd>Esc<\/kbd> return to menu/);
   });
 });

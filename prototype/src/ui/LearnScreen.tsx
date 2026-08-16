@@ -258,7 +258,6 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
 
         <p
           className="learn-screen__kbd-hint"
-          aria-label="Keyboard shortcuts"
           style={{
             color: '#6a7888',
             fontSize: '11px',

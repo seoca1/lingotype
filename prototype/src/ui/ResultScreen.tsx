@@ -206,9 +206,16 @@ export function ResultScreen({
       {/* Phase B-4: Mastery Overview */}
       <div className="result-mastery">
         <h2>{t('learningProgress', getNativeLanguage())}</h2>
-        <div className="mastery-bar">
+        <div
+          className="mastery-bar"
+          role="progressbar"
+          aria-valuenow={overallMastery}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label={`Learning progress: ${overallMastery} percent`}
+        >
           <div className="mastery-bar__fill" style={{ width: `${overallMastery}%` }}>
-            <span className="mastery-bar__label">{overallMastery}%</span>
+            <span className="mastery-bar__label" aria-hidden="true">{overallMastery}%</span>
           </div>
         </div>
         <p className="mastery-meta">
@@ -321,7 +328,6 @@ export function ResultScreen({
 
       <p
         className="result-kbd-hint"
-        aria-label="Keyboard shortcuts"
         style={{
           color: '#6a7888',
           fontSize: '11px',
