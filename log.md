@@ -1,5 +1,87 @@
 # Activity Log - Typing Language
 
+## [2026-08-16] chore(a11y) | Phase 33 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30/31/32. Closes gaps where the Tutorial screen shipped 6 actionable button classes with no visible focus indicator (welcome primary CTAs, language + mechanics nav buttons, the 6 language-selector pills), where the Caps Lock warning was rendered as a canvas overlay only (invisible to screen readers — the Renderer draws Korean text onto the 2D canvas, but SR users got no aria-live announcement), and where the hidden OSKeyboardInput still had `aria-label` + tab focusability so SR users hearing the Phase 23 canvas aria-label would also hear a phantom "KR typing input" right after.
+
+### Improvements (3 small, focused)
+
+| # | Area | Change |
+|---|---|---|
+| 1 | `style.css` `.tutorial .btn-{primary,secondary,nav,lang-btn}:focus-visible` | New 2px cyan outline + 2px offset rule covering all 4 actionable button classes used inside the `.tutorial` scope: `.btn-primary` (welcome-page 시작하기 + language/mechanics 시작하기 + 완료 buttons), `.btn-secondary` (welcome 건너뛰기), `.btn-nav` (language + mechanics ← 이전/다음 → nav buttons), and `.lang-btn` (the 6 EN/JP/ES/KR/FR/DE language-selector pills). Phase 14/19/20/21/27/29/30/32 covered modal close buttons, SettingsScreen/OptionsScreen controls, Menu header buttons, LanguageSelection cards, stage cards, and the blocking KeyboardWarning buttons — but the Tutorial's own CTAs had no focus ring. Keyboard users tabbing through the welcome screen got no visual confirmation of which button was focused. Same 2px cyan outline + 2px offset as the Phase 14/19 convention so the cyan ring stays consistent across the app. |
+| 2 | `StageScreen` Caps Lock aria-live | New `<div className="caps-lock-warning-sr">` live region right above the canvas. When `capsLockWarning` (now a new prop, default false; wired from App.tsx where it lives) is true, the region exposes `role="alert"` + `aria-live="assertive"` + plain-English announcement text ("Caps Lock is on. Korean jamo input may behave unexpectedly. Turn off Caps Lock."). When false, it renders an empty string with no role/aria-live so SR users don't hear a phantom empty announcement on every render. The Renderer.ts canvas overlay (Korean "⌨ Caps Lock이 켜져 있습니다!") stays untouched — sighted users see that, SR users now hear the English equivalent. Mirrors the Phase 25 NonKoreanKeyboardWarning mismatch-alert pattern (`role="alert"` + `aria-live="assertive"`). |
+| 3 | `OSKeyboardInput` aria-hidden on hidden input | The hidden OS-keyboard input lives at 1×1px with `opacity: 0` + `zIndex: -1` but had `aria-label="${language} typing input"` and was focusable (no `tabIndex={-1}`). SR users hearing the Phase 23 canvas aria-label would also encounter this phantom "KR typing input" announcement right after. Now `aria-hidden="true"` + `tabIndex={-1}` so the input is removed from the a11y tree entirely while still receiving physical keyboard events. The aria-label is preserved as a fallback for screen readers that walk the accessibility tree before respecting aria-hidden (matches the Phase 28 aria-hidden pattern on decorative glyphs). |
+
+### Tests added (+19; baseline 1105 → 1124)
+
+New `tests/ui/phase33-a11y.test.tsx` — 19 tests covering all three improvements:
+
+**Tutorial focus-visible rules** (6 tests, source-level):
+1. `declares .tutorial .btn-primary:focus-visible with a 2px cyan outline`
+2. `declares .tutorial .btn-secondary:focus-visible (welcome 건너뛰기 button)`
+3. `declares .tutorial .btn-nav:focus-visible (language + mechanics nav buttons)`
+4. `declares .tutorial .lang-btn:focus-visible (6 language-selector pills)`
+5. `uses 2px outline-offset matching the Phase 14/19 convention`
+6. `Phase 33 block carries a phase-anchor comment`
+
+**StageScreen Caps Lock aria-live** (5 tests, source-level):
+7. `StageScreen source declares a caps-lock-warning-sr live region`
+8. `Caps Lock region uses role="alert" when the warning is on`
+9. `Caps Lock region uses aria-live="assertive" when the warning is on`
+10. `Caps Lock region renders an English announcement when on`
+11. `Caps Lock region renders nothing when the warning is off`
+
+**OSKeyboardInput aria-hidden** (3 tests, source-level):
+12. `OSKeyboardInput source wires aria-hidden="true" on the hidden input`
+13. `OSKeyboardInput source wires tabIndex={-1} so the input is not focusable via SR navigation`
+14. `OSKeyboardInput hidden input still preserves aria-label as a fallback`
+
+**Smoke tests** (3 tests, renderToStaticMarkup):
+15. `Tutorial renders the welcome page (smoke)`
+16. `StageScreen renders the canvas + warning region (smoke)`
+17. `OSKeyboardInput renders the hidden input (smoke)`
+
+**Regression guards** (2 tests):
+18. `Phase 32 visually-hidden utility still in style.css (no removal)`
+19. `Phase 32 Tutorial features-list landmark still wired in Tutorial.tsx`
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **1124 passed** + 1 skipped (1105 baseline + 19 new) |
+| `python3 audit_vault.py` | ✅ CLEAN (67 false-positive artifacts only — pre-existing HTTPS URL / vault_root_relative / build_log categories from Phase 20-32; out of scope per AGENTS.md §3) |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Files changed (5, all in `Game/typing_language/prototype/`)
+
+| File | +/− | Purpose |
+|---|--:|---|
+| `src/style.css` | +20 / −0 | New `.tutorial .btn-primary/.btn-secondary/.btn-nav/.lang-btn:focus-visible` rule (2px cyan outline + 2px offset) with Phase 33 phase-anchor comment |
+| `src/ui/StageScreen.tsx` | +28 / −0 | New `capsLockWarning?: boolean` prop (defaults to false) + JSDoc; new `<div className="caps-lock-warning-sr">` aria-live region above the canvas (`role="alert"` + `aria-live="assertive"` + English announcement when on, empty when off) |
+| `src/ui/OSKeyboardInput.tsx` | +10 / −0 | `aria-hidden="true"` + `tabIndex={-1}` on the hidden OSKeyboardInput (preserves aria-label as fallback) + Phase 33 anchor comment |
+| `src/App.tsx` | +1 / −0 | Passes `capsLockWarning={capsLockWarning}` prop down to `<StageScreen>` |
+| `tests/ui/phase33-a11y.test.tsx` | new file, +291 | 19 new Phase 33 tests (source-level contracts + renderToStaticMarkup smoke + style.css coverage + regression guards) |
+
+### Out-of-scope (preserved)
+
+- No new languages (already have 7)
+- No raw/ edits (read-only per AGENTS.md §2)
+- No Accepted ADRs touched
+- No BGM/SFX additions
+- No other projects (Fiction/, Game/roguelike_sprawl/, Language/) touched
+- No push (user handles GH_TOKEN rotation)
+
+### Commit
+
+- Hash: `bf6b45d`
+- Files: `+423 / −0` across 6 files (4 modified source + 1 modified log + 1 new test; the 5 source files from the commit itself total +59 / −0; the +423 includes the new log entry)
+- Pushed: NO (user handles GH_TOKEN rotation)
+
+---
+
 ## [2026-08-16] chore(a11y) | Phase 32 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30/31. Closes gaps where the Tutorial welcome page shipped 4 feature cards as plain `<div>` siblings (SR users heard 4 consecutive generic divs with no list context), where the three Tutorial pages had no `role="region"` landmark so SR users navigating by landmarks couldn't jump straight to a tutorial page, and where the Menu's `<p class="menu-kbd-hint">` carried `aria-label="Keyboard shortcuts"` which OVERRODE the readable `<small><kbd>` content — SR users heard only the label, never the actual key names.

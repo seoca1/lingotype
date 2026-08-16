@@ -964,6 +964,7 @@ export function App() {
         canvasHeight={canvasSize.height}
         onCanvasClick={handleCanvasClick}
         onBackToMenu={handleOSEscape}
+        capsLockWarning={capsLockWarning}
       />
       <OSKeyboardInput
         ref={osKeyboardRef}

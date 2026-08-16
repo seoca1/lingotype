@@ -2276,3 +2276,23 @@ button:hover {
   white-space: nowrap;
   border: 0;
 }
+
+/* Phase 33: focus-visible for the Tutorial screen's primary CTAs and
+   the Tutorial language-selector pills. Phase 14/19/20/21/27/29/30/32
+   covered modal close buttons, SettingsScreen/OptionsScreen controls,
+   Menu header buttons, LanguageSelection cards, stage cards, and the
+   blocking KeyboardWarning buttons — but the Tutorial's own action
+   buttons (시작하기 / 건너뛰기 on welcome; ← 이전 / 다음 → across
+   language + mechanics pages; the EN/JP/ES/KR/FR/DE language-selector
+   pills) never got a visible focus indicator. Keyboard users tabbing
+   through the welcome screen get no visual confirmation of which button
+   is focused. Same 2px cyan outline + 2px offset as the Phase 14/19
+   convention so the cyan ring stays consistent across the app. */
+.tutorial .btn-primary:focus-visible,
+.tutorial .btn-secondary:focus-visible,
+.tutorial .btn-nav:focus-visible,
+.tutorial .lang-btn:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: 2px;
+}
+}

@@ -223,6 +223,16 @@ export const OSKeyboardInput = forwardRef<OSKeyboardInputHandle, OSKeyboardInput
       spellCheck={false}
       inputMode={getInputMode(language)}
       lang={getLangCode(language)}
+      // Phase 33: hidden OS-keyboard input lives at 1×1px with opacity 0,
+      // but it still has `aria-label` + is in the DOM (focusable, has
+      // pointerEvents). Without aria-hidden, SR users hearing the canvas
+      // aria-label (Phase 23) would ALSO hear a phantom "KR typing input"
+      // announcement right after. The label is preserved as a fallback
+      // for screen readers that walk the accessibility tree before
+      // respecting aria-hidden (matches the Phase 28 aria-hidden pattern
+      // on decorative glyphs).
+      aria-hidden="true"
+      tabIndex={-1}
       aria-label={`${language} typing input`}
       onKeyDown={(e) => {
         handleKeyDown(e);

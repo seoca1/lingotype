@@ -18,6 +18,10 @@ interface StageScreenProps {
   onCanvasClick?: (x: number, y: number) => void;
   /** Called when the user clicks the Back to Menu button */
   onBackToMenu?: () => void;
+  /** Phase 33: Caps Lock detected during Korean jamo input. Triggers an
+      aria-live announcement for SR users (canvas overlay is invisible to
+      SR by default). Defaults to false so existing callers don't break. */
+  capsLockWarning?: boolean;
 }
 
 export function StageScreen({
@@ -29,6 +33,7 @@ export function StageScreen({
   canvasHeight = 880,
   onCanvasClick,
   onBackToMenu,
+  capsLockWarning = false,
 }: StageScreenProps) {
   const audio = getAudioManager();
   const [volume, setVolume] = useState(audio.getVolume());
@@ -151,6 +156,29 @@ export function StageScreen({
 
   return (
     <div className="stage-screen">
+      {/* Phase 33: aria-live announcement for the Caps Lock warning.
+          The Renderer draws the "⌨ Caps Lock이 켜져 있습니다!" overlay
+          onto the 2D canvas — invisible to screen readers by default.
+          Previously SR users with Caps Lock accidentally on during a
+          Korean jamo stage heard nothing, even though the canvas aria-
+          label told them to type the target word. Now the live region
+          announces "Caps Lock is on. Korean jamo input may behave
+          unexpectedly. Turn off Caps Lock." the moment the warning
+          flips on, with role="alert" so the SR interrupts the current
+          utterance (mirrors the Phase 25 NonKoreanKeyboardWarning
+          mismatch-alert pattern). Stays empty when the warning is off
+          so SR users don't hear a phantom empty announcement on every
+          render. */}
+      <div
+        className="caps-lock-warning-sr"
+        role={capsLockWarning ? 'alert' : undefined}
+        aria-live={capsLockWarning ? 'assertive' : undefined}
+        data-testid="caps-lock-warning-sr"
+      >
+        {capsLockWarning
+          ? 'Caps Lock is on. Korean jamo input may behave unexpectedly. Turn off Caps Lock.'
+          : ''}
+      </div>
       <canvas
         ref={canvasRef}
         width={canvasWidth}
