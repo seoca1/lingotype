@@ -1,5 +1,67 @@
 # Activity Log - Typing Language
 
+## [2026-08-16] chore(a11y) | Phase 31 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30. Closes gaps where the CharacterTest screen shipped 16+ emoji-only buttons with no accessible name and no visible focus indicator, where the SettingsScreen's volume slider fired the `aria-live="polite"` saved indicator ~10 times per drag (a real SR-spam risk), and where the LearnScreen's filter + vocab-card buttons had `aria-pressed` + `aria-label` wiring but no visible focus ring.
+
+### Improvements (3 small, focused)
+
+| # | Area | Change |
+|---|---|---|
+| 1 | `CharacterTest.tsx` a11y (gap closure) | Added `aria-label` + `aria-pressed` on every actionable button: 3 English character buttons (Emily / Oliver / Sophia), 3 Spanish character buttons (Isabella / Carlos / Luna), 7 pose buttons (Idle / Wave / Jump / Clap / Spin / Dance / Pose), 2 render-mode buttons (AI image / Primitive), keyboard-overlay checkbox, and the back-to-menu button. Each button group is now wrapped in `role="group"` with a meaningful `aria-label`. Plus a new inline `:focus-visible` block (2px cyan outline + 2px offset, matching the Phase 14/19/20/21/27/29/30 convention) on every `.character-test-controls button` and `input[type="checkbox"]`. Closes the real audit gap where the test harness was the only screen in the app with completely keyboard-opaque controls. |
+| 2 | `SettingsScreen` volume-debounce (SR-spam fix) | New `volumeSaveTimerRef` (`useRef<number \| null>(null)`) + 400ms `window.setTimeout` debounce on `handleVolumeChange`. The native `<input type="range">` fires `onChange` on every 0.1 step, so dragging 0→1 used to retrigger the `aria-live="polite"` saved indicator ~10 times per 200ms — SR users would hear "Settings saved" repeatedly. The 400ms debounce coalesces a single drag into one announcement while still feeling near-instant. Other persist triggers (native lang / sound / KR input mode) keep the immediate-feedback pattern since they're discrete clicks. The pending timer is cleared on unmount via a new `useEffect` cleanup so the callback doesn't fire `setSavedAt` after the component is gone. |
+| 3 | `LearnScreen` focus-visible (UX gap closure) | New 2px cyan outline + 2px offset rule in the inline `<style>` block covering 7 actionable control classes: `.learn-screen__filter-btn`, `.learn-screen__vocab-card`, `.learn-screen__vocab-modal-close`, `.learn-screen__tts-btn`, `.learn-screen__card-tts`, `.learn-screen__back`, `.learn-screen__start`. Phase 23 added `aria-pressed` + `aria-label` on the filter buttons and `role="dialog"` + focus-trap on the vocab-detail modal, but neither the filter buttons nor the vocab-card buttons shipped a visible focus indicator. Keyboard users tabbing through the preview had no visual confirmation of which card was selected. Mirrors the Phase 30 `.warning-btn` + `.daily-lesson-card__btn` rule so the modal pattern stays consistent. |
+
+### Tests added (+15; baseline 1073 → 1088)
+
+New `tests/ui/phase31-a11y.test.tsx` — 15 tests covering all three improvements:
+
+**`CharacterTest` a11y** (6 tests):
+1. `renders without throwing (smoke)`
+2. `CharacterTest source wires aria-label on all 3 English character buttons`
+3. `CharacterTest source wires aria-pressed on char-selection buttons`
+4. `CharacterTest source wires aria-label on the 7 pose buttons`
+5. `CharacterTest source wires aria-label on the back-to-menu button`
+6. `CharacterTest source ships a phase-31 :focus-visible rule for controls`
+
+**`SettingsScreen` volume debounce** (4 tests):
+7. `SettingsScreen source declares a volumeSaveTimerRef`
+8. `handleVolumeChange uses window.setTimeout with a 400ms debounce`
+9. `handleVolumeChange clears any pending timer before scheduling a new one`
+10. `SettingsScreen source clears the volume timer on unmount`
+
+**`LearnScreen` focus-visible** (4 tests):
+11. `LearnScreen source wires .learn-screen__filter-btn:focus-visible`
+12. `LearnScreen source wires .learn-screen__vocab-card:focus-visible`
+13. `LearnScreen focus-visible rule uses the 2px cyan outline pattern`
+14. `LearnScreen source ships a phase-31 anchor comment`
+
+**`LearnScreen` render regression guard** (1 test):
+15. `renders the preview screen with a minimal stage fixture`
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **1088 passed** + 1 skipped (1073 baseline + 15 new) |
+| `python3 audit_vault.py` | ✅ CLEAN for typing_language scope. Pre-existing 2 false-positive hits in `log.md` (`[count_zero]` inside backtick-escaped inline text documenting a Phase 20 artifact in `Fiction/wiki/PHASE_89-103_FINAL_STATE_SUMMARY.md`) — out of scope per AGENTS.md §3. Documented in Phase 20 + 21 + 22 + 23 + 24 + 25 + 26 + 27 + 28 + 29 + 30 logs. |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Files changed (4, all in `Game/typing_language/prototype/`)
+
+- `src/ui/CharacterTest.tsx` — +58 / -3 (aria-label + aria-pressed on 13 buttons, 4 role="group" wrappers, new inline focus-visible rule for the test harness)
+- `src/ui/SettingsScreen.tsx` — +27 / -3 (volumeSaveTimerRef + 400ms debounce + useEffect unmount cleanup)
+- `src/ui/LearnScreen.tsx` — +20 / 0 (7-class focus-visible rule in the inline <style>)
+- `tests/ui/phase31-a11y.test.tsx` — new (236 lines, 15 tests)
+
+### Commit
+
+`7763bda` — `chore(a11y): Phase 31 — Polish + accessibility`
+
+---
+
 ## [2026-08-15] chore(a11y) | Phase 30 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29. Closes gaps where the KeyboardWarning blocking modals had focus-trap + aria-label wiring but no visible focus ring on the persistent actions, where the DailyLessonCard's 3 action buttons shipped aria-label but no `:focus-visible` outline, and where the SettingsScreen auto-saved on every change with no visible or audible confirmation (the OptionsScreen got this fix in Phase 19; SettingsScreen hadn't).
