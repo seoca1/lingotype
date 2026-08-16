@@ -364,7 +364,20 @@ export function Menu({
           <section key={tier} className="tier-group" aria-labelledby={`tier-title-${tier}`}>
             <h3 id={`tier-title-${tier}`} className="tier-title">{TIER_LABELS[tier]}</h3>
             {showTier1Hint && (
-              <p className="tier-hint tier-hint-auto">
+              // Phase 38: role="note" + aria-label so SR users navigating
+              // to the tier region hear the hint framed as an informational
+              // note instead of generic paragraph text. The tier region
+              // already exposes aria-labelledby="tier-title-1" via Phase 32,
+              // but the hint itself had no semantic role — SR users landed
+              // on it with no context that it explains the unlock state.
+              // The aria-label keeps sighted UX identical (no visible
+              // change) while giving SR users a clear "Note about Tier 1
+              // unlock" framing. Mirrors the WAI-ARIA note role pattern.
+              <p
+                className="tier-hint tier-hint-auto"
+                role="note"
+                aria-label="Tier 1 unlock note"
+              >
                 ✨ {t('startingStageReady', nativeLanguage)}
               </p>
             )}

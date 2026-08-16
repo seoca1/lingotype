@@ -72,8 +72,20 @@ export function OllamaTest() {
     <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
       <h2>Ollama Connection Test</h2>
 
-      <div style={{ marginBottom: '20px' }}>
-        <button onClick={testConnection} disabled={loading}>
+      <div
+        style={{ marginBottom: '20px' }}
+        role="group"
+        aria-label="Connection test"
+      >
+        {/* Phase 38: explicit aria-label on the Test Connection button
+            so SR users hear the action without depending on the visible
+            text alone. Mirrors the Phase 26/30 SettingsScreen + Phase 31
+            CharacterTest labelled-button convention. */}
+        <button
+          onClick={testConnection}
+          disabled={loading}
+          aria-label="Test Ollama connection"
+        >
           Test Connection
         </button>
         {connected !== null && (
@@ -82,6 +94,9 @@ export function OllamaTest() {
               marginLeft: '10px',
               color: connected ? 'green' : 'red',
             }}
+            role="status"
+            aria-live="polite"
+            aria-label={connected ? 'Connection succeeded' : 'Connection failed'}
           >
             {connected ? '✓ Connected' : '✗ Connection Failed'}
           </span>
@@ -95,31 +110,63 @@ export function OllamaTest() {
       </div>
 
       <div style={{ marginBottom: '20px' }}>
+        {/* Phase 38: htmlFor/id pairing + aria-label on the prompt
+            textarea. Previously the field only had a placeholder, which
+            WCAG 1.3.1 + 4.1.2 marks as insufficient because placeholders
+            disappear on focus and most SR engines do not expose
+            placeholder as the accessible name. Mirrors the Phase 26
+            SettingsScreen label pattern. */}
+        <label htmlFor="ollama-test-prompt">
+          <strong>Prompt</strong>
+        </label>
         <textarea
+          id="ollama-test-prompt"
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           placeholder="Enter your prompt here..."
           rows={5}
+          aria-label="Prompt input"
           style={{ width: '100%', padding: '10px', fontSize: '14px' }}
         />
       </div>
 
-      <div style={{ marginBottom: '20px', display: 'flex', gap: '10px' }}>
-        <button onClick={handleGenerate} disabled={loading || !prompt.trim()}>
+      <div
+        style={{ marginBottom: '20px', display: 'flex', gap: '10px' }}
+        role="group"
+        aria-label="Generation actions"
+      >
+        {/* Phase 38: aria-label on the two generate buttons so SR users
+            hear "Generate response (non-streaming)" / "Generate response
+            (streaming)" instead of just "Generate". The visible text
+            stays as the primary label per the Phase 31 convention (don't
+            override readable text with aria-label). */}
+        <button
+          onClick={handleGenerate}
+          disabled={loading || !prompt.trim()}
+          aria-label="Generate response (non-streaming)"
+        >
           Generate (Normal)
         </button>
         <button
           onClick={handleStreamGenerate}
           disabled={loading || !prompt.trim()}
+          aria-label="Generate response (streaming)"
         >
           Generate (Stream)
         </button>
       </div>
 
-      {loading && <p>Generating...</p>}
+      {loading && (
+        <p role="status" aria-live="polite">
+          Generating...
+        </p>
+      )}
 
       {response && (
         <div
+          role="region"
+          aria-label="Ollama response"
+          aria-live="polite"
           style={{
             border: '1px solid #ccc',
             padding: '15px',
@@ -132,6 +179,19 @@ export function OllamaTest() {
           <p>{response}</p>
         </div>
       )}
+      {/* Phase 38: visible focus indicator on every actionable control
+          inside this test harness. Previously the only focus-visible
+          rules came from style.css and the Phase 14/19/20/21/27/29/30/
+          31/33/35 inline blocks — none covered the OllamaTest buttons
+          or textarea. Mirrors the 2px cyan outline + 2px offset pattern
+          so visual cadence stays consistent with the rest of the app. */}
+      <style>{`
+        div button:focus-visible,
+        div textarea:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
+        }
+      `}</style>
     </div>
   );
 }

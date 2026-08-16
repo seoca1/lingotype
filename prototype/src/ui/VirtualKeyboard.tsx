@@ -114,6 +114,18 @@ export function VirtualKeyboard({ language, onKeyPress, expectedChar }: VirtualK
           Enter
         </button>
       </div>
+      {/* Phase 38: visible focus indicator for keyboard users tabbing
+          through the 30+ virtual keys. The Phase 25 aria-label pattern
+          already names each key ("key K", "key ㅏ"), but without a focus
+          ring sighted keyboard users had no way to see which key was
+          focused. Mirrors the Phase 14/19/20/21/27/29/30/31/33/35 2px
+          cyan outline + 2px offset convention. */}
+      <style>{`
+        .virtual-keyboard .key:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
+        }
+      `}</style>
     </div>
   );
 }

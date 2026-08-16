@@ -1,5 +1,95 @@
 # Activity Log - Typing Language
 
+## [2026-08-17] chore(a11y) | Phase 38 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37.
+
+### Improvements
+
+1. **VirtualKeyboard key `:focus-visible` rule (UX gap closure)**. The `<div className="virtual-keyboard">` ships 30+ `<button className="key">` elements per layout (EN 30, JP 23, ES 33 with accent row, KR 28 with 자모 + 모음 + 복합모음 rows), but the component had no visible focus indicator. Keyboard users tabbing through the keys got no visual confirmation of which key was focused. Phase 38 adds a new inline `<style>` block with `.virtual-keyboard .key:focus-visible { outline: 2px solid #00d9ff; outline-offset: 2px; }`, mirroring the Phase 14/19/20/21/27/29/30/31/33/35 2px cyan + 2px offset convention so the cyan ring stays consistent across the app. The existing Phase 25 `aria-label="key X"` per-key naming pattern is preserved unchanged (regression-guarded by the test suite).
+
+2. **OllamaTest aria-label + focus-visible (a11y gap closure)**. The OllamaService test harness had 5 distinct a11y gaps: (a) the prompt textarea relied on `placeholder` only (WCAG 1.3.1 + 4.1.2 — placeholders disappear on focus and most SR engines don't expose placeholder as the accessible name), (b) the 3 action buttons (Test Connection / Generate Normal / Generate Stream) had no programmatic label beyond the visible text, (c) the connection-result `<span>` had no role or live region, (d) the `<p>Generating...</p>` had no live region so SR users got no audible feedback that a generation started, (e) no visible focus indicator on any control. Phase 38 wires `<label htmlFor="ollama-test-prompt">` + `id` + `aria-label="Prompt input"` on the textarea, `aria-label` on all 3 buttons (with explicit `(non-streaming)` / `(streaming)` to disambiguate the two Generate actions), `role="status"` + `aria-live="polite"` on the connection indicator + loading line, `role="region"` + `aria-live="polite"` + `aria-label="Ollama response"` on the response block, `role="group"` + `aria-label` wrappers around the connection-test and generation action groups, and an inline `<style>` block with a `:focus-visible` rule covering buttons + textarea. Closes the last remaining keyboard-opaque screen in the app.
+
+3. **Menu tier-hint `role="note"` + `aria-label` (SR-regression fix)**. The Tier-1 unlock hint `<p className="tier-hint tier-hint-auto">✨ {t('startingStageReady', nativeLanguage)}</p>` sat inside the Phase 32 labelled tier region (`<section aria-labelledby="tier-title-1">`) with no semantic role of its own. SR users navigating to the tier-1 region heard the section name on entry, then encountered the hint as a generic paragraph with no distinction from the stage cards. Phase 38 wraps the hint in `role="note"` + `aria-label="Tier 1 unlock note"` so SR users hear it framed as informational note instead of generic text. The visible ✨ glyph + `tier-hint-auto` class + visible text are all untouched (regression-guarded), so sighted UX is unchanged.
+
+### New file
+
+- `prototype/tests/ui/phase38-a11y.test.tsx` — 20 tests covering all three improvements (VirtualKeyboard :focus-visible source-level + renderToStaticMarkup smoke + Phase 25 aria-label regression guard; OllamaTest source-level contracts for textarea/buttons/live-regions/role-groups/focus-visible; Menu source-level role=note + aria-label + Phase 32 region regression guard + renderToStaticMarkup smoke).
+
+### Validation
+
+| Check | Result |
+|-------|--------|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **1202 passed** (1 skipped) — 1182 baseline + 20 new |
+| `python3 audit_vault.py` | ✅ CLEAN — 0 broken |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Stats
+
+- 3 small UX/a11y improvements (VirtualKeyboard key focus ring, OllamaTest full a11y wiring, Menu tier-hint role=note)
+- 20 new tests
+- Test totals: 1182 → **1202** (+20)
+- Files touched: 3 modified (`VirtualKeyboard.tsx`, `OllamaTest.tsx`, `Menu.tsx`), 1 new (`phase38-a11y.test.tsx`)
+
+**No push** — user handles GH_TOKEN rotation.
+
+### Commit
+
+- `Game/typing_language`: `chore(a11y): Phase 38 — Polish + accessibility` (this commit)
+
+**Phase 38 polish round complete — final UX/a11y gaps on VirtualKeyboard + OllamaTest + Menu closed.**
+
+---
+
+## [2026-08-17] chore(a11y) | Phase 37 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on top of Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36.
+
+### Improvements
+
+1. **ResultScreen missions list — proper list semantics**. The `.result-missions` wrapper now exposes `role="list"` + `aria-labelledby="result-missions-heading"` (the existing h2 picked up the matching id), and each `.mission-result` row carries `role="listitem"`. Previously the missions were a flat map of `<div>` siblings with no group landmark and no item semantics — SR users heard each row as an unlabelled chunk without an enclosing "Missions, list, N items" announcement. Mirrors the Phase 28 StageScreen missions-list fix so the two mission surfaces share the same semantic contract.
+
+2. **ResultScreen WeakWordModal TTS button — self-describing aria-label**. The modal's TTS button now exposes `aria-label={`Listen to pronunciation of ${selected.display}`}` (e.g. "Listen to pronunciation of hello") in addition to the visible "🔊 Listen" text. Previously the button only exposed the icon-prefixed visible text, so SR users landing on it heard "Listen" with no context about which word was being spoken. Mirrors the Phase 25 EnemyTooltip TTS-button pattern.
+
+3. **CharacterSelect cardRefs DOM focus tracking for arrow keys**. The keyboard handler now uses a `cardRefs = useRef<(HTMLDivElement \| null)[]>([])` ref array and a ref-setter callback (matches the Phase 27 LanguageSelection + Phase 29 Menu + Phase 36 ProfileSelector pattern). ArrowLeft / ArrowRight / 1 / 2 / 3 all call `cardRefs.current[next].focus()` alongside `setSelectedIndex`, so DOM focus follows the visual highlight through the wrap-around. Previously state moved but the focused card stayed put — SR users heard the aria-checked flip but the focused element was the same card. The cleanup also drops the now-unused `imgRefs` array (image preloading is still tracked via `imagesLoaded` state, so the visual contract is unchanged).
+
+### New file
+
+- `prototype/tests/ui/phase37-a11y.test.tsx` — 16 tests covering all three improvements (missions list role=list + 3 listitems + heading id, source-level phase-37 anchor comments, WeakWordModal TTS aria-label rendering + visible-text regression guard, CharacterSelect cardRefs ref array + focus calls on each key + radiogroup regression guard).
+
+### Validation
+
+| Check | Result |
+|-------|--------|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **1182 passed** (1 skipped) — 1166 baseline + 16 new |
+| `python3 audit_vault.py` | ✅ CLEAN — 0 broken |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Stats
+
+- 3 small UX/a11y improvements (ResultScreen missions list, WeakWordModal TTS aria-label, CharacterSelect cardRefs)
+- 16 new tests
+- Test totals: 1166 → **1182** (+16)
+- Files touched: 2 modified (`ResultScreen.tsx`, `CharacterSelect.tsx`), 1 new (`phase37-a11y.test.tsx`)
+
+**No push** — user handles GH_TOKEN rotation.
+
+### Commit
+
+- `Game/typing_language`: `50e07ad` — `chore(a11y): Phase 37 — Polish + accessibility`
+
+**Phase 37 polish round complete — final UX/a11y gaps on ResultScreen + CharacterSelect closed.**
+
+### Log entry commit
+
+- `Game/typing_language`: `aa47f78` — `docs: Phase 37 log entry` (separate commit, matching the Phase 28 `5b45e08` docs-log pattern)
+
+---
+
 ## [2026-08-17] chore(a11y) | Phase 36 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35. Closes three remaining gaps where `MarkdownView` tables rendered with no `<caption>` and no `scope="col"` on `<th>` so SR users heard each cell as an isolated "column N row M" position with no header context (WCAG 1.3.1: info-and-relationships), where the `SettingsScreen` volume slider carried only `aria-valuetext="N percent"` with no `aria-valuenow/valuemin/valuemax` so older VoiceOver / NVDA versions that ignore `aria-valuetext` in favour of `valuenow` left keyboard users hearing only "Volume" with no numeric feedback as they dragged the slider, and where the `ProfileSelector` avatar picker shipped `role="radiogroup"` + 12 `role="radio"` buttons but the ONLY way to change the selected avatar was a mouse click — keyboard-only users got the radio announcement but no way to act on it (WAI-ARIA Authoring Practices violation: a radiogroup MUST support arrow-key navigation between options).
@@ -77,6 +167,7 @@ Plus 2 updated regression guards in `tests/ui/MarkdownView.test.tsx`:
 - Pushed: NO (user handles GH_TOKEN rotation)
 
 ---
+
 ## [2026-08-17] chore(a11y) | Phase 35 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34. Closes three remaining gaps where the StageScreen HUD was wired as `role="status" aria-live="polite" aria-label="Score X, ..."` and re-rendered ~60 times a second during gameplay, firing a polite SR announcement on every score/combo/WPM update (a real SR-spam bug that drowned out Phase 23's canvas aria-label), where the global `.btn-primary / .btn-secondary / .btn-danger` classes shipped inside `.tutorial` focus-visible rules (Phase 33) but never outside the tutorial scope — leaving ProfileSelector's per-card Play/Delete buttons and the profile-create-modal's Cancel/Create buttons with no visible focus ring, and where the DailyLessonModal search input relied on a `placeholder` only with no programmatic label, leaving SR users landing on it hearing just "edit text" with no context (WCAG 1.3.1 + 4.1.2).
@@ -5333,48 +5424,3 @@ The wiki already had 70+ theme files (`basic-vocabulary.md`, `numbers-vocabulary
 - `Game/typing_language`: `5047465` — `chore(a11y): Phase 28 — Polish + accessibility`
 
 **Phase 24 polish round complete — final UX/a11y gaps on ResultScreen closed.**
-
-## [2026-08-17] chore(a11y) | Phase 37 — Polish + accessibility
-
-**Scope:** Three small UX/a11y improvements layered on top of Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36.
-
-### Improvements
-
-1. **ResultScreen missions list — proper list semantics**. The `.result-missions` wrapper now exposes `role="list"` + `aria-labelledby="result-missions-heading"` (the existing h2 picked up the matching id), and each `.mission-result` row carries `role="listitem"`. Previously the missions were a flat map of `<div>` siblings with no group landmark and no item semantics — SR users heard each row as an unlabelled chunk without an enclosing "Missions, list, N items" announcement. Mirrors the Phase 28 StageScreen missions-list fix so the two mission surfaces share the same semantic contract.
-
-2. **ResultScreen WeakWordModal TTS button — self-describing aria-label**. The modal's TTS button now exposes `aria-label={`Listen to pronunciation of ${selected.display}`}` (e.g. "Listen to pronunciation of hello") in addition to the visible "🔊 Listen" text. Previously the button only exposed the icon-prefixed visible text, so SR users landing on it heard "Listen" with no context about which word was being spoken. Mirrors the Phase 25 EnemyTooltip TTS-button pattern.
-
-3. **CharacterSelect cardRefs DOM focus tracking for arrow keys**. The keyboard handler now uses a `cardRefs = useRef<(HTMLDivElement | null)[]>([])` ref array and a ref-setter callback (matches the Phase 27 LanguageSelection + Phase 29 Menu + Phase 36 ProfileSelector pattern). ArrowLeft / ArrowRight / 1 / 2 / 3 all call `cardRefs.current[next].focus()` alongside `setSelectedIndex`, so DOM focus follows the visual highlight through the wrap-around. Previously state moved but the focused card stayed put — SR users heard the aria-checked flip but the focused element was the same card. The cleanup also drops the now-unused `imgRefs` array (image preloading is still tracked via `imagesLoaded` state, so the visual contract is unchanged).
-
-### New file
-
-- `prototype/tests/ui/phase37-a11y.test.tsx` — 16 tests covering all three improvements (missions list role=list + 3 listitems + heading id, source-level phase-37 anchor comments, WeakWordModal TTS aria-label rendering + visible-text regression guard, CharacterSelect cardRefs ref array + focus calls on each key + radiogroup regression guard).
-
-### Validation
-
-| Check | Result |
-|-------|--------|
-| `npm run typecheck` | ✅ 0 errors |
-| `npm run lint` | ✅ 0 errors |
-| `npm test` | ✅ **1182 passed** (1 skipped) — 1166 baseline + 16 new |
-| `python3 audit_vault.py` | ✅ CLEAN — 0 broken |
-| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
-
-### Stats
-
-- 3 small UX/a11y improvements (ResultScreen missions list, WeakWordModal TTS aria-label, CharacterSelect cardRefs)
-- 16 new tests
-- Test totals: 1166 → **1182** (+16)
-- Files touched: 2 modified (`ResultScreen.tsx`, `CharacterSelect.tsx`), 1 new (`phase37-a11y.test.tsx`)
-
-**No push** — user handles GH_TOKEN rotation.
-
-### Commit
-
-- `Game/typing_language`: `50e07ad` — `chore(a11y): Phase 37 — Polish + accessibility`
-
-**Phase 37 polish round complete — final UX/a11y gaps on ResultScreen + CharacterSelect closed.**
-
-### Log entry commit
-
-- `Game/typing_language`: `aa47f78` — `docs: Phase 37 log entry` (separate commit, matching the Phase 28 `5b45e08` docs-log pattern)
