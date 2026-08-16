@@ -5333,3 +5333,48 @@ The wiki already had 70+ theme files (`basic-vocabulary.md`, `numbers-vocabulary
 - `Game/typing_language`: `5047465` — `chore(a11y): Phase 28 — Polish + accessibility`
 
 **Phase 24 polish round complete — final UX/a11y gaps on ResultScreen closed.**
+
+## [2026-08-17] chore(a11y) | Phase 37 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on top of Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36.
+
+### Improvements
+
+1. **ResultScreen missions list — proper list semantics**. The `.result-missions` wrapper now exposes `role="list"` + `aria-labelledby="result-missions-heading"` (the existing h2 picked up the matching id), and each `.mission-result` row carries `role="listitem"`. Previously the missions were a flat map of `<div>` siblings with no group landmark and no item semantics — SR users heard each row as an unlabelled chunk without an enclosing "Missions, list, N items" announcement. Mirrors the Phase 28 StageScreen missions-list fix so the two mission surfaces share the same semantic contract.
+
+2. **ResultScreen WeakWordModal TTS button — self-describing aria-label**. The modal's TTS button now exposes `aria-label={`Listen to pronunciation of ${selected.display}`}` (e.g. "Listen to pronunciation of hello") in addition to the visible "🔊 Listen" text. Previously the button only exposed the icon-prefixed visible text, so SR users landing on it heard "Listen" with no context about which word was being spoken. Mirrors the Phase 25 EnemyTooltip TTS-button pattern.
+
+3. **CharacterSelect cardRefs DOM focus tracking for arrow keys**. The keyboard handler now uses a `cardRefs = useRef<(HTMLDivElement | null)[]>([])` ref array and a ref-setter callback (matches the Phase 27 LanguageSelection + Phase 29 Menu + Phase 36 ProfileSelector pattern). ArrowLeft / ArrowRight / 1 / 2 / 3 all call `cardRefs.current[next].focus()` alongside `setSelectedIndex`, so DOM focus follows the visual highlight through the wrap-around. Previously state moved but the focused card stayed put — SR users heard the aria-checked flip but the focused element was the same card. The cleanup also drops the now-unused `imgRefs` array (image preloading is still tracked via `imagesLoaded` state, so the visual contract is unchanged).
+
+### New file
+
+- `prototype/tests/ui/phase37-a11y.test.tsx` — 16 tests covering all three improvements (missions list role=list + 3 listitems + heading id, source-level phase-37 anchor comments, WeakWordModal TTS aria-label rendering + visible-text regression guard, CharacterSelect cardRefs ref array + focus calls on each key + radiogroup regression guard).
+
+### Validation
+
+| Check | Result |
+|-------|--------|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **1182 passed** (1 skipped) — 1166 baseline + 16 new |
+| `python3 audit_vault.py` | ✅ CLEAN — 0 broken |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Stats
+
+- 3 small UX/a11y improvements (ResultScreen missions list, WeakWordModal TTS aria-label, CharacterSelect cardRefs)
+- 16 new tests
+- Test totals: 1166 → **1182** (+16)
+- Files touched: 2 modified (`ResultScreen.tsx`, `CharacterSelect.tsx`), 1 new (`phase37-a11y.test.tsx`)
+
+**No push** — user handles GH_TOKEN rotation.
+
+### Commit
+
+- `Game/typing_language`: `50e07ad` — `chore(a11y): Phase 37 — Polish + accessibility`
+
+**Phase 37 polish round complete — final UX/a11y gaps on ResultScreen + CharacterSelect closed.**
+
+### Log entry commit
+
+- `Game/typing_language`: `aa47f78` — `docs: Phase 37 log entry` (separate commit, matching the Phase 28 `5b45e08` docs-log pattern)
