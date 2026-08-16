@@ -1,5 +1,80 @@
 # Activity Log - Typing Language
 
+## [2026-08-17] chore(a11y) | Phase 35 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34. Closes three remaining gaps where the StageScreen HUD was wired as `role="status" aria-live="polite" aria-label="Score X, ..."` and re-rendered ~60 times a second during gameplay, firing a polite SR announcement on every score/combo/WPM update (a real SR-spam bug that drowned out Phase 23's canvas aria-label), where the global `.btn-primary / .btn-secondary / .btn-danger` classes shipped inside `.tutorial` focus-visible rules (Phase 33) but never outside the tutorial scope — leaving ProfileSelector's per-card Play/Delete buttons and the profile-create-modal's Cancel/Create buttons with no visible focus ring, and where the DailyLessonModal search input relied on a `placeholder` only with no programmatic label, leaving SR users landing on it hearing just "edit text" with no context (WCAG 1.3.1 + 4.1.2).
+
+### Improvements (3 small, focused)
+
+| # | Area | Change |
+|---|---|---|
+| 1 | `StageScreen` `.hud-info` SR-spam fix | Replaced `role="status" aria-live="polite" aria-label={`Score ${state.score}, ${state.enemiesDefeated} defeated, ...`}` with `role="region" aria-labelledby="hud-heading"`. The original `aria-live="polite"` wrapper re-rendered on every game tick (~60Hz) and was firing a polite SR announcement on every score/combo bump, score delta, and WPM recalculation — a real SR-spam bug that drowned out the canvas aria-label in Phase 23. The original `aria-label=` ALSO overrode the visible text (same anti-pattern Phase 32/34 fixed on the kbd-hint footers — SR users never heard the visible "Score:" / "WPM:" / "ACC:" labels). Phase 35 keeps `role="region"` so SR users hear structure once on landmark nav ("Game stats, region"), keeps the visible `<p>` text readable for sighted users (now `aria-hidden="true"` since the canvas already names typed-so-far count), and exposes a `.visually-hidden` `<h3>Game stats</h3>` heading the aria-labelledby points at. Same 2-line convention as the Phase 32 Menu kbd-hint + Phase 33 caps-lock patterns: keep visible text, expose structure via aria-labelledby, never override readable text with an aria-label. |
+| 2 | `style.css` `.btn-primary / .btn-secondary / .btn-danger:focus-visible` (global) | New 2px cyan outline + 2px offset rule covering all 3 actionable classes. Phase 33 added `.tutorial .btn-primary:focus-visible` (welcome-page 시작하기 CTA + the profile-card-style buttons inside the tutorial), but the OUTSIDE-tutorial uses — `ProfileSelector` ProfileCard's inner Play (`.btn-primary`) and Delete (`.btn-danger`) buttons, the profile-create-modal Cancel (`.btn-secondary`) + Create (`.btn-primary`) actions, and Phase 14/19 .options-reset's secondary button — never received a visible focus indicator. Keyboard users tabbing through the profile picker saw no ring on the most destructive actions (the Delete button is the highest-impact gap because tabbing past it without visual confirmation risks an accidental Enter activation). The new global rule has specificity (0,1,1) by listing the global classes without nesting under `.tutorial`, and Phase 33's `.tutorial .btn-primary:focus-visible` rule is preserved above it for parity. Matches the 2px cyan + 2px offset convention used in Phase 14/19/21/27/29/30/33 so the cyan ring stays consistent across the app. |
+| 3 | `DailyLessonModal` search input `aria-label="Search lesson content"` | The `<input className="daily-lesson-modal__search">` shipped a placeholder (`'단어 검색...'` / `'Search...'`) but no programmatic `<label htmlFor=>` or `aria-label`, so SR users landing on the field were told only "edit text" with no context (WCAG 1.3.1 + 4.1.2: placeholders disappear on focus and most SR engines do not expose placeholder as the accessible name). Phase 26 wired `<label htmlFor=>` + `id` pairing to SettingsScreen's sound + volume inputs, Phase 30 did the same for SettingsScreen's KR input mode toggle, and Phase 26 covered OptionsScreen — but the modal search field on the DailyLessonModal was the last remaining unlabeled form input across the app. Phase 35 adds `aria-label="Search lesson content"` (the same pattern Phase 26 used for the SettingsScreen sound toggle, where a static aria-label is preferred over placeholder text). Mirrors SettingsScreen `<label className="settings-toggle" htmlFor="settings-sound-toggle">` + Phase 26 aria-label pairing. |
+
+### Tests added (+12; baseline 1138 → 1150)
+
+New `tests/ui/phase35-a11y.test.tsx` — 12 tests covering all three improvements:
+
+**StageScreen hud-info SR-spam fix** (4 tests, source-level + renderToStaticMarkup):
+1. `hud-info container is now role="region" + aria-labelledby (NOT role="status" aria-live="polite")` — verifies the wrapper no longer carries the polite-live contract that drove the SR-spam bug, and now exposes the labelled-region pattern
+2. `hud-info visually-hidden h3 exposes "Game stats" so SR users hear the region name on landmark nav` — confirms `id="hud-heading"` exists in source and ties to the labelled-by heading
+3. `hud-info source REMOVED the bogus aria-label that overrode visible text` — guards against the Phase 32/34 anti-pattern creeping back in
+4. `StageScreen renders the hud-info as a labelled region with no aria-live (renderToStaticMarkup smoke)` — end-to-end smoke confirming the new contract renders without any aria-live on the hud wrapper
+
+**style.css global button focus-visible** (5 tests, source-level regex matching):
+5. `declares .btn-primary:focus-visible with a 2px cyan outline` — covers the Play + Create actions in ProfileCard / profile-create-modal
+6. `declares .btn-secondary:focus-visible (ProfileSelector Cancel button)` — covers the Cancel action in the profile-create-modal
+7. `declares .btn-danger:focus-visible (ProfileSelector Delete button)` — covers the destructive Delete action (the highest-impact gap)
+8. `uses 2px outline-offset matching the Phase 14/19/33 convention` — asserts the three classes share the same 2px outline-offset so visual cadence stays consistent
+9. `Phase 33 .tutorial .btn-primary:focus-visible rule still preserved (regression guard)` — ensures the new global rule does not delete the prior tutorial-scoped rule
+
+**DailyLessonModal search input aria-label** (3 tests, source-level + renderToStaticMarkup):
+10. `source adds aria-label="Search lesson content" to the .daily-lesson-modal__search input` — WCAG 1.3.1/4.1.2 guard
+11. `search input still preserves the visible placeholder (regression guard)` — ensures adding the aria-label did NOT accidentally remove the visible eye-candy placeholder
+12. `DailyLessonModal renders the search input with aria-label (renderToStaticMarkup smoke)` — end-to-end smoke for the input-level contract
+
+Plus 3 updated regression guards in the pre-existing Phase 22 test file:
+- `tests/ui/phase22-a11y.test.tsx` — the three HUD tests (`role="status"`, `aria-live="polite"`, descriptive aria-label) were *defending the wrong contract* (Phase 22's polite-live pattern was the actual SR-spam bug). Phase 35 rewires them to assert the new labelled-region contract: `role="region" + aria-labelledby="hud-heading"`, NO `aria-live`, and the visually-hidden `Game stats` heading. Three updated tests, each annotated with a Phase 35 comment explaining the contract migration (mirrors the Phase 24/28/34 annotation pattern that converts prior-phase assertions to defend the corrected contract).
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **1150 passed** + 1 skipped (1138 baseline + 12 new Phase 35) |
+| `python3 audit_vault.py` | ✅ CLEAN (67 false-positive artifacts only — pre-existing HTTPS URL / vault_root_relative / build_log categories from Phase 20-34; out of scope per AGENTS.md §3) |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Files changed (5, all in `Game/typing_language/prototype/`)
+
+| File | +/− | Purpose |
+|---|--:|---|
+| `src/ui/StageScreen.tsx` | +19 / −8 | Replaced `role="status" aria-live="polite" aria-label="..."` on `.hud-info` with `role="region" aria-labelledby="hud-heading"` + a visually-hidden `<h3>Game stats</h3>` + aria-hidden visible `<p>` rows; closes the SR-spam bug + the aria-label-override anti-pattern |
+| `src/ui/DailyLessonModal.tsx` | +11 / −1 | Added `aria-label="Search lesson content"` to the `<input className="daily-lesson-modal__search">` so SR users hear the field's purpose instead of bare "edit text" |
+| `src/style.css` | +20 / −0 | New `.btn-primary:focus-visible, .btn-secondary:focus-visible, .btn-danger:focus-visible { outline: 2px solid #00d9ff; outline-offset: 2px; }` block with a Phase-style audit comment; Phase 33's `.tutorial .btn-primary` rule preserved above |
+| `tests/ui/phase35-a11y.test.tsx` | new file, +281 | 12 new Phase 35 tests (source-level contracts + renderToStaticMarkup smoke + regression guards) |
+| `tests/ui/phase22-a11y.test.tsx` | +25 / −5 | Three HUD tests rewritten to assert Phase 35's labelled-region contract instead of Phase 22's polite-live contract (the old assertions were defending the bug Phase 35 fixes) |
+| `log.md` | +67 / −0 | Phase 35 entry prepended at top |
+
+### Out-of-scope (preserved)
+
+- No new languages (already have 7)
+- No raw/ edits (read-only per AGENTS.md §2)
+- No Accepted ADRs touched
+- No BGM/SFX additions
+- No other projects (Fiction/, Game/roguelike_sprawl/, Language/) touched
+- No push (user handles GH_TOKEN rotation)
+
+### Commit
+
+- Hash: `2996efc`
+- Files: 6 changed (3 modified source + 1 new test + 1 modified test + 1 modified log; +433 / −15 total — 3 source files = +50 / −9; 1 new test file = +281; 1 modified test file = +25 / −5; log.md entry = +77 / −1)
+- Pushed: NO (user handles GH_TOKEN rotation)
+
+---
+
 ## [2026-08-16] chore(a11y) | Phase 34 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33. Closes three remaining gaps where the ResultScreen's kbd-hint footer carried the same `aria-label="Keyboard shortcuts"` regression Phase 32 fixed in the Menu (SR users heard only the label and never the actual `<kbd>Esc</kbd>` content), where the ResultScreen's overall mastery bar was a 0%-width styled div that SR users heard nothing about (the user's overall mastery % was completely invisible to screen readers), and where the LearnScreen's kbd-hint footer carried the same Phase 32 regression pattern for its `Enter` / `Esc` shortcuts.

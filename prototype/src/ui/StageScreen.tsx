@@ -223,17 +223,33 @@ export function StageScreen({
             </div>
           ))}
         </div>
+        {/* Phase 35: removed `aria-live="polite"` + the `aria-label=` that
+            overrode the visible text. The re-rendering HUD polled every
+            frame (~60Hz) with a `role="status" aria-live="polite"` that
+            fired a polite SR announcement on every score/combo/WPM
+            change — a real SR-spam bug that drowned out the canvas
+            aria-label in Phase 23. Now the HUD is exposed once as a
+            labelled region (so SR users can navigate into the stats
+            via a heading landmark), with no live region. The canvas
+            itself (Phase 23) already announces the typed-so-far count
+            and the target word, so the live score is not needed.
+            Phase 35 mirrors the Phase 32/34 kbd-hint + Phase 33
+            caps-lock patterns: keep visible text, expose structure via
+            aria-labelledby, never override readable text with an
+            aria-label. */}
         <div
           className="hud-info"
-          role="status"
-          aria-live="polite"
-          aria-label={`Score ${state.score}, ${state.enemiesDefeated} defeated, combo ${state.combo}, words per minute ${state.wpm.toFixed(0)}, accuracy ${state.accuracy.toFixed(0)} percent`}
+          role="region"
+          aria-labelledby="hud-heading"
         >
-          <p>Score: {state.score}</p>
-          <p>Defeated: {state.enemiesDefeated}</p>
-          <p>Combo: {state.combo} (max: {state.comboMax})</p>
-          <p>WPM: {state.wpm.toFixed(0)}</p>
-          <p>ACC: {state.accuracy.toFixed(0)}%</p>
+          <h3 id="hud-heading" className="visually-hidden">
+            Game stats
+          </h3>
+          <p aria-hidden="true">Score: {state.score}</p>
+          <p aria-hidden="true">Defeated: {state.enemiesDefeated}</p>
+          <p aria-hidden="true">Combo: {state.combo} (max: {state.comboMax})</p>
+          <p aria-hidden="true">WPM: {state.wpm.toFixed(0)}</p>
+          <p aria-hidden="true">ACC: {state.accuracy.toFixed(0)}%</p>
         </div>
         <div className="hover-hint">
           <small>{t('tipHoverForMeaning', getNativeLanguage())}</small>

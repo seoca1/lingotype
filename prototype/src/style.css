@@ -2295,4 +2295,24 @@ button:hover {
   outline: 2px solid #00d9ff;
   outline-offset: 2px;
 }
+
+/* Phase 35: focus-visible for the three global button classes
+   (.btn-primary / .btn-secondary / .btn-danger) outside the .tutorial
+   scope. Phase 33 wired the same classes INSIDE .tutorial; Phase 21
+   covered .profile-card-add; but the actual profile-card's inner
+   Play (.btn-primary) and Delete (.btn-danger) buttons, plus the
+   profile-create-modal's Cancel (.btn-secondary) + Create (.btn-primary)
+   actions, never had a visible focus indicator. Keyboard users tabbing
+   through the profile picker or character-test screen saw no ring on
+   the most important decisions. Same 2px cyan outline + 2px offset as
+   the Phase 14/19/33 convention so the cyan ring stays consistent
+   across the app. Specificity stays low (0,1,1) by listing the global
+   classes without nesting under .tutorial, but .tutorial retains its
+   own rule above for parity with Phase 33. */
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.btn-danger:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: 2px;
+}
 }

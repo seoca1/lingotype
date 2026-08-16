@@ -92,20 +92,40 @@ describe('Phase 22 — StageScreen HUD exposes live status to screen readers', (
     onBackToMenu: () => {},
   };
 
-  it('hud-info block exposes role="status"', () => {
+  it('hud-info block exposes role="region" with aria-labelledby (Phase 35 SR-spam fix)', () => {
+    // Phase 22 originally wired role="status" + aria-live="polite" + a
+    // descriptive aria-label. Phase 35 replaced that with role="region" +
+    // aria-labelledby="hud-heading" because the 60Hz re-render was
+    // firing a polite SR announcement on every score/combo/WPM update —
+    // a real SR-spam bug. The visible <p> text is now aria-hidden
+    // because Phase 23's canvas aria-label already names the
+    // typed-so-far count. This regression guard confirms the new
+    // labelled-region contract.
     const html = renderToStaticMarkup(<StageScreen {...baseProps} />);
-    expect(html).toMatch(/class="hud-info"[^>]*role="status"|role="status"[^>]*class="hud-info"/);
+    expect(html).toMatch(
+      /class="hud-info"[^>]*role="region"[^>]*aria-labelledby="hud-heading"|role="region"[^>]*aria-labelledby="hud-heading"[^>]*class="hud-info"/
+    );
   });
 
-  it('hud-info block exposes aria-live="polite"', () => {
+  it('hud-info block no longer carries aria-live="polite" (Phase 35 closed the SR-spam bug)', () => {
+    // The hud-info wrapper itself should NOT have aria-live any more
+    // (that was the source of the polite-announcement storm). The
+    // visible <p> children stay readable for sighted users; SR users
+    // get the labelled region once on landmark navigation.
     const html = renderToStaticMarkup(<StageScreen {...baseProps} />);
-    expect(html).toMatch(/class="hud-info"[^>]*aria-live="polite"|aria-live="polite"[^>]*class="hud-info"/);
+    expect(html).not.toMatch(/class="hud-info"[^>]*aria-live/);
+    expect(html).not.toMatch(/aria-live="polite"[^>]*class="hud-info"/);
   });
 
-  it('hud-info block exposes a descriptive aria-label summarizing all metrics', () => {
+  it('hud-info block exposes a visually-hidden "Game stats" heading tied to the region', () => {
+    // Phase 35 replaces the Phase 22 descriptive aria-label (which
+    // OVERRODE the visible text — same anti-pattern Phase 32/34 fixed
+    // on kbd-hints) with a screen-reader-only <h3> inside the region.
+    // The aria-labelledby attribute above ties the heading to the
+    // region. SR users navigating by landmark hear "Game stats, region".
     const html = renderToStaticMarkup(<StageScreen {...baseProps} />);
-    // The aria-label must include Score, defeated, combo, WPM, accuracy.
-    expect(html).toMatch(/aria-label="Score 1234, 7 defeated, combo 3, words per minute 42, accuracy 87 percent"/);
+    expect(html).toMatch(/id="hud-heading"[^>]*class="visually-hidden"/);
+    expect(html).toContain('Game stats');
   });
 });
 

@@ -289,6 +289,18 @@ export function DailyLessonModal({ lesson, onClose, onPractice }: DailyLessonMod
             placeholder={getNativeLanguage() === 'ko' ? '단어 검색...' : 'Search...'}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            /* Phase 35: explicit aria-label ties the search field to its
+               purpose for SR users. Phase 26 + 30 added htmlFor/id pairing
+               to SettingsScreen's sound + volume inputs and Phase 26 did
+               the same for OptionsScreen — but the DailyLessonModal search
+               field relied on placeholder alone, which is not a
+               substitute for a programmatic label (WCAG 1.3.1 + 4.1.2;
+               placeholders disappear on focus, so SR users landing on the
+               field with no visible label were told only "edit text".)
+               Matches the Phase 26 SettingsScreen `aria-label={t('sound',
+               native)}` pattern (use aria-label because placeholder text is
+               not exposed as a name by most SR engines). */
+            aria-label="Search lesson content"
           />
           <span className="daily-lesson-modal__progress-label">
             ✓ {progress.mastered}/{progress.total}
