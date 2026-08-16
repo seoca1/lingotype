@@ -1,5 +1,77 @@
 # Activity Log - Typing Language
 
+## [2026-08-16] chore(a11y) | Phase 32 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30/31. Closes gaps where the Tutorial welcome page shipped 4 feature cards as plain `<div>` siblings (SR users heard 4 consecutive generic divs with no list context), where the three Tutorial pages had no `role="region"` landmark so SR users navigating by landmarks couldn't jump straight to a tutorial page, and where the Menu's `<p class="menu-kbd-hint">` carried `aria-label="Keyboard shortcuts"` which OVERRODE the readable `<small><kbd>` content — SR users heard only the label, never the actual key names.
+
+### Improvements (3 small, focused)
+
+| # | Area | Change |
+|---|---|---|
+| 1 | `Tutorial.tsx` features list landmark | The 4 welcome-page feature cards were `<div className="feature">` siblings inside a plain `<div className="tutorial-features">`. SR users tabbing through heard 4 consecutive generic divs with no list context. Now wrapped in `<ul role="list" aria-label="Game features list">` inside a `role="group" aria-label="Game features"` wrapper. SR users navigating by landmark get a labelled list group, and on entry hear "list of 4 items". Matches the Phase 22 DailyLessonModal tier-selector pattern. |
+| 2 | `Tutorial.tsx` page region landmarks + (Enter) suffix | Each tutorial page (welcome / language / mechanics) now wraps in `role="region"` + `aria-labelledby` pointing at its heading. The welcome page already had a visible `<h1>` so it carries `id="tutorial-welcome-title"`. The language + mechanics pages have no visible H1 (the design uses an h2 for the step title), so the new `.visually-hidden` utility in `style.css` (standard 1px + clip pattern) lets us add a hidden `<h1 id="tutorial-language-title">Language tutorial</h1>` / `<h1 id="tutorial-mechanics-title">Game mechanics tutorial</h1>` without changing the layout. Action buttons gain `(Enter)` suffix in aria-label — the language-page "Start tutorial stage" button, the mechanics-page "Complete tutorial" button, and the mechanics-page final-step "Finish tutorial" nav button. Matches the Phase 14/22/24/25/27/29 convention so the keyboard shortcut is discoverable via the accessible name alongside the existing small-text visual hints. |
+| 3 | `Menu.tsx` tier sections + kbd-hint SR regression fix | Each tier `<section className="tier-group">` now exposes `aria-labelledby` pointing at its `<h3 className="tier-title">` via a stable per-tier id (`tier-title-${tier}` for the Tier 1-5 loop, `tier-title-0` for the Tier 0 JP-only branch). SR users navigating by landmark hear the tier name on entry. The `<p className="menu-kbd-hint">` previously carried `aria-label="Keyboard shortcuts"` which OVERRODE the readable `<small><kbd>←</kbd>/<kbd>→</kbd>/<kbd>↑</kbd>/<kbd>↓</kbd> navigate · <kbd>Enter</kbd> start · <kbd>Esc</kbd> back</small>` content — a real SR regression (users heard "Keyboard shortcuts" but never the actual shortcuts). Phase 32 removes the aria-label so SR users now hear the full hint content naturally. The `<kbd>` elements + visible text are untouched. |
+
+### Tests added (+17; baseline 1088 → 1105)
+
+New `tests/ui/phase32-a11y.test.tsx` — 17 tests covering all three improvements:
+
+**Tutorial features list landmark** (4 tests, source-level + smoke):
+1. `renders the welcome page without throwing (smoke)`
+2. `Tutorial source wires role="group" aria-label="Game features" on the features wrapper`
+3. `Tutorial source wraps the 4 feature cards in <ul role="list">`
+4. `Tutorial welcome page exposes role="region" tied to the H1 via aria-labelledby`
+
+**Tutorial language + mechanics pages** (5 tests, source-level):
+5. `Tutorial language page exposes role="region" aria-labelledby="tutorial-language-title"`
+6. `Tutorial mechanics page exposes role="region" aria-labelledby="tutorial-mechanics-title"`
+7. `Tutorial language-page "Start tutorial stage" button carries (Enter) suffix`
+8. `Tutorial mechanics-page "Complete tutorial" button carries (Enter) suffix`
+9. `Tutorial mechanics-page "Finish tutorial" nav button carries (Enter) suffix`
+
+**Menu tier sections + kbd-hint fix** (6 tests, source-level + smoke + renderToStaticMarkup):
+10. `Menu renders the EN tiered stage grid without throwing (smoke)`
+11. `Menu source wires aria-labelledby on the Tier 0 <section>`
+12. `Menu source wires aria-labelledby on each Tier 1-5 <section>`
+13. `Menu source wires id="tier-title-0" on the Tier 0 h3 (matches section aria-labelledby)`
+14. `Menu source REMOVED the aria-label="Keyboard shortcuts" on the kbd-hint (SR regression fix)`
+15. `Menu source keeps the <kbd> key names so SR users hear the actual shortcuts`
+
+**style.css visually-hidden utility** (2 tests, source-level):
+16. `declares .visually-hidden with the standard 1px-clip-rect pattern`
+17. `Phase 32 visually-hidden block carries a phase-anchor comment`
+
+Plus 1 updated regression guard in `tests/ui/phase17-a11y.test.tsx`:
+- The existing "renders a keyboard-shortcut hint footer" test now asserts `not.toContain('aria-label="Keyboard shortcuts"')` instead of `toContain(...)`, with regression guards confirming the `<kbd>` elements + visible text still render.
+
+### Validation results
+
+| Gate | Result |
+|---|---|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **1105 passed** + 1 skipped (1088 baseline + 17 new) |
+| `python3 audit_vault.py` | ✅ CLEAN (67 false-positive artifacts only — pre-existing HTTPS URL / vault_root_relative / build_log categories from Phase 20-31; out of scope per AGENTS.md §3) |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Files changed (5, all in `Game/typing_language/prototype/`)
+
+| File | +/− | Purpose |
+|---|--:|---|
+| `src/ui/Tutorial.tsx` | +78 / −15 | `<ul role="list" aria-label="Game features list">` inside `role="group" aria-label="Game features"` wrapper for the 4 feature cards; `role="region"` + `aria-labelledby` on each of the 3 tutorial pages (visible H1 on welcome; visually-hidden H1 on language + mechanics); `(Enter)` suffix on the language-page start button + mechanics-page complete button + mechanics-page final-step nav button |
+| `src/ui/Menu.tsx` | +14 / −5 | `aria-labelledby="tier-title-0"` + matching h3 id on Tier 0 section; `aria-labelledby={`tier-title-${tier}`}` + matching h3 id in the Tier 1-5 map loop; removed `aria-label="Keyboard shortcuts"` from the kbd-hint `<p>` so SR users hear the actual `<kbd>` content |
+| `src/style.css` | +18 / −0 | New `.visually-hidden` utility (standard 1px + clip-rect pattern) for the hidden H1s on the Tutorial language + mechanics pages, with Phase 32 anchor comment |
+| `tests/ui/phase32-a11y.test.tsx` | new file, +236 | 17 new Phase 32 tests (source-level contracts + renderToStaticMarkup smoke + style.css coverage) |
+| `tests/ui/phase17-a11y.test.tsx` | +10 / −3 | Updated `Menu kbd hint` assertion to verify the `aria-label` is gone (matches the Phase 32 SR regression fix) + regression guards confirming `<kbd>` elements still render |
+
+### Commit
+
+- Hash: `8b4ee1b`
+- Files: `+353 / −32` across 5 files (3 modified source + 1 modified test + 1 new test)
+- Pushed: NO (user handles GH_TOKEN rotation)
+
+---
+
 ## [2026-08-16] chore(a11y) | Phase 31 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30. Closes gaps where the CharacterTest screen shipped 16+ emoji-only buttons with no accessible name and no visible focus indicator, where the SettingsScreen's volume slider fired the `aria-live="polite"` saved indicator ~10 times per drag (a real SR-spam risk), and where the LearnScreen's filter + vocab-card buttons had `aria-pressed` + `aria-label` wiring but no visible focus ring.
