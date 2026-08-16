@@ -47,6 +47,13 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
   // Settings persistence now has a visible + audible confirmation instead
   // of silently auto-saving on every change.
   const [savedAt, setSavedAt] = useState<number | null>(null);
+  // Phase 31: track the volume slider's debounced savedAt. The native
+  // input range fires onChange on every 0.1 step, so dragging 0→1 used
+  // to retrigger the `aria-live="polite"` saved indicator ~10 times in
+  // 200ms — SR users would hear "Settings saved" repeatedly. We hold
+  // off the indicator for 400ms after the last change so the polite
+  // announcement only fires once the user has stopped dragging.
+  const volumeSaveTimerRef = useRef<number | null>(null);
 
   const handleNativeChange = (lang: NativeLanguage) => {
     setNative(lang);
@@ -73,7 +80,17 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
     const v = parseFloat(e.target.value);
     setVolume(v);
     audio.setVolume(v);
-    setSavedAt(Date.now());
+    // Phase 31: debounce the saved indicator for volume changes. The 400ms
+    // delay is short enough that the user still gets near-instant feedback
+    // after releasing the slider, but long enough to coalesce a single
+    // drag into one announcement. Cleanup on unmount via the ref timer.
+    if (volumeSaveTimerRef.current !== null) {
+      window.clearTimeout(volumeSaveTimerRef.current);
+    }
+    volumeSaveTimerRef.current = window.setTimeout(() => {
+      setSavedAt(Date.now());
+      volumeSaveTimerRef.current = null;
+    }, 400);
   };
 
   const toggleSound = () => {
@@ -137,6 +154,18 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
     const handle = setTimeout(() => setSavedAt(null), 2500);
     return () => clearTimeout(handle);
   }, [savedAt]);
+
+  // Phase 31: clear any pending volume-debounce timer on unmount so the
+  // callback doesn't fire setSavedAt after the component is gone (would
+  // warn about setting state on an unmounted component).
+  useEffect(() => {
+    return () => {
+      if (volumeSaveTimerRef.current !== null) {
+        window.clearTimeout(volumeSaveTimerRef.current);
+        volumeSaveTimerRef.current = null;
+      }
+    };
+  }, []);
 
   return (
     <div

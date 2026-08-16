@@ -697,6 +697,26 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
             grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
           }
         }
+
+        /* Phase 31: focus-visible ring on the LearnScreen actionable
+           controls. Phase 23 added the focus-trap + aria-label on the
+           vocab-detail modal close + TTS button, and Phase 23's filter
+           buttons wired aria-pressed + aria-label — but neither the
+           filter buttons nor the vocab-card buttons shipped a visible
+           focus indicator. Keyboard users tabbing through the preview
+           had no visual confirmation of which card was selected. 2px
+           cyan outline + 2px offset matches the .warning-btn rule
+           (Phase 30) so the modal pattern stays consistent. */
+        .learn-screen__filter-btn:focus-visible,
+        .learn-screen__vocab-card:focus-visible,
+        .learn-screen__vocab-modal-close:focus-visible,
+        .learn-screen__tts-btn:focus-visible,
+        .learn-screen__card-tts:focus-visible,
+        .learn-screen__back:focus-visible,
+        .learn-screen__start:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
+        }
       `}</style>
     </div>
   );

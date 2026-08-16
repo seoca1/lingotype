@@ -242,11 +242,13 @@ export function CharacterTest({ onBack }: CharacterTestProps) {
       <div className="character-test-controls">
         <div className="control-group">
           <h3>English 캐릭터 (EN)</h3>
-          <div className="button-group">
+          <div className="button-group" role="group" aria-label="English character selection">
             <button
               className={currentCharacter === 'en-emily' ? 'active' : ''}
               onClick={() => setCurrentCharacter('en-emily')}
               style={{ background: currentCharacter === 'en-emily' ? '#00d9ff' : undefined }}
+              aria-label="Emily (English character, 7 of 7 images complete)"
+              aria-pressed={currentCharacter === 'en-emily'}
             >
               👧 Emily (완료 7/7)
             </button>
@@ -254,6 +256,8 @@ export function CharacterTest({ onBack }: CharacterTestProps) {
               className={currentCharacter === 'en-oliver' ? 'active' : ''}
               onClick={() => setCurrentCharacter('en-oliver')}
               style={{ background: currentCharacter === 'en-oliver' ? '#00d9ff' : undefined }}
+              aria-label="Oliver (English character, 7 of 7 images complete)"
+              aria-pressed={currentCharacter === 'en-oliver'}
             >
               👦 Oliver (완료 7/7)
             </button>
@@ -261,6 +265,8 @@ export function CharacterTest({ onBack }: CharacterTestProps) {
               className={currentCharacter === 'en-sophia' ? 'active' : ''}
               onClick={() => setCurrentCharacter('en-sophia')}
               style={{ background: currentCharacter === 'en-sophia' ? '#00d9ff' : undefined }}
+              aria-label="Sophia (English character, 7 of 7 images complete)"
+              aria-pressed={currentCharacter === 'en-sophia'}
             >
               👩 Sophia (완료 7/7)
             </button>
@@ -269,11 +275,13 @@ export function CharacterTest({ onBack }: CharacterTestProps) {
 
         <div className="control-group">
           <h3>Spanish 캐릭터 (ES) - Sophia placeholder</h3>
-          <div className="button-group">
+          <div className="button-group" role="group" aria-label="Spanish character selection">
             <button
               className={currentCharacter === 'es-isabella' ? 'active' : ''}
               onClick={() => setCurrentCharacter('es-isabella')}
               style={{ background: currentCharacter === 'es-isabella' ? '#f59e0b' : undefined }}
+              aria-label="Isabella (Spanish character, placeholder)"
+              aria-pressed={currentCharacter === 'es-isabella'}
             >
               💃 Isabella (placeholder)
             </button>
@@ -281,6 +289,8 @@ export function CharacterTest({ onBack }: CharacterTestProps) {
               className={currentCharacter === 'es-carlos' ? 'active' : ''}
               onClick={() => setCurrentCharacter('es-carlos')}
               style={{ background: currentCharacter === 'es-carlos' ? '#f59e0b' : undefined }}
+              aria-label="Carlos (Spanish character, placeholder)"
+              aria-pressed={currentCharacter === 'es-carlos'}
             >
               🧑 Carlos (placeholder)
             </button>
@@ -288,6 +298,8 @@ export function CharacterTest({ onBack }: CharacterTestProps) {
               className={currentCharacter === 'es-luna' ? 'active' : ''}
               onClick={() => setCurrentCharacter('es-luna')}
               style={{ background: currentCharacter === 'es-luna' ? '#f59e0b' : undefined }}
+              aria-label="Luna (Spanish character, placeholder)"
+              aria-pressed={currentCharacter === 'es-luna'}
             >
               🎨 Luna (placeholder)
             </button>
@@ -299,11 +311,13 @@ export function CharacterTest({ onBack }: CharacterTestProps) {
 
         <div className="control-group">
           <h3>{characterInfo.name}의 7가지 포즈</h3>
-          <div className="button-group">
+          <div className="button-group" role="group" aria-label="Pose selection">
             <button
               className={currentPose === 'idle' ? 'active' : ''}
               onClick={() => triggerPose('idle')}
               title="1-idle.png"
+              aria-label="Pose 1: idle (1-idle.png)"
+              aria-pressed={currentPose === 'idle'}
             >
               1️⃣ 대기 (Idle)
             </button>
@@ -311,6 +325,8 @@ export function CharacterTest({ onBack }: CharacterTestProps) {
               className={currentPose === 'wave' ? 'active' : ''}
               onClick={() => triggerPose('wave')}
               title="2-wave.png"
+              aria-label="Pose 2: wave (2-wave.png)"
+              aria-pressed={currentPose === 'wave'}
             >
               2️⃣ 손 흔들기 (Wave)
             </button>
@@ -318,6 +334,8 @@ export function CharacterTest({ onBack }: CharacterTestProps) {
               className={currentPose === 'jump' ? 'active' : ''}
               onClick={() => triggerPose('jump')}
               title="3-jump.png"
+              aria-label="Pose 3: jump (3-jump.png)"
+              aria-pressed={currentPose === 'jump'}
             >
               3️⃣ 점프 (Jump)
             </button>
@@ -325,6 +343,8 @@ export function CharacterTest({ onBack }: CharacterTestProps) {
               className={currentPose === 'clap' ? 'active' : ''}
               onClick={() => triggerPose('clap')}
               title="4-clap.png"
+              aria-label="Pose 4: clap (4-clap.png)"
+              aria-pressed={currentPose === 'clap'}
             >
               4️⃣ 박수 (Clap)
             </button>
@@ -332,6 +352,8 @@ export function CharacterTest({ onBack }: CharacterTestProps) {
               className={currentPose === 'spin' ? 'active' : ''}
               onClick={() => triggerPose('spin')}
               title="5-spin.png"
+              aria-label="Pose 5: spin (5-spin.png)"
+              aria-pressed={currentPose === 'spin'}
             >
               5️⃣ 회전 (Spin)
             </button>
@@ -339,6 +361,8 @@ export function CharacterTest({ onBack }: CharacterTestProps) {
               className={currentPose === 'dance' ? 'active' : ''}
               onClick={() => triggerPose('dance')}
               title="6-dance.png"
+              aria-label="Pose 6: dance (6-dance.png)"
+              aria-pressed={currentPose === 'dance'}
             >
               6️⃣ 춤 (Dance)
             </button>
@@ -346,6 +370,8 @@ export function CharacterTest({ onBack }: CharacterTestProps) {
               className={currentPose === 'pose' ? 'active' : ''}
               onClick={() => triggerPose('pose')}
               title="7-pose.png"
+              aria-label="Pose 7: pose (7-pose.png)"
+              aria-pressed={currentPose === 'pose'}
             >
               7️⃣ 포즈 (Pose)
             </button>
@@ -354,17 +380,21 @@ export function CharacterTest({ onBack }: CharacterTestProps) {
 
         <div className="control-group">
           <h3>렌더링 모드</h3>
-          <div className="button-group">
+          <div className="button-group" role="group" aria-label="Render mode selection">
             <button
               className={useSprites ? 'active' : ''}
               onClick={() => setUseSprites(true)}
               style={{ background: useSprites ? '#00ff88' : undefined }}
+              aria-label="AI image rendering mode"
+              aria-pressed={useSprites}
             >
               ✅ AI 이미지
             </button>
             <button
               className={!useSprites ? 'active' : ''}
               onClick={() => setUseSprites(false)}
+              aria-label="Primitive render mode (for comparison)"
+              aria-pressed={!useSprites}
             >
               🎨 프리미티브 (비교용)
             </button>
@@ -374,13 +404,17 @@ export function CharacterTest({ onBack }: CharacterTestProps) {
               type="checkbox"
               checked={showKeyboard}
               onChange={(e) => setShowKeyboard(e.target.checked)}
+              aria-label="Show keyboard overlay"
             />
             키보드 표시
           </label>
         </div>
 
         <div className="control-group">
-          <button className="back-button" onClick={onBack}>
+          {/* Phase 31: bare aria-label on the back button so keyboard users
+              tabbing past the 16+ control buttons get a meaningful target name
+              (the emoji-only text was the only label before). */}
+          <button className="back-button" onClick={onBack} aria-label="Back to menu">
             ← 메뉴로 돌아가기
           </button>
         </div>
@@ -397,7 +431,7 @@ export function CharacterTest({ onBack }: CharacterTestProps) {
           <li><strong>6️⃣ 춤 (Dance):</strong> 6-dance.png - 춤추는 모습 (2.9MB)</li>
           <li><strong>7️⃣ 포즈 (Pose):</strong> 7-pose.png - 승리 포즈 (1.7MB)</li>
         </ul>
-        
+
         <h3>이미지 정보</h3>
         <ul>
           <li><strong>생성 도구:</strong> ChatGPT/Grok AI</li>
@@ -420,6 +454,24 @@ export function CharacterTest({ onBack }: CharacterTestProps) {
         <p>✅ 위 버튼을 클릭하여 Emily의 7가지 AI 생성 이미지를 확인하세요!</p>
         <p>🎨 "프리미티브" 모드로 전환하면 개발용 도형 렌더링과 비교할 수 있습니다.</p>
       </div>
+
+      <style>{`
+        /* Phase 31: focus-visible ring on every actionable control button
+           in the CharacterTest screen. Phase 31 audit found 16+ buttons
+           with no :focus-visible rule, so keyboard users tabbing through
+           the test harness got no visual confirmation of which button
+           was selected. Mirrors the Phase 14/19/20/21/27/29/30 + 2px
+           cyan outline + 2px offset convention so visual cadence stays
+           consistent across the app. */
+        .character-test-controls button:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
+        }
+        .character-test-controls input[type="checkbox"]:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
+        }
+      `}</style>
     </div>
   );
 }
