@@ -207,9 +207,16 @@ describe('Phase 17 — Menu kbd hint + character-select a11y', () => {
     expect(html).toMatch(/navigate/);
     expect(html).toContain('Enter');
     expect(html).toContain('Esc');
-    // The hint must be in an aria-labeled region so screen readers
-    // announce "Keyboard shortcuts" before the shortcut text.
-    expect(html).toContain('aria-label="Keyboard shortcuts"');
+    // Phase 32 regression fix: the previous aria-label="Keyboard shortcuts"
+    // OVERRODE the readable <small><kbd> content — SR users heard only
+    // "Keyboard shortcuts" and never the actual key names. The Phase 32
+    // fix removes the aria-label so SR users now hear the full hint
+    // content (←/→/↑/↓ navigate · Enter start · Esc back).
+    expect(html).not.toContain('aria-label="Keyboard shortcuts"');
+    // Regression guard: the <small> hint content must still be present.
+    expect(html).toMatch(/<kbd>←<\/kbd>/);
+    expect(html).toMatch(/<kbd>Enter<\/[^>]+>\s+start/);
+    expect(html).toMatch(/<kbd>Esc<\/[^>]+>\s+back/);
   });
 
   it('character-select button has an aria-label', () => {

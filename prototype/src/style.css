@@ -2258,3 +2258,21 @@ button:hover {
   outline: 2px solid #00d9ff;
   outline-offset: 2px;
 }
+
+/* Phase 32: visually-hidden utility used by the Tutorial language +
+   mechanics pages. Each page is wrapped in role="region" with
+   aria-labelledby pointing at a heading that must be visually hidden so
+   the existing layout is unchanged. SR users still hear the heading and
+   can jump straight to the region via landmark navigation (matches the
+   Phase 27 ResultScreen pattern). */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -326,8 +326,11 @@ export function Menu({
       </header>
 
       {supportsTier0 && byTier[0] && byTier[0].length > 0 && (
-        <section className="tier-group">
-          <h3 className="tier-title">{TIER_LABELS[0]}</h3>
+        // Phase 32: tier <section> gets aria-labelledby tied to its h3 so
+        // SR users navigating by landmark hear the tier name on entry.
+        // Matches the Phase 27 ResultScreen region pattern.
+        <section className="tier-group" aria-labelledby="tier-title-0">
+          <h3 id="tier-title-0" className="tier-title">{TIER_LABELS[0]}</h3>
           <div className="stage-grid">
             {byTier[0].map((s, i) => (
               <StageCard
@@ -356,8 +359,10 @@ export function Menu({
           !supportsTier0 &&
           tierStages.some((s) => lockMap[s.id]?.unlocked);
         return (
-          <section key={tier} className="tier-group">
-            <h3 className="tier-title">{TIER_LABELS[tier]}</h3>
+          // Phase 32: tier <section> aria-labelledby tied to its h3 (id is
+          // stable per-tier so SR users get a predictable region label).
+          <section key={tier} className="tier-group" aria-labelledby={`tier-title-${tier}`}>
+            <h3 id={`tier-title-${tier}`} className="tier-title">{TIER_LABELS[tier]}</h3>
             {showTier1Hint && (
               <p className="tier-hint tier-hint-auto">
                 ✨ {t('startingStageReady', nativeLanguage)}
@@ -389,9 +394,13 @@ export function Menu({
         <p>
           {t('menuFooter', nativeLanguage).replace('{count}', String(languageStages.length)).replace('{stages}', t('stages', nativeLanguage))}
         </p>
+        {/* Phase 32: removed aria-label="Keyboard shortcuts" so SR users
+            actually hear the <kbd> key names (←/→/↑/↓ navigate · Enter
+            start · Esc back). The previous aria-label OVERRODE the
+            readable text — a real SR regression — so users heard only
+            "Keyboard shortcuts" and never learned the actual shortcuts. */}
         <p
           className="menu-kbd-hint"
-          aria-label="Keyboard shortcuts"
           style={{
             color: '#6a7888',
             fontSize: '11px',

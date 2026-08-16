@@ -139,30 +139,51 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
 
   if (currentPage === 'welcome') {
     return (
-      <div className="tutorial">
+      <div
+        className="tutorial"
+        role="region"
+        aria-labelledby="tutorial-welcome-title"
+      >
         <div className="tutorial-content">
-          <h1>Typing Language에 오신 것을 환영합니다!</h1>
+          {/* Phase 32: H1 gets an id so the surrounding region can reference
+              it via aria-labelledby (mirrors the Phase 27 ResultScreen pattern). */}
+          <h1 id="tutorial-welcome-title">Typing Language에 오신 것을 환영합니다!</h1>
           <p>
             외국어 타자 연습 게임입니다. 영어, 일본어, 스페인어, 한국어, 프랑스어, 독일어의
             <strong>실제 입력 방식</strong>을 그대로 체험할 수 있습니다.
           </p>
-          <div className="tutorial-features">
-            <div className="feature">
-              <h3>🌍 6개 언어</h3>
-              <p>각 언어의 고유한 입력 방식 지원</p>
-            </div>
-            <div className="feature">
-              <h3>⌨️ 타이핑 연습</h3>
-              <p>실제 입력 방식으로 타자 연습</p>
-            </div>
-            <div className="feature">
-              <h3>🎯 140+ 스테이지</h3>
-              <p>단어부터 단락까지 단계적 학습</p>
-            </div>
-            <div className="feature">
-              <h3>✨ 컴패니언 캐릭터</h3>
-              <p>언어별 의상과 성장 시스템</p>
-            </div>
+          {/* Phase 32: features grid was a plain <div> — SR users tabbing
+              through heard 4 consecutive generic divs with no list context.
+              Wrapping in role="list" + role="group" aria-label="Game features"
+              gives SR users a labelled list landmark (matches the Phase 22
+              DailyLessonModal tier-selector pattern). */}
+          <div
+            className="tutorial-features"
+            role="group"
+            aria-label="Game features"
+          >
+            <ul
+              className="tutorial-features__list"
+              role="list"
+              aria-label="Game features list"
+            >
+              <li className="feature">
+                <h3>🌍 6개 언어</h3>
+                <p>각 언어의 고유한 입력 방식 지원</p>
+              </li>
+              <li className="feature">
+                <h3>⌨️ 타이핑 연습</h3>
+                <p>실제 입력 방식으로 타자 연습</p>
+              </li>
+              <li className="feature">
+                <h3>🎯 140+ 스테이지</h3>
+                <p>단어부터 단락까지 단계적 학습</p>
+              </li>
+              <li className="feature">
+                <h3>✨ 컴패니언 캐릭터</h3>
+                <p>언어별 의상과 성장 시스템</p>
+              </li>
+            </ul>
           </div>
           <div className="tutorial-actions">
             <button
@@ -190,8 +211,19 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
     const currentStep = steps[languageStep];
 
     return (
-      <div className="tutorial">
+      <div
+        className="tutorial"
+        role="region"
+        aria-labelledby="tutorial-language-title"
+      >
         <div className="tutorial-content">
+          {/* Phase 32: hidden h1 + region pattern (matches Phase 27 ResultScreen).
+              SR users navigating by landmarks can jump straight to the language
+              tutorial page; the h1 stays visually hidden via CSS so the
+              existing layout is unchanged. */}
+          <h1 id="tutorial-language-title" className="visually-hidden">
+            Language tutorial
+          </h1>
           <div className="tutorial-nav">
             <button
               className="btn-nav"
@@ -263,7 +295,9 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
                 <button
                   className="btn-primary"
                   onClick={() => onStartTutorialStage(selectedLanguage)}
-                  aria-label={`Start ${selectedLanguage.toUpperCase()} tutorial stage`}
+                  // Phase 32: append (Enter) suffix so the keyboard shortcut
+                  // is discoverable (matches Phase 14/22/24/25 convention).
+                  aria-label={`Start ${selectedLanguage.toUpperCase()} tutorial stage (Enter)`}
                 >
                   {selectedLanguage.toUpperCase()} 튜토리얼 스테이지 시작
                 </button>
@@ -280,8 +314,16 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
     const currentStep = GAME_MECHANICS[mechanicsStep];
 
     return (
-      <div className="tutorial">
+      <div
+        className="tutorial"
+        role="region"
+        aria-labelledby="tutorial-mechanics-title"
+      >
         <div className="tutorial-content">
+          {/* Phase 32: hidden h1 + region pattern (matches Phase 27 ResultScreen). */}
+          <h1 id="tutorial-mechanics-title" className="visually-hidden">
+            Game mechanics tutorial
+          </h1>
           <div className="tutorial-nav">
             <button
               className="btn-nav"
@@ -310,7 +352,9 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
                 }
               }}
               aria-label={
-                mechanicsStep === GAME_MECHANICS.length - 1 ? 'Finish tutorial' : 'Next step'
+                mechanicsStep === GAME_MECHANICS.length - 1
+                  ? 'Finish tutorial (Enter)'
+                  : 'Next step'
               }
             >
               {mechanicsStep === GAME_MECHANICS.length - 1 ? '완료' : '다음'} →
@@ -330,7 +374,8 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
                 <button
                   className="btn-primary"
                   onClick={onComplete}
-                  aria-label="Complete tutorial and enter menu"
+                  // Phase 32: (Enter) suffix matches Phase 14/22/24/25 convention.
+                  aria-label="Complete tutorial and enter menu (Enter)"
                 >
                   튜토리얼 완료, 시작하기!
                 </button>
