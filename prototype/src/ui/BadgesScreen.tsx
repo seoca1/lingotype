@@ -28,12 +28,14 @@ function buildEvalContext(
   let stagesCleared = 0;
   let perfectClears = 0;
   const langs = new Set<string>(languagesPlayed);
+  const tiersCleared = new Set<number>();
   const records = stageRecords || {};
   for (const stage of SAMPLE_STAGES) {
     const rec = records[stage.id];
     if (rec?.cleared) {
       stagesCleared++;
       langs.add(stage.language);
+      tiersCleared.add(stage.difficulty);
       if ((rec.bestAccuracy ?? 0) >= 1.0) {
         perfectClears++;
       }
@@ -47,6 +49,7 @@ function buildEvalContext(
     currentStreak: streak.currentStreak,
     languagesPlayed: langs.size,
     hasTriedAllLanguages: langs.size >= 4,
+    tiersCleared: tiersCleared.size,
   };
 }
 

@@ -95,8 +95,12 @@ export function ResultScreen({
           (r) => r.cleared && (r.bestAccuracy ?? 0) >= 1.0,
         ).length;
         const langsPlayed = new Set<string>();
+        const tiersCleared = new Set<number>();
         for (const stage of SAMPLE_STAGES) {
-          if (stageRecords[stage.id]?.cleared) langsPlayed.add(stage.language);
+          if (stageRecords[stage.id]?.cleared) {
+            langsPlayed.add(stage.language);
+            tiersCleared.add(stage.difficulty);
+          }
         }
         const evalCtx: BadgeEvalContext = {
           stagesCleared: clearedCount,
@@ -105,6 +109,7 @@ export function ResultScreen({
           currentStreak: result.state.currentStreak,
           languagesPlayed: langsPlayed.size,
           hasTriedAllLanguages: langsPlayed.size >= 4,
+          tiersCleared: tiersCleared.size,
         };
         const newly = evaluateBadges(evalCtx);
         if (newly.length > 0) {

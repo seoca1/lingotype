@@ -39,12 +39,13 @@ function emptyContext(): BadgeEvalContext {
     currentStreak: 0,
     languagesPlayed: 0,
     hasTriedAllLanguages: false,
+    tiersCleared: 0,
   };
 }
 
 describe('BADGES constant', () => {
-  it('defines 10 badges', () => {
-    expect(BADGES).toHaveLength(10);
+  it('defines 12 badges', () => {
+    expect(BADGES).toHaveLength(12);
   });
 
   it('all badge IDs are unique', () => {
@@ -78,20 +79,20 @@ describe('BADGES constant', () => {
 });
 
 describe('category counts', () => {
-  it('milestone count (including first_run, polyglot, stages_*)', () => {
-    expect(getMilestoneCount()).toBe(5);
+  it('milestone count (including first_run, polyglot, stages_*, tier_master)', () => {
+    expect(getMilestoneCount()).toBe(6);
   });
 
   it('perfect count (perfect_score, perfect_5)', () => {
     expect(getPerfectCount()).toBe(2);
   });
 
-  it('streak count (3, 7, 30 day)', () => {
-    expect(getStreakCount()).toBe(3);
+  it('streak count (3, 7, 30, 100 day)', () => {
+    expect(getStreakCount()).toBe(4);
   });
 
-  it('total = 10', () => {
-    expect(getTotalBadgeCount()).toBe(10);
+  it('total = 12', () => {
+    expect(getTotalBadgeCount()).toBe(12);
   });
 });
 
@@ -197,6 +198,26 @@ describe('evaluateBadges — streak category', () => {
   it('all 3 streak badges unlock at streak = 30', () => {
     const result = evaluateBadges({ ...emptyContext(), currentStreak: 30 });
     expect(result.map((b) => b.id).sort()).toEqual(['streak_3', 'streak_30', 'streak_7']);
+  });
+
+  it('streak_100 unlocks at currentStreak >= 100', () => {
+    expect(evaluateBadges({ ...emptyContext(), currentStreak: 100 }).map((b) => b.id)).toContain('streak_100');
+  });
+});
+
+describe('evaluateBadges — new tier_master badge', () => {
+  beforeEach(() => {
+    _resetBadgeState();
+  });
+
+  it('tier_master unlocks at tiersCleared >= 6', () => {
+    const result = evaluateBadges({ ...emptyContext(), tiersCleared: 6 });
+    expect(result.map((b) => b.id)).toContain('tier_master');
+  });
+
+  it('tier_master does NOT unlock at tiersCleared = 5', () => {
+    const result = evaluateBadges({ ...emptyContext(), tiersCleared: 5 });
+    expect(result.map((b) => b.id)).not.toContain('tier_master');
   });
 });
 

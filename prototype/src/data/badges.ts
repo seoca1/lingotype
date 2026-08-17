@@ -39,6 +39,7 @@ export interface BadgeEvalContext {
   currentStreak: number;
   languagesPlayed: number;
   hasTriedAllLanguages: boolean;
+  tiersCleared: number;
 }
 
 const LOCALE_DEFAULT = 'en';
@@ -148,6 +149,26 @@ export const BADGES: Badge[] = [
     category: 'milestone',
     threshold: 1,
   },
+  {
+    id: 'tier_master',
+    name: 'Tier Master',
+    nameLocalised: { en: 'Tier Master', ko: '티어 마스터', ja: 'ティアマスター', es: 'Maestro de Niveles' },
+    descriptionLocalised: {'en': "Clear at least one stage in every tier (0-5).", 'ko': "모든 티어(0~5)에서 최소 한 단계씩 클리어하세요.", 'ja': "全ティア(0〜5)で少なくとも1ステージをクリアする。", 'es': "Completa al menos una etapa en cada nivel (0-5)."},
+    description: 'Clear at least one stage in every tier (0-5).',
+    icon: '🏔️',
+    category: 'milestone',
+    threshold: 6,
+  },
+  {
+    id: 'streak_100',
+    name: 'Centurion',
+    nameLocalised: { en: 'Centurion', ko: '100일의 전사', ja: 'センチュリオン', es: 'Centurión' },
+    descriptionLocalised: {'en': "Maintain a 100-day streak.", 'ko': "100일 연속 플레이를 유지하세요.", 'ja': "100日連続プレイを維持する。", 'es': "Mantén una racha de 100 días."},
+    description: 'Maintain a 100-day streak.',
+    icon: '💯',
+    category: 'streak',
+    threshold: 100,
+  },
 ];
 
 function emptyState(): BadgeState {
@@ -224,6 +245,8 @@ function evaluateMilestoneBadges(ctx: BadgeEvalContext): Badge[] {
       out.push(badge);
     } else if (badge.category === 'milestone' && badge.id === 'polyglot' && ctx.hasTriedAllLanguages) {
       out.push(badge);
+    } else if (badge.category === 'milestone' && badge.id === 'tier_master' && ctx.tiersCleared >= 6) {
+      out.push(badge);
     }
   }
   return out;
@@ -284,6 +307,9 @@ export function getBadgeById(id: string): Badge | undefined {
 export function getBadgeProgress(badge: Badge, ctx: BadgeEvalContext): number {
   if (badge.id === 'first_run') return Math.min(1, ctx.stagesCleared);
   if (badge.category === 'milestone' && badge.id === 'polyglot') return ctx.hasTriedAllLanguages ? 1 : 0;
+  if (badge.category === 'milestone' && badge.id === 'tier_master') {
+    return Math.min(ctx.tiersCleared, badge.threshold);
+  }
   if (badge.category === 'milestone' && badge.id.startsWith('stages_')) {
     return Math.min(ctx.stagesCleared, badge.threshold);
   }
