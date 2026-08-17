@@ -20,6 +20,12 @@ import {
   recordPlay,
   type DailyStreakState,
 } from '../data/dailyStreak.js';
+import {
+  evaluateBadges,
+  getBadgeDisplayName,
+  type Badge,
+  type BadgeEvalContext,
+} from '../data/badges.js';
 
 interface ResultScreenProps {
   score: number;
@@ -72,16 +78,37 @@ export function ResultScreen({
     newMilestone?: { days: number; icon: string; label: string };
   } | null>(null);
 
+  const [newlyEarnedBadges, setNewlyEarnedBadges] = useState<Badge[]>([]);
+
   useEffect(() => {
     if (stageRecords && clearedStageId) {
       const record = stageRecords[clearedStageId];
       if (record?.cleared) {
-        // Only record if the stage was actually cleared (not just attempted)
         const result = recordPlay();
         setStreakInfo({
           state: result.state,
           newMilestone: result.newMilestone,
         });
+        const clearedCount = Object.values(stageRecords).filter((r) => r.cleared).length;
+        const perfectCount = Object.values(stageRecords).filter(
+          (r) => r.cleared && (r.bestAccuracy ?? 0) >= 1.0,
+        ).length;
+        const langsPlayed = new Set<string>();
+        for (const stage of SAMPLE_STAGES) {
+          if (stageRecords[stage.id]?.cleared) langsPlayed.add(stage.language);
+        }
+        const evalCtx: BadgeEvalContext = {
+          stagesCleared: clearedCount,
+          perfectClears: perfectCount,
+          totalAccuracy: record.bestAccuracy ?? 0,
+          currentStreak: result.state.currentStreak,
+          languagesPlayed: langsPlayed.size,
+          hasTriedAllLanguages: langsPlayed.size >= 4,
+        };
+        const newly = evaluateBadges(evalCtx);
+        if (newly.length > 0) {
+          setNewlyEarnedBadges(newly);
+        }
       }
     }
   }, [stageRecords, clearedStageId]);
@@ -154,6 +181,30 @@ export function ResultScreen({
               {streakInfo.newMilestone
                 ? `🎉 New milestone! Come back tomorrow for ${streakInfo.newMilestone.days + 1}!`
                 : `Longest streak: ${streakInfo.state.longestStreak} days · Total: ${streakInfo.state.totalDaysPlayed}`}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {newlyEarnedBadges.length > 0 && (
+        <div
+          className="result-badge-banner"
+          role="status"
+          aria-live="polite"
+          aria-label={`${newlyEarnedBadges.length} new badge${newlyEarnedBadges.length > 1 ? 's' : ''} unlocked`}
+        >
+          <div className="result-badge-banner__icon" aria-hidden="true">🏆</div>
+          <div className="result-badge-banner__text">
+            <strong>+{newlyEarnedBadges.length} new badge{newlyEarnedBadges.length > 1 ? 's' : ''} unlocked!</strong>
+            <div className="result-badge-banner__list">
+              {newlyEarnedBadges.slice(0, 3).map((badge) => (
+                <span key={badge.id} className="badge-unlock-chip">
+                  {badge.icon} {getBadgeDisplayName(badge, getNativeLanguage())}
+                </span>
+              ))}
+              {newlyEarnedBadges.length > 3 && (
+                <span className="badge-unlock-chip">+{newlyEarnedBadges.length - 3} more</span>
+              )}
             </div>
           </div>
         </div>
@@ -317,6 +368,46 @@ export function ResultScreen({
           background: linear-gradient(135deg, rgba(255, 107, 157, 0.2), rgba(255, 170, 85, 0.2));
           border: 2px solid #ff6b9d;
           animation: streakCelebrate 2s ease-in-out infinite;
+        }
+        .result-badge-banner {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          background: linear-gradient(135deg, rgba(255, 184, 0, 0.2), rgba(255, 107, 157, 0.15));
+          border: 2px solid #ffb800;
+          border-radius: 12px;
+          padding: 14px 18px;
+          margin: 16px 0;
+          animation: badgeCelebrate 2.5s ease-in-out infinite;
+        }
+        @keyframes badgeCelebrate {
+          0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(255, 184, 0, 0.4); }
+          50% { transform: scale(1.02); box-shadow: 0 0 20px rgba(255, 184, 0, 0.6); }
+        }
+        .result-badge-banner__icon {
+          font-size: 32px;
+        }
+        .result-badge-banner__text {
+          flex: 1;
+        }
+        .result-badge-banner__text strong {
+          display: block;
+          color: #ffb800;
+          font-size: 16px;
+          margin-bottom: 4px;
+        }
+        .result-badge-banner__list {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+        }
+        .badge-unlock-chip {
+          background: rgba(255, 184, 0, 0.15);
+          border: 1px solid #ffb800;
+          border-radius: 12px;
+          padding: 2px 8px;
+          font-size: 12px;
+          color: #ffe066;
         }
         @keyframes streakCelebrate {
           0%, 100% { transform: scale(1); }
