@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import type { MissionConfig, StageRecord } from '../types.js';
+import { getAudioManager } from '../audio/AudioManager.js';
 import { DailyLessonCard } from './DailyLessonCard.js';
 import { DailyLessonModal } from './DailyLessonModal.js';
 import {
@@ -108,6 +109,7 @@ export function ResultScreen({
         const newly = evaluateBadges(evalCtx);
         if (newly.length > 0) {
           setNewlyEarnedBadges(newly);
+          getAudioManager().play('stage-clear');
         }
       }
     }
