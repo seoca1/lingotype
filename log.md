@@ -1,5 +1,48 @@
 # Activity Log - Typing Language
 
+## [2026-08-17] chore(a11y) | Phase 39 — Polish + accessibility
+
+**Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37/38.
+
+### Improvements
+
+1. **SettingsScreen saved indicator — translatable visible text (native-language contract fix)**. The Phase 30 "Settings saved" banner sits inside a fully-translated Settings body, but the visible `✓ Settings saved` text was hardcoded English. KO/JA/ES users with their native language set were seeing a live-region visible message in English while the surrounding toggles + volume slider + kr-input-mode sections were translated via `t()`. Phase 39 routes the indicator through the new `settingsSaved` translation key (en/ko/ja/es) so the visible text matches the user's native language. The `role="status"` + `aria-live="polite"` semantics introduced in Phase 30 are regression-guarded. The data-testid stays the same so any existing test that pokes the indicator still resolves.
+
+2. **SettingsScreen footer hint — `Press Esc to close` translation fix**. The `<footer>` rendering below the body still had a hardcoded English `<small>Press Esc to close</small>` line. Same language-preference contract violation as the saved indicator. Phase 39 routes the hint through the new `pressEscToClose` translation key so KO/JA/ES users see the keybinding hint in their native language. The visible `<small>` element is preserved (regression-guarded).
+
+3. **LanguageSelection footer counts + grid `aria-describedby` (language-hub a11y closure)**. The footer `<p>{N}개 언어 지원 · 각 언어별 7 티어 · 140개 스테이지</p>` was hardcoded Korean. EN/JA/ES users landing on the language hub saw Korean-only supporting text. Phase 39 routes the language + tier counts through two new `footerHint` + `languagesSupported` translation keys (en/ko/ja/es) and wires the language grid's `aria-describedby="language-selection-footer-info"` so SR users navigating by landmark hear the supporting counts on entry. The `<p id="language-selection-footer-info">` id is the grid's stable a11y description target.
+
+### New file
+
+- `prototype/tests/ui/phase39-a11y.test.tsx` — 13 tests covering all three improvements (new translation keys registered for all 4 native languages + `t()` smoke resolution; SettingsScreen `t('settingsSaved', native)` + `t('pressEscToClose', native)` wiring + role/aria-live regression guard + renderToStaticMarkup smoke; LanguageSelection imports + new `t()` wiring + JSX-region hardcoded-Korean regression guard + `aria-describedby` + footer-info id + KO native render smoke).
+
+### Validation
+
+| Check | Result |
+|-------|--------|
+| `npm run typecheck` | ✅ 0 errors |
+| `npm run lint` | ✅ 0 errors |
+| `npm test` | ✅ **1215 passed** (1 skipped) — 1202 baseline + 13 new |
+| `python3 audit_vault.py` | ✅ CLEAN — 0 broken |
+| `python3 mixed_language_audit.py` | ✅ 0 CJK violations |
+
+### Stats
+
+- 3 small UX/a11y improvements (SettingsScreen saved indicator translation, footer hint translation, LanguageSelection footer counts + aria-describedby)
+- 13 new tests
+- Test totals: 1202 → **1215** (+13)
+- Files touched: 3 modified (`uiTranslations.ts`, `SettingsScreen.tsx`, `LanguageSelection.tsx`), 1 new (`phase39-a11y.test.tsx`)
+
+**No push** — user handles GH_TOKEN rotation.
+
+### Commit
+
+- `Game/typing_language`: `chore(a11y): Phase 39 — Polish + accessibility` (this commit)
+
+**Phase 39 polish round complete — SettingsScreen + LanguageSelection native-language contracts restored.**
+
+---
+
 ## [2026-08-17] chore(a11y) | Phase 38 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37.
