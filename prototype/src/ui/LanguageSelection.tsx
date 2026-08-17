@@ -13,6 +13,8 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import type { LanguageConfig } from '../language/LanguageRegistry.js';
 import { getAllLanguages } from '../language/index.js';
+import { getNativeLanguage } from '../data/nativeLanguage.js';
+import { t } from '../data/uiTranslations.js';
 
 interface LanguageSelectionProps {
   onSelectLanguage: (langCode: string) => void;
@@ -47,6 +49,16 @@ export function LanguageSelection({
   const COLS = 2;
   const [selectedIndex, setSelectedIndex] = useState(0);
   const cardRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  // Phase 39: route the footer counts through the t() pipeline so non-KO
+  // native speakers see the language count + tier count in their native
+  // language. Previously the footer sat with hardcoded Korean-only
+  // text ("7개 언어 지원 · 각 언어별 7 티어 · 140개 스테이지") which
+  // broke the language-preference contract for EN/JA/ES users.
+  const nativeLanguage = getNativeLanguage();
+  const footerHint = t('footerHint', nativeLanguage)
+    .replace('{count}', String(languages.length));
+  const languagesSupported = t('languagesSupported', nativeLanguage)
+    .replace('{count}', String(languages.length));
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -101,6 +113,7 @@ export function LanguageSelection({
           className="language-grid"
           role="grid"
           aria-label="Available languages"
+          aria-describedby="language-selection-footer-info"
         >
           {languages.map((lang: LanguageConfig, i: number) => (
             <button
@@ -152,8 +165,27 @@ export function LanguageSelection({
             🎨 캐릭터 애니메이션 테스트
           </button>
         )}
-        <p className="language-selection-info">
-          {languages.length}개 언어 지원 · 각 언어별 7 티어 · 140개 스테이지
+        {/* Phase 39: footer counts now flow through the t() translation
+            pipeline so EN/JA/ES users see the language + tier counts in
+            their native language. The id is referenced by the language
+            grid via aria-describedby so SR users navigating by landmark
+            hear the supporting counts on entry. */}
+        <p
+          id="language-selection-footer-info"
+          className="language-selection-info"
+        >
+          {footerHint}
+        </p>
+        {/* Phase 39: the visible "X languages supported" line is also
+            screen-reader reachable via the footer info id so SR users
+            don't miss the system status. The list itself is now described
+            by this id so the grid exposes a stable a11y description. */}
+        <p
+          id="language-selection-supported"
+          className="language-selection-supported"
+          aria-hidden="true"
+        >
+          {languagesSupported}
         </p>
         <p className="language-selection-hint">
           <small>Tip: use ↑ ↓ ← → to choose a language, Enter to confirm</small>

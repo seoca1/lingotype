@@ -107,7 +107,12 @@ export type TranslationKey =
   | 'unlocked' // 잠금 해제
   | 'locked' // 잠김
   | 'tierRange' // 티어 범위
-  | 'menuFooter'; // 메뉴 푸터
+  | 'menuFooter' // 메뉴 푸터
+  // Phase 39: settings saved indicator + language selection hints
+  | 'settingsSaved' // 설정 저장됨
+  | 'footerHint' // 푸터 안내
+  | 'languagesSupported' // 지원 언어 수
+  | 'pressEscToClose'; // Esc 닫기
 
 export const UI_STRINGS: Record<TranslationKey, Record<NativeLanguage, string>> = {
   // Stage / Game UI
@@ -226,6 +231,41 @@ export const UI_STRINGS: Record<TranslationKey, Record<NativeLanguage, string>> 
   locked: { en: 'Locked', ko: '잠김', ja: 'ロック', es: 'Bloqueado' },
   tierRange: { en: 'Tiers {min}-{max}', ko: '티어 {min}-{max}', ja: 'ティア{min}-{max}', es: 'Niveles {min}-{max}' },
   menuFooter: { en: 'Words to paragraphs · {count} {stages}', ko: '단어부터 장문까지 6 티어 · 총 {count} 스테이지', ja: '単語から段落まで6ティア · 合計{count}ステージ', es: 'Palabras a párrafos · {count} {stages}' },
+  // Phase 39: SettingsScreen "saved" indicator now follows the user's
+  // native language. Previously the visible English string broke the
+  // language-preference contract for KO/JA/ES users (the surrounding
+  // Settings body is translated via t() but the live-region visible text
+  // was hardcoded). SR users hear the indicator anyway via role=status +
+  // aria-live=polite; sighted users now see the translation matching the
+  // rest of the screen.
+  settingsSaved: {
+    en: '✓ Settings saved',
+    ko: '✓ 설정이 저장됨',
+    ja: '✓ 設定を保存しました',
+    es: '✓ Ajustes guardados',
+  },
+  // Phase 39: LanguageSelection footer hint about supported languages +
+  // tier count. Replaces the hardcoded "7개 언어 지원 · 각 언어별 7 티어
+  // · 140개 스테이지" which broke for non-KO native speakers using the
+  // EN/JA/ES localized UI.
+  footerHint: {
+    en: '{count} languages supported · 7 tiers per language · 140 stages',
+    ko: '{count}개 언어 지원 · 각 언어별 7 티어 · 140개 스테이지',
+    ja: '{count}言語対応 · 各言語7ティア · 140ステージ',
+    es: '{count} idiomas compatibles · 7 niveles por idioma · 140 etapas',
+  },
+  languagesSupported: {
+    en: '{count} languages',
+    ko: '{count}개 언어',
+    ja: '{count}言語',
+    es: '{count} idiomas',
+  },
+  pressEscToClose: {
+    en: 'Press Esc to close',
+    ko: '닫으려면 Esc 키를 누르세요',
+    ja: '閉じるには Esc キーを押してください',
+    es: 'Pulsa Esc para cerrar',
+  },
 };
 
 /**
