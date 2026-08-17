@@ -21,6 +21,7 @@ export interface Badge {
   name: string;
   nameLocalised: Record<string, string>;
   description: string;
+  descriptionLocalised: Record<string, string>;
   icon: string;
   category: 'milestone' | 'perfect' | 'streak';
   threshold: number;
@@ -51,6 +52,7 @@ export const BADGES: Badge[] = [
     id: 'first_run',
     name: 'First Run',
     nameLocalised: { en: 'First Run', ko: '첫 실행', ja: '初めてのラン', es: 'Primera Carrera' },
+    descriptionLocalised: {'en': "Complete your first stage.", 'ko': "첫 스테이지를 완료하세요.", 'ja': "最初のステージを完了する。", 'es': "Completa tu primera etapa."},
     description: 'Complete your first stage.',
     icon: '🌱',
     category: 'milestone',
@@ -60,6 +62,7 @@ export const BADGES: Badge[] = [
     id: 'stages_10',
     name: 'Stage Hunter',
     nameLocalised: { en: 'Stage Hunter', ko: '스테이지 헌터', ja: 'ステージハンター', es: 'Cazador de Etapas' },
+    descriptionLocalised: {'en': "Clear 10 stages.", 'ko': "스테이지 10개를 클리어하세요.", 'ja': "ステージを10個クリアする。", 'es': "Completa 10 etapas."},
     description: 'Clear 10 stages.',
     icon: '🥉',
     category: 'milestone',
@@ -69,6 +72,7 @@ export const BADGES: Badge[] = [
     id: 'stages_50',
     name: 'Stage Master',
     nameLocalised: { en: 'Stage Master', ko: '스테이지 마스터', ja: 'ステージマスター', es: 'Maestro de Etapas' },
+    descriptionLocalised: {'en': "Clear 50 stages.", 'ko': "스테이지 50개를 클리어하세요.", 'ja': "ステージを50個クリアする。", 'es': "Completa 50 etapas."},
     description: 'Clear 50 stages.',
     icon: '🥈',
     category: 'milestone',
@@ -78,6 +82,7 @@ export const BADGES: Badge[] = [
     id: 'stages_100',
     name: 'Stage Champion',
     nameLocalised: { en: 'Stage Champion', ko: '스테이지 챔피언', ja: 'ステージチャンピオン', es: 'Campeón de Etapas' },
+    descriptionLocalised: {'en': "Clear 100 stages across all languages.", 'ko': "모든 언어에서 100개 스테이지를 클리어하세요.", 'ja': "全言語で100ステージをクリアする。", 'es': "Completa 100 etapas en todos los idiomas."},
     description: 'Clear 100 stages across all languages.',
     icon: '🥇',
     category: 'milestone',
@@ -87,6 +92,7 @@ export const BADGES: Badge[] = [
     id: 'perfect_score',
     name: 'Perfectionist',
     nameLocalised: { en: 'Perfectionist', ko: '완벽주의자', ja: '完璧主義者', es: 'Perfeccionista' },
+    descriptionLocalised: {'en': "Clear a stage with 100% accuracy.", 'ko': "100% 정확도로 스테이지를 클리어하세요.", 'ja': "ステージを100%正確でクリアする。", 'es': "Completa una etapa con 100% de precisión."},
     description: 'Clear a stage with 100% accuracy.',
     icon: '💯',
     category: 'perfect',
@@ -96,6 +102,7 @@ export const BADGES: Badge[] = [
     id: 'perfect_5',
     name: 'Sharp Eye',
     nameLocalised: { en: 'Sharp Eye', ko: '날카로운 눈', ja: '鋭い目', es: 'Ojo Agudo' },
+    descriptionLocalised: {'en': "Achieve 100% accuracy on 5 stages.", 'ko': "5개 스테이지를 100% 정확도로 완료하세요.", 'ja': "5つのステージを100%正確で達成する。", 'es': "Logra 100% de precisión en 5 etapas."},
     description: 'Achieve 100% accuracy on 5 stages.',
     icon: '🎯',
     category: 'perfect',
@@ -105,6 +112,7 @@ export const BADGES: Badge[] = [
     id: 'streak_3',
     name: 'Getting Started',
     nameLocalised: { en: 'Getting Started', ko: '시작이 반', ja: 'まずまず', es: 'Empezando' },
+    descriptionLocalised: {'en': "Maintain a 3-day streak.", 'ko': "3일 연속 플레이를 유지하세요.", 'ja': "3日連続プレイを維持する。", 'es': "Mantén una racha de 3 días."},
     description: 'Maintain a 3-day streak.',
     icon: '🔥',
     category: 'streak',
@@ -114,6 +122,7 @@ export const BADGES: Badge[] = [
     id: 'streak_7',
     name: 'Weekly Devotee',
     nameLocalised: { en: 'Weekly Devotee', ko: '주간 헌신', ja: '週の献身', es: 'Devoto Semanal' },
+    descriptionLocalised: {'en': "Maintain a 7-day streak.", 'ko': "7일 연속 플레이를 유지하세요.", 'ja': "7日連続プレイを維持する。", 'es': "Mantén una racha de 7 días."},
     description: 'Maintain a 7-day streak.',
     icon: '⭐',
     category: 'streak',
@@ -123,6 +132,7 @@ export const BADGES: Badge[] = [
     id: 'streak_30',
     name: 'Monthly Master',
     nameLocalised: { en: 'Monthly Master', ko: '월간 마스터', ja: 'マンスリーマスター', es: 'Maestro Mensual' },
+    descriptionLocalised: {'en': "Maintain a 30-day streak.", 'ko': "30일 연속 플레이를 유지하세요.", 'ja': "30日連続プレイを維持する。", 'es': "Mantén una racha de 30 días."},
     description: 'Maintain a 30-day streak.',
     icon: '🌟',
     category: 'streak',
@@ -132,6 +142,7 @@ export const BADGES: Badge[] = [
     id: 'polyglot',
     name: 'Polyglot',
     nameLocalised: { en: 'Polyglot', ko: '다국어 구사자', ja: 'ポリグロット', es: 'Políglota' },
+    descriptionLocalised: {'en': "Try all 4 languages.", 'ko': "4개 언어 모두를 시도하세요.", 'ja': "4言語すべてを試す。", 'es': "Prueba los 4 idiomas."},
     description: 'Try all 4 languages.',
     icon: '🌐',
     category: 'milestone',
@@ -287,6 +298,10 @@ export function getBadgeProgress(badge: Badge, ctx: BadgeEvalContext): number {
 
 export function getBadgeDisplayName(badge: Badge, lang: string): string {
   return localiseName(badge, lang);
+}
+
+export function getBadgeDisplayDescription(badge: Badge, lang: string): string {
+  return badge.descriptionLocalised[lang] || badge.descriptionLocalised[LOCALE_DEFAULT] || badge.description;
 }
 
 export function getMilestoneCount(): number {

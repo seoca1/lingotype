@@ -9,6 +9,7 @@ import {
   getBadgeById,
   getBadgeProgress,
   getBadgeDisplayName,
+  getBadgeDisplayDescription,
   getMilestoneCount,
   getPerfectCount,
   getStreakCount,
@@ -269,6 +270,30 @@ describe('getBadgeDisplayName', () => {
     const badge = BADGES.find((b) => b.id === 'first_run')!;
     expect(getBadgeDisplayName(badge, 'fr')).toBe('First Run');
     expect(getBadgeDisplayName(badge, 'xx')).toBe('First Run');
+  });
+});
+
+describe('getBadgeDisplayDescription', () => {
+  it('every badge has a description for en, ko, ja, es', () => {
+    for (const b of BADGES) {
+      expect(b.descriptionLocalised.en).toBeTruthy();
+      expect(b.descriptionLocalised.ko).toBeTruthy();
+      expect(b.descriptionLocalised.ja).toBeTruthy();
+      expect(b.descriptionLocalised.es).toBeTruthy();
+    }
+  });
+
+  it('returns localised description for known language', () => {
+    const badge = BADGES.find((b) => b.id === 'stages_10')!;
+    expect(getBadgeDisplayDescription(badge, 'ko')).toBe('스테이지 10개를 클리어하세요.');
+    expect(getBadgeDisplayDescription(badge, 'ja')).toBe('ステージを10個クリアする。');
+    expect(getBadgeDisplayDescription(badge, 'es')).toBe('Completa 10 etapas.');
+  });
+
+  it('falls back to English for unknown language', () => {
+    const badge = BADGES.find((b) => b.id === 'first_run')!;
+    expect(getBadgeDisplayDescription(badge, 'fr')).toBe('Complete your first stage.');
+    expect(getBadgeDisplayDescription(badge, 'xx')).toBe('Complete your first stage.');
   });
 });
 

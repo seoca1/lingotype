@@ -5,6 +5,7 @@ import {
   getTotalBadgeCount,
   getBadgeProgress,
   getBadgeDisplayName,
+  getBadgeDisplayDescription,
   type Badge,
   type BadgeEvalContext,
 } from '../data/badges.js';
@@ -115,7 +116,7 @@ export function BadgesScreen({ stageRecords, languagesPlayed, onBack }: BadgesSc
                 {getBadgeDisplayName(badge, nativeLang)}
               </div>
               <div className="badge-card__desc">
-                {badge.description}
+                {getBadgeDisplayDescription(badge, nativeLang)}
               </div>
               <div
                 className="badge-card__progress"

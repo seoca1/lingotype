@@ -13,6 +13,7 @@ import {
   type StageLockInfo,
 } from '../data/stageLock.js';
 import { getStreakDisplay } from '../data/dailyStreak.js';
+import { getUnlockedBadges, getTotalBadgeCount } from '../data/badges.js';
 
 interface MenuProps {
   language: Language;
@@ -135,6 +136,8 @@ export function Menu({
 
   // Phase J: daily streak display
   const streak = getStreakDisplay();
+  const unlockedBadges = getUnlockedBadges();
+  const totalBadges = getTotalBadgeCount();
 
   const languageNames: Record<string, { native: string; en: string }> = {
     en: { native: 'English', en: '영어' },
@@ -176,11 +179,11 @@ export function Menu({
               <button
                 className="badges-btn"
                 onClick={onShowBadges}
-                aria-label="Badges"
-                title="Badges"
+                aria-label={`Badges: ${unlockedBadges.length} of ${totalBadges} unlocked`}
+                title={`Badges: ${unlockedBadges.length} / ${totalBadges}`}
                 data-testid="menu-badges-btn"
               >
-                🏆
+                🏆<span className="badges-btn__count">{unlockedBadges.length}/{totalBadges}</span>
               </button>
             )}
           </div>

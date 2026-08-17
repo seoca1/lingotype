@@ -2091,3 +2091,14 @@ button:hover {
 .badges-btn:hover {
   background: rgba(255, 184, 0, 0.15);
 }
+
+.badges-btn {
+  position: relative;
+}
+.badges-btn__count {
+  font-size: 11px;
+  font-weight: bold;
+  color: #ffb800;
+  margin-left: 4px;
+  vertical-align: middle;
+}
