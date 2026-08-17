@@ -1958,3 +1958,136 @@ button:hover {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin: 14px 0;
 }
+
+/* Badges Screen */
+.badges-screen {
+  padding: 16px 20px 24px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.badges-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.badges-back-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #c5d4e3;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.badges-back-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.badges-header h1 {
+  flex: 1;
+  margin: 0;
+  font-size: 24px;
+  color: #ffb800;
+}
+
+.badges-counter {
+  font-size: 14px;
+  color: #b4d2fa;
+  font-weight: bold;
+}
+
+.badges-progress-summary {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: #b4d2fa;
+}
+
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.badge-card {
+  background: linear-gradient(135deg, rgba(45, 27, 78, 0.3), rgba(26, 37, 48, 0.5));
+  border: 2px solid rgba(255, 184, 0, 0.3);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  position: relative;
+}
+.badge-card--unlocked {
+  border-color: #ffb800;
+  background: linear-gradient(135deg, rgba(255, 184, 0, 0.15), rgba(255, 107, 157, 0.1));
+  box-shadow: 0 0 16px rgba(255, 184, 0, 0.2);
+}
+.badge-card--locked {
+  filter: grayscale(60%);
+  opacity: 0.6;
+}
+
+.badge-card__icon {
+  font-size: 42px;
+  margin-bottom: 6px;
+}
+
+.badge-card__name {
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffb800;
+  margin-bottom: 4px;
+}
+.badge-card--locked .badge-card__name {
+  color: #b4d2fa;
+}
+
+.badge-card__desc {
+  font-size: 12px;
+  color: #c5d4e3;
+  min-height: 32px;
+  margin-bottom: 10px;
+}
+
+.badge-card__progress {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  height: 18px;
+  position: relative;
+  overflow: hidden;
+}
+.badge-card__progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #ffb800, #ff6b9d);
+  border-radius: 8px 0 0 8px;
+  transition: width 0.4s ease;
+}
+.badge-card__progress-text {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 11px;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.badges-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: #ffb800;
+}
+.badges-btn:hover {
+  background: rgba(255, 184, 0, 0.15);
+}
