@@ -1,5 +1,38 @@
 # Activity Log - Typing Language
 
+## [2026-08-17] decision | ADR-0012 — KR corpus raw documentation relocation
+
+**Scope:** New Draft ADR for relocating `raw/kr_words.md` documentation header (stale per-word-page YAML examples violating §1.5) to `wiki/languages/korean-corpus-format-reference.md` (pending user acceptance).
+
+### Context
+
+`raw/kr_words.md` lines 32 + 46-49 + 56-60 contain per-word-page wikilinks (`[[annyeonghaseyo]]`, `[[hana]]`, etc.) inside YAML example templates. §1.5 forbids per-word pages; only theme-file anchors allowed (`source: [theme-stem]`). §2 makes raw/ read-only, so cleanup requires ADR-driven wiki/ relocation.
+
+### Files
+
+- `decisions/0012-kr-corpus-relocation.md` (NEW, Draft) — formalizes Option B (relocate + raw/ preserves active data only); 9 cite examples moved to wiki-side reference; §1.5 + §2 both preserved
+- `decisions/README.md` (modified) — ADR-0012 row added to Accepted table as Draft
+
+### Out-of-scope (preserved)
+
+- raw/kr_words.md not touched (read-only)
+- ES/JP corpus audit deferred to Q4 (separate ADR if needed)
+- raw/ header cleanup deferred to future ADR-0013+ (separate user decision)
+- No push (user handles GH_TOKEN rotation)
+
+### Validation
+
+- `python3 audit_vault.py` — ✅ CLEAN (9 wikilinks in raw/kr_words.md headers are inside code blocks; lint strips them; 0 production broken)
+- `python3 mixed_language_audit.py` — ✅ 0 CJK violations
+
+### Commit
+
+- (this commit)
+
+**ADR-0012 Draft created — KR corpus documentation relocation decision formalized, pending user acceptance per workspace AGENTS.md convention.**
+
+---
+
 ## [2026-08-17] chore(a11y) | Phase 39 — Polish + accessibility
 
 **Scope:** Three small UX/a11y improvements layered on Phase 14/17/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37/38.
