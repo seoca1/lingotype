@@ -2,6 +2,7 @@
 
 > **상태**: 구현 완료. ADR-0010 (한국어 입력 방식) Accepted — **하이브리드 모드** (자모 입력 + 로마자 입력).
 > **업스트림 소스**: `Language/wiki/Korean/` (코퍼스는 Language 위키에서 인용)
+> **코퍼스 형식 참조**: [[korean-corpus-format-reference]] (2026-08-17 ADR-0012 Accepted; theme-stem §1.5 컨벤션)
 
 ## 입력 방식 (ADR-0010 Accepted)
 

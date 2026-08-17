@@ -16,7 +16,7 @@
 | [0008](0008-build-target.md) | 빌드 타겟 (SPA / GitHub Pages) | Accepted |
 | [0010](0010-kr-input.md) | 한국어 입력: 한글 키보드 자모 직접 입력 + 클라이언트 합성 | Accepted |
 | [0011](0011-extensible-languages.md) | 확장 가능한 언어 레지스트리 시스템 | Accepted |
-| [0012](0012-kr-corpus-relocation.md) | KR Corpus Raw Documentation Relocation (raw/ → wiki/) | Draft (2026-08-17) |
+| [0012](0012-kr-corpus-relocation.md) | KR Corpus Raw Documentation Relocation (raw/ → wiki/) | **Accepted** (2026-08-17) |
 
 ## 비활성
 

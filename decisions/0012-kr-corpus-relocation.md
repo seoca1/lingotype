@@ -10,7 +10,10 @@
 
 ## 상태
 
-Draft (2026-08-17 작성 — 사용자 결정 대기)
+**Accepted (2026-08-17)** — Option B 채택, `wiki/languages/korean-corpus-format-reference.md` 신설 완료. `_archive/sessions/SESSION_SUMMARY_2026-08-17-adopted-adr-0012` 참조.
+
+사용자 "All" 응답(2026-08-17)으로 옵션 B 적용 결정. wiki 측 relocation + ADR-0012 Approved.
+raw/kr_words.md 1-80행 정리(다음 sync 시)는 별도 ADR (Future ADR-0013+) 대기.
 
 ## 날짜
 
