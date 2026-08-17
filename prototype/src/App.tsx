@@ -34,6 +34,7 @@ import { CharacterSelect } from './ui/CharacterSelect.js';
 import { selectCharacterForStage } from './character/CharacterSelector.js';
 import { LanguageSelection } from './ui/LanguageSelection.js';
 import { SettingsScreen } from './ui/SettingsScreen.js';
+import { BadgesScreen } from './ui/BadgesScreen.js';
 import {
   createEffectsState,
   getLanguageAccent,
@@ -81,6 +82,7 @@ export function App() {
 
   // Phase G: Settings screen overlay (accessed from menu)
   const [showSettings, setShowSettings] = useState(false);
+  const [showBadges, setShowBadges] = useState(false);
 
   // 선택된 언어 (LanguageSelection → Menu 흐름)
   const [selectedLanguage, setSelectedLanguage] = useState<Language | null>(null);
@@ -445,12 +447,23 @@ export function App() {
         onShowCharacterSelect={handleShowCharacterSelect}
         onBackToLanguageSelect={handleBackToLanguageSelect}
         onShowSettings={() => setShowSettings(true)}
+        onShowBadges={() => setShowBadges(true)}
         stageRecords={state.player.stageRecords}
       />
     );
   }
 
-  // Phase G: Settings overlay (highest priority — accessible from menu)
+  if (showBadges) {
+    const langArr: import('./types.js').Language[] = selectedLanguage ? [selectedLanguage] : [];
+    return (
+      <BadgesScreen
+        stageRecords={state.player.stageRecords}
+        languagesPlayed={langArr}
+        onBack={() => setShowBadges(false)}
+      />
+    );
+  }
+
   if (showSettings) {
     return (
       <SettingsScreen

@@ -21,6 +21,7 @@ interface MenuProps {
   onBackToLanguageSelect: () => void;
   /** Phase G: Settings screen launcher */
   onShowSettings?: () => void;
+  onShowBadges?: () => void;
   stageRecords?: Record<string, StageRecord>;
 }
 
@@ -107,6 +108,7 @@ export function Menu({
   onShowCharacterSelect,
   onBackToLanguageSelect,
   onShowSettings,
+  onShowBadges,
   stageRecords,
 }: MenuProps) {
   // 현재 언어의 스테이지만 필터링
@@ -168,6 +170,17 @@ export function Menu({
                 title="Settings"
               >
                 ⚙️
+              </button>
+            )}
+            {onShowBadges && (
+              <button
+                className="badges-btn"
+                onClick={onShowBadges}
+                aria-label="Badges"
+                title="Badges"
+                data-testid="menu-badges-btn"
+              >
+                🏆
               </button>
             )}
           </div>
