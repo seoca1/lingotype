@@ -11,7 +11,8 @@ export type SoundType =
   | 'enemy-defeat'     // 적 격파
   | 'stage-clear'      // 스테이지 클리어
   | 'combo'            // 콤보 달성
-  | 'perfect';         // 완벽 격파
+  | 'perfect'          // 완벽 격파
+  | 'achievement';      // 업적/배지 달성 (글로우 상승 장7화음)
 
 export class AudioManager {
   private context: AudioContext | null = null;
@@ -105,6 +106,9 @@ export class AudioManager {
       case 'perfect':
         this.playPerfect(now);
         break;
+      case 'achievement':
+        this.playAchievement(now);
+        break;
     }
   }
 
@@ -191,7 +195,7 @@ export class AudioManager {
 
       osc.type = 'sine';
       osc.frequency.setValueAtTime(freq, startTime + i * 0.1);
-      
+
       gain.gain.setValueAtTime(0.25, startTime + i * 0.1);
       gain.gain.exponentialRampToValueAtTime(0.01, startTime + i * 0.1 + 0.3);
 
@@ -200,6 +204,32 @@ export class AudioManager {
 
       osc.start(startTime + i * 0.1);
       osc.stop(startTime + i * 0.1 + 0.3);
+    });
+  }
+
+  /**
+   * 업적/배지 - 더 화려한 글로우 상승 (3-octave arpeggio)
+   */
+  private playAchievement(startTime: number) {
+    if (!this.context || !this.masterGain) return;
+
+    // C5, E5, G5, C6, E6, G6, C7 — 3 옥타브 글로우
+    const notes = [523.25, 659.25, 783.99, 1046.50, 1318.51, 1567.98, 2093.00];
+    notes.forEach((freq, i) => {
+      const osc = this.context!.createOscillator();
+      const gain = this.context!.createGain();
+
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq, startTime + i * 0.08);
+
+      gain.gain.setValueAtTime(0.18, startTime + i * 0.08);
+      gain.gain.exponentialRampToValueAtTime(0.01, startTime + i * 0.08 + 0.5);
+
+      osc.connect(gain);
+      gain.connect(this.masterGain!);
+
+      osc.start(startTime + i * 0.08);
+      osc.stop(startTime + i * 0.08 + 0.5);
     });
   }
 

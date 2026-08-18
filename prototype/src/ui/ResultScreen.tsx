@@ -117,7 +117,7 @@ export function ResultScreen({
         const newly = evaluateBadges(evalCtx);
         if (newly.length > 0) {
           setNewlyEarnedBadges(newly);
-          getAudioManager().play('stage-clear');
+          getAudioManager().play('achievement');
         }
       }
     }
