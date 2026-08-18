@@ -10,6 +10,7 @@ import {
   getBadgeProgress,
   getBadgeDisplayName,
   getBadgeDisplayDescription,
+  getBadgeDisplayHint,
   getMilestoneCount,
   getPerfectCount,
   getStreakCount,
@@ -315,6 +316,29 @@ describe('getBadgeDisplayDescription', () => {
     const badge = BADGES.find((b) => b.id === 'first_run')!;
     expect(getBadgeDisplayDescription(badge, 'fr')).toBe('Complete your first stage.');
     expect(getBadgeDisplayDescription(badge, 'xx')).toBe('Complete your first stage.');
+  });
+});
+
+describe('getBadgeDisplayHint', () => {
+  it('every badge has a hint for en, ko, ja, es', () => {
+    for (const b of BADGES) {
+      expect(b.hintLocalised.en).toBeTruthy();
+      expect(b.hintLocalised.ko).toBeTruthy();
+      expect(b.hintLocalised.ja).toBeTruthy();
+      expect(b.hintLocalised.es).toBeTruthy();
+    }
+  });
+
+  it('returns localised hint for known language', () => {
+    const badge = BADGES.find((b) => b.id === 'first_run')!;
+    const hint = getBadgeDisplayHint(badge, 'ko');
+    expect(hint).toContain('Tier 0');
+    expect(hint.length).toBeGreaterThan(10);
+  });
+
+  it('falls back to English for unknown language', () => {
+    const badge = BADGES.find((b) => b.id === 'streak_100')!;
+    expect(getBadgeDisplayHint(badge, 'fr')).toBe(badge.hint);
   });
 });
 

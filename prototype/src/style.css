@@ -2206,3 +2206,12 @@ button:hover {
 .confetti:nth-child(3n) { background: hsl(var(--hue, 50), 90%, 65%); width: 6px; height: 10px; }
 .confetti:nth-child(3n+1) { background: hsl(50, 95%, 60%); width: 10px; height: 16px; }
 .confetti:nth-child(3n+2) { background: hsl(320, 90%, 65%); width: 7px; height: 12px; }
+
+.badge-card__hint {
+  font-size: 11px;
+  font-style: italic;
+  color: #8aa9c4;
+  margin-top: -4px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
