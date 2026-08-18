@@ -5,6 +5,7 @@
  * 캐릭터 선택 버튼 + 뒤로가기 버튼 포함
  */
 
+import { useState, useEffect } from 'react';
 import type { StageConfig, StageRecord, Language } from '../types.js';
 import { SAMPLE_STAGES, stagesByTier, type StageTier } from '../data/stages.js';
 import { CHARACTER_INFO } from '../config/characterImages.js';
@@ -136,8 +137,21 @@ export function Menu({
 
   // Phase J: daily streak display
   const streak = getStreakDisplay();
-  const unlockedBadges = getUnlockedBadges();
+  const [unlockedBadges, setUnlockedBadges] = useState(() => getUnlockedBadges());
   const totalBadges = getTotalBadgeCount();
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const refresh = () => setUnlockedBadges(getUnlockedBadges());
+    window.addEventListener('badgeUnlocked', refresh);
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'typing-language-badges') refresh();
+    });
+    return () => {
+      window.removeEventListener('badgeUnlocked', refresh);
+      window.removeEventListener('storage', refresh);
+    };
+  }, []);
 
   const languageNames: Record<string, { native: string; en: string }> = {
     en: { native: 'English', en: '영어' },
