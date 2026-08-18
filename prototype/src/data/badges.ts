@@ -296,6 +296,20 @@ export function evaluateBadges(ctx: BadgeEvalContext): Badge[] {
       ...state.recentlyEarned,
     ].slice(0, 5);
     saveState(state);
+    if (typeof window !== 'undefined') {
+      try {
+        window.dispatchEvent(
+          new CustomEvent('badgeUnlocked', { detail: { badges: newlyUnlocked } }),
+        );
+        const storageEvent = new StorageEvent('storage', {
+          key: STORAGE_KEY,
+          newValue: JSON.stringify(state),
+        });
+        window.dispatchEvent(storageEvent);
+      } catch {
+        // dispatchEvent may throw in some test environments; ignore
+      }
+    }
   }
   return newlyUnlocked;
 }
