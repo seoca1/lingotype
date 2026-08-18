@@ -21,6 +21,11 @@ import {
   recordPlay,
   type DailyStreakState,
 } from '../data/dailyStreak.js';
+import {
+  evaluateBadges,
+  getBadgeDisplayName,
+  type Badge,
+} from '../data/badges.js';
 import { lookupWordById } from '../data/wordById.js';
 import { lookupWikiPage } from '../data/wikiLookup.js';
 import { MarkdownView } from './MarkdownView.js';
@@ -85,19 +90,32 @@ export function ResultScreen({
     newMilestone?: { days: number; icon: string; label: string };
   } | null>(null);
 
+  const [newlyEarnedBadges, setNewlyEarnedBadges] = useState<Badge[]>([]);
+
   useEffect(() => {
     if (stageRecords && clearedStageId) {
       const record = stageRecords[clearedStageId];
       if (record?.cleared) {
-        // Only record if the stage was actually cleared (not just attempted)
         const result = recordPlay();
         setStreakInfo({
           state: result.state,
           newMilestone: result.newMilestone,
         });
+        const evalCtx: Parameters<typeof evaluateBadges>[0] = {
+          stagesCleared: Object.values(stageRecords).filter((r) => r.cleared).length,
+          perfectClears: Object.values(stageRecords).filter((r) => r.cleared && (r.bestAccuracy ?? 0) >= 1.0).length,
+          totalAccuracy: record.bestAccuracy ?? 0,
+          currentStreak: result.state.currentStreak,
+          languagesPlayed: currentLanguage ? 1 : 0,
+          hasTriedAllLanguages: false,
+        };
+        const newlyEarned = evaluateBadges(evalCtx);
+        if (newlyEarned.length > 0) {
+          setNewlyEarnedBadges(newlyEarned);
+        }
       }
     }
-  }, [stageRecords, clearedStageId]);
+  }, [stageRecords, clearedStageId, currentLanguage]);
 
   // Phase 13: game-over cue fires when the player reached the results screen
   // without having cleared the stage. clearedStageId is only populated when
@@ -198,6 +216,30 @@ export function ResultScreen({
               {streakInfo.newMilestone
                 ? `🎉 New milestone! Come back tomorrow for ${streakInfo.newMilestone.days + 1}!`
                 : `Longest streak: ${streakInfo.state.longestStreak} days · Total: ${streakInfo.state.totalDaysPlayed}`}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {newlyEarnedBadges.length > 0 && (
+        <div
+          className="result-badge-banner"
+          role="status"
+          aria-live="polite"
+          aria-label={`${newlyEarnedBadges.length} new badge${newlyEarnedBadges.length > 1 ? 's' : ''} unlocked`}
+        >
+          <div className="result-badge-banner__icon" aria-hidden="true">🏆</div>
+          <div className="result-badge-banner__text">
+            <strong>+{newlyEarnedBadges.length} new badge{newlyEarnedBadges.length > 1 ? 's' : ''} unlocked!</strong>
+            <div className="result-badge-banner__list">
+              {newlyEarnedBadges.slice(0, 3).map((badge) => (
+                <span key={badge.id} className="badge-unlock-chip">
+                  {badge.icon} {getBadgeDisplayName(badge, getNativeLanguage())}
+                </span>
+              ))}
+              {newlyEarnedBadges.length > 3 && (
+                <span className="badge-unlock-chip">+{newlyEarnedBadges.length - 3} more</span>
+              )}
             </div>
           </div>
         </div>
@@ -443,6 +485,39 @@ export function ResultScreen({
           font-size: 12px;
           color: #b4d2fa;
           margin-top: 2px;
+        }
+        .result-badge-banner {
+          background: linear-gradient(135deg, #2d1b4e 0%, #1a2530 100%);
+          border: 2px solid #ffb800;
+          border-radius: 10px;
+          padding: 12px 16px;
+          margin: 12px 0;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        .result-badge-banner__icon {
+          font-size: 32px;
+          flex-shrink: 0;
+        }
+        .result-badge-banner__text strong {
+          font-size: 16px;
+          color: #ffb800;
+          display: block;
+        }
+        .result-badge-banner__list {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          margin-top: 6px;
+        }
+        .badge-unlock-chip {
+          background: rgba(255, 184, 0, 0.15);
+          border: 1px solid #ffb800;
+          border-radius: 12px;
+          padding: 2px 8px;
+          font-size: 12px;
+          color: #ffe066;
         }
         .mastery-bar {
           background: #1a2530;
