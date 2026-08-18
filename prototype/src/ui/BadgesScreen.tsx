@@ -71,6 +71,12 @@ export function BadgesScreen({ stageRecords, languagesPlayed, onBack }: BadgesSc
   const totalCount = getTotalBadgeCount();
   const unlockedCount = unlocked.length;
 
+  const filteredBadges = BADGES.filter((badge) => {
+    if (filter === 'all') return true;
+    if (filter === 'unlocked') return unlockedIds.has(badge.id);
+    return !unlockedIds.has(badge.id);
+  });
+
   return (
     <div
       className="badges-screen"
@@ -134,11 +140,23 @@ export function BadgesScreen({ stageRecords, languagesPlayed, onBack }: BadgesSc
         role="list"
         aria-label="Badge collection"
       >
-        {BADGES.filter((badge) => {
-          if (filter === 'all') return true;
-          if (filter === 'unlocked') return unlockedIds.has(badge.id);
-          return !unlockedIds.has(badge.id);
-        }).map((badge) => {
+        {filteredBadges.length === 0 ? (
+          <div className="badges-empty-state" role="status">
+            {filter === 'unlocked' && unlockedCount === 0 && (
+              <p>🏆 {t('badgeEmptyUnlocked', nativeLang)}</p>
+            )}
+            {filter === 'unlocked' && unlockedCount > 0 && (
+              <p>🔍 {t('badgeEmptyFiltered', nativeLang)}</p>
+            )}
+            {filter === 'locked' && totalCount === unlockedCount && (
+              <p>🎉 {t('badgeEmptyAllUnlocked', nativeLang)}</p>
+            )}
+            {filter === 'locked' && totalCount > unlockedCount && (
+              <p>🔍 {t('badgeEmptyFiltered', nativeLang)}</p>
+            )}
+          </div>
+        ) : (
+          filteredBadges.map((badge) => {
           const isUnlocked = unlockedIds.has(badge.id);
           const progress = getBadgeProgress(badge, evalContext);
           return (
@@ -176,7 +194,8 @@ export function BadgesScreen({ stageRecords, languagesPlayed, onBack }: BadgesSc
               </div>
             </div>
           );
-        })}
+        })
+        )}
       </div>
     </div>
   );

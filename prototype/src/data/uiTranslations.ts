@@ -79,6 +79,9 @@ export type TranslationKey =
   | 'filterAll' // 필터 전체
   | 'filterUnlocked' // 필터 해제
   | 'filterLocked' // 필터 잠김
+  | 'badgeEmptyUnlocked' // 빈 상태: 해제된 배지 없음
+  | 'badgeEmptyFiltered' // 빈 상태: 필터에 매치 없음
+  | 'badgeEmptyAllUnlocked' // 빈 상태: 모두 해제
   | 'start' // 시작
   | 'core' // 핵심
   | 'all' // 전체
@@ -184,6 +187,9 @@ export const UI_STRINGS: Record<TranslationKey, Record<NativeLanguage, string>> 
   filterAll: { en: 'All', ko: '전체', ja: '全て', es: 'Todos' },
   filterUnlocked: { en: 'Unlocked', ko: '해제', ja: '解放済み', es: 'Desbloqueados' },
   filterLocked: { en: 'Locked', ko: '잠김', ja: 'ロック中', es: 'Bloqueados' },
+  badgeEmptyUnlocked: { en: 'No badges unlocked yet. Clear a stage to earn your first one!', ko: '아직 해제된 배지가 없어요. 스테이지를 클리어해 첫 배지를 획득하세요!', ja: 'まだ解放されたバッジはありません。ステージをクリアして最初のバッジを獲得しましょう!', es: '¡Aún no hay insignias desbloqueadas. Completa una etapa para ganar tu primera!' },
+  badgeEmptyFiltered: { en: 'No badges match this filter.', ko: '이 필터에 해당하는 배지가 없어요.', ja: 'このフィルターに一致するバッジはありません。', es: 'No hay insignias que coincidan con este filtro.' },
+  badgeEmptyAllUnlocked: { en: '🎉 All badges unlocked! You are a true master!', ko: '🎉 모든 배지 해제! 당신은 진정한 마스터입니다!', ja: '🎉 すべてのバッジを解放! あなたは真のマスターです!', es: '🎉 ¡Todas las insignias desbloqueadas! ¡Eres un verdadero maestro!' },
   start: { en: 'Start', ko: '시작', ja: '開始', es: 'Empezar' },
   core: { en: 'Core', ko: '핵심', ja: '重要', es: 'Esencial' },
   all: { en: 'All', ko: '전체', ja: '全て', es: 'Todo' },

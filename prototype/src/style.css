@@ -2168,3 +2168,15 @@ button:hover {
   animation: badgeShimmer 4s ease-in-out infinite;
   pointer-events: none;
 }
+
+.badges-empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px 20px;
+  color: #b4d2fa;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.badges-empty-state p {
+  margin: 0;
+}
