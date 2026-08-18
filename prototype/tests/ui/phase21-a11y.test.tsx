@@ -42,6 +42,7 @@ const baseProfile: UserProfile = {
     unlockedStages: [],
     achievements: [],
     stageRecords: {},
+    languagesPlayed: [],
     stats: {
       totalEnemiesDefeated: 0,
       totalStagesCleared: 0,

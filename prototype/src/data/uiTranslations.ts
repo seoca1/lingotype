@@ -112,7 +112,10 @@ export type TranslationKey =
   | 'settingsSaved' // 설정 저장됨
   | 'footerHint' // 푸터 안내
   | 'languagesSupported' // 지원 언어 수
-  | 'pressEscToClose'; // Esc 닫기
+  | 'pressEscToClose' // Esc 닫기
+  | 'back' // 뒤로
+  | 'badges' // 배지
+  | 'badgeProgress' // 배지 진행도
 
 export const UI_STRINGS: Record<TranslationKey, Record<NativeLanguage, string>> = {
   // Stage / Game UI
@@ -185,6 +188,13 @@ export const UI_STRINGS: Record<TranslationKey, Record<NativeLanguage, string>> 
   // Learn screen
   learnTitle: { en: 'Learn', ko: '학습', ja: '学習', es: 'Aprender' },
   back: { en: 'Back', ko: '뒤로', ja: '戻る', es: 'Atrás' },
+  badges: { en: 'Badges', ko: '배지', ja: 'バッジ', es: 'Insignias' },
+  badgeProgress: {
+    en: 'You have unlocked {count} of {total} badges.',
+    ko: '총 {total}개 중 {count}개를 획득했습니다.',
+    ja: '{total}個中{count}個を獲得しました。',
+    es: 'Has desbloqueado {count} de {total} insignias.',
+  },
   start: { en: 'Start', ko: '시작', ja: '開始', es: 'Empezar' },
   core: { en: 'Core', ko: '핵심', ja: '重要', es: 'Esencial' },
   all: { en: 'All', ko: '전체', ja: '全て', es: 'Todo' },

@@ -42,6 +42,7 @@ function createDefaultProgress(): PlayerProgress {
     ],
     achievements: [],
     stageRecords: {},
+    languagesPlayed: [],
   };
 }
 

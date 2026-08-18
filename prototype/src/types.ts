@@ -132,6 +132,7 @@ export interface PlayerProgress {
   unlockedStages: string[];
   achievements: string[];
   stageRecords: Record<string, StageRecord>; // 스테이지별 클리어 기록
+  languagesPlayed: string[]; // 사용자가 플레이한 언어 목록 (배지 평 가용)
 }
 
 export interface PlayerStats {

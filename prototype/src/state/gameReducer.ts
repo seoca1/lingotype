@@ -84,6 +84,7 @@ export const initialState: GameState = {
     ],
     achievements: [],
     stageRecords: {},
+    languagesPlayed: [],
   },
   missions: [],
   missionResults: [],
