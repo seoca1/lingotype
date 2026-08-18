@@ -25,6 +25,10 @@
 - **컴패니언 캐릭터**: 언어별 문화 의상 (영미복/기모노/플라멩코/한복)
 - **30+ 스테이지**: Tier 1-3 난이도 곡선
 - **197개 단어 + 66개 문장**: 실용적인 일상 회화
+- **🏆 Achievement / Badge System** (12 badges): stages cleared, perfect
+  scores, daily streak, tier mastery, polyglot unlocks — each with
+  a celebration banner and audio cue on ResultScreen (3 categories:
+  milestone, perfect, streak; 4-language localised names + descriptions)
 
 ## 디렉토리 구조
 
@@ -70,12 +74,13 @@ npm run cli:interactive
 
 | 항목 | 상태 | 세부사항 |
 |------|------|----------|
-| **테스트** | ✅ | 106/106 통과 (105 passed + 1 skipped) |
-| **번들 크기** | ✅ | 253KB (gzip: 77KB) |
+| **테스트** | ✅ | 629/630 통과 (629 passed + 1 skipped) |
+| **번들 크기** | ✅ | 716KB (gzip: 230KB) |
 | **언어** | ✅ | EN, JP, ES, KR |
 | **스테이지** | ✅ | 30+ (Tier 1-3) |
-| **콘텐츠** | ✅ | 197 단어 + 66 문장 |
-| **배포** | 🔄 | GitHub Pages 설정 완료 |
+| **콘텐츠** | ✅ | 197 단어 + 66 문장 + 52 Daily Lessons |
+| **Achievement** | ✅ | 12 badges (3 categories, 4-lang i18n) |
+| **배포** | ✅ | GitHub Pages 라이브 |
 
 ---
 
@@ -84,10 +89,11 @@ npm run cli:interactive
 - **Language**: TypeScript 5.5
 - **Framework**: React 18.3
 - **Build**: Vite 5.3
-- **Testing**: Vitest (106 tests)
+- **Testing**: Vitest (629 tests)
 - **Rendering**: HTML5 Canvas 2D
 - **State**: React useState + Reducer
 - **Styling**: CSS (모듈 없이)
+- **Persistence**: localStorage (audio prefs, daily streak, word mastery, badges)
 
 ---
 
@@ -106,12 +112,48 @@ npm run cli:interactive
 
 ---
 
+## 🏆 Achievement / Badge System
+
+12 badges across 3 categories, unlocked automatically as you play:
+
+| Category | Badge | How to unlock |
+|----------|-------|----------------|
+| **Milestone** | 🌱 First Run | Clear your first stage |
+| | 🥉 Stage Hunter | Clear 10 stages |
+| | 🥈 Stage Master | Clear 50 stages |
+| | 🥇 Stage Champion | Clear 100 stages |
+| | 🏔️ Tier Master | Clear at least one stage in every tier (0-5) |
+| | 🌐 Polyglot | Try all 4 languages |
+| **Perfect** | 💯 Perfectionist | Clear a stage with 100% accuracy |
+| | 🎯 Sharp Eye | Achieve 100% accuracy on 5 stages |
+| **Streak** | 🔥 Getting Started | 3-day streak |
+| | ⭐ Weekly Devotee | 7-day streak |
+| | 🌟 Monthly Master | 30-day streak |
+| | 💯 Centurion | 100-day streak |
+
+When a stage clear unlocks a new badge, the **ResultScreen** shows a 🏆
+celebration banner with golden glow animation and plays the stage-clear
+audio cue. View your collection anytime via the **🏆 Menu button** —
+each card shows progress (locked cards are greyscale + 🔒, unlocked
+cards have a golden gradient + real icon + progress bar).
+
+All badge names and descriptions are localised in **en, ko, ja, es**
+(4 languages matching the game's content languages). Implementation
+lives in `prototype/src/data/badges.ts` (data layer) +
+`prototype/src/ui/BadgesScreen.tsx` (UI). State persisted in
+`localStorage` under `typing-language-badges`.
+
+API for extension: `BADGES` constant, `evaluateBadges(ctx)`,
+`getBadgeProgress(badge, ctx)`, `getBadgeDisplayName(badge, lang)`,
+`getBadgeDisplayDescription(badge, lang)`.
+
 ## 🎯 다음 단계
 
-1. **배포** - GitHub Pages에 자동 배포 (설정 완료)
-2. **피드백** - 사용자 테스트 및 개선
-3. **확장** - Tier 4-5 스테이지 추가
-4. **신규 언어** - 프랑스어, 독일어, 중국어 등
+1. ✅ **배포** - GitHub Pages 라이브
+2. ✅ **Achievement System** - 12 뱃지 (3 categories, 4-lang i18n)
+3. **피드백** - 사용자 테스트 및 개선
+4. **확장** - Tier 4-5 스테이지 추가
+5. **신규 언어** - 프랑스어, 독일어, 중국어 등
 
 ---
 
@@ -124,6 +166,9 @@ npm run cli:interactive
 3. `src/data/corpus.ts` - 단어/문장 추가
 4. `src/data/stages.ts` - 스테이지 정의
 5. `tests/input/NewLangHandler.test.ts` - 테스트
+
+새로운 배지 추가는 `prototype/src/data/badges.ts`의 `BADGES` 배열에
+엔트리 + 평가 로직 + 테스트 3개 추가 (invariant, evaluation, progress).
 
 자세한 가이드: `prototype/README.md#adding-a-new-language`
 
