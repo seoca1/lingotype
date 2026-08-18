@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import {
   BADGES,
   getUnlockedBadges,
@@ -58,6 +58,7 @@ export function BadgesScreen({ stageRecords, languagesPlayed, onBack }: BadgesSc
   const nativeLang = getNativeLanguage();
   const [unlocked] = useState<Badge[]>(() => getUnlockedBadges());
   const [filter, setFilter] = useState<'all' | 'unlocked' | 'locked'>('all');
+  const [page, setPage] = useState(0);
 
   const evalContext = useMemo(
     () => buildEvalContext(stageRecords, languagesPlayed),
@@ -73,6 +74,14 @@ export function BadgesScreen({ stageRecords, languagesPlayed, onBack }: BadgesSc
     if (filter === 'unlocked') return unlockedIds.has(badge.id);
     return !unlockedIds.has(badge.id);
   });
+
+  const PAGE_SIZE = 6;
+  const totalPages = Math.max(1, Math.ceil(filteredBadges.length / PAGE_SIZE));
+  const pageBadges = filteredBadges.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
+
+  useEffect(() => {
+    setPage(0);
+  }, [filter]);
 
   return (
     <div
@@ -153,7 +162,7 @@ export function BadgesScreen({ stageRecords, languagesPlayed, onBack }: BadgesSc
             )}
           </div>
         ) : (
-          filteredBadges.map((badge) => {
+          pageBadges.map((badge) => {
           const isUnlocked = unlockedIds.has(badge.id);
           const progress = getBadgeProgress(badge, evalContext);
           return (
@@ -197,6 +206,31 @@ export function BadgesScreen({ stageRecords, languagesPlayed, onBack }: BadgesSc
         })
         )}
       </div>
+      {totalPages > 1 && (
+        <div className="badges-pagination" role="group" aria-label="Badge page navigation">
+          <button
+            type="button"
+            className="badges-pagination__btn"
+            onClick={() => setPage((p) => Math.max(0, p - 1))}
+            disabled={page === 0}
+            aria-label="Previous page"
+          >
+            ←
+          </button>
+          <span className="badges-pagination__info" aria-live="polite">
+            {page + 1} / {totalPages}
+          </span>
+          <button
+            type="button"
+            className="badges-pagination__btn"
+            onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+            disabled={page >= totalPages - 1}
+            aria-label="Next page"
+          >
+            →
+          </button>
+        </div>
+      )}
     </div>
   );
 }

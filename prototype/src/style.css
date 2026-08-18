@@ -2215,3 +2215,37 @@ button:hover {
   margin-bottom: 10px;
   line-height: 1.4;
 }
+
+.badges-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px 0 8px;
+}
+.badges-pagination__btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #c5d4e3;
+  font-size: 16px;
+  padding: 6px 12px;
+  cursor: pointer;
+  min-width: 40px;
+}
+.badges-pagination__btn:hover:not(:disabled) {
+  background: rgba(255, 184, 0, 0.15);
+  border-color: #ffb800;
+  color: #ffb800;
+}
+.badges-pagination__btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.badges-pagination__info {
+  font-size: 14px;
+  color: #b4d2fa;
+  font-weight: bold;
+  min-width: 50px;
+  text-align: center;
+}

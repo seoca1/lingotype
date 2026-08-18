@@ -68,20 +68,28 @@ describe('BadgesScreen', () => {
     expect(html).toContain('badge-card--locked');
   });
 
-  it('renders all 12 badge cards in the grid', () => {
+  it('renders first 6 badge cards in the grid (page 1 of 2)', () => {
     const html = renderToStaticMarkup(
       <BadgesScreen stageRecords={{}} languagesPlayed={[]} onBack={() => {}} />,
     );
     const badgeCardMatches = html.match(/badge-card badge-card--/g) || [];
-    expect(badgeCardMatches.length).toBe(12);
+    expect(badgeCardMatches.length).toBe(6);
   });
 
-  it('shows progress bar for each badge', () => {
+  it('shows progress bar for each badge on the page', () => {
     const html = renderToStaticMarkup(
       <BadgesScreen stageRecords={{}} languagesPlayed={[]} onBack={() => {}} />,
     );
     const progressBars = html.match(/aria-valuenow/g) || [];
-    expect(progressBars.length).toBeGreaterThanOrEqual(12);
+    expect(progressBars.length).toBeGreaterThanOrEqual(6);
+  });
+
+  it('shows pagination controls when more than 1 page', () => {
+    const html = renderToStaticMarkup(
+      <BadgesScreen stageRecords={{}} languagesPlayed={[]} onBack={() => {}} />,
+    );
+    expect(html).toContain('badges-pagination');
+    expect(html).toContain('1 / 2');
   });
 
   it('uses 🔒 icon for locked badges', () => {
