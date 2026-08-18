@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import {
   BADGES,
   getUnlockedBadges,
@@ -55,17 +55,13 @@ function buildEvalContext(
 
 export function BadgesScreen({ stageRecords, languagesPlayed, onBack }: BadgesScreenProps) {
   const nativeLang = getNativeLanguage();
-  const [unlocked, setUnlocked] = useState<Badge[]>([]);
+  const [unlocked] = useState<Badge[]>(() => getUnlockedBadges());
   const [filter, setFilter] = useState<'all' | 'unlocked' | 'locked'>('all');
 
   const evalContext = useMemo(
     () => buildEvalContext(stageRecords, languagesPlayed),
     [stageRecords, languagesPlayed],
   );
-
-  useEffect(() => {
-    setUnlocked(getUnlockedBadges());
-  }, []);
 
   const unlockedIds = new Set(unlocked.map((b) => b.id));
   const totalCount = getTotalBadgeCount();
