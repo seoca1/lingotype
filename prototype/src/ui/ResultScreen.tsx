@@ -46,6 +46,16 @@ interface ResultScreenProps {
   clearedStageId?: string;
 }
 
+function triggerHapticFeedback(): void {
+  if (typeof navigator === 'undefined' || typeof navigator.vibrate !== 'function') return;
+  try {
+    navigator.vibrate([100, 30, 100, 30, 200]);
+  } catch {
+    // Some browsers expose vibrate() but throw on user-gesture
+    // requirements; silently ignore.
+  }
+}
+
 export function ResultScreen({
   score,
   enemiesDefeated,
@@ -118,6 +128,7 @@ export function ResultScreen({
         if (newly.length > 0) {
           setNewlyEarnedBadges(newly);
           getAudioManager().play('achievement');
+          triggerHapticFeedback();
         }
       }
     }
