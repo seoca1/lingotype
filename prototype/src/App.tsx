@@ -506,6 +506,7 @@ export function App() {
           const stage = SAMPLE_STAGES.find((s) => s.id === stageId);
           if (stage) handleStartStage(stage);
         }}
+        onShowBadges={() => setShowBadges(true)}
       />
     );
   }

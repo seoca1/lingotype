@@ -38,6 +38,8 @@ interface ResultScreenProps {
   currentLanguage?: 'en' | 'jp' | 'es' | 'kr';
   /** Callback to start a practice stage from the daily lesson card */
   onPracticeStage?: (stageId: string) => void;
+  /** Callback to view the badges screen (after badge unlock) */
+  onShowBadges?: () => void;
   /** Stage records — used for unlock detection */
   stageRecords?: Record<string, StageRecord>;
   /** ID of the stage just cleared — used to compute newly unlocked */
@@ -52,6 +54,7 @@ export function ResultScreen({
   onBack,
   currentLanguage,
   onPracticeStage,
+  onShowBadges,
   stageRecords,
   clearedStageId,
 }: ResultScreenProps) {
@@ -214,6 +217,17 @@ export function ResultScreen({
               )}
             </div>
           </div>
+          {onShowBadges && (
+            <button
+              type="button"
+              className="result-badge-banner__view-all"
+              onClick={onShowBadges}
+              aria-label={t('badges', getNativeLanguage())}
+              data-testid="result-view-badges-btn"
+            >
+              {t('badges', getNativeLanguage())} →
+            </button>
+          )}
         </div>
       )}
 

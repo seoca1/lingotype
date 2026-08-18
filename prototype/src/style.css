@@ -2102,3 +2102,19 @@ button:hover {
   margin-left: 4px;
   vertical-align: middle;
 }
+
+.result-badge-banner__view-all {
+  background: rgba(255, 184, 0, 0.2);
+  border: 1px solid #ffb800;
+  border-radius: 8px;
+  color: #ffb800;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+.result-badge-banner__view-all:hover {
+  background: rgba(255, 184, 0, 0.35);
+}
