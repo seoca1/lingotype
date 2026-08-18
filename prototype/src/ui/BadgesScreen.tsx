@@ -145,6 +145,7 @@ export function BadgesScreen({ stageRecords, languagesPlayed, onBack }: BadgesSc
             <div
               key={badge.id}
               className={`badge-card ${isUnlocked ? 'badge-card--unlocked' : 'badge-card--locked'}`}
+              style={{ position: 'relative' }}
               role="listitem"
               aria-label={`${getBadgeDisplayName(badge, nativeLang)}: ${isUnlocked ? 'unlocked' : 'locked'}`}
             >
