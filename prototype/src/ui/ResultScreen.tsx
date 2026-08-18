@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import type { MissionConfig, StageRecord } from '../types.js';
 import { getAudioManager } from '../audio/AudioManager.js';
 import { DailyLessonCard } from './DailyLessonCard.js';
@@ -228,6 +228,26 @@ export function ResultScreen({
               {t('badges', getNativeLanguage())} →
             </button>
           )}
+        </div>
+      )}
+
+      {newlyEarnedBadges.length > 0 && (
+        <div
+          className="confetti-container"
+          aria-hidden="true"
+          data-testid="badge-confetti"
+        >
+          {Array.from({ length: 18 }).map((_, i) => (
+            <div
+              key={i}
+              className="confetti"
+              style={{
+                '--delay': `${(i % 6) * 0.05}s`,
+                '--x': `${(i * 47) % 100}%`,
+                '--hue': `${(i * 37) % 360}`,
+              } as React.CSSProperties}
+            />
+          ))}
         </div>
       )}
 
