@@ -76,6 +76,9 @@ export type TranslationKey =
   | 'back' // 뒤로
   | 'badges' // 배지
   | 'badgeProgress' // 배지 진행
+  | 'filterAll' // 필터 전체
+  | 'filterUnlocked' // 필터 해제
+  | 'filterLocked' // 필터 잠김
   | 'start' // 시작
   | 'core' // 핵심
   | 'all' // 전체
@@ -178,6 +181,9 @@ export const UI_STRINGS: Record<TranslationKey, Record<NativeLanguage, string>> 
     ja: '{total}個中{count}個を獲得しました。',
     es: 'Has desbloqueado {count} de {total} insignias.',
   },
+  filterAll: { en: 'All', ko: '전체', ja: '全て', es: 'Todos' },
+  filterUnlocked: { en: 'Unlocked', ko: '해제', ja: '解放済み', es: 'Desbloqueados' },
+  filterLocked: { en: 'Locked', ko: '잠김', ja: 'ロック中', es: 'Bloqueados' },
   start: { en: 'Start', ko: '시작', ja: '開始', es: 'Empezar' },
   core: { en: 'Core', ko: '핵심', ja: '重要', es: 'Esencial' },
   all: { en: 'All', ko: '전체', ja: '全て', es: 'Todo' },

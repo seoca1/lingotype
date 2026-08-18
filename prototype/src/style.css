@@ -2118,3 +2118,29 @@ button:hover {
 .result-badge-banner__view-all:hover {
   background: rgba(255, 184, 0, 0.35);
 }
+
+.badges-filter {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+.badges-filter__btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  color: #b4d2fa;
+  padding: 4px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.badges-filter__btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.badges-filter__btn--active {
+  background: linear-gradient(135deg, rgba(255, 184, 0, 0.3), rgba(255, 107, 157, 0.2));
+  border-color: #ffb800;
+  color: #ffb800;
+  font-weight: bold;
+}

@@ -56,6 +56,7 @@ function buildEvalContext(
 export function BadgesScreen({ stageRecords, languagesPlayed, onBack }: BadgesScreenProps) {
   const nativeLang = getNativeLanguage();
   const [unlocked, setUnlocked] = useState<Badge[]>([]);
+  const [filter, setFilter] = useState<'all' | 'unlocked' | 'locked'>('all');
 
   const evalContext = useMemo(
     () => buildEvalContext(stageRecords, languagesPlayed),
@@ -98,11 +99,46 @@ export function BadgesScreen({ stageRecords, languagesPlayed, onBack }: BadgesSc
       </p>
 
       <div
+        className="badges-filter"
+        role="group"
+        aria-label="Filter badges"
+      >
+        <button
+          type="button"
+          className={`badges-filter__btn ${filter === 'all' ? 'badges-filter__btn--active' : ''}`}
+          onClick={() => setFilter('all')}
+          aria-pressed={filter === 'all'}
+        >
+          {t('filterAll', nativeLang)} ({totalCount})
+        </button>
+        <button
+          type="button"
+          className={`badges-filter__btn ${filter === 'unlocked' ? 'badges-filter__btn--active' : ''}`}
+          onClick={() => setFilter('unlocked')}
+          aria-pressed={filter === 'unlocked'}
+        >
+          {t('filterUnlocked', nativeLang)} ({unlockedCount})
+        </button>
+        <button
+          type="button"
+          className={`badges-filter__btn ${filter === 'locked' ? 'badges-filter__btn--active' : ''}`}
+          onClick={() => setFilter('locked')}
+          aria-pressed={filter === 'locked'}
+        >
+          {t('filterLocked', nativeLang)} ({totalCount - unlockedCount})
+        </button>
+      </div>
+
+      <div
         className="badges-grid"
         role="list"
         aria-label="Badge collection"
       >
-        {BADGES.map((badge) => {
+        {BADGES.filter((badge) => {
+          if (filter === 'all') return true;
+          if (filter === 'unlocked') return unlockedIds.has(badge.id);
+          return !unlockedIds.has(badge.id);
+        }).map((badge) => {
           const isUnlocked = unlockedIds.has(badge.id);
           const progress = getBadgeProgress(badge, evalContext);
           return (
