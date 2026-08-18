@@ -207,4 +207,33 @@ finalUrl = config.src.startsWith(base) ? config.src : base + config.src;
 
 ---
 
-**마지막 업데이트:** 2026-08-08
+---
+
+## 🎯 진행 중인 작업 (2026-08-18)
+
+### Badge 시스템 통합 마감 (c742caa → 55d63b8, 2 commits)
+
+- **Badge 시스템 스켈레톤** (2026-08-18 `c742caa`) — `feat(badges): achievement / badge system skeleton with 10 badges + 37 tests`. 10개 배지 (first_run, stage_hunter/master/champion, perfectionist, sharp_eye, streak_3/7/30, polyglot) 추가 + BADGES[]. 37 tests 신규. 단, BadgesScreen.tsx + ResultScreen.tsx 통합이 half-wired 상태로 남음.
+- **Badge 시스템 마감** (2026-08-18 `55d63b8` + `0a5a763`) — 2 commit 으로 half-wired 상태 마무리:
+  - `feat(badges): wire types` — `PlayerProgress.languagesPlayed: string[]` 필드 추가, `TranslationKey` union에 `back`/`badges`/`badgeProgress` 추가, 3개 PlayerProgress literal (profileManager / gameReducer / ProgressionSystem) + 2 test literal (phase21 / phase28) 업데이트
+  - `fix(badges): close runtime + type errors` — BadgesScreen.tsx 의 (a) 잘못된 import (`getDailyStreakState` → `getStreakState`), (b) `useState<Badge[]>([])` + useEffect 패턴을 lazy initializer (`() => getUnlockedBadges()`) 로 변경 (renderToStaticMarkup 환경에서 동기적으로 unlocked state 채움), (c) dead `tick`/`setTick` state 제거. ResultScreen.tsx 의 `BadgeEvalContext.languagesPlayed` 를 배열에서 카운트 (number) 로 정정.
+  - side effect: `dailyLessons.json` 의 working-tree modification 을 c742caa HEAD 로 revert (94개 lessons 의 `difficulty`/`source`/`wikiOutput` 필드 제거 회귀였음 — schema 마이그레이션은 out-of-scope).
+
+### 결과
+
+| 지표 | before | after | delta |
+|---|---:|---:|---:|
+| **테스트** | 1,252 passed / 21 failed | **1,273 passed** / 1 skipped / **0 failed** | +21 tests, −21 failures |
+| `tsc --noEmit` | 6 errors (× `PlayerProgress.languagesPlayed`, × TranslationKey union, × `BadgeEvalContext.languagesPlayed` type) | **0 errors** | −6 |
+| `eslint src/ tests/` | clean | clean | — |
+| `vite build` | n/a (TS error prevented) | **succeeds** (1,266 KB / gzip 356 KB) | build green |
+
+### Cross-reference
+
+- 통합 커밋: `0a5a763 feat(badges): wire types for badge system integration`, `55d63b8 fix(badges): close runtime + type errors in BadgesScreen + ResultScreen`
+- C742aaa의 skeleton 은 types.ts / ResultScreen.tsx / 5개 module init / 2개 test file 을 의도적으로 부분 통합 — 본 두 커밋이 마감.
+- Issue #5 (`dist/index.html` build artifact hash drift, 2026-08-06) 회귀 발생 — `c742caa` 가 `dist/` 를 commit tracking 하고 있으나 `.gitignore` 에도 등록된 모순 상태. build artifact 는 자동 재생성되므로 영향 없음, 단 추후 `git rm --cached prototype/dist/` 권장.
+
+---
+
+**마지막 업데이트:** 2026-08-18

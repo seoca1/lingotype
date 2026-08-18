@@ -1,14 +1,14 @@
 # Typing Language — 프로젝트 상태 리포트
 
-> **최종 업데이트**: 2026-08-08 (stale-note reconciliation: §9 bundle size 891KB→971KB / 264KB→298KB, daily lesson 45→52)
-> **최종 커밋**: README + PROJECT_STATUS metric sync (corpus 577 → 4,038, tests 674 → 680)
-> **버전**: Phase 7 — 140 스테이지, 680 테스트, 4,038 corpus + 52 Daily Lessons
+> **최종 업데이트**: 2026-08-18 (badge system integration + 21→0 test failures fixed; tests 1,273)
+> **최종 커밋**: fix(badges): close runtime + type errors in BadgesScreen + ResultScreen (c742aaa → 55d63b8)
+> **버전**: Phase 7 — 140 스테이지, 1,273 테스트, 4,038 corpus + 52 Daily Lessons + 10 배지
 
 ---
 
 ## 1. 한 줄 요약
 
-4개국어(EN/JP/ES/KR) 타이핑 학습 게임, **GitHub Pages 자동 배포**. **680 tests passing** (1 skipped), **971 KB / gzip 298 KB**, **4,038 corpus entries (EN 1,054 + JP 502 + ES 1,246 + KR 1,236)**, **52 Daily Lessons (100% topic-appropriate culture)**, **12명 캐릭터 (84 PNG)**, **440+ wiki 페이지**. Phase 7 완성.
+4개국어(EN/JP/ES/KR) 타이핑 학습 게임, **GitHub Pages 자동 배포**. **1,273 tests passing** (1 skipped), **1,266 KB / gzip 356 KB**, **4,038 corpus entries (EN 1,054 + JP 502 + ES 1,246 + KR 1,236)**, **52 Daily Lessons (100% topic-appropriate culture)**, **12명 캐릭터 (84 PNG)**, **440+ wiki 페이지**, **10 배지 (first_run, stage_hunter/master/champion, perfectionist, sharp_eye, streaks × 4)**. Phase 7 완성.
 
 ---
 
@@ -16,10 +16,10 @@
 
 | 항목 | 초기값 (Phase A 시작) | 최종값 (현재) | 변화 |
 |---|---|---|---|
-| **테스트** | 313 passed | **680 passed** | +367 (+117%) |
-| 테스트 파일 | 14 | **23** | +9 |
-| **번들 크기** | 463 KB | **971 KB** | +110% |
-| gzip 크기 | 137 KB | **298 KB** | +118% |
+| **테스트** | 313 passed | **1,273 passed** | +960 (+306%) |
+| 테스트 파일 | 14 | **56** | +42 |
+| **번들 크기** | 463 KB | **1,266 KB** | +173% |
+| gzip 크기 | 137 KB | **356 KB** | +160% |
 | CSS | 21 KB | 27 KB | +29% |
 | **Corpus** | 577 | **4,038** | +7.0× (auto-generated from Language wiki) |
 | **daily lessons** | 11 | **52** | +373% |
