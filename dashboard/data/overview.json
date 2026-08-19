@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T18:32:09.410978",
+  "generated_at": "2026-08-20T01:52:39.106101",
   "languages": [
     {
       "code": "en",
@@ -8,16 +8,16 @@
       "flag": "🇺🇸",
       "color": "#3b82f6",
       "stats": {
-        "stages": 35,
-        "corpus_total": 162,
-        "vocab_wiki": 0,
-        "expressions_wiki": 12,
-        "culture_wiki": 10,
-        "sources_wiki": 13,
-        "study_plan_wiki": 0,
-        "raw_sources": 11,
-        "coverage_percent": 47.6,
-        "gaps": 24
+        "stages": 36,
+        "corpus_total": 1937,
+        "vocab_wiki": 62,
+        "expressions_wiki": 21,
+        "culture_wiki": 43,
+        "sources_wiki": 21,
+        "study_plan_wiki": 3,
+        "raw_sources": 22,
+        "coverage_percent": 561.4,
+        "gaps": 7
       }
     },
     {
@@ -27,16 +27,16 @@
       "flag": "🇯🇵",
       "color": "#ec4899",
       "stats": {
-        "stages": 37,
-        "corpus_total": 182,
-        "vocab_wiki": 0,
-        "expressions_wiki": 7,
-        "culture_wiki": 9,
-        "sources_wiki": 11,
-        "study_plan_wiki": 0,
-        "raw_sources": 12,
-        "coverage_percent": 47.5,
-        "gaps": 24
+        "stages": 38,
+        "corpus_total": 680,
+        "vocab_wiki": 69,
+        "expressions_wiki": 21,
+        "culture_wiki": 43,
+        "sources_wiki": 22,
+        "study_plan_wiki": 3,
+        "raw_sources": 22,
+        "coverage_percent": 175.3,
+        "gaps": 13
       }
     },
     {
@@ -46,16 +46,16 @@
       "flag": "🇪🇸",
       "color": "#f59e0b",
       "stats": {
-        "stages": 34,
-        "corpus_total": 155,
-        "vocab_wiki": 0,
-        "expressions_wiki": 32,
-        "culture_wiki": 15,
-        "sources_wiki": 10,
-        "study_plan_wiki": 2,
-        "raw_sources": 13,
-        "coverage_percent": 47.7,
-        "gaps": 25
+        "stages": 35,
+        "corpus_total": 201,
+        "vocab_wiki": 76,
+        "expressions_wiki": 21,
+        "culture_wiki": 43,
+        "sources_wiki": 34,
+        "study_plan_wiki": 4,
+        "raw_sources": 23,
+        "coverage_percent": 60.9,
+        "gaps": 23
       }
     },
     {
@@ -65,27 +65,27 @@
       "flag": "🇰🇷",
       "color": "#10b981",
       "stats": {
-        "stages": 34,
-        "corpus_total": 78,
-        "vocab_wiki": 0,
-        "expressions_wiki": 11,
-        "culture_wiki": 9,
-        "sources_wiki": 11,
-        "study_plan_wiki": 0,
-        "raw_sources": 11,
-        "coverage_percent": 23.9,
-        "gaps": 26
+        "stages": 35,
+        "corpus_total": 101,
+        "vocab_wiki": 81,
+        "expressions_wiki": 21,
+        "culture_wiki": 46,
+        "sources_wiki": 21,
+        "study_plan_wiki": 3,
+        "raw_sources": 22,
+        "coverage_percent": 30.4,
+        "gaps": 27
       }
     }
   ],
   "totals": {
-    "stages": 140,
-    "corpus": 577,
-    "wiki_materials": 152,
-    "raw_sources": 47,
-    "vocab_words": 0,
-    "expressions": 62,
-    "culture": 43
+    "stages": 144,
+    "corpus": 2919,
+    "wiki_materials": 658,
+    "raw_sources": 89,
+    "vocab_words": 288,
+    "expressions": 84,
+    "culture": 175
   },
   "tiers": {
     "0": 0,
@@ -98,7 +98,7 @@
     "2": 8,
     "3": 8,
     "4": 7,
-    "5": 4,
+    "5": 8,
     "a": 12,
     "b": 12,
     "c": 12,

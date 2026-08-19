@@ -9,228 +9,1278 @@
   "wiki": {
     "sources": [
       {
+        "name": "2026-07-13_Kanji_N5_100",
+        "filename": "2026-07-13_Kanji_N5_100.md",
+        "title": "Kanji N5 100 Source Summary",
+        "size_kb": 4.5,
+        "modified": "2026-08-20T00:14:52.216592",
+        "path": "wiki/Japanese/sources/2026-07-13_Kanji_N5_100.md"
+      },
+      {
+        "name": "animals-vocabulary-jp",
+        "filename": "animals-vocabulary-jp.md",
+        "title": "動物語彙 (Japanese Animals)",
+        "size_kb": 3.5,
+        "modified": "2026-08-20T00:14:52.194832",
+        "path": "wiki/Japanese/sources/animals-vocabulary-jp.md"
+      },
+      {
+        "name": "anime-drama-quotes",
+        "filename": "anime-drama-quotes.md",
+        "title": "anime-drama-quotes",
+        "size_kb": 2.5,
+        "modified": "2026-08-20T00:14:52.192429",
+        "path": "wiki/Japanese/sources/anime-drama-quotes.md"
+      },
+      {
+        "name": "business-email",
+        "filename": "business-email.md",
+        "title": "business-email",
+        "size_kb": 2.7,
+        "modified": "2026-08-20T00:14:52.189405",
+        "path": "wiki/Japanese/sources/business-email.md"
+      },
+      {
+        "name": "business-vocabulary-jp",
+        "filename": "business-vocabulary-jp.md",
+        "title": "Japanese Business Vocabulary (ビジネス語彙)",
+        "size_kb": 2.6,
+        "modified": "2026-08-20T00:14:52.171292",
+        "path": "wiki/Japanese/sources/business-vocabulary-jp.md"
+      },
+      {
+        "name": "clothing-vocabulary-jp",
+        "filename": "clothing-vocabulary-jp.md",
+        "title": "Japanese Clothing Vocabulary (衣服・ファッション)",
+        "size_kb": 1.2,
+        "modified": "2026-08-20T00:14:52.219689",
+        "path": "wiki/Japanese/sources/clothing-vocabulary-jp.md"
+      },
+      {
         "name": "daily-life-basics",
         "filename": "daily-life-basics.md",
         "title": "日常会話 (Daily Life) — Japanese (Source Hub)",
-        "size_kb": 1.7,
-        "modified": "2026-06-20T01:58:51.376424",
+        "size_kb": 1.9,
+        "modified": "2026-08-20T00:14:52.230881",
         "path": "wiki/Japanese/sources/daily-life-basics.md"
       },
       {
         "name": "dating-romance-jp",
         "filename": "dating-romance-jp.md",
         "title": "dating-romance-jp",
-        "size_kb": 2.6,
-        "modified": "2026-06-19T02:50:54.457128",
+        "size_kb": 2.8,
+        "modified": "2026-08-20T00:14:52.186686",
         "path": "wiki/Japanese/sources/dating-romance-jp.md"
+      },
+      {
+        "name": "emotions-personality-vocabulary-jp",
+        "filename": "emotions-personality-vocabulary-jp.md",
+        "title": "Japanese Emotions & Personality Vocabulary (感情・性格)",
+        "size_kb": 1.5,
+        "modified": "2026-08-20T00:14:52.225255",
+        "path": "wiki/Japanese/sources/emotions-personality-vocabulary-jp.md"
       },
       {
         "name": "first-travel-korea",
         "filename": "first-travel-korea.md",
         "title": "first-travel-korea",
-        "size_kb": 1.3,
-        "modified": "2026-06-18T19:00:12.327935",
+        "size_kb": 1.5,
+        "modified": "2026-08-20T00:14:52.240710",
         "path": "wiki/Japanese/sources/first-travel-korea.md"
       },
       {
         "name": "food-and-dining",
         "filename": "food-and-dining.md",
         "title": "食文化 (Food and Dining) — Japanese (Source Hub)",
-        "size_kb": 1.6,
-        "modified": "2026-06-20T01:59:03.357537",
+        "size_kb": 1.7,
+        "modified": "2026-08-20T00:14:52.212237",
         "path": "wiki/Japanese/sources/food-and-dining.md"
+      },
+      {
+        "name": "food-vocabulary-jp",
+        "filename": "food-vocabulary-jp.md",
+        "title": "Japanese Food Vocabulary (食べ物)",
+        "size_kb": 1.8,
+        "modified": "2026-08-20T00:14:52.237585",
+        "path": "wiki/Japanese/sources/food-vocabulary-jp.md"
       },
       {
         "name": "health-and-body",
         "filename": "health-and-body.md",
         "title": "健康と体 (Health and Body) — Japanese (Source Hub)",
-        "size_kb": 1.5,
-        "modified": "2026-06-20T02:01:24.092961",
+        "size_kb": 1.7,
+        "modified": "2026-08-20T00:14:52.178070",
         "path": "wiki/Japanese/sources/health-and-body.md"
       },
       {
         "name": "holidays-and-celebrations",
         "filename": "holidays-and-celebrations.md",
         "title": "祝日 (Holidays) — Japanese (Source Hub)",
-        "size_kb": 1.6,
-        "modified": "2026-06-20T02:03:00.342449",
+        "size_kb": 1.8,
+        "modified": "2026-08-20T00:14:52.205059",
         "path": "wiki/Japanese/sources/holidays-and-celebrations.md"
+      },
+      {
+        "name": "literature-passages",
+        "filename": "literature-passages.md",
+        "title": "literature-passages",
+        "size_kb": 2.1,
+        "modified": "2026-08-20T00:14:52.214470",
+        "path": "wiki/Japanese/sources/literature-passages.md"
+      },
+      {
+        "name": "nature-vocabulary-jp",
+        "filename": "nature-vocabulary-jp.md",
+        "title": "Japanese Nature Vocabulary (自然・天気)",
+        "size_kb": 1.5,
+        "modified": "2026-08-20T00:14:52.227658",
+        "path": "wiki/Japanese/sources/nature-vocabulary-jp.md"
       },
       {
         "name": "shopping-and-money",
         "filename": "shopping-and-money.md",
         "title": "Shopping and Money — Japanese (Source Hub)",
-        "size_kb": 1.5,
-        "modified": "2026-06-20T02:00:14.118702",
+        "size_kb": 1.7,
+        "modified": "2026-08-20T00:14:52.210100",
         "path": "wiki/Japanese/sources/shopping-and-money.md"
       },
       {
         "name": "sports-and-hobbies",
         "filename": "sports-and-hobbies.md",
         "title": "スポーツと趣味 (Sports and Hobbies) — Japanese (Source Hub)",
-        "size_kb": 1.8,
-        "modified": "2026-06-20T02:11:07.058141",
+        "size_kb": 2.0,
+        "modified": "2026-08-20T00:14:52.233169",
         "path": "wiki/Japanese/sources/sports-and-hobbies.md"
       },
       {
         "name": "technology-and-internet",
         "filename": "technology-and-internet.md",
         "title": "テクノロジー (Technology) — Japanese (Source Hub)",
-        "size_kb": 1.9,
-        "modified": "2026-06-20T02:01:12.069126",
+        "size_kb": 2.0,
+        "modified": "2026-08-20T00:14:52.173123",
         "path": "wiki/Japanese/sources/technology-and-internet.md"
       },
       {
         "name": "travel-adventure",
         "filename": "travel-adventure.md",
         "title": "Travel Adventure — Japanese (Source Hub)",
-        "size_kb": 1.5,
-        "modified": "2026-06-20T02:00:04.614607",
+        "size_kb": 1.7,
+        "modified": "2026-08-20T00:14:52.181642",
         "path": "wiki/Japanese/sources/travel-adventure.md"
       },
       {
         "name": "travel-basics",
         "filename": "travel-basics.md",
         "title": "旅行基礎 (Travel Basics) — Japanese (Source Hub)",
-        "size_kb": 1.8,
-        "modified": "2026-06-20T01:58:41.261526",
+        "size_kb": 1.9,
+        "modified": "2026-08-20T00:14:52.222975",
         "path": "wiki/Japanese/sources/travel-basics.md"
+      },
+      {
+        "name": "travel-basics-jp",
+        "filename": "travel-basics-jp.md",
+        "title": "travel-basics-jp (Source Hub) — Japanese Travel Basics",
+        "size_kb": 3.8,
+        "modified": "2026-08-20T00:14:52.175366",
+        "path": "wiki/Japanese/sources/travel-basics-jp.md"
       }
     ],
-    "vocabulary": [],
+    "vocabulary": [
+      {
+        "name": "adventure-vocabulary",
+        "filename": "adventure-vocabulary.md",
+        "title": "冒険 vocabulary — Japanese theme",
+        "size_kb": 11.2,
+        "modified": "2026-08-20T00:24:25.647308",
+        "path": "wiki/Japanese/vocabulary/adventure-vocabulary.md"
+      },
+      {
+        "name": "adventure-vocabulary.ko",
+        "filename": "adventure-vocabulary.ko.md",
+        "title": "Adventure (모험) - Korean Translation",
+        "size_kb": 14.6,
+        "modified": "2026-08-20T00:14:52.368616",
+        "path": "wiki/Japanese/vocabulary/adventure-vocabulary.ko.md"
+      },
+      {
+        "name": "animals-vocabulary",
+        "filename": "animals-vocabulary.md",
+        "title": "動物語彙 (Japanese Animals)",
+        "size_kb": 31.1,
+        "modified": "2026-08-20T00:24:25.647574",
+        "path": "wiki/Japanese/vocabulary/animals-vocabulary.md"
+      },
+      {
+        "name": "animals-vocabulary.ko",
+        "filename": "animals-vocabulary.ko.md",
+        "title": "Animals (동물) - Korean Translation",
+        "size_kb": 17.6,
+        "modified": "2026-08-20T00:14:52.389418",
+        "path": "wiki/Japanese/vocabulary/animals-vocabulary.ko.md"
+      },
+      {
+        "name": "basic-vocabulary",
+        "filename": "basic-vocabulary.md",
+        "title": "Basic Vocabulary — Japanese (基本語彙)",
+        "size_kb": 5.3,
+        "modified": "2026-08-20T00:24:25.648015",
+        "path": "wiki/Japanese/vocabulary/basic-vocabulary.md"
+      },
+      {
+        "name": "basic-vocabulary.ko",
+        "filename": "basic-vocabulary.ko.md",
+        "title": "Basic Vocabulary (기본 어휘) - Korean Translation",
+        "size_kb": 17.8,
+        "modified": "2026-08-20T00:24:25.647771",
+        "path": "wiki/Japanese/vocabulary/basic-vocabulary.ko.md"
+      },
+      {
+        "name": "business-vocabulary",
+        "filename": "business-vocabulary.md",
+        "title": "ビジネス語彙 (Japanese Business Vocabulary)",
+        "size_kb": 33.4,
+        "modified": "2026-08-20T00:24:25.648295",
+        "path": "wiki/Japanese/vocabulary/business-vocabulary.md"
+      },
+      {
+        "name": "business-vocabulary.ko",
+        "filename": "business-vocabulary.ko.md",
+        "title": "Business (비즈니스) - Korean Translation",
+        "size_kb": 18.3,
+        "modified": "2026-08-20T00:14:52.261450",
+        "path": "wiki/Japanese/vocabulary/business-vocabulary.ko.md"
+      },
+      {
+        "name": "clothing-vocabulary",
+        "filename": "clothing-vocabulary.md",
+        "title": "衣服・ファッション語彙 (Japanese Clothing & Fashion)",
+        "size_kb": 22.6,
+        "modified": "2026-08-20T00:24:25.648769",
+        "path": "wiki/Japanese/vocabulary/clothing-vocabulary.md"
+      },
+      {
+        "name": "clothing-vocabulary.ko",
+        "filename": "clothing-vocabulary.ko.md",
+        "title": "Clothing (의류) - Korean Translation",
+        "size_kb": 39.0,
+        "modified": "2026-08-20T00:24:25.648595",
+        "path": "wiki/Japanese/vocabulary/clothing-vocabulary.ko.md"
+      },
+      {
+        "name": "colors-vocabulary",
+        "filename": "colors-vocabulary.md",
+        "title": "colors vocabulary - Japanese theme",
+        "size_kb": 6.0,
+        "modified": "2026-08-20T00:24:25.649143",
+        "path": "wiki/Japanese/vocabulary/colors-vocabulary.md"
+      },
+      {
+        "name": "colors-vocabulary.ko",
+        "filename": "colors-vocabulary.ko.md",
+        "title": "Colors (색상) - Korean Translation",
+        "size_kb": 19.7,
+        "modified": "2026-08-20T00:24:25.648951",
+        "path": "wiki/Japanese/vocabulary/colors-vocabulary.ko.md"
+      },
+      {
+        "name": "daily-life-basics",
+        "filename": "daily-life-basics.md",
+        "title": "日常生活 (Japanese Daily Life Basics)",
+        "size_kb": 14.2,
+        "modified": "2026-08-20T00:24:25.649404",
+        "path": "wiki/Japanese/vocabulary/daily-life-basics.md"
+      },
+      {
+        "name": "directions-vocabulary",
+        "filename": "directions-vocabulary.md",
+        "title": "directions vocabulary - Japanese theme",
+        "size_kb": 6.2,
+        "modified": "2026-08-20T00:24:25.650197",
+        "path": "wiki/Japanese/vocabulary/directions-vocabulary.md"
+      },
+      {
+        "name": "directions-vocabulary.ko",
+        "filename": "directions-vocabulary.ko.md",
+        "title": "Directions (방향/위치) - Korean Translation",
+        "size_kb": 19.6,
+        "modified": "2026-08-20T00:24:25.649572",
+        "path": "wiki/Japanese/vocabulary/directions-vocabulary.ko.md"
+      },
+      {
+        "name": "education-vocabulary",
+        "filename": "education-vocabulary.md",
+        "title": "Education 어휘 — Japanese vocabulary",
+        "size_kb": 6.6,
+        "modified": "2026-08-20T00:24:25.650536",
+        "path": "wiki/Japanese/vocabulary/education-vocabulary.md"
+      },
+      {
+        "name": "education-vocabulary.ko",
+        "filename": "education-vocabulary.ko.md",
+        "title": "Education (교육) - Korean Translation",
+        "size_kb": 20.0,
+        "modified": "2026-08-20T00:24:25.650373",
+        "path": "wiki/Japanese/vocabulary/education-vocabulary.ko.md"
+      },
+      {
+        "name": "emotions-personality-vocabulary",
+        "filename": "emotions-personality-vocabulary.md",
+        "title": "Emotions & Personality (感情・性格語彙)",
+        "size_kb": 35.1,
+        "modified": "2026-08-20T00:24:25.650821",
+        "path": "wiki/Japanese/vocabulary/emotions-personality-vocabulary.md"
+      },
+      {
+        "name": "emotions-personality-vocabulary.ko",
+        "filename": "emotions-personality-vocabulary.ko.md",
+        "title": "Emotions & Personality (감정·성격) - Korean Translation",
+        "size_kb": 19.0,
+        "modified": "2026-08-20T00:14:52.479868",
+        "path": "wiki/Japanese/vocabulary/emotions-personality-vocabulary.ko.md"
+      },
+      {
+        "name": "entertainment-vocabulary",
+        "filename": "entertainment-vocabulary.md",
+        "title": "エンタメ vocabulary — Japanese theme",
+        "size_kb": 11.8,
+        "modified": "2026-08-20T00:24:25.650984",
+        "path": "wiki/Japanese/vocabulary/entertainment-vocabulary.md"
+      },
+      {
+        "name": "entertainment-vocabulary.ko",
+        "filename": "entertainment-vocabulary.ko.md",
+        "title": "Entertainment (엔터테인먼트) - Korean Translation",
+        "size_kb": 17.0,
+        "modified": "2026-08-20T00:14:52.472021",
+        "path": "wiki/Japanese/vocabulary/entertainment-vocabulary.ko.md"
+      },
+      {
+        "name": "family-vocabulary",
+        "filename": "family-vocabulary.md",
+        "title": "family vocabulary - Japanese theme",
+        "size_kb": 6.0,
+        "modified": "2026-08-20T00:24:25.651307",
+        "path": "wiki/Japanese/vocabulary/family-vocabulary.md"
+      },
+      {
+        "name": "family-vocabulary.ko",
+        "filename": "family-vocabulary.ko.md",
+        "title": "Family (가족) - Korean Translation",
+        "size_kb": 18.8,
+        "modified": "2026-08-20T00:24:25.651136",
+        "path": "wiki/Japanese/vocabulary/family-vocabulary.ko.md"
+      },
+      {
+        "name": "food-vocabulary",
+        "filename": "food-vocabulary.md",
+        "title": "Food Vocabulary (食べ物・レストラン語彙)",
+        "size_kb": 25.7,
+        "modified": "2026-08-20T00:24:25.651467",
+        "path": "wiki/Japanese/vocabulary/food-vocabulary.md"
+      },
+      {
+        "name": "food-vocabulary.ko",
+        "filename": "food-vocabulary.ko.md",
+        "title": "Food (음식) - Korean Translation",
+        "size_kb": 18.5,
+        "modified": "2026-08-20T00:14:52.501136",
+        "path": "wiki/Japanese/vocabulary/food-vocabulary.ko.md"
+      },
+      {
+        "name": "health-vocabulary",
+        "filename": "health-vocabulary.md",
+        "title": "health vocabulary - Japanese theme",
+        "size_kb": 6.1,
+        "modified": "2026-08-20T00:24:25.651953",
+        "path": "wiki/Japanese/vocabulary/health-vocabulary.md"
+      },
+      {
+        "name": "health-vocabulary.ko",
+        "filename": "health-vocabulary.ko.md",
+        "title": "Health (건강) - Korean Translation",
+        "size_kb": 18.8,
+        "modified": "2026-08-20T00:24:25.651791",
+        "path": "wiki/Japanese/vocabulary/health-vocabulary.ko.md"
+      },
+      {
+        "name": "holidays-vocabulary",
+        "filename": "holidays-vocabulary.md",
+        "title": "祝日 vocabulary — Japanese theme",
+        "size_kb": 12.9,
+        "modified": "2026-08-20T00:24:25.652747",
+        "path": "wiki/Japanese/vocabulary/holidays-vocabulary.md"
+      },
+      {
+        "name": "holidays-vocabulary.ko",
+        "filename": "holidays-vocabulary.ko.md",
+        "title": "Holidays (명절) - Korean Translation",
+        "size_kb": 35.5,
+        "modified": "2026-08-20T00:24:25.652225",
+        "path": "wiki/Japanese/vocabulary/holidays-vocabulary.ko.md"
+      },
+      {
+        "name": "jp-adjectives-vocabulary",
+        "filename": "jp-adjectives-vocabulary.md",
+        "title": "日本語 形容詞 (Adjectives)",
+        "size_kb": 15.3,
+        "modified": "2026-08-20T00:24:25.653044",
+        "path": "wiki/Japanese/vocabulary/jp-adjectives-vocabulary.md"
+      },
+      {
+        "name": "jp-counters",
+        "filename": "jp-counters.md",
+        "title": "일본어 양사 (助数詞): JLPT N5 핵심 카운터",
+        "size_kb": 1.6,
+        "modified": "2026-08-20T00:24:25.653368",
+        "path": "wiki/Japanese/vocabulary/jp-counters.md"
+      },
+      {
+        "name": "jp-counters.ko",
+        "filename": "jp-counters.ko.md",
+        "title": "Counters (일본어 양사 助数詞) - Korean Translation",
+        "size_kb": 4.3,
+        "modified": "2026-08-20T00:24:25.653205",
+        "path": "wiki/Japanese/vocabulary/jp-counters.ko.md"
+      },
+      {
+        "name": "jp-daily-life-vocabulary",
+        "filename": "jp-daily-life-vocabulary.md",
+        "title": "日本語 日常生活動詞 (Daily Life Verbs)",
+        "size_kb": 12.1,
+        "modified": "2026-08-20T00:24:25.653583",
+        "path": "wiki/Japanese/vocabulary/jp-daily-life-vocabulary.md"
+      },
+      {
+        "name": "jp-entertainment-extra-vocabulary",
+        "filename": "jp-entertainment-extra-vocabulary.md",
+        "title": "日本語 エンタメ語彙 (Entertainment Vocabulary — Production & Media)",
+        "size_kb": 17.0,
+        "modified": "2026-08-20T00:24:25.653748",
+        "path": "wiki/Japanese/vocabulary/jp-entertainment-extra-vocabulary.md"
+      },
+      {
+        "name": "jp-medical-vocabulary",
+        "filename": "jp-medical-vocabulary.md",
+        "title": "日本語 医療語彙 (Medical Vocabulary — Specialties & Body Systems)",
+        "size_kb": 17.0,
+        "modified": "2026-08-20T00:24:25.653913",
+        "path": "wiki/Japanese/vocabulary/jp-medical-vocabulary.md"
+      },
+      {
+        "name": "jp-physical-descriptions-vocabulary",
+        "filename": "jp-physical-descriptions-vocabulary.md",
+        "title": "日本語 容姿・外見語彙 (Physical Appearance Descriptions)",
+        "size_kb": 18.0,
+        "modified": "2026-08-20T00:24:25.654076",
+        "path": "wiki/Japanese/vocabulary/jp-physical-descriptions-vocabulary.md"
+      },
+      {
+        "name": "jp-polite-expressions-vocabulary",
+        "filename": "jp-polite-expressions-vocabulary.md",
+        "title": "日本語 丁寧語・敬語表現 (Polite Expressions)",
+        "size_kb": 15.4,
+        "modified": "2026-08-20T00:24:25.654257",
+        "path": "wiki/Japanese/vocabulary/jp-polite-expressions-vocabulary.md"
+      },
+      {
+        "name": "jp-quotes-vocabulary",
+        "filename": "jp-quotes-vocabulary.md",
+        "title": "日本語 ことわざ・四字熟語 (Japanese Quotes & Idioms)",
+        "size_kb": 14.7,
+        "modified": "2026-08-20T00:24:25.654476",
+        "path": "wiki/Japanese/vocabulary/jp-quotes-vocabulary.md"
+      },
+      {
+        "name": "jp-restaurant-vocabulary",
+        "filename": "jp-restaurant-vocabulary.md",
+        "title": "日本語 レストラン語彙 (Restaurant Vocabulary)",
+        "size_kb": 12.8,
+        "modified": "2026-08-20T00:24:25.654695",
+        "path": "wiki/Japanese/vocabulary/jp-restaurant-vocabulary.md"
+      },
+      {
+        "name": "jp-time-prepositions-vocabulary",
+        "filename": "jp-time-prepositions-vocabulary.md",
+        "title": "日本語 時間語彙と助詞 (Time Words & Particles)",
+        "size_kb": 13.0,
+        "modified": "2026-08-20T00:24:25.654893",
+        "path": "wiki/Japanese/vocabulary/jp-time-prepositions-vocabulary.md"
+      },
+      {
+        "name": "jp-weather-seasons-vocabulary",
+        "filename": "jp-weather-seasons-vocabulary.md",
+        "title": "日本語 天気・季節・自然現象語彙 (Weather, Seasons & Natural Phenomena)",
+        "size_kb": 19.4,
+        "modified": "2026-08-20T00:24:25.655082",
+        "path": "wiki/Japanese/vocabulary/jp-weather-seasons-vocabulary.md"
+      },
+      {
+        "name": "kanji-n5",
+        "filename": "kanji-n5.md",
+        "title": "JLPT N5 핵심 한자: 읽기와 뜻 70자",
+        "size_kb": 1.5,
+        "modified": "2026-08-20T00:24:25.655268",
+        "path": "wiki/Japanese/vocabulary/kanji-n5.md"
+      },
+      {
+        "name": "kanji-n5.ko",
+        "filename": "kanji-n5.ko.md",
+        "title": "JLPT N5 Kanji (한자) - Korean Translation",
+        "size_kb": 7.9,
+        "modified": "2026-08-20T00:14:52.429859",
+        "path": "wiki/Japanese/vocabulary/kanji-n5.ko.md"
+      },
+      {
+        "name": "literature-vocabulary",
+        "filename": "literature-vocabulary.md",
+        "title": "文学 vocabulary — Japanese theme",
+        "size_kb": 11.8,
+        "modified": "2026-08-20T00:24:25.655658",
+        "path": "wiki/Japanese/vocabulary/literature-vocabulary.md"
+      },
+      {
+        "name": "literature-vocabulary.ko",
+        "filename": "literature-vocabulary.ko.md",
+        "title": "Literature (문학) - Korean Translation",
+        "size_kb": 21.2,
+        "modified": "2026-08-20T00:24:25.655458",
+        "path": "wiki/Japanese/vocabulary/literature-vocabulary.ko.md"
+      },
+      {
+        "name": "months-vocabulary",
+        "filename": "months-vocabulary.md",
+        "title": "months vocabulary - Japanese theme",
+        "size_kb": 6.2,
+        "modified": "2026-08-20T00:24:25.656059",
+        "path": "wiki/Japanese/vocabulary/months-vocabulary.md"
+      },
+      {
+        "name": "months-vocabulary.ko",
+        "filename": "months-vocabulary.ko.md",
+        "title": "Months (월) - Korean Translation",
+        "size_kb": 18.7,
+        "modified": "2026-08-20T00:24:25.655855",
+        "path": "wiki/Japanese/vocabulary/months-vocabulary.ko.md"
+      },
+      {
+        "name": "nature-vocabulary",
+        "filename": "nature-vocabulary.md",
+        "title": "自然・天気語彙 (Japanese Nature & Weather)",
+        "size_kb": 35.8,
+        "modified": "2026-08-20T00:24:25.656360",
+        "path": "wiki/Japanese/vocabulary/nature-vocabulary.md"
+      },
+      {
+        "name": "nature-vocabulary.ko",
+        "filename": "nature-vocabulary.ko.md",
+        "title": "Nature & Weather (자연·날씨) - Korean Translation",
+        "size_kb": 19.4,
+        "modified": "2026-08-20T00:14:52.482595",
+        "path": "wiki/Japanese/vocabulary/nature-vocabulary.ko.md"
+      },
+      {
+        "name": "numbers-vocabulary",
+        "filename": "numbers-vocabulary.md",
+        "title": "numbers vocabulary - Japanese theme",
+        "size_kb": 5.9,
+        "modified": "2026-08-20T00:24:25.656776",
+        "path": "wiki/Japanese/vocabulary/numbers-vocabulary.md"
+      },
+      {
+        "name": "numbers-vocabulary.ko",
+        "filename": "numbers-vocabulary.ko.md",
+        "title": "Numbers (숫자) - Korean Translation",
+        "size_kb": 17.2,
+        "modified": "2026-08-20T00:24:25.656573",
+        "path": "wiki/Japanese/vocabulary/numbers-vocabulary.ko.md"
+      },
+      {
+        "name": "ordinal-numbers-vocabulary",
+        "filename": "ordinal-numbers-vocabulary.md",
+        "title": "ordinal-numbers vocabulary - Japanese theme",
+        "size_kb": 6.8,
+        "modified": "2026-08-20T00:24:25.657226",
+        "path": "wiki/Japanese/vocabulary/ordinal-numbers-vocabulary.md"
+      },
+      {
+        "name": "ordinal-numbers-vocabulary.ko",
+        "filename": "ordinal-numbers-vocabulary.ko.md",
+        "title": "Ordinal Numbers (서수) - Korean Translation",
+        "size_kb": 19.1,
+        "modified": "2026-08-20T00:24:25.657002",
+        "path": "wiki/Japanese/vocabulary/ordinal-numbers-vocabulary.ko.md"
+      },
+      {
+        "name": "shopping-vocabulary",
+        "filename": "shopping-vocabulary.md",
+        "title": "買い物 vocabulary — Japanese theme",
+        "size_kb": 10.6,
+        "modified": "2026-08-20T00:24:25.657629",
+        "path": "wiki/Japanese/vocabulary/shopping-vocabulary.md"
+      },
+      {
+        "name": "shopping-vocabulary.ko",
+        "filename": "shopping-vocabulary.ko.md",
+        "title": "Shopping (쇼핑) - Korean Translation",
+        "size_kb": 32.5,
+        "modified": "2026-08-20T00:24:25.657470",
+        "path": "wiki/Japanese/vocabulary/shopping-vocabulary.ko.md"
+      },
+      {
+        "name": "sports-vocabulary",
+        "filename": "sports-vocabulary.md",
+        "title": "スポーツ vocabulary — Japanese theme",
+        "size_kb": 10.9,
+        "modified": "2026-08-20T00:24:25.658063",
+        "path": "wiki/Japanese/vocabulary/sports-vocabulary.md"
+      },
+      {
+        "name": "sports-vocabulary.ko",
+        "filename": "sports-vocabulary.ko.md",
+        "title": "Sports (스포츠) - Korean Translation",
+        "size_kb": 28.8,
+        "modified": "2026-08-20T00:24:25.657887",
+        "path": "wiki/Japanese/vocabulary/sports-vocabulary.ko.md"
+      },
+      {
+        "name": "technology-vocabulary",
+        "filename": "technology-vocabulary.md",
+        "title": "technology vocabulary - Japanese theme",
+        "size_kb": 6.4,
+        "modified": "2026-08-20T00:24:25.658376",
+        "path": "wiki/Japanese/vocabulary/technology-vocabulary.md"
+      },
+      {
+        "name": "technology-vocabulary.ko",
+        "filename": "technology-vocabulary.ko.md",
+        "title": "Technology (기술) - Korean Translation",
+        "size_kb": 19.8,
+        "modified": "2026-08-20T00:24:25.658219",
+        "path": "wiki/Japanese/vocabulary/technology-vocabulary.ko.md"
+      },
+      {
+        "name": "time-vocabulary",
+        "filename": "time-vocabulary.md",
+        "title": "time (Japanese) vocabulary",
+        "size_kb": 5.9,
+        "modified": "2026-08-20T00:24:25.658717",
+        "path": "wiki/Japanese/vocabulary/time-vocabulary.md"
+      },
+      {
+        "name": "time-vocabulary.ko",
+        "filename": "time-vocabulary.ko.md",
+        "title": "Time (시간) - Korean Translation",
+        "size_kb": 17.9,
+        "modified": "2026-08-20T00:24:25.658541",
+        "path": "wiki/Japanese/vocabulary/time-vocabulary.ko.md"
+      },
+      {
+        "name": "transportation-vocabulary",
+        "filename": "transportation-vocabulary.md",
+        "title": "transportation vocabulary - Japanese theme",
+        "size_kb": 6.6,
+        "modified": "2026-08-20T00:24:25.659058",
+        "path": "wiki/Japanese/vocabulary/transportation-vocabulary.md"
+      },
+      {
+        "name": "transportation-vocabulary.ko",
+        "filename": "transportation-vocabulary.ko.md",
+        "title": "Transportation (교통) - Korean Translation",
+        "size_kb": 18.8,
+        "modified": "2026-08-20T00:24:25.658888",
+        "path": "wiki/Japanese/vocabulary/transportation-vocabulary.ko.md"
+      },
+      {
+        "name": "travel",
+        "filename": "travel.md",
+        "title": "旅行 (りょこう) - Travel",
+        "size_kb": 5.1,
+        "modified": "2026-08-20T00:24:25.659558",
+        "path": "wiki/Japanese/vocabulary/travel.md"
+      },
+      {
+        "name": "travel.ko",
+        "filename": "travel.ko.md",
+        "title": "Travel (여행) - Korean Translation",
+        "size_kb": 58.5,
+        "modified": "2026-08-20T00:24:25.659390",
+        "path": "wiki/Japanese/vocabulary/travel.ko.md"
+      },
+      {
+        "name": "weather-vocabulary",
+        "filename": "weather-vocabulary.md",
+        "title": "weather vocabulary - Japanese theme",
+        "size_kb": 6.1,
+        "modified": "2026-08-20T00:24:25.659977",
+        "path": "wiki/Japanese/vocabulary/weather-vocabulary.md"
+      },
+      {
+        "name": "weather-vocabulary.ko",
+        "filename": "weather-vocabulary.ko.md",
+        "title": "Weather (날씨) - Korean Translation",
+        "size_kb": 18.3,
+        "modified": "2026-08-20T00:24:25.659822",
+        "path": "wiki/Japanese/vocabulary/weather-vocabulary.ko.md"
+      },
+      {
+        "name": "weekdays-vocabulary",
+        "filename": "weekdays-vocabulary.md",
+        "title": "weekdays vocabulary - Japanese theme",
+        "size_kb": 6.6,
+        "modified": "2026-08-20T00:24:25.660330",
+        "path": "wiki/Japanese/vocabulary/weekdays-vocabulary.md"
+      },
+      {
+        "name": "weekdays-vocabulary.ko",
+        "filename": "weekdays-vocabulary.ko.md",
+        "title": "Weekdays (요일) - Korean Translation",
+        "size_kb": 19.7,
+        "modified": "2026-08-20T00:24:25.660172",
+        "path": "wiki/Japanese/vocabulary/weekdays-vocabulary.ko.md"
+      }
+    ],
     "expressions": [
       {
-        "name": "sumimasen",
-        "filename": "sumimasen.md",
-        "title": "sumimasen",
-        "size_kb": 1.2,
-        "modified": "2026-06-18T18:56:40.429678",
-        "path": "wiki/Japanese/expressions/sumimasen.md"
+        "name": "agreement",
+        "filename": "agreement.md",
+        "title": "agreement (Japanese) expressions",
+        "size_kb": 2.5,
+        "modified": "2026-08-20T00:24:25.642586",
+        "path": "wiki/Japanese/expressions/agreement.md"
       },
       {
-        "name": "はじめまして",
-        "filename": "はじめまして.md",
-        "title": "はじめまして",
-        "size_kb": 0.9,
-        "modified": "2026-06-19T02:57:09.343539",
-        "path": "wiki/Japanese/expressions/はじめまして.md"
+        "name": "apologies",
+        "filename": "apologies.md",
+        "title": "apologies (Japanese) expressions",
+        "size_kb": 2.4,
+        "modified": "2026-08-20T00:24:25.642779",
+        "path": "wiki/Japanese/expressions/apologies.md"
       },
       {
-        "name": "また連絡する",
-        "filename": "また連絡する.md",
-        "title": "また連絡する",
-        "size_kb": 1.1,
-        "modified": "2026-06-19T02:57:46.302063",
-        "path": "wiki/Japanese/expressions/また連絡する.md"
+        "name": "business-basics",
+        "filename": "business-basics.md",
+        "title": "Expressions: Business Basics (日本語)",
+        "size_kb": 15.7,
+        "modified": "2026-08-20T00:24:25.642985",
+        "path": "wiki/Japanese/expressions/business-basics.md"
       },
       {
-        "name": "今度ご飯行かない",
-        "filename": "今度ご飯行かない.md",
-        "title": "今度ご飯行かない",
-        "size_kb": 1.1,
-        "modified": "2026-06-19T02:57:18.053835",
-        "path": "wiki/Japanese/expressions/今度ご飯行かない.md"
+        "name": "business-expressions",
+        "filename": "business-expressions.md",
+        "title": "Expressions: Business (日本語)",
+        "size_kb": 11.1,
+        "modified": "2026-08-20T00:24:25.643162",
+        "path": "wiki/Japanese/expressions/business-expressions.md"
       },
       {
-        "name": "俺の彼女になってよ",
-        "filename": "俺の彼女になってよ.md",
-        "title": "俺の彼女になってよ",
-        "size_kb": 1.1,
-        "modified": "2026-06-19T02:57:54.100309",
-        "path": "wiki/Japanese/expressions/俺の彼女になってよ.md"
+        "name": "common-phrases",
+        "filename": "common-phrases.md",
+        "title": "common-phrases (Japanese) expressions",
+        "size_kb": 2.5,
+        "modified": "2026-08-20T00:24:25.643316",
+        "path": "wiki/Japanese/expressions/common-phrases.md"
       },
       {
-        "name": "好きです付き合ってください",
-        "filename": "好きです付き合ってください.md",
-        "title": "好きです付き合ってください",
-        "size_kb": 1.2,
-        "modified": "2026-06-19T02:57:26.335514",
-        "path": "wiki/Japanese/expressions/好きです付き合ってください.md"
+        "name": "complaints",
+        "filename": "complaints.md",
+        "title": "complaints (Japanese) expressions",
+        "size_kb": 15.8,
+        "modified": "2026-08-20T00:24:25.643504",
+        "path": "wiki/Japanese/expressions/complaints.md"
       },
       {
-        "name": "手繋いでもいい",
-        "filename": "手繋いでもいい.md",
-        "title": "手繋いでもいい",
-        "size_kb": 1.1,
-        "modified": "2026-06-19T02:57:36.210050",
-        "path": "wiki/Japanese/expressions/手繋いでもいい.md"
+        "name": "daily-life",
+        "filename": "daily-life.md",
+        "title": "Expressions: Daily Life (日本語)",
+        "size_kb": 13.6,
+        "modified": "2026-08-20T00:24:25.643801",
+        "path": "wiki/Japanese/expressions/daily-life.md"
+      },
+      {
+        "name": "dating-expressions",
+        "filename": "dating-expressions.md",
+        "title": "Expressions: Dating & Romance (日本語)",
+        "size_kb": 9.3,
+        "modified": "2026-08-20T00:24:25.643971",
+        "path": "wiki/Japanese/expressions/dating-expressions.md"
+      },
+      {
+        "name": "dating-romance",
+        "filename": "dating-romance.md",
+        "title": "表現: 연애 표현 / Expresiones sentimentales",
+        "size_kb": 10.2,
+        "modified": "2026-08-20T00:24:25.644146",
+        "path": "wiki/Japanese/expressions/dating-romance.md"
+      },
+      {
+        "name": "emotions-reactions",
+        "filename": "emotions-reactions.md",
+        "title": "emotions-reactions (Japanese) expressions",
+        "size_kb": 14.2,
+        "modified": "2026-08-20T00:24:25.644341",
+        "path": "wiki/Japanese/expressions/emotions-reactions.md"
+      },
+      {
+        "name": "food-dining",
+        "filename": "food-dining.md",
+        "title": "Expressions: Food & Dining (日本語)",
+        "size_kb": 13.7,
+        "modified": "2026-08-20T00:24:25.644538",
+        "path": "wiki/Japanese/expressions/food-dining.md"
+      },
+      {
+        "name": "greetings",
+        "filename": "greetings.md",
+        "title": "greetings (Japanese) expressions",
+        "size_kb": 2.2,
+        "modified": "2026-08-20T00:24:25.644678",
+        "path": "wiki/Japanese/expressions/greetings.md"
+      },
+      {
+        "name": "idioms-proverbs",
+        "filename": "idioms-proverbs.md",
+        "title": "Expressions: Idioms & Proverbs (日本語)",
+        "size_kb": 6.8,
+        "modified": "2026-08-20T00:24:25.644832",
+        "path": "wiki/Japanese/expressions/idioms-proverbs.md"
+      },
+      {
+        "name": "polite-expressions",
+        "filename": "polite-expressions.md",
+        "title": "Expressions: Polite & Honorific (日本語)",
+        "size_kb": 9.9,
+        "modified": "2026-08-20T00:24:25.644997",
+        "path": "wiki/Japanese/expressions/polite-expressions.md"
+      },
+      {
+        "name": "requests",
+        "filename": "requests.md",
+        "title": "requests (Japanese) expressions",
+        "size_kb": 14.7,
+        "modified": "2026-08-20T00:24:25.645177",
+        "path": "wiki/Japanese/expressions/requests.md"
+      },
+      {
+        "name": "restaurant-expressions",
+        "filename": "restaurant-expressions.md",
+        "title": "Expressions: Restaurant & Dining (日本語)",
+        "size_kb": 9.3,
+        "modified": "2026-08-20T00:24:25.645454",
+        "path": "wiki/Japanese/expressions/restaurant-expressions.md"
+      },
+      {
+        "name": "slang-colloquial",
+        "filename": "slang-colloquial.md",
+        "title": "Expressions: Slang & Colloquial (日本語)",
+        "size_kb": 8.4,
+        "modified": "2026-08-20T00:24:25.645642",
+        "path": "wiki/Japanese/expressions/slang-colloquial.md"
+      },
+      {
+        "name": "small-talk",
+        "filename": "small-talk.md",
+        "title": "small-talk (Japanese) expressions",
+        "size_kb": 14.4,
+        "modified": "2026-08-20T00:24:25.645846",
+        "path": "wiki/Japanese/expressions/small-talk.md"
+      },
+      {
+        "name": "technology-expressions",
+        "filename": "technology-expressions.md",
+        "title": "Expressions: Technology & Internet (日本語)",
+        "size_kb": 7.9,
+        "modified": "2026-08-20T00:24:25.646025",
+        "path": "wiki/Japanese/expressions/technology-expressions.md"
+      },
+      {
+        "name": "travel-basics",
+        "filename": "travel-basics.md",
+        "title": "Expressions: Travel Basics (日本語)",
+        "size_kb": 15.0,
+        "modified": "2026-08-20T00:24:25.646313",
+        "path": "wiki/Japanese/expressions/travel-basics.md"
+      },
+      {
+        "name": "travel-expressions",
+        "filename": "travel-expressions.md",
+        "title": "Expressions: Travel Advanced (日本語)",
+        "size_kb": 10.6,
+        "modified": "2026-08-20T00:24:25.646567",
+        "path": "wiki/Japanese/expressions/travel-expressions.md"
       }
     ],
     "culture": [
       {
-        "name": "japanese-daily-life-culture",
-        "filename": "japanese-daily-life-culture.md",
-        "title": "日本の日常文化 (Japanese Daily Life Culture)",
-        "size_kb": 1.8,
-        "modified": "2026-06-24T16:08:10.627854",
-        "path": "wiki/Japanese/culture/japanese-daily-life-culture.md"
+        "name": "japanese-arts-traditions",
+        "filename": "japanese-arts-traditions.md",
+        "title": "日本の伝統芸能 (Japanese Traditional Arts)",
+        "size_kb": 5.0,
+        "modified": "2026-08-20T00:14:52.562547",
+        "path": "wiki/Japanese/culture/japanese-arts-traditions.md"
+      },
+      {
+        "name": "japanese-baby-ceremonies",
+        "filename": "japanese-baby-ceremonies.md",
+        "title": "日本の赤ちゃんの儀式 (Japanese Baby Ceremonies)",
+        "size_kb": 5.0,
+        "modified": "2026-08-20T00:14:52.627724",
+        "path": "wiki/Japanese/culture/japanese-baby-ceremonies.md"
+      },
+      {
+        "name": "japanese-bowing-ojigi",
+        "filename": "japanese-bowing-ojigi.md",
+        "title": "お辞儀 (Oijigi, Bowing)",
+        "size_kb": 5.0,
+        "modified": "2026-08-20T00:14:52.581193",
+        "path": "wiki/Japanese/culture/japanese-bowing-ojigi.md"
+      },
+      {
+        "name": "japanese-bushido-mythology",
+        "filename": "japanese-bushido-mythology.md",
+        "title": "武士道の神話と現実 (Bushido Mythology and Reality)",
+        "size_kb": 6.6,
+        "modified": "2026-08-20T00:14:52.604419",
+        "path": "wiki/Japanese/culture/japanese-bushido-mythology.md"
+      },
+      {
+        "name": "japanese-communication-keigo",
+        "filename": "japanese-communication-keigo.md",
+        "title": "Japanese Communication: Keigo and Reading the Air",
+        "size_kb": 1.9,
+        "modified": "2026-08-20T00:14:52.576994",
+        "path": "wiki/Japanese/culture/japanese-communication-keigo.md"
+      },
+      {
+        "name": "japanese-conbini-culture",
+        "filename": "japanese-conbini-culture.md",
+        "title": "コンビニ文化 (Convenience Store Culture)",
+        "size_kb": 6.0,
+        "modified": "2026-08-20T00:14:52.608044",
+        "path": "wiki/Japanese/culture/japanese-conbini-culture.md"
+      },
+      {
+        "name": "japanese-cyberpunk-aesthetics",
+        "filename": "japanese-cyberpunk-aesthetics.md",
+        "title": "日本のサイバーパンク美学 (Japanese Cyberpunk Aesthetics)",
+        "size_kb": 6.8,
+        "modified": "2026-08-20T00:14:52.537475",
+        "path": "wiki/Japanese/culture/japanese-cyberpunk-aesthetics.md"
       },
       {
         "name": "japanese-dating-culture",
         "filename": "japanese-dating-culture.md",
         "title": "Japanese Dating Culture",
-        "size_kb": 5.3,
-        "modified": "2026-06-20T01:24:39.363320",
+        "size_kb": 5.6,
+        "modified": "2026-08-20T00:14:52.539737",
         "path": "wiki/Japanese/culture/japanese-dating-culture.md"
+      },
+      {
+        "name": "japanese-education-system",
+        "filename": "japanese-education-system.md",
+        "title": "日本の教育制度 (Japanese Education System)",
+        "size_kb": 4.1,
+        "modified": "2026-08-20T00:14:52.567243",
+        "path": "wiki/Japanese/culture/japanese-education-system.md"
+      },
+      {
+        "name": "japanese-family-structure",
+        "filename": "japanese-family-structure.md",
+        "title": "日本の家族構造 (Japanese Family Structure)",
+        "size_kb": 3.6,
+        "modified": "2026-08-20T00:14:52.558175",
+        "path": "wiki/Japanese/culture/japanese-family-structure.md"
       },
       {
         "name": "japanese-food-culture",
         "filename": "japanese-food-culture.md",
-        "title": "日本食文化 (Japanese Food Culture)",
-        "size_kb": 1.6,
-        "modified": "2026-06-24T15:16:46.420903",
+        "title": "Japanese Food Culture",
+        "size_kb": 18.0,
+        "modified": "2026-08-20T00:14:52.632317",
         "path": "wiki/Japanese/culture/japanese-food-culture.md"
       },
       {
-        "name": "japanese-health-culture",
-        "filename": "japanese-health-culture.md",
-        "title": "日本健康·医療文化 (Japanese Health & Medical Culture)",
-        "size_kb": 1.5,
-        "modified": "2026-06-24T15:16:56.313226",
-        "path": "wiki/Japanese/culture/japanese-health-culture.md"
+        "name": "japanese-food-culture-washoku",
+        "filename": "japanese-food-culture-washoku.md",
+        "title": "Japanese Food Culture: Washoku and Itadakimasu",
+        "size_kb": 2.1,
+        "modified": "2026-08-20T00:14:52.589044",
+        "path": "wiki/Japanese/culture/japanese-food-culture-washoku.md"
       },
       {
-        "name": "japanese-holidays-culture",
-        "filename": "japanese-holidays-culture.md",
-        "title": "日本の祝日·祭日文化 (Japanese Holidays & Celebrations Culture)",
-        "size_kb": 1.7,
-        "modified": "2026-06-24T15:17:07.721586",
-        "path": "wiki/Japanese/culture/japanese-holidays-culture.md"
+        "name": "japanese-food-history",
+        "filename": "japanese-food-history.md",
+        "title": "日本の食文化史 (Japanese Food History)",
+        "size_kb": 4.8,
+        "modified": "2026-08-20T00:14:52.629810",
+        "path": "wiki/Japanese/culture/japanese-food-history.md"
       },
       {
-        "name": "japanese-shopping-culture",
-        "filename": "japanese-shopping-culture.md",
-        "title": "日本の買い物·お金の文化 (Japanese Shopping & Money Culture)",
-        "size_kb": 1.7,
-        "modified": "2026-06-24T16:07:57.805936",
-        "path": "wiki/Japanese/culture/japanese-shopping-culture.md"
+        "name": "japanese-funeral-traditions",
+        "filename": "japanese-funeral-traditions.md",
+        "title": "日本の葬式の伝統 (Japanese Funeral Traditions)",
+        "size_kb": 4.8,
+        "modified": "2026-08-20T00:14:52.622380",
+        "path": "wiki/Japanese/culture/japanese-funeral-traditions.md"
+      },
+      {
+        "name": "japanese-golden-week",
+        "filename": "japanese-golden-week.md",
+        "title": "ゴールデンウィーク (Golden Week)",
+        "size_kb": 4.0,
+        "modified": "2026-08-20T00:14:52.564809",
+        "path": "wiki/Japanese/culture/japanese-golden-week.md"
+      },
+      {
+        "name": "japanese-hanami",
+        "filename": "japanese-hanami.md",
+        "title": "花見 (Hanami, Cherry Blossom Viewing)",
+        "size_kb": 3.9,
+        "modified": "2026-08-20T00:14:52.551680",
+        "path": "wiki/Japanese/culture/japanese-hanami.md"
+      },
+      {
+        "name": "japanese-higan",
+        "filename": "japanese-higan.md",
+        "title": "彼岸 (Higan)",
+        "size_kb": 3.7,
+        "modified": "2026-08-20T00:14:52.574708",
+        "path": "wiki/Japanese/culture/japanese-higan.md"
+      },
+      {
+        "name": "japanese-history-trivia",
+        "filename": "japanese-history-trivia.md",
+        "title": "日本史の豆知識 (Japanese History Trivia)",
+        "size_kb": 5.1,
+        "modified": "2026-08-20T00:14:52.572098",
+        "path": "wiki/Japanese/culture/japanese-history-trivia.md"
+      },
+      {
+        "name": "japanese-holiday-culture",
+        "filename": "japanese-holiday-culture.md",
+        "title": "Japanese Holiday Culture & Traditions",
+        "size_kb": 23.3,
+        "modified": "2026-08-20T00:14:52.586622",
+        "path": "wiki/Japanese/culture/japanese-holiday-culture.md"
+      },
+      {
+        "name": "japanese-meishi-etiquette",
+        "filename": "japanese-meishi-etiquette.md",
+        "title": "名刺交換の礼儀 (Meishi Exchange Etiquette)",
+        "size_kb": 4.9,
+        "modified": "2026-08-20T00:14:52.593147",
+        "path": "wiki/Japanese/culture/japanese-meishi-etiquette.md"
+      },
+      {
+        "name": "japanese-modern-life",
+        "filename": "japanese-modern-life.md",
+        "title": "Japanese Modern Life: Konbini and Mobile",
+        "size_kb": 2.2,
+        "modified": "2026-08-20T00:14:52.597205",
+        "path": "wiki/Japanese/culture/japanese-modern-life.md"
+      },
+      {
+        "name": "japanese-new-year-preparations",
+        "filename": "japanese-new-year-preparations.md",
+        "title": "大掃除とお正月準備 (New Year Preparations)",
+        "size_kb": 4.5,
+        "modified": "2026-08-20T00:14:52.554010",
+        "path": "wiki/Japanese/culture/japanese-new-year-preparations.md"
+      },
+      {
+        "name": "japanese-new-year-traditions",
+        "filename": "japanese-new-year-traditions.md",
+        "title": "Japanese New Year Traditions (お正月)",
+        "size_kb": 2.0,
+        "modified": "2026-08-20T00:14:52.579069",
+        "path": "wiki/Japanese/culture/japanese-new-year-traditions.md"
+      },
+      {
+        "name": "japanese-obon",
+        "filename": "japanese-obon.md",
+        "title": "お盆 (Obon)",
+        "size_kb": 3.8,
+        "modified": "2026-08-20T00:14:52.639636",
+        "path": "wiki/Japanese/culture/japanese-obon.md"
+      },
+      {
+        "name": "japanese-omiyage-culture",
+        "filename": "japanese-omiyage-culture.md",
+        "title": "お土産の文化 (Omiyage Culture)",
+        "size_kb": 5.3,
+        "modified": "2026-08-20T00:14:52.625378",
+        "path": "wiki/Japanese/culture/japanese-omiyage-culture.md"
+      },
+      {
+        "name": "japanese-onsen-etiquette",
+        "filename": "japanese-onsen-etiquette.md",
+        "title": "温泉の礼儀 (Onsen Etiquette)",
+        "size_kb": 5.6,
+        "modified": "2026-08-20T00:14:52.599665",
+        "path": "wiki/Japanese/culture/japanese-onsen-etiquette.md"
+      },
+      {
+        "name": "japanese-pop-culture",
+        "filename": "japanese-pop-culture.md",
+        "title": "日本のポップカルチャー (Japanese Pop Culture)",
+        "size_kb": 4.8,
+        "modified": "2026-08-20T00:14:52.534914",
+        "path": "wiki/Japanese/culture/japanese-pop-culture.md"
+      },
+      {
+        "name": "japanese-rakugo",
+        "filename": "japanese-rakugo.md",
+        "title": "落語 (Rakugo, Comic Storytelling)",
+        "size_kb": 6.1,
+        "modified": "2026-08-20T00:14:52.637249",
+        "path": "wiki/Japanese/culture/japanese-rakugo.md"
+      },
+      {
+        "name": "japanese-regional-variations",
+        "filename": "japanese-regional-variations.md",
+        "title": "日本の地域差 (Japanese Regional Variations)",
+        "size_kb": 4.6,
+        "modified": "2026-08-20T00:14:52.549165",
+        "path": "wiki/Japanese/culture/japanese-regional-variations.md"
+      },
+      {
+        "name": "japanese-religious-holidays",
+        "filename": "japanese-religious-holidays.md",
+        "title": "日本の宗教的祝日 (Japanese Religious Holidays)",
+        "size_kb": 4.3,
+        "modified": "2026-08-20T00:14:52.601657",
+        "path": "wiki/Japanese/culture/japanese-religious-holidays.md"
+      },
+      {
+        "name": "japanese-restaurant-etiquette",
+        "filename": "japanese-restaurant-etiquette.md",
+        "title": "日本のレストランの礼儀 (Japanese Restaurant Etiquette)",
+        "size_kb": 5.5,
+        "modified": "2026-08-20T00:14:52.634817",
+        "path": "wiki/Japanese/culture/japanese-restaurant-etiquette.md"
+      },
+      {
+        "name": "japanese-school-life",
+        "filename": "japanese-school-life.md",
+        "title": "Japanese School Culture",
+        "size_kb": 21.9,
+        "modified": "2026-08-20T00:14:52.611506",
+        "path": "wiki/Japanese/culture/japanese-school-life.md"
+      },
+      {
+        "name": "japanese-seijin-no-hi",
+        "filename": "japanese-seijin-no-hi.md",
+        "title": "成人式 (Seijin no Hi, Coming of Age Day)",
+        "size_kb": 3.9,
+        "modified": "2026-08-20T00:14:52.620239",
+        "path": "wiki/Japanese/culture/japanese-seijin-no-hi.md"
+      },
+      {
+        "name": "japanese-settsubun",
+        "filename": "japanese-settsubun.md",
+        "title": "節分 (Setsubun)",
+        "size_kb": 3.7,
+        "modified": "2026-08-20T00:14:52.595279",
+        "path": "wiki/Japanese/culture/japanese-settsubun.md"
+      },
+      {
+        "name": "japanese-shichigosan",
+        "filename": "japanese-shichigosan.md",
+        "title": "七五三 (Shichi-Go-San)",
+        "size_kb": 3.7,
+        "modified": "2026-08-20T00:14:52.642184",
+        "path": "wiki/Japanese/culture/japanese-shichigosan.md"
+      },
+      {
+        "name": "japanese-silver-week",
+        "filename": "japanese-silver-week.md",
+        "title": "シルバーウィーク (Silver Week)",
+        "size_kb": 3.7,
+        "modified": "2026-08-20T00:14:52.560279",
+        "path": "wiki/Japanese/culture/japanese-silver-week.md"
       },
       {
         "name": "japanese-sports-culture",
         "filename": "japanese-sports-culture.md",
-        "title": "日本のスポーツ·趣味文化 (Japanese Sports & Hobbies Culture)",
-        "size_kb": 1.8,
-        "modified": "2026-06-24T16:08:24.911536",
+        "title": "日本のスポーツ文化 (Japanese Sports Culture)",
+        "size_kb": 4.3,
+        "modified": "2026-08-20T00:14:52.615466",
         "path": "wiki/Japanese/culture/japanese-sports-culture.md"
       },
       {
-        "name": "japanese-technology-culture",
-        "filename": "japanese-technology-culture.md",
-        "title": "日本のテクノロジー文化 (Japanese Technology Culture)",
-        "size_kb": 1.7,
-        "modified": "2026-06-24T15:16:35.774489",
-        "path": "wiki/Japanese/culture/japanese-technology-culture.md"
+        "name": "japanese-tanabata",
+        "filename": "japanese-tanabata.md",
+        "title": "七夕 (Tanabata, Star Festival)",
+        "size_kb": 3.4,
+        "modified": "2026-08-20T00:14:52.556127",
+        "path": "wiki/Japanese/culture/japanese-tanabata.md"
       },
       {
-        "name": "japanese-travel-culture",
-        "filename": "japanese-travel-culture.md",
-        "title": "日本旅行文化 (Japanese Travel Culture)",
-        "size_kb": 2.1,
-        "modified": "2026-06-24T15:16:26.026633",
-        "path": "wiki/Japanese/culture/japanese-travel-culture.md"
+        "name": "japanese-tech-workplace",
+        "filename": "japanese-tech-workplace.md",
+        "title": "日本の職場とテクノロジー (Japanese Tech Workplace)",
+        "size_kb": 4.8,
+        "modified": "2026-08-20T00:14:52.618139",
+        "path": "wiki/Japanese/culture/japanese-tech-workplace.md"
+      },
+      {
+        "name": "japanese-traditions",
+        "filename": "japanese-traditions.md",
+        "title": "Japanese Cultural Traditions & Customs",
+        "size_kb": 19.9,
+        "modified": "2026-08-20T00:14:52.542686",
+        "path": "wiki/Japanese/culture/japanese-traditions.md"
+      },
+      {
+        "name": "japanese-train-etiquette",
+        "filename": "japanese-train-etiquette.md",
+        "title": "電車のマナー (Japanese Train Etiquette)",
+        "size_kb": 5.9,
+        "modified": "2026-08-20T00:14:52.591226",
+        "path": "wiki/Japanese/culture/japanese-train-etiquette.md"
+      },
+      {
+        "name": "japanese-wedding-traditions",
+        "filename": "japanese-wedding-traditions.md",
+        "title": "日本の結婚式の伝統 (Japanese Wedding Traditions)",
+        "size_kb": 4.9,
+        "modified": "2026-08-20T00:14:52.583929",
+        "path": "wiki/Japanese/culture/japanese-wedding-traditions.md"
+      },
+      {
+        "name": "japanese-workplace-keigo",
+        "filename": "japanese-workplace-keigo.md",
+        "title": "Japanese Workplace Culture: Nomikai and Keigo",
+        "size_kb": 4.0,
+        "modified": "2026-08-20T00:14:52.544807",
+        "path": "wiki/Japanese/culture/japanese-workplace-keigo.md"
       }
     ],
-    "study_plan": []
+    "study_plan": [
+      {
+        "name": "README",
+        "filename": "README.md",
+        "title": "日本語 学習プラン (Japanese Study Plan)",
+        "size_kb": 1.2,
+        "modified": "2026-08-20T00:14:52.247639",
+        "path": "wiki/Japanese/study-plan/README.md"
+      },
+      {
+        "name": "recursos-jp",
+        "filename": "recursos-jp.md",
+        "title": "日本語学習リソースカタログ (recursos-jp)",
+        "size_kb": 3.4,
+        "modified": "2026-08-20T00:24:25.715042",
+        "path": "wiki/Japanese/study-plan/recursos-jp.md"
+      },
+      {
+        "name": "weekly-plan",
+        "filename": "weekly-plan.md",
+        "title": "日本語 週次学習計画 (Japanese Weekly Study Plan)",
+        "size_kb": 4.1,
+        "modified": "2026-08-20T00:24:25.715170",
+        "path": "wiki/Japanese/study-plan/weekly-plan.md"
+      }
+    ]
   },
   "raw_sources": [
     {
@@ -238,23 +1288,23 @@
       "filename": "animals-vocabulary-jp.md",
       "title": "Japanese Animals Vocabulary",
       "size_kb": 2.1,
-      "modified": "2026-06-23T00:23:33.783453",
+      "modified": "2026-08-20T00:14:54.501503",
       "path": "raw/Japanese/animals-vocabulary-jp.md"
     },
     {
       "name": "anime-drama-quotes",
       "filename": "anime-drama-quotes.md",
-      "title": "アニメ・ドラマ名言集 (Anime & Drama Quotes)",
-      "size_kb": 2.9,
-      "modified": "2026-06-23T15:57:49.862478",
+      "title": "Japanese Anime Drama Quotes Vocabulary",
+      "size_kb": 5.2,
+      "modified": "2026-08-20T00:14:54.499183",
       "path": "raw/Japanese/anime-drama-quotes.md"
     },
     {
       "name": "business-email",
       "filename": "business-email.md",
-      "title": "ビジネスメール文例集 (Business Email Phrases)",
-      "size_kb": 47.2,
-      "modified": "2026-06-23T16:00:09.475413",
+      "title": "Japanese Business Email Vocabulary",
+      "size_kb": 7.0,
+      "modified": "2026-08-20T00:14:54.496859",
       "path": "raw/Japanese/business-email.md"
     },
     {
@@ -262,7 +1312,7 @@
       "filename": "business-vocabulary-jp.md",
       "title": "Japanese Business Vocabulary",
       "size_kb": 3.0,
-      "modified": "2026-06-23T00:21:15.990829",
+      "modified": "2026-08-20T00:14:54.480823",
       "path": "raw/Japanese/business-vocabulary-jp.md"
     },
     {
@@ -270,15 +1320,23 @@
       "filename": "clothing-vocabulary-jp.md",
       "title": "Japanese Clothing & Fashion Vocabulary",
       "size_kb": 2.0,
-      "modified": "2026-06-23T00:23:44.780901",
+      "modified": "2026-08-20T00:14:54.514960",
       "path": "raw/Japanese/clothing-vocabulary-jp.md"
+    },
+    {
+      "name": "daily-life-basics",
+      "filename": "daily-life-basics.md",
+      "title": "Japanese Daily Life Basics Vocabulary",
+      "size_kb": 8.1,
+      "modified": "2026-08-20T00:24:25.595151",
+      "path": "raw/Japanese/daily-life-basics.md"
     },
     {
       "name": "dating-romance-jp",
       "filename": "dating-romance-jp.md",
       "title": "Dating & Romance — Source Material (Japanese)",
       "size_kb": 5.8,
-      "modified": "2026-06-19T02:49:14.443268",
+      "modified": "2026-08-20T00:14:54.494512",
       "path": "raw/Japanese/dating-romance-jp.md"
     },
     {
@@ -286,7 +1344,7 @@
       "filename": "emotions-personality-vocabulary-jp.md",
       "title": "Japanese Emotions & Personality Vocabulary",
       "size_kb": 2.8,
-      "modified": "2026-06-23T00:23:08.531739",
+      "modified": "2026-08-20T00:14:54.516857",
       "path": "raw/Japanese/emotions-personality-vocabulary-jp.md"
     },
     {
@@ -294,23 +1352,47 @@
       "filename": "first-travel-korea.md",
       "title": "初めての旅行 — 韓国",
       "size_kb": 5.8,
-      "modified": "2026-06-18T18:54:23.710901",
+      "modified": "2026-08-20T00:14:54.530790",
       "path": "raw/Japanese/first-travel-korea.md"
+    },
+    {
+      "name": "food-and-dining",
+      "filename": "food-and-dining.md",
+      "title": "Japanese Food and Dining Vocabulary",
+      "size_kb": 8.4,
+      "modified": "2026-08-20T00:24:25.595351",
+      "path": "raw/Japanese/food-and-dining.md"
     },
     {
       "name": "food-vocabulary-jp",
       "filename": "food-vocabulary-jp.md",
       "title": "Japanese Food & Restaurant Vocabulary",
       "size_kb": 2.7,
-      "modified": "2026-06-23T00:19:13.336632",
+      "modified": "2026-08-20T00:14:54.526097",
       "path": "raw/Japanese/food-vocabulary-jp.md"
+    },
+    {
+      "name": "health-and-body",
+      "filename": "health-and-body.md",
+      "title": "Japanese Health and Body Vocabulary",
+      "size_kb": 7.4,
+      "modified": "2026-08-20T00:24:25.595532",
+      "path": "raw/Japanese/health-and-body.md"
+    },
+    {
+      "name": "holidays-and-celebrations",
+      "filename": "holidays-and-celebrations.md",
+      "title": "Japanese Holidays and Celebrations Vocabulary",
+      "size_kb": 8.9,
+      "modified": "2026-08-20T00:14:54.504032",
+      "path": "raw/Japanese/holidays-and-celebrations.md"
     },
     {
       "name": "literature-passages",
       "filename": "literature-passages.md",
-      "title": "文学作品段落集 (Japanese Literature Passages)",
-      "size_kb": 1.6,
-      "modified": "2026-06-23T16:01:17.718570",
+      "title": "Japanese Literature Passages Vocabulary",
+      "size_kb": 9.9,
+      "modified": "2026-08-20T00:14:54.511000",
       "path": "raw/Japanese/literature-passages.md"
     },
     {
@@ -318,44 +1400,232 @@
       "filename": "nature-vocabulary-jp.md",
       "title": "Japanese Nature & Weather Vocabulary",
       "size_kb": 2.2,
-      "modified": "2026-06-23T00:23:20.615368",
+      "modified": "2026-08-20T00:14:54.518752",
       "path": "raw/Japanese/nature-vocabulary-jp.md"
+    },
+    {
+      "name": "particles-jp",
+      "filename": "particles-jp.md",
+      "title": "日本語 助詞 (Particles) Reference",
+      "size_kb": 4.7,
+      "modified": "2026-08-20T00:14:54.528428",
+      "path": "raw/Japanese/particles-jp.md"
+    },
+    {
+      "name": "shopping-and-money",
+      "filename": "shopping-and-money.md",
+      "title": "Japanese Shopping and Money Vocabulary",
+      "size_kb": 10.1,
+      "modified": "2026-08-20T00:14:54.506579",
+      "path": "raw/Japanese/shopping-and-money.md"
+    },
+    {
+      "name": "sports-and-hobbies",
+      "filename": "sports-and-hobbies.md",
+      "title": "Japanese Sports and Hobbies Vocabulary",
+      "size_kb": 10.1,
+      "modified": "2026-08-20T00:14:54.524042",
+      "path": "raw/Japanese/sports-and-hobbies.md"
+    },
+    {
+      "name": "technology-and-internet",
+      "filename": "technology-and-internet.md",
+      "title": "Japanese Technology and Internet Vocabulary",
+      "size_kb": 11.0,
+      "modified": "2026-08-20T00:14:54.483330",
+      "path": "raw/Japanese/technology-and-internet.md"
+    },
+    {
+      "name": "travel-adventure",
+      "filename": "travel-adventure.md",
+      "title": "Japanese Travel and Adventure Vocabulary",
+      "size_kb": 9.9,
+      "modified": "2026-08-20T00:14:54.492125",
+      "path": "raw/Japanese/travel-adventure.md"
     },
     {
       "name": "travel-basics-jp",
       "filename": "travel-basics-jp.md",
       "title": "旅行基礎語彙 - Source Material",
       "size_kb": 1.5,
-      "modified": "2026-06-18T18:45:35.272619",
+      "modified": "2026-08-20T00:14:54.485502",
       "path": "raw/Japanese/travel-basics-jp.md"
+    },
+    {
+      "name": "verb-forms-jp",
+      "filename": "verb-forms-jp.md",
+      "title": "日本語 動詞 형식 (Verb Forms) Reference",
+      "size_kb": 4.8,
+      "modified": "2026-08-20T00:14:54.512942",
+      "path": "raw/Japanese/verb-forms-jp.md"
     }
   ],
-  "raw_sources_count": 12,
+  "raw_sources_count": 22,
   "corpus": {
-    "total": 182,
+    "total": 680,
     "by_level": {
-      "4": 4,
-      "5": 178
+      "1": 85,
+      "2": 18,
+      "3": 98,
+      "4": 215,
+      "5": 264
     },
     "by_category": {
-      "travel": 57,
+      "basic": 251,
+      "travel": 73,
+      "animal": 54,
+      "food": 42,
       "kanji_basic": 42,
-      "number": 20,
-      "greeting": 15,
-      "place": 12,
-      "color": 8,
-      "food": 6,
+      "number": 40,
+      "nature": 34,
+      "place": 25,
+      "greeting": 24,
+      "body": 22,
+      "clothing": 17,
+      "time": 15,
+      "color": 12,
+      "emotion": 10,
+      "family": 7,
       "person": 6,
-      "object": 6,
-      "time": 6,
-      "animal": 4
+      "object": 6
     },
     "by_type": {
-      "words": 0,
-      "sentences": 182,
-      "chars": 2
+      "words": 201,
+      "sentences": 479,
+      "chars": 4
     },
-    "words_sample": [],
+    "words_sample": [
+      {
+        "id": "jp_200",
+        "display": "아침",
+        "romaji": "achim",
+        "meaning": "朝",
+        "level": 1,
+        "category": "time",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
+      },
+      {
+        "id": "jp_204",
+        "display": "바다",
+        "romaji": "bada",
+        "meaning": "海",
+        "level": 1,
+        "category": "nature",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
+      },
+      {
+        "id": "jp_205",
+        "display": "방",
+        "romaji": "bang",
+        "meaning": "部屋",
+        "level": 1,
+        "category": "basic",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
+      },
+      {
+        "id": "jp_206",
+        "display": "박물관",
+        "romaji": "bangmulgwan",
+        "meaning": "博物館",
+        "level": 1,
+        "category": "basic",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
+      },
+      {
+        "id": "jp_207",
+        "display": "버스",
+        "romaji": "beoseu",
+        "meaning": "バス",
+        "level": 1,
+        "category": "basic",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
+      },
+      {
+        "id": "jp_208",
+        "display": "비싸다",
+        "romaji": "bissada",
+        "meaning": "高い",
+        "level": 1,
+        "category": "emotion",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
+      },
+      {
+        "id": "jp_209",
+        "display": "차갑다",
+        "romaji": "chagapda",
+        "meaning": "冷たい",
+        "level": 1,
+        "category": "basic",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
+      },
+      {
+        "id": "jp_211",
+        "display": "출구",
+        "romaji": "chulgu",
+        "meaning": "出口",
+        "level": 1,
+        "category": "basic",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
+      },
+      {
+        "id": "jp_212",
+        "display": "달다",
+        "romaji": "dalda",
+        "meaning": "甘い",
+        "level": 1,
+        "category": "basic",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
+      },
+      {
+        "id": "jp_215",
+        "display": "가까이",
+        "romaji": "gakkai",
+        "meaning": "近く",
+        "level": 1,
+        "category": "basic",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
+      }
+    ],
     "sentences_sample": [
       {
         "id": "jp_001",
@@ -371,7 +1641,12 @@
         "romaji": "konnichiwa",
         "meaning": "hello",
         "level": 5,
-        "category": "greeting"
+        "category": "greeting",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       },
       {
         "id": "jp_002",
@@ -379,7 +1654,12 @@
         "romaji": "ohayou",
         "meaning": "good morning",
         "level": 5,
-        "category": "greeting"
+        "category": "greeting",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       },
       {
         "id": "jp_003",
@@ -387,7 +1667,12 @@
         "romaji": "konbanwa",
         "meaning": "good evening",
         "level": 5,
-        "category": "greeting"
+        "category": "greeting",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       },
       {
         "id": "jp_004",
@@ -395,7 +1680,12 @@
         "romaji": "arigatou",
         "meaning": "thank you",
         "level": 5,
-        "category": "greeting"
+        "category": "greeting",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       },
       {
         "id": "jp_005",
@@ -403,7 +1693,12 @@
         "romaji": "sayounara",
         "meaning": "goodbye",
         "level": 5,
-        "category": "greeting"
+        "category": "greeting",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       },
       {
         "id": "jp_006",
@@ -411,7 +1706,12 @@
         "romaji": "sumimasen",
         "meaning": "excuse me",
         "level": 5,
-        "category": "greeting"
+        "category": "greeting",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       },
       {
         "id": "jp_007",
@@ -419,7 +1719,12 @@
         "romaji": "ichi",
         "meaning": "one",
         "level": 5,
-        "category": "number"
+        "category": "number",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       },
       {
         "id": "jp_008",
@@ -427,7 +1732,12 @@
         "romaji": "ni",
         "meaning": "two",
         "level": 5,
-        "category": "number"
+        "category": "number",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       },
       {
         "id": "jp_009",
@@ -435,7 +1745,12 @@
         "romaji": "san",
         "meaning": "three",
         "level": 5,
-        "category": "number"
+        "category": "number",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       }
     ],
     "chars_sample": [
@@ -445,7 +1760,12 @@
         "romaji": "sakana",
         "meaning": "fish",
         "level": 5,
-        "category": "food"
+        "category": "food",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       },
       {
         "id": "jp_023",
@@ -453,15 +1773,52 @@
         "romaji": "sakana",
         "meaning": "fish",
         "level": 5,
-        "category": "food"
+        "category": "food",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
+      },
+      {
+        "id": "jp_508",
+        "display": "悲しい",
+        "romaji": "kanashii",
+        "meaning": "かなしい (kanashii) — sad.",
+        "level": 4,
+        "category": "emotion",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
+      },
+      {
+        "id": "jp_692",
+        "display": "魚",
+        "romaji": "sakana",
+        "meaning": "さかな (sakana) — fish.",
+        "level": 5,
+        "category": "animal",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       }
     ],
     "categories": [
       "animal",
+      "basic",
+      "body",
+      "clothing",
       "color",
+      "emotion",
+      "family",
       "food",
       "greeting",
       "kanji_basic",
+      "nature",
       "number",
       "object",
       "person",
@@ -470,6 +1827,9 @@
       "travel"
     ],
     "levels": [
+      1,
+      2,
+      3,
       4,
       5
     ]
@@ -667,6 +2027,24 @@
       "difficulty": 5,
       "corpus_type": "passages",
       "corpus_filter": {
+        "minLevel": 5,
+        "maxLevel": 5
+      }
+    },
+    {
+      "id": "jp_5_2",
+      "tier": 5,
+      "stage_num": 2,
+      "tier_label": "Tier 5 · 단락",
+      "name": "人生の考察",
+      "description": "명상·가치관·삶의 통찰 단락",
+      "word_count": 5,
+      "difficulty": 5,
+      "corpus_type": "words",
+      "corpus_filter": {
+        "categories": [
+          "passage"
+        ],
         "minLevel": 5,
         "maxLevel": 5
       }
@@ -1123,18 +2501,18 @@
     }
   ],
   "coverage": {
-    "total_stages": 37,
-    "total_corpus": 182,
-    "wiki_materials": 27,
-    "sources": 11,
-    "raw_sources": 12,
+    "total_stages": 38,
+    "total_corpus": 680,
+    "wiki_materials": 158,
+    "sources": 22,
+    "raw_sources": 22,
     "stages_by_tier": {
       "0": 3,
       "1": 2,
       "2": 2,
       "3": 2,
       "4": 2,
-      "5": 1,
+      "5": 2,
       "a": 3,
       "b": 3,
       "c": 3,
@@ -1303,6 +2681,20 @@
         ],
         "word_count": 5,
         "corpus_type": "passages"
+      },
+      {
+        "stage_id": "jp_5_2",
+        "stage_name": "人生の考察",
+        "tier": 5,
+        "categories": [
+          "passage"
+        ],
+        "level_range": [
+          5,
+          5
+        ],
+        "word_count": 5,
+        "corpus_type": "words"
       },
       {
         "stage_id": "jp_a_1",
@@ -1683,6 +3075,16 @@
         ]
       },
       {
+        "stage_id": "jp_5_2",
+        "stage_name": "人生の考察",
+        "needed": 5,
+        "available": 0,
+        "shortfall": 5,
+        "categories": [
+          "passage"
+        ]
+      },
+      {
         "stage_id": "jp_a_1",
         "stage_name": "動物",
         "needed": 12,
@@ -1743,36 +3145,6 @@
         ]
       },
       {
-        "stage_id": "jp_c_1",
-        "stage_name": "衣服・ファッション",
-        "needed": 12,
-        "available": 0,
-        "shortfall": 12,
-        "categories": [
-          "clothing"
-        ]
-      },
-      {
-        "stage_id": "jp_c_2",
-        "stage_name": "衣服 Advanced",
-        "needed": 10,
-        "available": 0,
-        "shortfall": 10,
-        "categories": [
-          "clothing"
-        ]
-      },
-      {
-        "stage_id": "jp_c_3",
-        "stage_name": "衣服 Expert",
-        "needed": 8,
-        "available": 0,
-        "shortfall": 8,
-        "categories": [
-          "clothing"
-        ]
-      },
-      {
         "stage_id": "jp_d_1",
         "stage_name": "デート言葉",
         "needed": 12,
@@ -1796,104 +3168,14 @@
         "stage_id": "jp_e_1",
         "stage_name": "感情・性格",
         "needed": 12,
-        "available": 0,
-        "shortfall": 12,
-        "categories": [
-          "emotion"
-        ]
-      },
-      {
-        "stage_id": "jp_e_2",
-        "stage_name": "感情・性格 Advanced",
-        "needed": 10,
-        "available": 0,
-        "shortfall": 10,
-        "categories": [
-          "emotion"
-        ]
-      },
-      {
-        "stage_id": "jp_e_3",
-        "stage_name": "感情・性格 Expert",
-        "needed": 8,
-        "available": 0,
-        "shortfall": 8,
-        "categories": [
-          "emotion"
-        ]
-      },
-      {
-        "stage_id": "jp_e_4",
-        "stage_name": "感情 Master",
-        "needed": 6,
-        "available": 0,
-        "shortfall": 6,
-        "categories": [
-          "emotion"
-        ]
-      },
-      {
-        "stage_id": "jp_f_1",
-        "stage_name": "食べ物基本",
-        "needed": 12,
-        "available": 6,
-        "shortfall": 6,
-        "categories": [
-          "food"
-        ]
-      },
-      {
-        "stage_id": "jp_f_2",
-        "stage_name": "食物 Advanced",
-        "needed": 10,
-        "available": 6,
-        "shortfall": 4,
-        "categories": [
-          "food"
-        ]
-      },
-      {
-        "stage_id": "jp_f_3",
-        "stage_name": "食物 Expert",
-        "needed": 8,
-        "available": 6,
+        "available": 10,
         "shortfall": 2,
         "categories": [
-          "food"
-        ]
-      },
-      {
-        "stage_id": "jp_n_1",
-        "stage_name": "自然・天気",
-        "needed": 12,
-        "available": 0,
-        "shortfall": 12,
-        "categories": [
-          "nature"
-        ]
-      },
-      {
-        "stage_id": "jp_n_2",
-        "stage_name": "自然 Advanced",
-        "needed": 10,
-        "available": 0,
-        "shortfall": 10,
-        "categories": [
-          "nature"
-        ]
-      },
-      {
-        "stage_id": "jp_n_3",
-        "stage_name": "自然 Expert",
-        "needed": 8,
-        "available": 0,
-        "shortfall": 8,
-        "categories": [
-          "nature"
+          "emotion"
         ]
       }
     ],
-    "coverage_percent": 47.5
+    "coverage_percent": 175.3
   },
-  "generated_at": "2026-06-24T18:32:09.356576"
+  "generated_at": "2026-08-20T01:52:38.621755"
 }

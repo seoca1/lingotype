@@ -9,260 +9,1390 @@
   "wiki": {
     "sources": [
       {
+        "name": "animals-vocabulary",
+        "filename": "animals-vocabulary.md",
+        "title": "동물 어휘 (Korean)",
+        "size_kb": 1.7,
+        "modified": "2026-08-20T00:14:51.172547",
+        "path": "wiki/Korean/sources/animals-vocabulary.md"
+      },
+      {
+        "name": "business-vocabulary",
+        "filename": "business-vocabulary.md",
+        "title": "Korean Business Vocabulary (직장/업무)",
+        "size_kb": 2.4,
+        "modified": "2026-08-20T00:14:51.201319",
+        "path": "wiki/Korean/sources/business-vocabulary.md"
+      },
+      {
+        "name": "clothing-vocabulary",
+        "filename": "clothing-vocabulary.md",
+        "title": "clothing-vocabulary (Source Hub) — Korean Clothing & Fashion",
+        "size_kb": 3.5,
+        "modified": "2026-08-20T00:14:51.189547",
+        "path": "wiki/Korean/sources/clothing-vocabulary.md"
+      },
+      {
         "name": "daily-life-basics",
         "filename": "daily-life-basics.md",
         "title": "일상 회화 (Daily Life) — Korean (Source Hub)",
-        "size_kb": 1.4,
-        "modified": "2026-06-20T01:59:22.671372",
+        "size_kb": 1.6,
+        "modified": "2026-08-20T00:14:51.193907",
         "path": "wiki/Korean/sources/daily-life-basics.md"
       },
       {
         "name": "dating-romance-kr",
         "filename": "dating-romance-kr.md",
         "title": "dating-romance-kr",
-        "size_kb": 2.6,
-        "modified": "2026-06-19T02:51:20.196940",
+        "size_kb": 2.7,
+        "modified": "2026-08-20T00:14:51.178564",
         "path": "wiki/Korean/sources/dating-romance-kr.md"
+      },
+      {
+        "name": "emotions-personality-vocabulary",
+        "filename": "emotions-personality-vocabulary.md",
+        "title": "Korean Emotions & Personality Vocabulary (감정·성격)",
+        "size_kb": 1.8,
+        "modified": "2026-08-20T00:14:51.187454",
+        "path": "wiki/Korean/sources/emotions-personality-vocabulary.md"
       },
       {
         "name": "first-travel-japan",
         "filename": "first-travel-japan.md",
         "title": "first-travel-japan",
-        "size_kb": 1.7,
-        "modified": "2026-06-18T18:54:48.722248",
+        "size_kb": 1.9,
+        "modified": "2026-08-20T00:14:51.161933",
         "path": "wiki/Korean/sources/first-travel-japan.md"
       },
       {
         "name": "food-and-dining",
         "filename": "food-and-dining.md",
         "title": "음식 문화 (Food and Dining) — Korean (Source Hub)",
-        "size_kb": 1.4,
-        "modified": "2026-06-20T01:59:32.628526",
+        "size_kb": 1.6,
+        "modified": "2026-08-20T00:14:51.176515",
         "path": "wiki/Korean/sources/food-and-dining.md"
+      },
+      {
+        "name": "food-vocabulary",
+        "filename": "food-vocabulary.md",
+        "title": "Korean Food Vocabulary (음식·식사)",
+        "size_kb": 1.7,
+        "modified": "2026-08-20T00:14:51.197534",
+        "path": "wiki/Korean/sources/food-vocabulary.md"
       },
       {
         "name": "health-and-body",
         "filename": "health-and-body.md",
         "title": "건강과 몸 (Health and Body) — Korean (Source Hub)",
-        "size_kb": 1.4,
-        "modified": "2026-06-20T02:01:42.527479",
+        "size_kb": 1.6,
+        "modified": "2026-08-20T00:14:51.168263",
         "path": "wiki/Korean/sources/health-and-body.md"
       },
       {
         "name": "holidays-and-celebrations",
         "filename": "holidays-and-celebrations.md",
         "title": "명절과 기념일 (Holidays) — Korean (Source Hub)",
-        "size_kb": 1.5,
-        "modified": "2026-06-20T02:03:19.180369",
+        "size_kb": 1.6,
+        "modified": "2026-08-20T00:14:51.170452",
         "path": "wiki/Korean/sources/holidays-and-celebrations.md"
+      },
+      {
+        "name": "literature-passages",
+        "filename": "literature-passages.md",
+        "title": "literature-passages",
+        "size_kb": 1.9,
+        "modified": "2026-08-20T00:14:51.183371",
+        "path": "wiki/Korean/sources/literature-passages.md"
+      },
+      {
+        "name": "nature-vocabulary",
+        "filename": "nature-vocabulary.md",
+        "title": "Korean Nature Vocabulary (자연·날씨)",
+        "size_kb": 1.6,
+        "modified": "2026-08-20T00:14:51.166113",
+        "path": "wiki/Korean/sources/nature-vocabulary.md"
+      },
+      {
+        "name": "particles-ko",
+        "filename": "particles-ko.md",
+        "title": "Korean Particles Reference (조사)",
+        "size_kb": 1.7,
+        "modified": "2026-08-20T00:14:51.160052",
+        "path": "wiki/Korean/sources/particles-ko.md"
       },
       {
         "name": "shopping-and-money",
         "filename": "shopping-and-money.md",
         "title": "쇼핑과 돈 (Shopping and Money) — Korean (Source Hub)",
-        "size_kb": 1.5,
-        "modified": "2026-06-20T02:00:23.971699",
+        "size_kb": 1.6,
+        "modified": "2026-08-20T00:14:51.174627",
         "path": "wiki/Korean/sources/shopping-and-money.md"
+      },
+      {
+        "name": "speech-levels-ko",
+        "filename": "speech-levels-ko.md",
+        "title": "Korean Speech Levels Reference (경어법)",
+        "size_kb": 1.6,
+        "modified": "2026-08-20T00:14:51.181164",
+        "path": "wiki/Korean/sources/speech-levels-ko.md"
       },
       {
         "name": "sports-and-hobbies",
         "filename": "sports-and-hobbies.md",
         "title": "스포츠와 취미 (Sports and Hobbies) — Korean (Source Hub)",
-        "size_kb": 1.6,
-        "modified": "2026-06-20T02:11:12.655949",
+        "size_kb": 1.8,
+        "modified": "2026-08-20T00:14:51.195762",
         "path": "wiki/Korean/sources/sports-and-hobbies.md"
       },
       {
         "name": "technology-and-internet",
         "filename": "technology-and-internet.md",
         "title": "기술과 인터넷 (Technology and Internet) — Korean (Source Hub)",
-        "size_kb": 1.7,
-        "modified": "2026-06-20T02:01:34.340675",
+        "size_kb": 1.9,
+        "modified": "2026-08-20T00:14:51.163895",
         "path": "wiki/Korean/sources/technology-and-internet.md"
+      },
+      {
+        "name": "topik1-starter",
+        "filename": "topik1-starter.md",
+        "title": "TOPIK 1 Starter Vocabulary (한국어 기초 어휘)",
+        "size_kb": 2.3,
+        "modified": "2026-08-20T00:14:51.185348",
+        "path": "wiki/Korean/sources/topik1-starter.md"
       },
       {
         "name": "travel-basics",
         "filename": "travel-basics.md",
         "title": "여행 기초 (Travel Basics) — Korean (Source Hub)",
-        "size_kb": 1.5,
-        "modified": "2026-06-20T01:59:14.141334",
+        "size_kb": 1.7,
+        "modified": "2026-08-20T00:14:51.191641",
         "path": "wiki/Korean/sources/travel-basics.md"
       },
       {
         "name": "travel-basics-kr",
         "filename": "travel-basics-kr.md",
         "title": "travel-basics-kr (Source Hub)",
-        "size_kb": 1.6,
-        "modified": "2026-06-21T04:15:25.375858",
+        "size_kb": 1.7,
+        "modified": "2026-08-20T00:14:51.199303",
         "path": "wiki/Korean/sources/travel-basics-kr.md"
       }
     ],
-    "vocabulary": [],
+    "vocabulary": [
+      {
+        "name": "adventure-vocabulary",
+        "filename": "adventure-vocabulary.md",
+        "title": "모험 어휘 (Korean Adventure/Outdoor)",
+        "size_kb": 9.4,
+        "modified": "2026-08-20T00:24:25.665545",
+        "path": "wiki/Korean/vocabulary/adventure-vocabulary.md"
+      },
+      {
+        "name": "animals-vocabulary",
+        "filename": "animals-vocabulary.md",
+        "title": "동물 어휘 (Korean Animals)",
+        "size_kb": 15.1,
+        "modified": "2026-08-20T00:24:25.665757",
+        "path": "wiki/Korean/vocabulary/animals-vocabulary.md"
+      },
+      {
+        "name": "animals-vocabulary.ko",
+        "filename": "animals-vocabulary.ko.md",
+        "title": "Animals (동물) - Korean Perspective",
+        "size_kb": 10.5,
+        "modified": "2026-08-20T00:14:51.300114",
+        "path": "wiki/Korean/vocabulary/animals-vocabulary.ko.md"
+      },
+      {
+        "name": "basic-vocabulary",
+        "filename": "basic-vocabulary.md",
+        "title": "기초 어휘 — Korean",
+        "size_kb": 6.1,
+        "modified": "2026-08-20T00:24:25.665939",
+        "path": "wiki/Korean/vocabulary/basic-vocabulary.md"
+      },
+      {
+        "name": "basic-vocabulary.ko",
+        "filename": "basic-vocabulary.ko.md",
+        "title": "Basic Vocabulary (기초 어휘) - Korean Perspective",
+        "size_kb": 9.4,
+        "modified": "2026-08-20T00:14:51.459507",
+        "path": "wiki/Korean/vocabulary/basic-vocabulary.ko.md"
+      },
+      {
+        "name": "body-family",
+        "filename": "body-family.md",
+        "title": "Body & Family Vocabulary (한국어 신체와 가족 어휘)",
+        "size_kb": 21.5,
+        "modified": "2026-08-20T00:24:25.666128",
+        "path": "wiki/Korean/vocabulary/body-family.md"
+      },
+      {
+        "name": "body-family.ko",
+        "filename": "body-family.ko.md",
+        "title": "Body & Family (신체·가족) - Korean Perspective",
+        "size_kb": 9.8,
+        "modified": "2026-08-20T00:14:51.259458",
+        "path": "wiki/Korean/vocabulary/body-family.ko.md"
+      },
+      {
+        "name": "business-vocabulary",
+        "filename": "business-vocabulary.md",
+        "title": "비즈니스 어휘 (Korean Business Vocabulary)",
+        "size_kb": 63.3,
+        "modified": "2026-08-20T00:24:25.666518",
+        "path": "wiki/Korean/vocabulary/business-vocabulary.md"
+      },
+      {
+        "name": "business-vocabulary.ko",
+        "filename": "business-vocabulary.ko.md",
+        "title": "Business (비즈니스) - Korean Perspective",
+        "size_kb": 19.6,
+        "modified": "2026-08-20T00:14:51.217143",
+        "path": "wiki/Korean/vocabulary/business-vocabulary.ko.md"
+      },
+      {
+        "name": "career-vocabulary",
+        "filename": "career-vocabulary.md",
+        "title": "직업 어휘 (Korean Career/Workplace)",
+        "size_kb": 12.0,
+        "modified": "2026-08-20T00:24:25.666716",
+        "path": "wiki/Korean/vocabulary/career-vocabulary.md"
+      },
+      {
+        "name": "clothing-vocabulary",
+        "filename": "clothing-vocabulary.md",
+        "title": "의류・패션 어휘 (Korean Clothing & Fashion)",
+        "size_kb": 17.1,
+        "modified": "2026-08-20T00:24:25.666881",
+        "path": "wiki/Korean/vocabulary/clothing-vocabulary.md"
+      },
+      {
+        "name": "clothing-vocabulary.ko",
+        "filename": "clothing-vocabulary.ko.md",
+        "title": "Clothing (의류) - Korean Perspective",
+        "size_kb": 10.3,
+        "modified": "2026-08-20T00:14:51.353778",
+        "path": "wiki/Korean/vocabulary/clothing-vocabulary.ko.md"
+      },
+      {
+        "name": "colors-vocabulary",
+        "filename": "colors-vocabulary.md",
+        "title": "colors vocabulary - Korean theme",
+        "size_kb": 5.6,
+        "modified": "2026-08-20T00:24:25.667297",
+        "path": "wiki/Korean/vocabulary/colors-vocabulary.md"
+      },
+      {
+        "name": "colors-vocabulary.ko",
+        "filename": "colors-vocabulary.ko.md",
+        "title": "Colors (색깔) - Korean Perspective",
+        "size_kb": 8.5,
+        "modified": "2026-08-20T00:24:25.667057",
+        "path": "wiki/Korean/vocabulary/colors-vocabulary.ko.md"
+      },
+      {
+        "name": "directions-vocabulary",
+        "filename": "directions-vocabulary.md",
+        "title": "directions vocabulary - Korean theme",
+        "size_kb": 6.6,
+        "modified": "2026-08-20T00:24:25.667507",
+        "path": "wiki/Korean/vocabulary/directions-vocabulary.md"
+      },
+      {
+        "name": "directions-vocabulary.ko",
+        "filename": "directions-vocabulary.ko.md",
+        "title": "Directions (방향) - Korean Perspective",
+        "size_kb": 8.3,
+        "modified": "2026-08-20T00:14:51.297773",
+        "path": "wiki/Korean/vocabulary/directions-vocabulary.ko.md"
+      },
+      {
+        "name": "education-vocabulary",
+        "filename": "education-vocabulary.md",
+        "title": "Education 어휘 — Korean vocabulary",
+        "size_kb": 6.7,
+        "modified": "2026-08-20T00:24:25.668488",
+        "path": "wiki/Korean/vocabulary/education-vocabulary.md"
+      },
+      {
+        "name": "education-vocabulary.ko",
+        "filename": "education-vocabulary.ko.md",
+        "title": "Education (교육) - Korean Perspective",
+        "size_kb": 8.2,
+        "modified": "2026-08-20T00:14:51.250203",
+        "path": "wiki/Korean/vocabulary/education-vocabulary.ko.md"
+      },
+      {
+        "name": "emotions-personality-vocabulary",
+        "filename": "emotions-personality-vocabulary.md",
+        "title": "Korean Emotions & Personality Vocabulary",
+        "size_kb": 112.7,
+        "modified": "2026-08-20T00:24:25.669032",
+        "path": "wiki/Korean/vocabulary/emotions-personality-vocabulary.md"
+      },
+      {
+        "name": "emotions-personality-vocabulary.ko",
+        "filename": "emotions-personality-vocabulary.ko.md",
+        "title": "Emotions & Personality (감정·성격) - Korean Perspective",
+        "size_kb": 17.1,
+        "modified": "2026-08-20T00:14:51.377874",
+        "path": "wiki/Korean/vocabulary/emotions-personality-vocabulary.ko.md"
+      },
+      {
+        "name": "entertainment-vocabulary",
+        "filename": "entertainment-vocabulary.md",
+        "title": "엔터테인먼트 어휘 (Korean Entertainment)",
+        "size_kb": 11.2,
+        "modified": "2026-08-20T00:24:25.669226",
+        "path": "wiki/Korean/vocabulary/entertainment-vocabulary.md"
+      },
+      {
+        "name": "family-vocabulary",
+        "filename": "family-vocabulary.md",
+        "title": "family vocabulary - Korean theme",
+        "size_kb": 6.5,
+        "modified": "2026-08-20T00:24:25.669410",
+        "path": "wiki/Korean/vocabulary/family-vocabulary.md"
+      },
+      {
+        "name": "family-vocabulary.ko",
+        "filename": "family-vocabulary.ko.md",
+        "title": "Family (가족) - Korean Perspective",
+        "size_kb": 10.0,
+        "modified": "2026-08-20T00:14:51.239007",
+        "path": "wiki/Korean/vocabulary/family-vocabulary.ko.md"
+      },
+      {
+        "name": "food-vocabulary",
+        "filename": "food-vocabulary.md",
+        "title": "Korean Food & Restaurant Vocabulary",
+        "size_kb": 58.5,
+        "modified": "2026-08-20T00:24:25.669826",
+        "path": "wiki/Korean/vocabulary/food-vocabulary.md"
+      },
+      {
+        "name": "food-vocabulary.ko",
+        "filename": "food-vocabulary.ko.md",
+        "title": "Food (음식) - Korean Perspective",
+        "size_kb": 21.7,
+        "modified": "2026-08-20T00:14:51.391497",
+        "path": "wiki/Korean/vocabulary/food-vocabulary.ko.md"
+      },
+      {
+        "name": "greetings-vocabulary",
+        "filename": "greetings-vocabulary.md",
+        "title": "인사 어휘 (Greetings Vocabulary)",
+        "size_kb": 7.1,
+        "modified": "2026-08-20T00:24:25.670026",
+        "path": "wiki/Korean/vocabulary/greetings-vocabulary.md"
+      },
+      {
+        "name": "greetings-vocabulary.ko",
+        "filename": "greetings-vocabulary.ko.md",
+        "title": "Greetings (인사) - Korean Perspective",
+        "size_kb": 12.0,
+        "modified": "2026-08-20T00:14:51.312926",
+        "path": "wiki/Korean/vocabulary/greetings-vocabulary.ko.md"
+      },
+      {
+        "name": "health-vocabulary",
+        "filename": "health-vocabulary.md",
+        "title": "health vocabulary - Korean theme",
+        "size_kb": 6.2,
+        "modified": "2026-08-20T00:24:25.670202",
+        "path": "wiki/Korean/vocabulary/health-vocabulary.md"
+      },
+      {
+        "name": "health-vocabulary.ko",
+        "filename": "health-vocabulary.ko.md",
+        "title": "Health (건강) - Korean Perspective",
+        "size_kb": 3.5,
+        "modified": "2026-08-20T00:14:51.234242",
+        "path": "wiki/Korean/vocabulary/health-vocabulary.ko.md"
+      },
+      {
+        "name": "holidays-vocabulary",
+        "filename": "holidays-vocabulary.md",
+        "title": "명절 vocabulary — Korean theme",
+        "size_kb": 13.0,
+        "modified": "2026-08-20T00:24:25.670507",
+        "path": "wiki/Korean/vocabulary/holidays-vocabulary.md"
+      },
+      {
+        "name": "holidays-vocabulary.ko",
+        "filename": "holidays-vocabulary.ko.md",
+        "title": "Holidays (명절) - Korean Perspective",
+        "size_kb": 5.8,
+        "modified": "2026-08-20T00:14:51.219245",
+        "path": "wiki/Korean/vocabulary/holidays-vocabulary.ko.md"
+      },
+      {
+        "name": "ko-adjectives-vocabulary",
+        "filename": "ko-adjectives-vocabulary.md",
+        "title": "Korean Adjectives Vocabulary",
+        "size_kb": 12.8,
+        "modified": "2026-08-20T00:24:25.670832",
+        "path": "wiki/Korean/vocabulary/ko-adjectives-vocabulary.md"
+      },
+      {
+        "name": "ko-art-crafts-vocabulary",
+        "filename": "ko-art-crafts-vocabulary.md",
+        "title": "Korean Art & Crafts Vocabulary",
+        "size_kb": 10.8,
+        "modified": "2026-08-20T00:24:25.671008",
+        "path": "wiki/Korean/vocabulary/ko-art-crafts-vocabulary.md"
+      },
+      {
+        "name": "ko-daily-life-vocabulary",
+        "filename": "ko-daily-life-vocabulary.md",
+        "title": "Korean Daily Life Vocabulary",
+        "size_kb": 12.4,
+        "modified": "2026-08-20T00:24:25.671197",
+        "path": "wiki/Korean/vocabulary/ko-daily-life-vocabulary.md"
+      },
+      {
+        "name": "ko-medical-vocabulary",
+        "filename": "ko-medical-vocabulary.md",
+        "title": "Korean Medical Vocabulary",
+        "size_kb": 38.2,
+        "modified": "2026-08-20T00:24:25.671501",
+        "path": "wiki/Korean/vocabulary/ko-medical-vocabulary.md"
+      },
+      {
+        "name": "ko-money-finance-vocabulary",
+        "filename": "ko-money-finance-vocabulary.md",
+        "title": "Korean Money & Finance Vocabulary",
+        "size_kb": 12.5,
+        "modified": "2026-08-20T00:24:25.671707",
+        "path": "wiki/Korean/vocabulary/ko-money-finance-vocabulary.md"
+      },
+      {
+        "name": "ko-music-vocabulary",
+        "filename": "ko-music-vocabulary.md",
+        "title": "Korean Music Vocabulary",
+        "size_kb": 11.1,
+        "modified": "2026-08-20T00:24:25.671882",
+        "path": "wiki/Korean/vocabulary/ko-music-vocabulary.md"
+      },
+      {
+        "name": "ko-physical-descriptions-vocabulary",
+        "filename": "ko-physical-descriptions-vocabulary.md",
+        "title": "Korean Physical Descriptions Vocabulary",
+        "size_kb": 30.3,
+        "modified": "2026-08-20T00:24:25.672098",
+        "path": "wiki/Korean/vocabulary/ko-physical-descriptions-vocabulary.md"
+      },
+      {
+        "name": "ko-polite-expressions-vocabulary",
+        "filename": "ko-polite-expressions-vocabulary.md",
+        "title": "Korean Polite Expressions Vocabulary",
+        "size_kb": 14.5,
+        "modified": "2026-08-20T00:24:25.672294",
+        "path": "wiki/Korean/vocabulary/ko-polite-expressions-vocabulary.md"
+      },
+      {
+        "name": "ko-restaurant-vocabulary",
+        "filename": "ko-restaurant-vocabulary.md",
+        "title": "Korean Restaurant Vocabulary",
+        "size_kb": 14.5,
+        "modified": "2026-08-20T00:24:25.672536",
+        "path": "wiki/Korean/vocabulary/ko-restaurant-vocabulary.md"
+      },
+      {
+        "name": "ko-time-prepositions-vocabulary",
+        "filename": "ko-time-prepositions-vocabulary.md",
+        "title": "Korean Time and Prepositions Vocabulary",
+        "size_kb": 13.6,
+        "modified": "2026-08-20T00:24:25.672752",
+        "path": "wiki/Korean/vocabulary/ko-time-prepositions-vocabulary.md"
+      },
+      {
+        "name": "ko-weather-seasons-vocabulary",
+        "filename": "ko-weather-seasons-vocabulary.md",
+        "title": "Korean Weather and Seasons Vocabulary",
+        "size_kb": 26.9,
+        "modified": "2026-08-20T00:24:25.673026",
+        "path": "wiki/Korean/vocabulary/ko-weather-seasons-vocabulary.md"
+      },
+      {
+        "name": "literature-vocabulary",
+        "filename": "literature-vocabulary.md",
+        "title": "문학 vocabulary — Korean theme",
+        "size_kb": 11.6,
+        "modified": "2026-08-20T00:24:25.673211",
+        "path": "wiki/Korean/vocabulary/literature-vocabulary.md"
+      },
+      {
+        "name": "literature-vocabulary.ko",
+        "filename": "literature-vocabulary.ko.md",
+        "title": "Literature (문학) - Korean Perspective",
+        "size_kb": 5.8,
+        "modified": "2026-08-20T00:14:51.278012",
+        "path": "wiki/Korean/vocabulary/literature-vocabulary.ko.md"
+      },
+      {
+        "name": "months-vocabulary",
+        "filename": "months-vocabulary.md",
+        "title": "months vocabulary - Korean theme",
+        "size_kb": 6.3,
+        "modified": "2026-08-20T00:24:25.673431",
+        "path": "wiki/Korean/vocabulary/months-vocabulary.md"
+      },
+      {
+        "name": "months-vocabulary.ko",
+        "filename": "months-vocabulary.ko.md",
+        "title": "Months (월) - Korean Perspective",
+        "size_kb": 3.3,
+        "modified": "2026-08-20T00:14:51.223968",
+        "path": "wiki/Korean/vocabulary/months-vocabulary.ko.md"
+      },
+      {
+        "name": "nature-vocabulary",
+        "filename": "nature-vocabulary.md",
+        "title": "자연・날씨 어휘 (Korean Nature & Weather)",
+        "size_kb": 19.5,
+        "modified": "2026-08-20T00:24:25.673620",
+        "path": "wiki/Korean/vocabulary/nature-vocabulary.md"
+      },
+      {
+        "name": "nature-vocabulary.ko",
+        "filename": "nature-vocabulary.ko.md",
+        "title": "Nature (자연) - Korean Perspective",
+        "size_kb": 11.1,
+        "modified": "2026-08-20T00:14:51.380418",
+        "path": "wiki/Korean/vocabulary/nature-vocabulary.ko.md"
+      },
+      {
+        "name": "numbers-vocabulary",
+        "filename": "numbers-vocabulary.md",
+        "title": "numbers vocabulary - Korean theme",
+        "size_kb": 6.1,
+        "modified": "2026-08-20T00:24:25.673795",
+        "path": "wiki/Korean/vocabulary/numbers-vocabulary.md"
+      },
+      {
+        "name": "numbers-vocabulary.ko",
+        "filename": "numbers-vocabulary.ko.md",
+        "title": "Numbers (숫자) - Korean Perspective",
+        "size_kb": 3.4,
+        "modified": "2026-08-20T00:14:51.319813",
+        "path": "wiki/Korean/vocabulary/numbers-vocabulary.ko.md"
+      },
+      {
+        "name": "ordinal-numbers-vocabulary",
+        "filename": "ordinal-numbers-vocabulary.md",
+        "title": "ordinal-numbers vocabulary - Korean theme",
+        "size_kb": 7.1,
+        "modified": "2026-08-20T00:24:25.674049",
+        "path": "wiki/Korean/vocabulary/ordinal-numbers-vocabulary.md"
+      },
+      {
+        "name": "ordinal-numbers-vocabulary.ko",
+        "filename": "ordinal-numbers-vocabulary.ko.md",
+        "title": "Ordinal Numbers (서수) - Korean Perspective",
+        "size_kb": 3.9,
+        "modified": "2026-08-20T00:14:51.211549",
+        "path": "wiki/Korean/vocabulary/ordinal-numbers-vocabulary.ko.md"
+      },
+      {
+        "name": "quotes-vocabulary",
+        "filename": "quotes-vocabulary.md",
+        "title": "명언 어휘 (Korean Famous Quotes)",
+        "size_kb": 9.2,
+        "modified": "2026-08-20T00:24:25.674219",
+        "path": "wiki/Korean/vocabulary/quotes-vocabulary.md"
+      },
+      {
+        "name": "shopping-vocabulary",
+        "filename": "shopping-vocabulary.md",
+        "title": "쇼핑 vocabulary — Korean theme",
+        "size_kb": 10.7,
+        "modified": "2026-08-20T00:24:25.674420",
+        "path": "wiki/Korean/vocabulary/shopping-vocabulary.md"
+      },
+      {
+        "name": "shopping-vocabulary.ko",
+        "filename": "shopping-vocabulary.ko.md",
+        "title": "Shopping (쇼핑) - Korean Perspective",
+        "size_kb": 5.2,
+        "modified": "2026-08-20T00:14:51.245969",
+        "path": "wiki/Korean/vocabulary/shopping-vocabulary.ko.md"
+      },
+      {
+        "name": "sports-vocabulary",
+        "filename": "sports-vocabulary.md",
+        "title": "스포츠 vocabulary — Korean theme",
+        "size_kb": 11.5,
+        "modified": "2026-08-20T00:24:25.674592",
+        "path": "wiki/Korean/vocabulary/sports-vocabulary.md"
+      },
+      {
+        "name": "sports-vocabulary.ko",
+        "filename": "sports-vocabulary.ko.md",
+        "title": "Sports (스포츠) - Korean Perspective",
+        "size_kb": 4.5,
+        "modified": "2026-08-20T00:14:51.329244",
+        "path": "wiki/Korean/vocabulary/sports-vocabulary.ko.md"
+      },
+      {
+        "name": "technology-vocabulary",
+        "filename": "technology-vocabulary.md",
+        "title": "technology vocabulary - Korean theme",
+        "size_kb": 6.6,
+        "modified": "2026-08-20T00:24:25.674754",
+        "path": "wiki/Korean/vocabulary/technology-vocabulary.md"
+      },
+      {
+        "name": "technology-vocabulary.ko",
+        "filename": "technology-vocabulary.ko.md",
+        "title": "Technology (기술) - Korean Perspective",
+        "size_kb": 3.5,
+        "modified": "2026-08-20T00:14:51.361089",
+        "path": "wiki/Korean/vocabulary/technology-vocabulary.ko.md"
+      },
+      {
+        "name": "time-vocabulary",
+        "filename": "time-vocabulary.md",
+        "title": "time (Korean) vocabulary",
+        "size_kb": 5.9,
+        "modified": "2026-08-20T00:24:25.675004",
+        "path": "wiki/Korean/vocabulary/time-vocabulary.md"
+      },
+      {
+        "name": "time-vocabulary.ko",
+        "filename": "time-vocabulary.ko.md",
+        "title": "Time (시간) - Korean Perspective",
+        "size_kb": 2.8,
+        "modified": "2026-08-20T00:14:51.331655",
+        "path": "wiki/Korean/vocabulary/time-vocabulary.ko.md"
+      },
+      {
+        "name": "topik1-starter",
+        "filename": "topik1-starter.md",
+        "title": "TOPIK 1 Starter Vocabulary (Korean)",
+        "size_kb": 11.7,
+        "modified": "2026-08-20T00:24:25.675195",
+        "path": "wiki/Korean/vocabulary/topik1-starter.md"
+      },
+      {
+        "name": "topik1-starter.ko",
+        "filename": "topik1-starter.ko.md",
+        "title": "TOPIK 1 Starter (입문) - Korean Perspective",
+        "size_kb": 8.6,
+        "modified": "2026-08-20T00:14:51.363484",
+        "path": "wiki/Korean/vocabulary/topik1-starter.ko.md"
+      },
+      {
+        "name": "transportation",
+        "filename": "transportation.md",
+        "title": "Transportation Vocabulary (한국어 교통 어휘)",
+        "size_kb": 19.2,
+        "modified": "2026-08-20T00:24:25.675614",
+        "path": "wiki/Korean/vocabulary/transportation.md"
+      },
+      {
+        "name": "transportation-vocabulary",
+        "filename": "transportation-vocabulary.md",
+        "title": "transportation vocabulary - Korean theme",
+        "size_kb": 6.8,
+        "modified": "2026-08-20T00:24:25.675431",
+        "path": "wiki/Korean/vocabulary/transportation-vocabulary.md"
+      },
+      {
+        "name": "transportation-vocabulary.ko",
+        "filename": "transportation-vocabulary.ko.md",
+        "title": "Transportation (교통) - Korean Perspective",
+        "size_kb": 3.3,
+        "modified": "2026-08-20T00:14:51.348473",
+        "path": "wiki/Korean/vocabulary/transportation-vocabulary.ko.md"
+      },
+      {
+        "name": "transportation.ko",
+        "filename": "transportation.ko.md",
+        "title": "Transportation (교통) - Korean Perspective (extended)",
+        "size_kb": 7.1,
+        "modified": "2026-08-20T00:14:51.241169",
+        "path": "wiki/Korean/vocabulary/transportation.ko.md"
+      },
+      {
+        "name": "travel",
+        "filename": "travel.md",
+        "title": "여행 (Korean Travel)",
+        "size_kb": 9.8,
+        "modified": "2026-08-20T00:24:25.675792",
+        "path": "wiki/Korean/vocabulary/travel.md"
+      },
+      {
+        "name": "travel.ko",
+        "filename": "travel.ko.md",
+        "title": "Travel (여행) - Korean Perspective",
+        "size_kb": 11.2,
+        "modified": "2026-08-20T00:14:51.453784",
+        "path": "wiki/Korean/vocabulary/travel.ko.md"
+      },
+      {
+        "name": "weather-nature",
+        "filename": "weather-nature.md",
+        "title": "Weather & Nature Vocabulary (한국어 날씨와 자연 어휘)",
+        "size_kb": 20.1,
+        "modified": "2026-08-20T00:24:25.676010",
+        "path": "wiki/Korean/vocabulary/weather-nature.md"
+      },
+      {
+        "name": "weather-nature.ko",
+        "filename": "weather-nature.ko.md",
+        "title": "Weather & Nature (날씨·자연) - Korean Perspective",
+        "size_kb": 7.7,
+        "modified": "2026-08-20T00:14:51.482839",
+        "path": "wiki/Korean/vocabulary/weather-nature.ko.md"
+      },
+      {
+        "name": "weekdays-vocabulary",
+        "filename": "weekdays-vocabulary.md",
+        "title": "weekdays vocabulary - Korean theme",
+        "size_kb": 6.7,
+        "modified": "2026-08-20T00:24:25.676600",
+        "path": "wiki/Korean/vocabulary/weekdays-vocabulary.md"
+      },
+      {
+        "name": "weekdays-vocabulary.ko",
+        "filename": "weekdays-vocabulary.ko.md",
+        "title": "Weekdays (요일) - Korean Perspective",
+        "size_kb": 3.5,
+        "modified": "2026-08-20T00:14:51.336148",
+        "path": "wiki/Korean/vocabulary/weekdays-vocabulary.ko.md"
+      },
+      {
+        "name": "동물 어휘",
+        "filename": "동물 어휘.md",
+        "title": "동물 어휘 (Korean Animals)",
+        "size_kb": 0.8,
+        "modified": "2026-08-20T00:24:25.676773",
+        "path": "wiki/Korean/vocabulary/동물 어휘.md"
+      },
+      {
+        "name": "동물 어휘.ko",
+        "filename": "동물 어휘.ko.md",
+        "title": "Animals (동물) - Korean Perspective (Non-standard file)",
+        "size_kb": 5.8,
+        "modified": "2026-08-20T00:14:51.289050",
+        "path": "wiki/Korean/vocabulary/동물 어휘.ko.md"
+      },
+      {
+        "name": "여행",
+        "filename": "여행.md",
+        "title": "여행 (Korean Travel)",
+        "size_kb": 0.9,
+        "modified": "2026-08-20T00:24:25.676941",
+        "path": "wiki/Korean/vocabulary/여행.md"
+      },
+      {
+        "name": "여행.ko",
+        "filename": "여행.ko.md",
+        "title": "Travel (여행) - Korean Perspective (Non-standard file)",
+        "size_kb": 5.6,
+        "modified": "2026-08-20T00:14:51.485045",
+        "path": "wiki/Korean/vocabulary/여행.ko.md"
+      },
+      {
+        "name": "의류・패션 어휘",
+        "filename": "의류・패션 어휘.md",
+        "title": "의류・패션 어휘 (Korean Clothing & Fashion)",
+        "size_kb": 0.8,
+        "modified": "2026-08-20T00:24:25.677101",
+        "path": "wiki/Korean/vocabulary/의류・패션 어휘.md"
+      },
+      {
+        "name": "의류・패션 어휘.ko",
+        "filename": "의류・패션 어휘.ko.md",
+        "title": "Clothing (의류·패션) - Korean Perspective (Non-standard file)",
+        "size_kb": 6.6,
+        "modified": "2026-08-20T00:14:51.334133",
+        "path": "wiki/Korean/vocabulary/의류・패션 어휘.ko.md"
+      },
+      {
+        "name": "자연・날씨 어휘",
+        "filename": "자연・날씨 어휘.md",
+        "title": "자연・날씨 어휘 (Korean Nature & Weather)",
+        "size_kb": 0.8,
+        "modified": "2026-08-20T00:24:25.677267",
+        "path": "wiki/Korean/vocabulary/자연・날씨 어휘.md"
+      },
+      {
+        "name": "자연・날씨 어휘.ko",
+        "filename": "자연・날씨 어휘.ko.md",
+        "title": "Nature & Weather (자연·날씨) - Korean Perspective (Non-standard file)",
+        "size_kb": 9.4,
+        "modified": "2026-08-20T00:14:51.254587",
+        "path": "wiki/Korean/vocabulary/자연・날씨 어휘.ko.md"
+      }
+    ],
     "expressions": [
       {
-        "name": "arigatou",
-        "filename": "arigatou.md",
-        "title": "arigatou (ありがとう)",
-        "size_kb": 1.2,
-        "modified": "2026-06-18T18:55:55.095700",
-        "path": "wiki/Korean/expressions/arigatou.md"
+        "name": "agreement",
+        "filename": "agreement.md",
+        "title": "agreement (Korean) expressions",
+        "size_kb": 2.3,
+        "modified": "2026-08-20T00:24:25.660690",
+        "path": "wiki/Korean/expressions/agreement.md"
       },
       {
-        "name": "ikura-desuka",
-        "filename": "ikura-desuka.md",
-        "title": "ikura-desuka (いくらですか?)",
-        "size_kb": 1.1,
-        "modified": "2026-06-18T18:55:49.154726",
-        "path": "wiki/Korean/expressions/ikura-desuka.md"
+        "name": "apologies",
+        "filename": "apologies.md",
+        "title": "apologies (Korean) expressions",
+        "size_kb": 2.3,
+        "modified": "2026-08-20T00:24:25.660848",
+        "path": "wiki/Korean/expressions/apologies.md"
       },
       {
-        "name": "sumimasen-wa-doko-desuka",
-        "filename": "sumimasen-wa-doko-desuka.md",
-        "title": "sumimasen-wa-doko-desuka (すみません、…はどこですか?)",
-        "size_kb": 1.6,
-        "modified": "2026-06-18T18:55:42.653992",
-        "path": "wiki/Korean/expressions/sumimasen-wa-doko-desuka.md"
+        "name": "business-basics",
+        "filename": "business-basics.md",
+        "title": "Expressions: Business Basics (한국어)",
+        "size_kb": 17.6,
+        "modified": "2026-08-20T00:24:25.661022",
+        "path": "wiki/Korean/expressions/business-basics.md"
       },
       {
-        "name": "같이-밥-먹을래",
-        "filename": "같이-밥-먹을래.md",
-        "title": "같이-밥-먹을래",
-        "size_kb": 1.0,
-        "modified": "2026-06-19T03:04:18.410539",
-        "path": "wiki/Korean/expressions/같이-밥-먹을래.md"
+        "name": "business-expressions",
+        "filename": "business-expressions.md",
+        "title": "Expressions: Business (한국어)",
+        "size_kb": 10.4,
+        "modified": "2026-08-20T00:24:25.661274",
+        "path": "wiki/Korean/expressions/business-expressions.md"
       },
       {
-        "name": "나-너-좋아해",
-        "filename": "나-너-좋아해.md",
-        "title": "나-너-좋아해",
-        "size_kb": 1.1,
-        "modified": "2026-06-19T03:04:34.480916",
-        "path": "wiki/Korean/expressions/나-너-좋아해.md"
+        "name": "common-phrases",
+        "filename": "common-phrases.md",
+        "title": "common-phrases (Korean) expressions",
+        "size_kb": 2.4,
+        "modified": "2026-08-20T00:24:25.661488",
+        "path": "wiki/Korean/expressions/common-phrases.md"
       },
       {
-        "name": "나중에-또-보자",
-        "filename": "나중에-또-보자.md",
-        "title": "나중에-또-보자",
-        "size_kb": 1.1,
-        "modified": "2026-06-19T03:04:50.045995",
-        "path": "wiki/Korean/expressions/나중에-또-보자.md"
+        "name": "complaints",
+        "filename": "complaints.md",
+        "title": "Expressions: Complaints (한국어)",
+        "size_kb": 21.2,
+        "modified": "2026-08-20T00:24:25.661667",
+        "path": "wiki/Korean/expressions/complaints.md"
       },
       {
-        "name": "너-자꾸-생각나",
-        "filename": "너-자꾸-생각나.md",
-        "title": "너-자꾸-생각나",
-        "size_kb": 1.1,
-        "modified": "2026-06-19T03:04:26.039563",
-        "path": "wiki/Korean/expressions/너-자꾸-생각나.md"
+        "name": "daily-life",
+        "filename": "daily-life.md",
+        "title": "Expressions: Daily Life (한국어)",
+        "size_kb": 15.3,
+        "modified": "2026-08-20T00:24:25.661868",
+        "path": "wiki/Korean/expressions/daily-life.md"
       },
       {
-        "name": "만나서-반가워요",
-        "filename": "만나서-반가워요.md",
-        "title": "만나서-반가워요",
-        "size_kb": 1.0,
-        "modified": "2026-06-19T03:04:09.698180",
-        "path": "wiki/Korean/expressions/만나서-반가워요.md"
+        "name": "dating-expressions",
+        "filename": "dating-expressions.md",
+        "title": "Expressions: Dating & Romance (한국어)",
+        "size_kb": 8.6,
+        "modified": "2026-08-20T00:24:25.662200",
+        "path": "wiki/Korean/expressions/dating-expressions.md"
       },
       {
-        "name": "보고-싶다",
-        "filename": "보고-싶다.md",
-        "title": "보고-싶다",
-        "size_kb": 1.1,
-        "modified": "2026-06-19T03:05:06.228826",
-        "path": "wiki/Korean/expressions/보고-싶다.md"
+        "name": "dating-romance",
+        "filename": "dating-romance.md",
+        "title": "표현: 연애 표현 / Expresiones sentimentales",
+        "size_kb": 11.2,
+        "modified": "2026-08-20T00:24:25.662390",
+        "path": "wiki/Korean/expressions/dating-romance.md"
       },
       {
-        "name": "손-잡아도-돼",
-        "filename": "손-잡아도-돼.md",
-        "title": "손-잡아도-돼",
-        "size_kb": 1.0,
-        "modified": "2026-06-19T03:04:42.080068",
-        "path": "wiki/Korean/expressions/손-잡아도-돼.md"
+        "name": "emotions-reactions",
+        "filename": "emotions-reactions.md",
+        "title": "Expressions: Emotions & Reactions (한국어)",
+        "size_kb": 19.3,
+        "modified": "2026-08-20T00:24:25.662585",
+        "path": "wiki/Korean/expressions/emotions-reactions.md"
       },
       {
-        "name": "친구로-지내자",
-        "filename": "친구로-지내자.md",
-        "title": "친구로-지내자",
-        "size_kb": 1.1,
-        "modified": "2026-06-19T03:04:58.479992",
-        "path": "wiki/Korean/expressions/친구로-지내자.md"
+        "name": "food-dining",
+        "filename": "food-dining.md",
+        "title": "Expressions: Food & Dining (한국어)",
+        "size_kb": 16.0,
+        "modified": "2026-08-20T00:24:25.662817",
+        "path": "wiki/Korean/expressions/food-dining.md"
+      },
+      {
+        "name": "greetings",
+        "filename": "greetings.md",
+        "title": "greetings (Korean) expressions",
+        "size_kb": 2.2,
+        "modified": "2026-08-20T00:24:25.662996",
+        "path": "wiki/Korean/expressions/greetings.md"
+      },
+      {
+        "name": "idioms-proverbs",
+        "filename": "idioms-proverbs.md",
+        "title": "Expressions: Idioms & Proverbs (한국어)",
+        "size_kb": 6.6,
+        "modified": "2026-08-20T00:24:25.663227",
+        "path": "wiki/Korean/expressions/idioms-proverbs.md"
+      },
+      {
+        "name": "polite-expressions",
+        "filename": "polite-expressions.md",
+        "title": "Expressions: Polite & Honorific (한국어)",
+        "size_kb": 9.4,
+        "modified": "2026-08-20T00:24:25.663448",
+        "path": "wiki/Korean/expressions/polite-expressions.md"
+      },
+      {
+        "name": "requests",
+        "filename": "requests.md",
+        "title": "Expressions: Requests (한국어)",
+        "size_kb": 22.0,
+        "modified": "2026-08-20T00:24:25.663658",
+        "path": "wiki/Korean/expressions/requests.md"
+      },
+      {
+        "name": "restaurant-expressions",
+        "filename": "restaurant-expressions.md",
+        "title": "Expressions: Restaurant & Dining (한국어)",
+        "size_kb": 8.5,
+        "modified": "2026-08-20T00:24:25.663869",
+        "path": "wiki/Korean/expressions/restaurant-expressions.md"
+      },
+      {
+        "name": "slang-colloquial",
+        "filename": "slang-colloquial.md",
+        "title": "Expressions: Slang & Colloquial (한국어)",
+        "size_kb": 8.3,
+        "modified": "2026-08-20T00:24:25.664058",
+        "path": "wiki/Korean/expressions/slang-colloquial.md"
+      },
+      {
+        "name": "small-talk",
+        "filename": "small-talk.md",
+        "title": "Expressions: Small Talk (한국어)",
+        "size_kb": 23.4,
+        "modified": "2026-08-20T00:24:25.664257",
+        "path": "wiki/Korean/expressions/small-talk.md"
+      },
+      {
+        "name": "technology-expressions",
+        "filename": "technology-expressions.md",
+        "title": "Expressions: Technology & Internet (한국어)",
+        "size_kb": 7.7,
+        "modified": "2026-08-20T00:24:25.664436",
+        "path": "wiki/Korean/expressions/technology-expressions.md"
+      },
+      {
+        "name": "travel-basics",
+        "filename": "travel-basics.md",
+        "title": "Expressions: Travel Basics (한국어)",
+        "size_kb": 12.0,
+        "modified": "2026-08-20T00:24:25.664634",
+        "path": "wiki/Korean/expressions/travel-basics.md"
+      },
+      {
+        "name": "travel-expressions",
+        "filename": "travel-expressions.md",
+        "title": "Expressions: Travel Advanced (한국어)",
+        "size_kb": 10.0,
+        "modified": "2026-08-20T00:24:25.664803",
+        "path": "wiki/Korean/expressions/travel-expressions.md"
       }
     ],
     "culture": [
       {
-        "name": "korean-daily-life-culture",
-        "filename": "korean-daily-life-culture.md",
-        "title": "한국 일상·생활 문화 (Korean Daily Life Culture)",
-        "size_kb": 1.3,
-        "modified": "2026-06-24T15:32:25.040251",
-        "path": "wiki/Korean/culture/korean-daily-life-culture.md"
+        "name": "korean-1987-democratization",
+        "filename": "korean-1987-democratization.md",
+        "title": "1987년 민주화 (Korean 1987 Democratization)",
+        "size_kb": 4.8,
+        "modified": "2026-08-20T00:14:51.588642",
+        "path": "wiki/Korean/culture/korean-1987-democratization.md"
+      },
+      {
+        "name": "korean-2002-world-cup",
+        "filename": "korean-2002-world-cup.md",
+        "title": "2002 한일 월드컵 (2002 Korea-Japan World Cup)",
+        "size_kb": 4.5,
+        "modified": "2026-08-20T00:14:51.550622",
+        "path": "wiki/Korean/culture/korean-2002-world-cup.md"
+      },
+      {
+        "name": "korean-arts-traditions",
+        "filename": "korean-arts-traditions.md",
+        "title": "한국 예술 전통 (Korean Arts Traditions)",
+        "size_kb": 4.6,
+        "modified": "2026-08-20T00:14:51.513704",
+        "path": "wiki/Korean/culture/korean-arts-traditions.md"
+      },
+      {
+        "name": "korean-baekil",
+        "filename": "korean-baekil.md",
+        "title": "백일 (Baekil — 100th Day)",
+        "size_kb": 3.4,
+        "modified": "2026-08-20T00:14:51.593157",
+        "path": "wiki/Korean/culture/korean-baekil.md"
+      },
+      {
+        "name": "korean-bbq-culture",
+        "filename": "korean-bbq-culture.md",
+        "title": "한국 BBQ 문화 (Korean BBQ Culture)",
+        "size_kb": 4.5,
+        "modified": "2026-08-20T00:14:51.519327",
+        "path": "wiki/Korean/culture/korean-bbq-culture.md"
+      },
+      {
+        "name": "korean-buddhas-birthday",
+        "filename": "korean-buddhas-birthday.md",
+        "title": "부처님 오신 날 (Buddha's Birthday)",
+        "size_kb": 3.4,
+        "modified": "2026-08-20T00:14:51.528276",
+        "path": "wiki/Korean/culture/korean-buddhas-birthday.md"
+      },
+      {
+        "name": "korean-chaebol-history",
+        "filename": "korean-chaebol-history.md",
+        "title": "재벌 역사 (Korean Chaebol History)",
+        "size_kb": 4.7,
+        "modified": "2026-08-20T00:14:51.525963",
+        "path": "wiki/Korean/culture/korean-chaebol-history.md"
+      },
+      {
+        "name": "korean-christianity",
+        "filename": "korean-christianity.md",
+        "title": "한국 기독교 (Korean Christianity)",
+        "size_kb": 4.0,
+        "modified": "2026-08-20T00:14:51.571754",
+        "path": "wiki/Korean/culture/korean-christianity.md"
+      },
+      {
+        "name": "korean-christmas-culture",
+        "filename": "korean-christmas-culture.md",
+        "title": "한국 크리스마스 문화 (Korean Christmas Culture)",
+        "size_kb": 3.7,
+        "modified": "2026-08-20T00:14:51.557076",
+        "path": "wiki/Korean/culture/korean-christmas-culture.md"
+      },
+      {
+        "name": "korean-chuseok-traditions",
+        "filename": "korean-chuseok-traditions.md",
+        "title": "추석 전통 (Chuseok Traditions)",
+        "size_kb": 3.7,
+        "modified": "2026-08-20T00:14:51.509741",
+        "path": "wiki/Korean/culture/korean-chuseok-traditions.md"
+      },
+      {
+        "name": "korean-coffee-cafe-culture",
+        "filename": "korean-coffee-cafe-culture.md",
+        "title": "한국 커피와 카페 문화 (Korean Coffee and Cafe Culture)",
+        "size_kb": 4.5,
+        "modified": "2026-08-20T00:14:51.499643",
+        "path": "wiki/Korean/culture/korean-coffee-cafe-culture.md"
+      },
+      {
+        "name": "korean-communication-style",
+        "filename": "korean-communication-style.md",
+        "title": "Korean Communication: Banmal and Jondaetmal",
+        "size_kb": 3.5,
+        "modified": "2026-08-20T00:14:51.530703",
+        "path": "wiki/Korean/culture/korean-communication-style.md"
+      },
+      {
+        "name": "korean-confucian-roots",
+        "filename": "korean-confucian-roots.md",
+        "title": "유교 뿌리 (Korean Confucian Roots)",
+        "size_kb": 4.0,
+        "modified": "2026-08-20T00:14:51.542555",
+        "path": "wiki/Korean/culture/korean-confucian-roots.md"
+      },
+      {
+        "name": "korean-dano-festival",
+        "filename": "korean-dano-festival.md",
+        "title": "단오 (Dano Festival)",
+        "size_kb": 3.7,
+        "modified": "2026-08-20T00:14:51.524019",
+        "path": "wiki/Korean/culture/korean-dano-festival.md"
       },
       {
         "name": "korean-dating-culture",
         "filename": "korean-dating-culture.md",
         "title": "Korean Dating Culture",
-        "size_kb": 5.9,
-        "modified": "2026-06-20T01:25:52.218930",
+        "size_kb": 6.2,
+        "modified": "2026-08-20T00:14:51.554649",
         "path": "wiki/Korean/culture/korean-dating-culture.md"
+      },
+      {
+        "name": "korean-doljanchi",
+        "filename": "korean-doljanchi.md",
+        "title": "돌잔치 (Doljanchi — First Birthday)",
+        "size_kb": 3.6,
+        "modified": "2026-08-20T00:14:51.544515",
+        "path": "wiki/Korean/culture/korean-doljanchi.md"
+      },
+      {
+        "name": "korean-education-system",
+        "filename": "korean-education-system.md",
+        "title": "한국 교육 제도 (Korean Education System)",
+        "size_kb": 3.4,
+        "modified": "2026-08-20T00:14:51.537935",
+        "path": "wiki/Korean/culture/korean-education-system.md"
+      },
+      {
+        "name": "korean-family-holidays",
+        "filename": "korean-family-holidays.md",
+        "title": "Korean Family Holidays & Traditions",
+        "size_kb": 19.2,
+        "modified": "2026-08-20T00:14:51.548658",
+        "path": "wiki/Korean/culture/korean-family-holidays.md"
+      },
+      {
+        "name": "korean-family-structure",
+        "filename": "korean-family-structure.md",
+        "title": "한국 가족 구조 (Korean Family Structure)",
+        "size_kb": 3.7,
+        "modified": "2026-08-20T00:14:51.586362",
+        "path": "wiki/Korean/culture/korean-family-structure.md"
       },
       {
         "name": "korean-food-culture",
         "filename": "korean-food-culture.md",
-        "title": "한국 음식 문화 (Korean Food Culture)",
-        "size_kb": 1.7,
-        "modified": "2026-06-24T15:22:56.195250",
+        "title": "Korean Food Culture: Banchan and Table Setting",
+        "size_kb": 3.5,
+        "modified": "2026-08-20T00:14:51.561290",
         "path": "wiki/Korean/culture/korean-food-culture.md"
       },
       {
-        "name": "korean-health-culture",
-        "filename": "korean-health-culture.md",
-        "title": "한국 건강·의료 문화 (Korean Health & Medical Culture)",
-        "size_kb": 1.5,
-        "modified": "2026-06-24T15:31:58.314561",
-        "path": "wiki/Korean/culture/korean-health-culture.md"
+        "name": "korean-food-history",
+        "filename": "korean-food-history.md",
+        "title": "한국 음식 역사 (Korean Food History)",
+        "size_kb": 4.3,
+        "modified": "2026-08-20T00:14:51.535576",
+        "path": "wiki/Korean/culture/korean-food-history.md"
       },
       {
-        "name": "korean-holidays-culture",
-        "filename": "korean-holidays-culture.md",
-        "title": "한국 명절·기념일 문화 (Korean Holidays & Celebrations Culture)",
-        "size_kb": 1.7,
-        "modified": "2026-06-24T15:32:13.340569",
-        "path": "wiki/Korean/culture/korean-holidays-culture.md"
+        "name": "korean-hallyu-wave",
+        "filename": "korean-hallyu-wave.md",
+        "title": "Korean Wave (한류 / Hallyu)",
+        "size_kb": 22.0,
+        "modified": "2026-08-20T00:14:51.507799",
+        "path": "wiki/Korean/culture/korean-hallyu-wave.md"
       },
       {
-        "name": "korean-shopping-culture",
-        "filename": "korean-shopping-culture.md",
-        "title": "한국 쇼핑·금융 문화 (Korean Shopping & Money Culture)",
-        "size_kb": 1.6,
-        "modified": "2026-06-24T15:33:15.213077",
-        "path": "wiki/Korean/culture/korean-shopping-culture.md"
+        "name": "korean-hanbok-culture",
+        "filename": "korean-hanbok-culture.md",
+        "title": "한국 한복 문화 (Korean Hanbok Culture)",
+        "size_kb": 4.7,
+        "modified": "2026-08-20T00:24:25.660510",
+        "path": "wiki/Korean/culture/korean-hanbok-culture.md"
+      },
+      {
+        "name": "korean-history-trivia",
+        "filename": "korean-history-trivia.md",
+        "title": "한국 역사 트리비아 (Korean History Trivia)",
+        "size_kb": 4.6,
+        "modified": "2026-08-20T00:14:51.584237",
+        "path": "wiki/Korean/culture/korean-history-trivia.md"
+      },
+      {
+        "name": "korean-jesa-traditions",
+        "filename": "korean-jesa-traditions.md",
+        "title": "차례 (Jesa — Ancestral Memorial Rites)",
+        "size_kb": 4.1,
+        "modified": "2026-08-20T00:14:51.582297",
+        "path": "wiki/Korean/culture/korean-jesa-traditions.md"
+      },
+      {
+        "name": "korean-jjokbang",
+        "filename": "korean-jjokbang.md",
+        "title": "한국 찜질방 (Korean Jjimjilbang)",
+        "size_kb": 4.9,
+        "modified": "2026-08-20T00:14:51.559311",
+        "path": "wiki/Korean/culture/korean-jjokbang.md"
+      },
+      {
+        "name": "korean-mandatory-military",
+        "filename": "korean-mandatory-military.md",
+        "title": "한국 군 복무 (Korean Mandatory Military)",
+        "size_kb": 4.3,
+        "modified": "2026-08-20T00:14:51.577345",
+        "path": "wiki/Korean/culture/korean-mandatory-military.md"
+      },
+      {
+        "name": "korean-mart-culture",
+        "filename": "korean-mart-culture.md",
+        "title": "한국 마트 문화 (Korean Mart Culture)",
+        "size_kb": 5.7,
+        "modified": "2026-08-20T00:14:51.546360",
+        "path": "wiki/Korean/culture/korean-mart-culture.md"
+      },
+      {
+        "name": "korean-modern-life",
+        "filename": "korean-modern-life.md",
+        "title": "Korean Modern Life: KakaoTalk and Convenience",
+        "size_kb": 2.0,
+        "modified": "2026-08-20T00:14:51.532781",
+        "path": "wiki/Korean/culture/korean-modern-life.md"
+      },
+      {
+        "name": "korean-new-year-traditions",
+        "filename": "korean-new-year-traditions.md",
+        "title": "Korean New Year Traditions (설날)",
+        "size_kb": 3.2,
+        "modified": "2026-08-20T00:14:51.552387",
+        "path": "wiki/Korean/culture/korean-new-year-traditions.md"
+      },
+      {
+        "name": "korean-pepero-day",
+        "filename": "korean-pepero-day.md",
+        "title": "빼빼로데이 (Pepero Day)",
+        "size_kb": 3.4,
+        "modified": "2026-08-20T00:14:51.492873",
+        "path": "wiki/Korean/culture/korean-pepero-day.md"
+      },
+      {
+        "name": "korean-pocha-culture",
+        "filename": "korean-pocha-culture.md",
+        "title": "한국 포장마차 문화 (Korean Pocha Culture)",
+        "size_kb": 5.5,
+        "modified": "2026-08-20T00:14:51.590832",
+        "path": "wiki/Korean/culture/korean-pocha-culture.md"
+      },
+      {
+        "name": "korean-pop-culture",
+        "filename": "korean-pop-culture.md",
+        "title": "한국 대중문화 (Korean Pop Culture)",
+        "size_kb": 4.3,
+        "modified": "2026-08-20T00:14:51.497483",
+        "path": "wiki/Korean/culture/korean-pop-culture.md"
+      },
+      {
+        "name": "korean-proverbs-quotes",
+        "filename": "korean-proverbs-quotes.md",
+        "title": "한국 속담과 명언 (Korean Proverbs and Quotations)",
+        "size_kb": 4.9,
+        "modified": "2026-08-20T00:14:51.502679",
+        "path": "wiki/Korean/culture/korean-proverbs-quotes.md"
+      },
+      {
+        "name": "korean-pyeongchang-2018",
+        "filename": "korean-pyeongchang-2018.md",
+        "title": "2018 평창 동계올림픽 (PyeongChang 2018 Winter Olympics)",
+        "size_kb": 4.8,
+        "modified": "2026-08-20T00:14:51.521729",
+        "path": "wiki/Korean/culture/korean-pyeongchang-2018.md"
+      },
+      {
+        "name": "korean-regional-variations",
+        "filename": "korean-regional-variations.md",
+        "title": "한국 지역 변이 (Korean Regional Variations)",
+        "size_kb": 3.8,
+        "modified": "2026-08-20T00:14:51.575200",
+        "path": "wiki/Korean/culture/korean-regional-variations.md"
+      },
+      {
+        "name": "korean-religious-holidays",
+        "filename": "korean-religious-holidays.md",
+        "title": "한국 종교 명절 (Korean Religious Holidays)",
+        "size_kb": 3.7,
+        "modified": "2026-08-20T00:14:51.540269",
+        "path": "wiki/Korean/culture/korean-religious-holidays.md"
+      },
+      {
+        "name": "korean-school-uniform",
+        "filename": "korean-school-uniform.md",
+        "title": "한국 교복 문화 (Korean School Uniform)",
+        "size_kb": 4.7,
+        "modified": "2026-08-20T00:14:51.487374",
+        "path": "wiki/Korean/culture/korean-school-uniform.md"
+      },
+      {
+        "name": "korean-seollal-traditions",
+        "filename": "korean-seollal-traditions.md",
+        "title": "설날 전통 (Seollal Traditions)",
+        "size_kb": 3.7,
+        "modified": "2026-08-20T00:14:51.516711",
+        "path": "wiki/Korean/culture/korean-seollal-traditions.md"
+      },
+      {
+        "name": "korean-seongnyeon",
+        "filename": "korean-seongnyeon.md",
+        "title": "성년식 (Seongnyeon — Coming of Age)",
+        "size_kb": 3.6,
+        "modified": "2026-08-20T00:14:51.566043",
+        "path": "wiki/Korean/culture/korean-seongnyeon.md"
+      },
+      {
+        "name": "korean-shamanism",
+        "filename": "korean-shamanism.md",
+        "title": "무속 (Korean Shamanism)",
+        "size_kb": 4.1,
+        "modified": "2026-08-20T00:14:51.511630",
+        "path": "wiki/Korean/culture/korean-shamanism.md"
+      },
+      {
+        "name": "korean-soju-culture",
+        "filename": "korean-soju-culture.md",
+        "title": "한국 소주 문화 (Korean Soju Culture)",
+        "size_kb": 4.7,
+        "modified": "2026-08-20T00:14:51.568066",
+        "path": "wiki/Korean/culture/korean-soju-culture.md"
       },
       {
         "name": "korean-sports-culture",
         "filename": "korean-sports-culture.md",
-        "title": "한국 스포츠·취미 문화 (Korean Sports & Hobbies Culture)",
-        "size_kb": 1.5,
-        "modified": "2026-06-24T15:32:39.473303",
+        "title": "한국 스포츠 문화 (Korean Sports Culture)",
+        "size_kb": 3.6,
+        "modified": "2026-08-20T00:14:51.495141",
         "path": "wiki/Korean/culture/korean-sports-culture.md"
       },
       {
-        "name": "korean-technology-culture",
-        "filename": "korean-technology-culture.md",
-        "title": "한국 기술·인터넷 문화 (Korean Technology & Internet Culture)",
-        "size_kb": 2.1,
-        "modified": "2026-06-24T15:31:46.637355",
-        "path": "wiki/Korean/culture/korean-technology-culture.md"
+        "name": "korean-tech-workplace",
+        "filename": "korean-tech-workplace.md",
+        "title": "한국 기술 직장 (Korean Tech Workplace)",
+        "size_kb": 4.4,
+        "modified": "2026-08-20T00:14:51.490384",
+        "path": "wiki/Korean/culture/korean-tech-workplace.md"
       },
       {
-        "name": "korean-travel-culture",
-        "filename": "korean-travel-culture.md",
-        "title": "한국 여행 문화 (Korean Travel Culture)",
-        "size_kb": 1.8,
-        "modified": "2026-06-24T15:22:39.912685",
-        "path": "wiki/Korean/culture/korean-travel-culture.md"
+        "name": "korean-workplace-culture",
+        "filename": "korean-workplace-culture.md",
+        "title": "Korean Workplace Culture",
+        "size_kb": 20.9,
+        "modified": "2026-08-20T00:14:51.563938",
+        "path": "wiki/Korean/culture/korean-workplace-culture.md"
+      },
+      {
+        "name": "korean-workplace-hierarchy",
+        "filename": "korean-workplace-hierarchy.md",
+        "title": "Korean Workplace Culture: Hoesik and Hierarchy",
+        "size_kb": 3.7,
+        "modified": "2026-08-20T00:14:51.505064",
+        "path": "wiki/Korean/culture/korean-workplace-hierarchy.md"
       }
     ],
-    "study_plan": []
+    "study_plan": [
+      {
+        "name": "README",
+        "filename": "README.md",
+        "title": "한국어 학습 계획 (Korean Study Plan)",
+        "size_kb": 1.1,
+        "modified": "2026-08-20T00:14:51.208249",
+        "path": "wiki/Korean/study-plan/README.md"
+      },
+      {
+        "name": "recursos-kr",
+        "filename": "recursos-kr.md",
+        "title": "한국어 학습 자료 카탈로그 (recursos-kr)",
+        "size_kb": 3.5,
+        "modified": "2026-08-20T00:24:25.715296",
+        "path": "wiki/Korean/study-plan/recursos-kr.md"
+      },
+      {
+        "name": "weekly-plan",
+        "filename": "weekly-plan.md",
+        "title": "한국어 주간 학습 계획 (Korean Weekly Study Plan)",
+        "size_kb": 4.2,
+        "modified": "2026-08-20T00:24:25.715430",
+        "path": "wiki/Korean/study-plan/weekly-plan.md"
+      }
+    ]
   },
   "raw_sources": [
     {
@@ -270,7 +1400,7 @@
       "filename": "animals-vocabulary.md",
       "title": "Korean Animals Vocabulary",
       "size_kb": 1.6,
-      "modified": "2026-06-23T01:16:53.775844",
+      "modified": "2026-08-20T00:14:54.431980",
       "path": "raw/Korean/animals-vocabulary.md"
     },
     {
@@ -278,7 +1408,7 @@
       "filename": "business-vocabulary.md",
       "title": "Korean Business Vocabulary",
       "size_kb": 5.1,
-      "modified": "2026-06-22T22:36:07.416882",
+      "modified": "2026-08-20T00:14:54.478731",
       "path": "raw/Korean/business-vocabulary.md"
     },
     {
@@ -286,15 +1416,23 @@
       "filename": "clothing-vocabulary.md",
       "title": "Korean Clothing & Fashion Vocabulary",
       "size_kb": 2.3,
-      "modified": "2026-06-23T01:17:08.521726",
+      "modified": "2026-08-20T00:14:54.470515",
       "path": "raw/Korean/clothing-vocabulary.md"
+    },
+    {
+      "name": "daily-life-basics-kr",
+      "filename": "daily-life-basics-kr.md",
+      "title": "일상생활 기초 어휘 — Daily Life Basics Korean",
+      "size_kb": 31.6,
+      "modified": "2026-08-20T00:14:54.460018",
+      "path": "raw/Korean/daily-life-basics-kr.md"
     },
     {
       "name": "dating-romance-kr",
       "filename": "dating-romance-kr.md",
       "title": "Dating & Romance — Source Material (Korean)",
       "size_kb": 6.6,
-      "modified": "2026-06-19T02:50:28.591619",
+      "modified": "2026-08-20T00:14:54.441109",
       "path": "raw/Korean/dating-romance-kr.md"
     },
     {
@@ -302,7 +1440,7 @@
       "filename": "emotions-personality-vocabulary.md",
       "title": "Korean Emotions & Personality Vocabulary",
       "size_kb": 4.7,
-      "modified": "2026-06-22T22:37:47.802011",
+      "modified": "2026-08-20T00:14:54.463020",
       "path": "raw/Korean/emotions-personality-vocabulary.md"
     },
     {
@@ -310,7 +1448,7 @@
       "filename": "first-travel-japan.md",
       "title": "첫 여행 경험 — 일본 (First Travel Experience: Japan)",
       "size_kb": 7.3,
-      "modified": "2026-06-18T18:53:13.856302",
+      "modified": "2026-08-20T00:14:54.422201",
       "path": "raw/Korean/first-travel-japan.md"
     },
     {
@@ -318,55 +1456,142 @@
       "filename": "food-vocabulary.md",
       "title": "Korean Food & Restaurant Vocabulary",
       "size_kb": 4.4,
-      "modified": "2026-06-22T22:34:09.248157",
+      "modified": "2026-08-20T00:14:54.473440",
       "path": "raw/Korean/food-vocabulary.md"
+    },
+    {
+      "name": "holidays-and-celebrations-kr",
+      "filename": "holidays-and-celebrations-kr.md",
+      "title": "명절·기념일 어휘 — Holidays & Celebrations Korean",
+      "size_kb": 108.1,
+      "modified": "2026-08-20T00:14:54.452667",
+      "path": "raw/Korean/holidays-and-celebrations-kr.md"
     },
     {
       "name": "literature-passages",
       "filename": "literature-passages.md",
-      "title": "문학 작품 발췌 모음 (Korean Literature Passages)",
-      "size_kb": 1.2,
-      "modified": "2026-06-23T16:01:06.554445",
+      "title": "한국 문학 어휘 — Korean Literature Passages",
+      "size_kb": 3.3,
+      "modified": "2026-08-20T00:14:54.449296",
       "path": "raw/Korean/literature-passages.md"
+    },
+    {
+      "name": "literature-passages-kr",
+      "filename": "literature-passages-kr.md",
+      "title": "문학 구절 — Literature Passages Korean",
+      "size_kb": 24.0,
+      "modified": "2026-08-20T00:14:54.437115",
+      "path": "raw/Korean/literature-passages-kr.md"
+    },
+    {
+      "name": "movie-quotes-kr",
+      "filename": "movie-quotes-kr.md",
+      "title": "영화 명대사 — Movie Quotes Korean",
+      "size_kb": 14.9,
+      "modified": "2026-08-20T00:14:54.429679",
+      "path": "raw/Korean/movie-quotes-kr.md"
     },
     {
       "name": "nature-vocabulary",
       "filename": "nature-vocabulary.md",
       "title": "Korean Nature & Weather Vocabulary",
       "size_kb": 1.9,
-      "modified": "2026-06-23T01:16:34.261598",
+      "modified": "2026-08-20T00:14:54.424531",
       "path": "raw/Korean/nature-vocabulary.md"
+    },
+    {
+      "name": "particles-ko",
+      "filename": "particles-ko.md",
+      "title": "한국어 조사 (Particles) Reference",
+      "size_kb": 6.1,
+      "modified": "2026-08-20T00:14:54.419166",
+      "path": "raw/Korean/particles-ko.md"
+    },
+    {
+      "name": "shopping-and-money-kr",
+      "filename": "shopping-and-money-kr.md",
+      "title": "쇼핑·금융 어휘 — Shopping & Money Korean",
+      "size_kb": 15.0,
+      "modified": "2026-08-20T00:14:54.434271",
+      "path": "raw/Korean/shopping-and-money-kr.md"
+    },
+    {
+      "name": "speech-levels-ko",
+      "filename": "speech-levels-ko.md",
+      "title": "한국어 경어법 (Speech Levels) Reference",
+      "size_kb": 4.6,
+      "modified": "2026-08-20T00:14:54.447007",
+      "path": "raw/Korean/speech-levels-ko.md"
+    },
+    {
+      "name": "sports-and-hobbies-kr",
+      "filename": "sports-and-hobbies-kr.md",
+      "title": "스포츠·취미 어휘 — Sports & Hobbies Korean",
+      "size_kb": 19.6,
+      "modified": "2026-08-20T00:14:54.465787",
+      "path": "raw/Korean/sports-and-hobbies-kr.md"
+    },
+    {
+      "name": "technology-and-internet-kr",
+      "filename": "technology-and-internet-kr.md",
+      "title": "기술·인터넷 어휘 — Technology & Internet Korean",
+      "size_kb": 25.0,
+      "modified": "2026-08-20T00:14:54.426965",
+      "path": "raw/Korean/technology-and-internet-kr.md"
     },
     {
       "name": "topik1-starter",
       "filename": "topik1-starter.md",
       "title": "TOPIK 1 Starter Vocabulary",
       "size_kb": 3.2,
-      "modified": "2026-06-18T01:47:11.394837",
+      "modified": "2026-08-20T00:14:54.455554",
       "path": "raw/Korean/topik1-starter.md"
+    },
+    {
+      "name": "travel-adventure-kr",
+      "filename": "travel-adventure-kr.md",
+      "title": "한국 여행 모험 어휘 — Travel Adventure Korean",
+      "size_kb": 13.6,
+      "modified": "2026-08-20T00:14:54.444523",
+      "path": "raw/Korean/travel-adventure-kr.md"
     },
     {
       "name": "travel-basics-kr",
       "filename": "travel-basics-kr.md",
       "title": "여행 기초 어휘 - Source Material",
       "size_kb": 1.3,
-      "modified": "2026-06-18T18:45:44.466318",
+      "modified": "2026-08-20T00:14:54.476228",
       "path": "raw/Korean/travel-basics-kr.md"
+    },
+    {
+      "name": "work-and-career-kr",
+      "filename": "work-and-career-kr.md",
+      "title": "직장·커리어 어휘 — Work & Career Korean",
+      "size_kb": 24.3,
+      "modified": "2026-08-20T00:14:54.468346",
+      "path": "raw/Korean/work-and-career-kr.md"
     }
   ],
-  "raw_sources_count": 11,
+  "raw_sources_count": 22,
   "corpus": {
-    "total": 78,
+    "total": 101,
     "by_level": {
-      "1": 66,
+      "1": 89,
       "2": 12
     },
     "by_category": {
       "travel": 77,
-      "greeting": 1
+      "basic": 9,
+      "animal": 3,
+      "food": 3,
+      "greeting": 2,
+      "nature": 2,
+      "body": 2,
+      "family": 2,
+      "number": 1
     },
     "by_type": {
-      "words": 78,
+      "words": 101,
       "sentences": 0,
       "chars": 0
     },
@@ -384,125 +1609,141 @@
       {
         "id": "kr_t_001",
         "display": "공항",
-        "jamo": "ㄱㅗㅎㅏㅇ",
+        "jamo": "(auto)",
         "meaning": "공항",
         "level": 1,
         "category": "travel",
         "source": [
           [
-            "kuukou"
+            "travel"
           ]
-        ]
+        ],
+        "romaji": "gonghang"
       },
       {
         "id": "kr_t_002",
         "display": "여권",
-        "jamo": "ㅇㅕㄱㅝㄴ",
+        "jamo": "(auto)",
         "meaning": "여권",
         "level": 1,
         "category": "travel",
         "source": [
           [
-            "pasupooto"
+            "travel"
           ]
-        ]
+        ],
+        "romaji": "yeogwon"
       },
       {
         "id": "kr_t_003",
         "display": "입국심사",
-        "jamo": "ㅇㅣㅂㄱㅜㄱㅅㅣㅁㅅㅏ",
+        "jamo": "(auto)",
         "meaning": "입국심사",
         "level": 2,
         "category": "travel",
         "source": [
           [
-            "nyuukoku-shinsa"
+            "travel"
           ]
-        ]
+        ],
+        "romaji": "ibgugsimsa"
       },
       {
         "id": "kr_t_004",
         "display": "짐",
-        "jamo": "ㅈㅣㅁ",
+        "jamo": "(auto)",
         "meaning": "짐",
         "level": 1,
         "category": "travel",
         "source": [
           [
-            "nimotsu"
+            "travel"
           ]
-        ]
+        ],
+        "romaji": "jim"
       },
       {
         "id": "kr_t_005",
         "display": "출구",
-        "jamo": "ㅊㅜㄹㄱㅜ",
+        "jamo": "(auto)",
         "meaning": "출구",
         "level": 1,
         "category": "travel",
         "source": [
           [
-            "deguchi"
+            "travel"
           ]
-        ]
+        ],
+        "romaji": "chulgu"
       },
       {
         "id": "kr_t_006",
         "display": "입구",
-        "jamo": "ㅇㅣㅂㄱㅜ",
+        "jamo": "(auto)",
         "meaning": "입구",
         "level": 1,
         "category": "travel",
         "source": [
           [
-            "iriguchi"
+            "travel"
           ]
-        ]
+        ],
+        "romaji": "ibgu"
       },
       {
         "id": "kr_t_007",
         "display": "환전",
-        "jamo": "ㅎㅘㄴㅈㅓㄴ",
+        "jamo": "(auto)",
         "meaning": "환전",
         "level": 2,
         "category": "travel",
         "source": [
           [
-            "ryougae"
+            "travel"
           ]
-        ]
+        ],
+        "romaji": "hwanjeon"
       },
       {
         "id": "kr_t_010",
         "display": "호텔",
-        "jamo": "ㅎㅗㅌㅔㄹ",
+        "jamo": "(auto)",
         "meaning": "호텔",
         "level": 1,
         "category": "travel",
         "source": [
           [
-            "hoteru"
+            "travel"
           ]
-        ]
+        ],
+        "romaji": "hotel"
       },
       {
         "id": "kr_t_011",
         "display": "방",
-        "jamo": "ㅂㅏㅇ",
+        "jamo": "(auto)",
         "meaning": "방",
         "level": 1,
         "category": "travel",
         "source": [
           [
-            "heya"
+            "travel"
           ]
-        ]
+        ],
+        "romaji": "bang"
       }
     ],
     "sentences_sample": [],
     "chars_sample": [],
     "categories": [
+      "animal",
+      "basic",
+      "body",
+      "family",
+      "food",
       "greeting",
+      "nature",
+      "number",
       "travel"
     ],
     "levels": [
@@ -660,6 +1901,24 @@
       "difficulty": 5,
       "corpus_type": "passages",
       "corpus_filter": {
+        "minLevel": 5,
+        "maxLevel": 5
+      }
+    },
+    {
+      "id": "kr_5_2",
+      "tier": 5,
+      "stage_num": 2,
+      "tier_label": "Tier 5 · 단락",
+      "name": "삶의 통찰",
+      "description": "명상·가치관·삶의 통찰 단락",
+      "word_count": 5,
+      "difficulty": 5,
+      "corpus_type": "words",
+      "corpus_filter": {
+        "categories": [
+          "passage"
+        ],
         "minLevel": 5,
         "maxLevel": 5
       }
@@ -997,7 +2256,7 @@
       "description": "마스터 수준 음식 표현 — 미식가, food critic",
       "word_count": 6,
       "difficulty": 5,
-      "corpus_type": "_ignored",
+      "corpus_type": "words",
       "corpus_filter": {
         "categories": [
           "food"
@@ -1116,17 +2375,17 @@
     }
   ],
   "coverage": {
-    "total_stages": 34,
-    "total_corpus": 78,
-    "wiki_materials": 31,
-    "sources": 11,
-    "raw_sources": 11,
+    "total_stages": 35,
+    "total_corpus": 101,
+    "wiki_materials": 172,
+    "sources": 21,
+    "raw_sources": 22,
     "stages_by_tier": {
       "1": 3,
       "2": 2,
       "3": 2,
       "4": 1,
-      "5": 1,
+      "5": 2,
       "a": 3,
       "b": 3,
       "c": 3,
@@ -1257,6 +2516,20 @@
         ],
         "word_count": 5,
         "corpus_type": "passages"
+      },
+      {
+        "stage_id": "kr_5_2",
+        "stage_name": "삶의 통찰",
+        "tier": 5,
+        "categories": [
+          "passage"
+        ],
+        "level_range": [
+          5,
+          5
+        ],
+        "word_count": 5,
+        "corpus_type": "words"
       },
       {
         "stage_id": "kr_a_1",
@@ -1522,7 +2795,7 @@
           3
         ],
         "word_count": 6,
-        "corpus_type": "_ignored"
+        "corpus_type": "words"
       },
       {
         "stage_id": "kr_n_1",
@@ -1611,22 +2884,11 @@
     ],
     "gaps": [
       {
-        "stage_id": "kr_1_1",
-        "stage_name": "첫 인사",
-        "needed": 8,
-        "available": 1,
-        "shortfall": 7,
-        "categories": [
-          "greeting",
-          "basic"
-        ]
-      },
-      {
         "stage_id": "kr_1_2",
         "stage_name": "숫자",
         "needed": 10,
-        "available": 0,
-        "shortfall": 10,
+        "available": 1,
+        "shortfall": 9,
         "categories": [
           "number"
         ]
@@ -1635,8 +2897,8 @@
         "stage_id": "kr_1_3",
         "stage_name": "가족·음식",
         "needed": 10,
-        "available": 0,
-        "shortfall": 10,
+        "available": 5,
+        "shortfall": 5,
         "categories": [
           "family",
           "food"
@@ -1659,6 +2921,16 @@
         "categories": [
           "time",
           "place"
+        ]
+      },
+      {
+        "stage_id": "kr_5_2",
+        "stage_name": "삶의 통찰",
+        "needed": 5,
+        "available": 0,
+        "shortfall": 5,
+        "categories": [
+          "passage"
         ]
       },
       {
@@ -1815,8 +3087,8 @@
         "stage_id": "kr_f_1",
         "stage_name": "한국 음식",
         "needed": 12,
-        "available": 0,
-        "shortfall": 12,
+        "available": 3,
+        "shortfall": 9,
         "categories": [
           "food"
         ]
@@ -1825,8 +3097,8 @@
         "stage_id": "kr_f_2",
         "stage_name": "음식 Advanced",
         "needed": 10,
-        "available": 0,
-        "shortfall": 10,
+        "available": 3,
+        "shortfall": 7,
         "categories": [
           "food"
         ]
@@ -1835,8 +3107,18 @@
         "stage_id": "kr_f_3",
         "stage_name": "음식 Expert",
         "needed": 8,
-        "available": 0,
-        "shortfall": 8,
+        "available": 3,
+        "shortfall": 5,
+        "categories": [
+          "food"
+        ]
+      },
+      {
+        "stage_id": "kr_f_4",
+        "stage_name": "음식 Master",
+        "needed": 6,
+        "available": 3,
+        "shortfall": 3,
         "categories": [
           "food"
         ]
@@ -1845,8 +3127,8 @@
         "stage_id": "kr_n_1",
         "stage_name": "자연·날씨",
         "needed": 12,
-        "available": 0,
-        "shortfall": 12,
+        "available": 2,
+        "shortfall": 10,
         "categories": [
           "nature"
         ]
@@ -1855,8 +3137,8 @@
         "stage_id": "kr_n_2",
         "stage_name": "자연 Advanced",
         "needed": 10,
-        "available": 0,
-        "shortfall": 10,
+        "available": 2,
+        "shortfall": 8,
         "categories": [
           "nature"
         ]
@@ -1865,14 +3147,14 @@
         "stage_id": "kr_n_3",
         "stage_name": "자연 Expert",
         "needed": 8,
-        "available": 0,
-        "shortfall": 8,
+        "available": 2,
+        "shortfall": 6,
         "categories": [
           "nature"
         ]
       }
     ],
-    "coverage_percent": 23.9
+    "coverage_percent": 30.4
   },
-  "generated_at": "2026-06-24T18:32:09.410097"
+  "generated_at": "2026-08-20T01:52:39.103759"
 }

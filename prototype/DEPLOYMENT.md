@@ -315,7 +315,7 @@ After deployment, update URLs in:
 Your LingoType game is now live! 🎉
 
 **Share your deployment:**
-- Twitter: #TypingLanguage
+- Twitter: #LingoType
 - Reddit: r/gamedev
 - Discord: Language learning communities
 

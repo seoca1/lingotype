@@ -504,7 +504,7 @@ git push
 ### 다음 단계
 
 1. **공유하기**
-   - Twitter: #TypingLanguage #GameDev
+   - Twitter: #LingoType #GameDev
    - Reddit: r/gamedev, r/languagelearning
    - Discord: 언어 학습 커뮤니티
 

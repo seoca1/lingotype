@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""verify_corpus_sources.py — typing_language corpus source citation validator.
+"""verify_corpus_sources.py — lingotype corpus source citation validator.
 
-Each entry in `Game/typing_language/raw/{lang}_words.md` should include a
+Each entry in `Game/lingotype/raw/{lang}_words.md` should include a
 `source: [[theme-name]]` field that resolves to an existing Language wiki
 vocabulary theme-file (`Language/wiki/{Lang}/vocabulary/{theme}.md`).
 
@@ -28,7 +28,7 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]  # Game/typing_language/
+ROOT = Path(__file__).resolve().parents[1]  # Game/lingotype/
 RAW_DIR = ROOT / "raw"
 LANG_WIKI = Path(__file__).resolve().parents[3] / "Language" / "wiki"
 

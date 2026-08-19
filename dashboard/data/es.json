@@ -9,482 +9,1435 @@
   "wiki": {
     "sources": [
       {
+        "name": "2026-05-17_Daily_Routine",
+        "filename": "2026-05-17_Daily_Routine.md",
+        "title": "Daily Routine (Rutina Diaria) — 2026-05-17",
+        "size_kb": 3.0,
+        "modified": "2026-08-20T00:14:53.495641",
+        "path": "wiki/Spanish/sources/2026-05-17_Daily_Routine.md"
+      },
+      {
+        "name": "2026-05-17_Travel_Directions",
+        "filename": "2026-05-17_Travel_Directions.md",
+        "title": "Travel & Directions (Viajes y Direcciones) — 2026-05-17",
+        "size_kb": 3.1,
+        "modified": "2026-08-20T00:14:53.419285",
+        "path": "wiki/Spanish/sources/2026-05-17_Travel_Directions.md"
+      },
+      {
+        "name": "2026-06-13_Weather_and_Seasons",
+        "filename": "2026-06-13_Weather_and_Seasons.md",
+        "title": "Weather and Seasons (El Clima y las Estaciones) — 2026-06-13",
+        "size_kb": 3.5,
+        "modified": "2026-08-20T00:14:53.504521",
+        "path": "wiki/Spanish/sources/2026-06-13_Weather_and_Seasons.md"
+      },
+      {
+        "name": "2026-06-16_Restaurant_Ordering",
+        "filename": "2026-06-16_Restaurant_Ordering.md",
+        "title": "Restaurant Ordering (Pedir Comida) — 2026-06-16",
+        "size_kb": 3.5,
+        "modified": "2026-08-20T00:14:53.481374",
+        "path": "wiki/Spanish/sources/2026-06-16_Restaurant_Ordering.md"
+      },
+      {
+        "name": "animals-vocabulary-es",
+        "filename": "animals-vocabulary-es.md",
+        "title": "Animales Vocabulary (Spanish)",
+        "size_kb": 2.0,
+        "modified": "2026-08-20T00:14:53.455364",
+        "path": "wiki/Spanish/sources/animals-vocabulary-es.md"
+      },
+      {
+        "name": "business-vocabulary-es",
+        "filename": "business-vocabulary-es.md",
+        "title": "Spanish Business Vocabulary (Negocios)",
+        "size_kb": 2.1,
+        "modified": "2026-08-20T00:14:53.424611",
+        "path": "wiki/Spanish/sources/business-vocabulary-es.md"
+      },
+      {
+        "name": "clothing-vocabulary-es",
+        "filename": "clothing-vocabulary-es.md",
+        "title": "Ropa Vocabulary (Spanish)",
+        "size_kb": 1.9,
+        "modified": "2026-08-20T00:14:53.472269",
+        "path": "wiki/Spanish/sources/clothing-vocabulary-es.md"
+      },
+      {
         "name": "comida-y-restaurante",
         "filename": "comida-y-restaurante.md",
         "title": "Comida y Restaurante (Food and Restaurant) — Spanish (Source Hub)",
-        "size_kb": 1.6,
-        "modified": "2026-06-20T02:01:53.163936",
+        "size_kb": 1.7,
+        "modified": "2026-08-20T00:14:53.450727",
         "path": "wiki/Spanish/sources/comida-y-restaurante.md"
       },
       {
         "name": "como-agua-para-chocolate-cap1",
         "filename": "como-agua-para-chocolate-cap1.md",
         "title": "Como agua para chocolate - Capítulo 1 (Enero)",
-        "size_kb": 2.6,
-        "modified": "2026-06-16T18:20:29.771219",
+        "size_kb": 2.8,
+        "modified": "2026-08-20T00:14:53.434275",
         "path": "wiki/Spanish/sources/como-agua-para-chocolate-cap1.md"
+      },
+      {
+        "name": "daily-life-basics",
+        "filename": "daily-life-basics.md",
+        "title": "daily-life-basics (Source Hub)",
+        "size_kb": 2.7,
+        "modified": "2026-08-20T00:14:53.490863",
+        "path": "wiki/Spanish/sources/daily-life-basics.md"
       },
       {
         "name": "dating-romance-es",
         "filename": "dating-romance-es.md",
         "title": "dating-romance-es",
-        "size_kb": 2.2,
-        "modified": "2026-06-19T02:51:06.749290",
+        "size_kb": 2.4,
+        "modified": "2026-08-20T00:14:53.448400",
         "path": "wiki/Spanish/sources/dating-romance-es.md"
       },
       {
         "name": "el-ahogado-mas-hermoso-del-mundo",
         "filename": "el-ahogado-mas-hermoso-del-mundo.md",
         "title": "El ahogado más hermoso del mundo",
-        "size_kb": 2.0,
-        "modified": "2026-06-16T15:01:28.190236",
+        "size_kb": 2.3,
+        "modified": "2026-08-20T00:14:53.475042",
         "path": "wiki/Spanish/sources/el-ahogado-mas-hermoso-del-mundo.md"
+      },
+      {
+        "name": "emotions-personality-vocabulary-es",
+        "filename": "emotions-personality-vocabulary-es.md",
+        "title": "Spanish Emotions & Personality Vocabulary (Emociones y Personalidad)",
+        "size_kb": 1.6,
+        "modified": "2026-08-20T00:14:53.484184",
+        "path": "wiki/Spanish/sources/emotions-personality-vocabulary-es.md"
+      },
+      {
+        "name": "entertainment-es",
+        "filename": "entertainment-es.md",
+        "title": "Spanish Entertainment Vocabulary",
+        "size_kb": 4.1,
+        "modified": "2026-08-20T00:14:53.506773",
+        "path": "wiki/Spanish/sources/entertainment-es.md"
       },
       {
         "name": "fiestas-y-celebraciones",
         "filename": "fiestas-y-celebraciones.md",
         "title": "Fiestas y Celebraciones (Holidays) — Spanish (Source Hub)",
-        "size_kb": 1.6,
-        "modified": "2026-06-20T02:03:38.625088",
+        "size_kb": 1.8,
+        "modified": "2026-08-20T00:14:53.417097",
         "path": "wiki/Spanish/sources/fiestas-y-celebraciones.md"
       },
       {
         "name": "first-travel-spain",
         "filename": "first-travel-spain.md",
         "title": "first-travel-spain (Source Hub)",
-        "size_kb": 1.9,
-        "modified": "2026-06-21T04:11:15.434808",
+        "size_kb": 2.0,
+        "modified": "2026-08-20T00:14:53.422064",
         "path": "wiki/Spanish/sources/first-travel-spain.md"
+      },
+      {
+        "name": "food-and-dining",
+        "filename": "food-and-dining.md",
+        "title": "food-and-dining (Source Hub)",
+        "size_kb": 2.7,
+        "modified": "2026-08-20T00:14:53.464193",
+        "path": "wiki/Spanish/sources/food-and-dining.md"
+      },
+      {
+        "name": "food-vocabulary-es",
+        "filename": "food-vocabulary-es.md",
+        "title": "food-vocabulary-es (Source Hub)",
+        "size_kb": 2.8,
+        "modified": "2026-08-20T00:14:53.499566",
+        "path": "wiki/Spanish/sources/food-vocabulary-es.md"
+      },
+      {
+        "name": "health-and-body",
+        "filename": "health-and-body.md",
+        "title": "health-and-body (Source Hub)",
+        "size_kb": 2.7,
+        "modified": "2026-08-20T00:14:53.441164",
+        "path": "wiki/Spanish/sources/health-and-body.md"
+      },
+      {
+        "name": "holidays-and-celebrations",
+        "filename": "holidays-and-celebrations.md",
+        "title": "holidays-and-celebrations (Source Hub)",
+        "size_kb": 2.8,
+        "modified": "2026-08-20T00:14:53.458965",
+        "path": "wiki/Spanish/sources/holidays-and-celebrations.md"
+      },
+      {
+        "name": "literature-passages",
+        "filename": "literature-passages.md",
+        "title": "literature-passages",
+        "size_kb": 2.7,
+        "modified": "2026-08-20T00:14:53.468681",
+        "path": "wiki/Spanish/sources/literature-passages.md"
+      },
+      {
+        "name": "mexico-comida-callejera",
+        "filename": "mexico-comida-callejera.md",
+        "title": "Mexican Street Food — Culture Note",
+        "size_kb": 1.9,
+        "modified": "2026-08-20T00:14:53.438794",
+        "path": "wiki/Spanish/sources/mexico-comida-callejera.md"
+      },
+      {
+        "name": "movie-quotes",
+        "filename": "movie-quotes.md",
+        "title": "movie-quotes (Source Hub)",
+        "size_kb": 2.7,
+        "modified": "2026-08-20T00:14:53.477659",
+        "path": "wiki/Spanish/sources/movie-quotes.md"
+      },
+      {
+        "name": "nature-vocabulary-es",
+        "filename": "nature-vocabulary-es.md",
+        "title": "Naturaleza Vocabulary (Spanish)",
+        "size_kb": 2.5,
+        "modified": "2026-08-20T00:14:53.486593",
+        "path": "wiki/Spanish/sources/nature-vocabulary-es.md"
       },
       {
         "name": "notes-in-spanish-listening-log",
         "filename": "notes-in-spanish-listening-log.md",
         "title": "Notes in Spanish - Listening Log",
-        "size_kb": 1.8,
-        "modified": "2026-06-16T15:01:38.314573",
+        "size_kb": 2.1,
+        "modified": "2026-08-20T00:14:53.453114",
         "path": "wiki/Spanish/sources/notes-in-spanish-listening-log.md"
       },
       {
         "name": "notes-in-spanish-planes-de-verano",
         "filename": "notes-in-spanish-planes-de-verano.md",
         "title": "Notes in Spanish Advanced - Planes de verano",
-        "size_kb": 1.9,
-        "modified": "2026-06-16T18:21:03.229955",
+        "size_kb": 2.3,
+        "modified": "2026-08-20T00:14:53.466613",
         "path": "wiki/Spanish/sources/notes-in-spanish-planes-de-verano.md"
+      },
+      {
+        "name": "shopping-and-money",
+        "filename": "shopping-and-money.md",
+        "title": "shopping-and-money (Source Hub)",
+        "size_kb": 2.7,
+        "modified": "2026-08-20T00:14:53.461742",
+        "path": "wiki/Spanish/sources/shopping-and-money.md"
+      },
+      {
+        "name": "sports-and-hobbies",
+        "filename": "sports-and-hobbies.md",
+        "title": "sports-and-hobbies (Source Hub)",
+        "size_kb": 2.8,
+        "modified": "2026-08-20T00:14:53.493327",
+        "path": "wiki/Spanish/sources/sports-and-hobbies.md"
+      },
+      {
+        "name": "tango-argentino",
+        "filename": "tango-argentino.md",
+        "title": "Tango Argentino — Culture Note",
+        "size_kb": 1.7,
+        "modified": "2026-08-20T00:14:53.427398",
+        "path": "wiki/Spanish/sources/tango-argentino.md"
+      },
+      {
+        "name": "technology-and-internet",
+        "filename": "technology-and-internet.md",
+        "title": "technology-and-internet (Source Hub)",
+        "size_kb": 2.8,
+        "modified": "2026-08-20T00:14:53.436420",
+        "path": "wiki/Spanish/sources/technology-and-internet.md"
       },
       {
         "name": "trabajo-y-carrera",
         "filename": "trabajo-y-carrera.md",
         "title": "Trabajo y Carrera (Work and Career) — Spanish (Source Hub)",
-        "size_kb": 1.6,
-        "modified": "2026-06-20T02:02:04.329837",
+        "size_kb": 1.8,
+        "modified": "2026-08-20T00:14:53.502006",
         "path": "wiki/Spanish/sources/trabajo-y-carrera.md"
+      },
+      {
+        "name": "travel-adventure",
+        "filename": "travel-adventure.md",
+        "title": "travel-adventure (Source Hub)",
+        "size_kb": 2.7,
+        "modified": "2026-08-20T00:14:53.443815",
+        "path": "wiki/Spanish/sources/travel-adventure.md"
       },
       {
         "name": "viaje-aventura",
         "filename": "viaje-aventura.md",
         "title": "Viaje de Aventura (Travel Adventure) — Spanish (Source Hub)",
-        "size_kb": 1.7,
-        "modified": "2026-06-20T02:00:34.863679",
+        "size_kb": 1.8,
+        "modified": "2026-08-20T00:14:53.431546",
         "path": "wiki/Spanish/sources/viaje-aventura.md"
+      },
+      {
+        "name": "work-and-career",
+        "filename": "work-and-career.md",
+        "title": "work-and-career (Source Hub)",
+        "size_kb": 2.7,
+        "modified": "2026-08-20T00:14:53.446256",
+        "path": "wiki/Spanish/sources/work-and-career.md"
       }
     ],
-    "vocabulary": [],
+    "vocabulary": [
+      {
+        "name": "adjectives-vocabulary",
+        "filename": "adjectives-vocabulary.md",
+        "title": "Adjetivos — Adjetivos Básicos, Colores y Números",
+        "size_kb": 16.8,
+        "modified": "2026-08-20T00:24:25.682090",
+        "path": "wiki/Spanish/vocabulary/adjectives-vocabulary.md"
+      },
+      {
+        "name": "adjectives-vocabulary.ko",
+        "filename": "adjectives-vocabulary.ko.md",
+        "title": "Adjetivos — 기초 형용사, 색깔, 숫자 (Korean Translation)",
+        "size_kb": 32.7,
+        "modified": "2026-08-20T00:14:53.535071",
+        "path": "wiki/Spanish/vocabulary/adjectives-vocabulary.ko.md"
+      },
+      {
+        "name": "adventure-vocabulary",
+        "filename": "adventure-vocabulary.md",
+        "title": "Vocabulario de Aventura y Viaje (Spanish)",
+        "size_kb": 10.7,
+        "modified": "2026-08-20T00:24:25.682312",
+        "path": "wiki/Spanish/vocabulary/adventure-vocabulary.md"
+      },
+      {
+        "name": "animals-vocabulary",
+        "filename": "animals-vocabulary.md",
+        "title": "Animales (Spanish)",
+        "size_kb": 26.6,
+        "modified": "2026-08-20T00:24:25.682912",
+        "path": "wiki/Spanish/vocabulary/animals-vocabulary.md"
+      },
+      {
+        "name": "animals-vocabulary.ko",
+        "filename": "animals-vocabulary.ko.md",
+        "title": "Vocabulario de Animales (Spanish Animal Vocabulary) - Korean Translation",
+        "size_kb": 26.4,
+        "modified": "2026-08-20T00:24:25.682545",
+        "path": "wiki/Spanish/vocabulary/animals-vocabulary.ko.md"
+      },
+      {
+        "name": "basic-vocabulary",
+        "filename": "basic-vocabulary.md",
+        "title": "Vocabulario Básico — Saludos, Números, Colores, Familia, Adjetivos",
+        "size_kb": 52.4,
+        "modified": "2026-08-20T00:24:25.683310",
+        "path": "wiki/Spanish/vocabulary/basic-vocabulary.md"
+      },
+      {
+        "name": "basic-vocabulary.ko",
+        "filename": "basic-vocabulary.ko.md",
+        "title": "Vocabulario Básico — 기본 어휘 (Korean Translation)",
+        "size_kb": 31.8,
+        "modified": "2026-08-20T00:14:53.730283",
+        "path": "wiki/Spanish/vocabulary/basic-vocabulary.ko.md"
+      },
+      {
+        "name": "body-vocabulary",
+        "filename": "body-vocabulary.md",
+        "title": "body-vocabulary — Card-extracted vocabulary (2026-06-22 ~ latest)",
+        "size_kb": 6.2,
+        "modified": "2026-08-20T00:24:25.684875",
+        "path": "wiki/Spanish/vocabulary/body-vocabulary.md"
+      },
+      {
+        "name": "body-vocabulary.ko",
+        "filename": "body-vocabulary.ko.md",
+        "title": "body-vocabulary — 신체 어휘 (Korean Translation)",
+        "size_kb": 10.6,
+        "modified": "2026-08-20T00:24:25.683562",
+        "path": "wiki/Spanish/vocabulary/body-vocabulary.ko.md"
+      },
+      {
+        "name": "business-vocabulary",
+        "filename": "business-vocabulary.md",
+        "title": "Vocabulario de Negocios (Spanish)",
+        "size_kb": 35.0,
+        "modified": "2026-08-20T00:24:25.685259",
+        "path": "wiki/Spanish/vocabulary/business-vocabulary.md"
+      },
+      {
+        "name": "business-vocabulary.ko",
+        "filename": "business-vocabulary.ko.md",
+        "title": "Vocabulario de Negocios (Spanish Business Vocabulary) - Korean Translation",
+        "size_kb": 17.3,
+        "modified": "2026-08-20T00:14:53.527488",
+        "path": "wiki/Spanish/vocabulary/business-vocabulary.ko.md"
+      },
+      {
+        "name": "career-vocabulary",
+        "filename": "career-vocabulary.md",
+        "title": "Vocabulario de Trabajo y Carrera (Spanish)",
+        "size_kb": 10.4,
+        "modified": "2026-08-20T00:24:25.685627",
+        "path": "wiki/Spanish/vocabulary/career-vocabulary.md"
+      },
+      {
+        "name": "clothing-vocabulary",
+        "filename": "clothing-vocabulary.md",
+        "title": "Vocabulario de Ropa y Moda (Spanish)",
+        "size_kb": 22.1,
+        "modified": "2026-08-20T00:24:25.685978",
+        "path": "wiki/Spanish/vocabulary/clothing-vocabulary.md"
+      },
+      {
+        "name": "clothing-vocabulary.ko",
+        "filename": "clothing-vocabulary.ko.md",
+        "title": "Vocabulario de Ropa y Moda (Spanish Clothing Vocabulary) - Korean Translation",
+        "size_kb": 97.3,
+        "modified": "2026-08-20T00:14:53.661211",
+        "path": "wiki/Spanish/vocabulary/clothing-vocabulary.ko.md"
+      },
+      {
+        "name": "colors-vocabulary",
+        "filename": "colors-vocabulary.md",
+        "title": "colors vocabulary - Spanish theme",
+        "size_kb": 5.0,
+        "modified": "2026-08-20T00:24:25.686610",
+        "path": "wiki/Spanish/vocabulary/colors-vocabulary.md"
+      },
+      {
+        "name": "colors-vocabulary.ko",
+        "filename": "colors-vocabulary.ko.md",
+        "title": "colors vocabulary - 색깔 어휘 (Spanish → Korean Translation)",
+        "size_kb": 7.8,
+        "modified": "2026-08-20T00:14:53.622165",
+        "path": "wiki/Spanish/vocabulary/colors-vocabulary.ko.md"
+      },
+      {
+        "name": "daily-life-basics",
+        "filename": "daily-life-basics.md",
+        "title": "Vida Cotidiana (Spanish Daily Life Basics)",
+        "size_kb": 13.6,
+        "modified": "2026-08-20T00:24:25.686839",
+        "path": "wiki/Spanish/vocabulary/daily-life-basics.md"
+      },
+      {
+        "name": "daily-life-vocabulary",
+        "filename": "daily-life-vocabulary.md",
+        "title": "Vida Diaria — Verbos Cotidianos (Daily Verbs)",
+        "size_kb": 20.1,
+        "modified": "2026-08-20T00:24:25.687060",
+        "path": "wiki/Spanish/vocabulary/daily-life-vocabulary.md"
+      },
+      {
+        "name": "daily-life-vocabulary.ko",
+        "filename": "daily-life-vocabulary.ko.md",
+        "title": "Vida Diaria — Verbos Cotidianos (Daily Verbs) - Korean Translation",
+        "size_kb": 24.8,
+        "modified": "2026-08-20T00:14:53.638601",
+        "path": "wiki/Spanish/vocabulary/daily-life-vocabulary.ko.md"
+      },
+      {
+        "name": "directions-vocabulary",
+        "filename": "directions-vocabulary.md",
+        "title": "directions vocabulary - Spanish theme",
+        "size_kb": 5.9,
+        "modified": "2026-08-20T00:24:25.687247",
+        "path": "wiki/Spanish/vocabulary/directions-vocabulary.md"
+      },
+      {
+        "name": "directions-vocabulary.ko",
+        "filename": "directions-vocabulary.ko.md",
+        "title": "directions vocabulary - 방향 어휘 (Spanish → Korean Translation)",
+        "size_kb": 11.0,
+        "modified": "2026-08-20T00:14:53.599105",
+        "path": "wiki/Spanish/vocabulary/directions-vocabulary.ko.md"
+      },
+      {
+        "name": "education-vocabulary",
+        "filename": "education-vocabulary.md",
+        "title": "Education 어휘 — Spanish vocabulary",
+        "size_kb": 6.2,
+        "modified": "2026-08-20T00:24:25.687424",
+        "path": "wiki/Spanish/vocabulary/education-vocabulary.md"
+      },
+      {
+        "name": "education-vocabulary.ko",
+        "filename": "education-vocabulary.ko.md",
+        "title": "Education 어휘 — 교육 어휘 (Spanish → Korean Translation)",
+        "size_kb": 12.0,
+        "modified": "2026-08-20T00:14:53.565523",
+        "path": "wiki/Spanish/vocabulary/education-vocabulary.ko.md"
+      },
+      {
+        "name": "emotions-personality-vocabulary",
+        "filename": "emotions-personality-vocabulary.md",
+        "title": "Vocabulario de Emociones y Personalidad (Spanish)",
+        "size_kb": 34.8,
+        "modified": "2026-08-20T00:24:25.687631",
+        "path": "wiki/Spanish/vocabulary/emotions-personality-vocabulary.md"
+      },
+      {
+        "name": "emotions-personality-vocabulary.ko",
+        "filename": "emotions-personality-vocabulary.ko.md",
+        "title": "Vocabulario de Emociones y Personalidad (Spanish) - Korean Translation",
+        "size_kb": 31.2,
+        "modified": "2026-08-20T00:14:53.687503",
+        "path": "wiki/Spanish/vocabulary/emotions-personality-vocabulary.ko.md"
+      },
+      {
+        "name": "entertainment-vocabulary",
+        "filename": "entertainment-vocabulary.md",
+        "title": "Vocabulario de Entretenimiento (Spanish)",
+        "size_kb": 9.9,
+        "modified": "2026-08-20T00:24:25.687834",
+        "path": "wiki/Spanish/vocabulary/entertainment-vocabulary.md"
+      },
+      {
+        "name": "family-vocabulary",
+        "filename": "family-vocabulary.md",
+        "title": "family vocabulary - Spanish theme",
+        "size_kb": 5.7,
+        "modified": "2026-08-20T00:24:25.688038",
+        "path": "wiki/Spanish/vocabulary/family-vocabulary.md"
+      },
+      {
+        "name": "family-vocabulary.ko",
+        "filename": "family-vocabulary.ko.md",
+        "title": "family vocabulary - 가족 어휘 (Spanish → Korean Translation)",
+        "size_kb": 11.9,
+        "modified": "2026-08-20T00:14:53.559484",
+        "path": "wiki/Spanish/vocabulary/family-vocabulary.ko.md"
+      },
+      {
+        "name": "food-and-dining",
+        "filename": "food-and-dining.md",
+        "title": "Comida y Restaurantes (Spanish Food and Dining)",
+        "size_kb": 13.7,
+        "modified": "2026-08-20T00:24:25.688309",
+        "path": "wiki/Spanish/vocabulary/food-and-dining.md"
+      },
+      {
+        "name": "food-vocabulary",
+        "filename": "food-vocabulary.md",
+        "title": "Vocabulario de Comida (Spanish Food Vocabulary)",
+        "size_kb": 50.8,
+        "modified": "2026-08-20T00:24:25.688714",
+        "path": "wiki/Spanish/vocabulary/food-vocabulary.md"
+      },
+      {
+        "name": "food-vocabulary.ko",
+        "filename": "food-vocabulary.ko.md",
+        "title": "Vocabulario de Comida (Spanish Food Vocabulary) - Korean Translation",
+        "size_kb": 17.4,
+        "modified": "2026-08-20T00:24:25.688486",
+        "path": "wiki/Spanish/vocabulary/food-vocabulary.ko.md"
+      },
+      {
+        "name": "gustar-verb-grammar",
+        "filename": "gustar-verb-grammar.md",
+        "title": "gustar-verb-grammar — Card-extracted vocabulary (2026-06-22 ~ latest)",
+        "size_kb": 1.3,
+        "modified": "2026-08-20T00:24:25.689096",
+        "path": "wiki/Spanish/vocabulary/gustar-verb-grammar.md"
+      },
+      {
+        "name": "gustar-verb-grammar.ko",
+        "filename": "gustar-verb-grammar.ko.md",
+        "title": "gustar-verb-grammar — gustar 동사 문법 (Korean Translation)",
+        "size_kb": 2.9,
+        "modified": "2026-08-20T00:24:25.688934",
+        "path": "wiki/Spanish/vocabulary/gustar-verb-grammar.ko.md"
+      },
+      {
+        "name": "health-and-body",
+        "filename": "health-and-body.md",
+        "title": "Salud y Cuerpo (Spanish Health and Body)",
+        "size_kb": 11.5,
+        "modified": "2026-08-20T00:24:25.689266",
+        "path": "wiki/Spanish/vocabulary/health-and-body.md"
+      },
+      {
+        "name": "health-vocabulary",
+        "filename": "health-vocabulary.md",
+        "title": "health vocabulary - Spanish theme",
+        "size_kb": 5.7,
+        "modified": "2026-08-20T00:24:25.689437",
+        "path": "wiki/Spanish/vocabulary/health-vocabulary.md"
+      },
+      {
+        "name": "health-vocabulary.ko",
+        "filename": "health-vocabulary.ko.md",
+        "title": "health vocabulary - 건강 어휘 (Spanish → Korean Translation)",
+        "size_kb": 10.7,
+        "modified": "2026-08-20T00:14:53.557048",
+        "path": "wiki/Spanish/vocabulary/health-vocabulary.ko.md"
+      },
+      {
+        "name": "holidays-and-celebrations",
+        "filename": "holidays-and-celebrations.md",
+        "title": "Fiestas y Celebraciones (Spanish Holidays and Celebrations)",
+        "size_kb": 11.1,
+        "modified": "2026-08-20T00:24:25.689654",
+        "path": "wiki/Spanish/vocabulary/holidays-and-celebrations.md"
+      },
+      {
+        "name": "literatura-hispana",
+        "filename": "literatura-hispana.md",
+        "title": "Vocabulario: Literatura Hispana",
+        "size_kb": 14.1,
+        "modified": "2026-08-20T00:24:25.690059",
+        "path": "wiki/Spanish/vocabulary/literatura-hispana.md"
+      },
+      {
+        "name": "literatura-hispana.ko",
+        "filename": "literatura-hispana.ko.md",
+        "title": "Vocabulario: Literatura Hispana (스페인 문학 어휘 - Korean Translation)",
+        "size_kb": 13.9,
+        "modified": "2026-08-20T00:24:25.689862",
+        "path": "wiki/Spanish/vocabulary/literatura-hispana.ko.md"
+      },
+      {
+        "name": "mexican_food-vocabulary",
+        "filename": "mexican_food-vocabulary.md",
+        "title": "mexican_food-vocabulary — Card-extracted vocabulary (2026-06-22 ~ latest)",
+        "size_kb": 3.6,
+        "modified": "2026-08-20T00:24:25.690392",
+        "path": "wiki/Spanish/vocabulary/mexican_food-vocabulary.md"
+      },
+      {
+        "name": "mexican_food-vocabulary.ko",
+        "filename": "mexican_food-vocabulary.ko.md",
+        "title": "mexican_food-vocabulary — 멕시코 음식 어휘 (Korean Translation)",
+        "size_kb": 6.9,
+        "modified": "2026-08-20T00:24:25.690232",
+        "path": "wiki/Spanish/vocabulary/mexican_food-vocabulary.ko.md"
+      },
+      {
+        "name": "months-vocabulary",
+        "filename": "months-vocabulary.md",
+        "title": "months vocabulary - Spanish theme",
+        "size_kb": 5.6,
+        "modified": "2026-08-20T00:24:25.690599",
+        "path": "wiki/Spanish/vocabulary/months-vocabulary.md"
+      },
+      {
+        "name": "months-vocabulary.ko",
+        "filename": "months-vocabulary.ko.md",
+        "title": "months vocabulary - 월(月) 어휘 (Spanish → Korean Translation)",
+        "size_kb": 9.7,
+        "modified": "2026-08-20T00:14:53.549755",
+        "path": "wiki/Spanish/vocabulary/months-vocabulary.ko.md"
+      },
+      {
+        "name": "nature-vocabulary",
+        "filename": "nature-vocabulary.md",
+        "title": "Vocabulario de Naturaleza y Clima (Spanish)",
+        "size_kb": 34.4,
+        "modified": "2026-08-20T00:24:25.691094",
+        "path": "wiki/Spanish/vocabulary/nature-vocabulary.md"
+      },
+      {
+        "name": "nature-vocabulary.ko",
+        "filename": "nature-vocabulary.ko.md",
+        "title": "Vocabulario de Naturaleza (Spanish Nature Vocabulary) - Korean Translation",
+        "size_kb": 22.1,
+        "modified": "2026-08-20T00:24:25.690786",
+        "path": "wiki/Spanish/vocabulary/nature-vocabulary.ko.md"
+      },
+      {
+        "name": "numbers-vocabulary",
+        "filename": "numbers-vocabulary.md",
+        "title": "numbers vocabulary - Spanish theme",
+        "size_kb": 5.5,
+        "modified": "2026-08-20T00:24:25.691279",
+        "path": "wiki/Spanish/vocabulary/numbers-vocabulary.md"
+      },
+      {
+        "name": "numbers-vocabulary.ko",
+        "filename": "numbers-vocabulary.ko.md",
+        "title": "numbers vocabulary - 숫자 어휘 (Spanish → Korean Translation)",
+        "size_kb": 10.0,
+        "modified": "2026-08-20T00:14:53.617452",
+        "path": "wiki/Spanish/vocabulary/numbers-vocabulary.ko.md"
+      },
+      {
+        "name": "ordinal-numbers-vocabulary",
+        "filename": "ordinal-numbers-vocabulary.md",
+        "title": "ordinal-numbers vocabulary - Spanish theme",
+        "size_kb": 6.3,
+        "modified": "2026-08-20T00:24:25.691476",
+        "path": "wiki/Spanish/vocabulary/ordinal-numbers-vocabulary.md"
+      },
+      {
+        "name": "ordinal-numbers-vocabulary.ko",
+        "filename": "ordinal-numbers-vocabulary.ko.md",
+        "title": "ordinal-numbers vocabulary - 서수 어휘 (Spanish → Korean Translation)",
+        "size_kb": 10.5,
+        "modified": "2026-08-20T00:14:53.521601",
+        "path": "wiki/Spanish/vocabulary/ordinal-numbers-vocabulary.ko.md"
+      },
+      {
+        "name": "past-tense-grammar",
+        "filename": "past-tense-grammar.md",
+        "title": "past-tense-grammar — Card-extracted vocabulary (2026-06-22 ~ latest)",
+        "size_kb": 1.1,
+        "modified": "2026-08-20T00:24:25.692024",
+        "path": "wiki/Spanish/vocabulary/past-tense-grammar.md"
+      },
+      {
+        "name": "past-tense-grammar.ko",
+        "filename": "past-tense-grammar.ko.md",
+        "title": "past-tense-grammar — 과거 시제 문법 (Korean Translation)",
+        "size_kb": 2.3,
+        "modified": "2026-08-20T00:24:25.691843",
+        "path": "wiki/Spanish/vocabulary/past-tense-grammar.ko.md"
+      },
+      {
+        "name": "polite-expressions-vocabulary",
+        "filename": "polite-expressions-vocabulary.md",
+        "title": "Cortesía y Preguntas — Polite Expressions & Question Words",
+        "size_kb": 14.8,
+        "modified": "2026-08-20T00:24:25.692285",
+        "path": "wiki/Spanish/vocabulary/polite-expressions-vocabulary.md"
+      },
+      {
+        "name": "polite-expressions-vocabulary.ko",
+        "filename": "polite-expressions-vocabulary.ko.md",
+        "title": "Cortesía y Preguntas — Polite Expressions & Question Words (Korean Translation)",
+        "size_kb": 25.8,
+        "modified": "2026-08-20T00:14:53.538421",
+        "path": "wiki/Spanish/vocabulary/polite-expressions-vocabulary.ko.md"
+      },
+      {
+        "name": "present-tense-grammar",
+        "filename": "present-tense-grammar.md",
+        "title": "present-tense-grammar — Card-extracted vocabulary (2026-06-22 ~ latest)",
+        "size_kb": 1.7,
+        "modified": "2026-08-20T00:24:25.692500",
+        "path": "wiki/Spanish/vocabulary/present-tense-grammar.md"
+      },
+      {
+        "name": "present-tense-grammar.ko",
+        "filename": "present-tense-grammar.ko.md",
+        "title": "present-tense-grammar — 현재 시제 문법 (Korean Translation)",
+        "size_kb": 5.2,
+        "modified": "2026-08-20T00:14:53.576263",
+        "path": "wiki/Spanish/vocabulary/present-tense-grammar.ko.md"
+      },
+      {
+        "name": "quotes-vocabulary",
+        "filename": "quotes-vocabulary.md",
+        "title": "Vocabulario de Frases Célebres (Spanish)",
+        "size_kb": 7.6,
+        "modified": "2026-08-20T00:24:25.692809",
+        "path": "wiki/Spanish/vocabulary/quotes-vocabulary.md"
+      },
+      {
+        "name": "reflexive-verbs-grammar",
+        "filename": "reflexive-verbs-grammar.md",
+        "title": "reflexive-verbs-grammar — Card-extracted vocabulary (2026-06-22 ~ latest)",
+        "size_kb": 2.5,
+        "modified": "2026-08-20T00:24:25.693761",
+        "path": "wiki/Spanish/vocabulary/reflexive-verbs-grammar.md"
+      },
+      {
+        "name": "reflexive-verbs-grammar.ko",
+        "filename": "reflexive-verbs-grammar.ko.md",
+        "title": "reflexive-verbs-grammar — 재귀 동사 문법 (Korean Translation)",
+        "size_kb": 5.8,
+        "modified": "2026-08-20T00:24:25.693021",
+        "path": "wiki/Spanish/vocabulary/reflexive-verbs-grammar.ko.md"
+      },
+      {
+        "name": "restaurant-vocabulary",
+        "filename": "restaurant-vocabulary.md",
+        "title": "restaurant-vocabulary — Card-extracted vocabulary (2026-06-22 ~ latest)",
+        "size_kb": 5.8,
+        "modified": "2026-08-20T00:24:25.694149",
+        "path": "wiki/Spanish/vocabulary/restaurant-vocabulary.md"
+      },
+      {
+        "name": "restaurant-vocabulary.ko",
+        "filename": "restaurant-vocabulary.ko.md",
+        "title": "restaurant-vocabulary — 식당 어휘 (Korean Translation)",
+        "size_kb": 10.0,
+        "modified": "2026-08-20T00:24:25.693940",
+        "path": "wiki/Spanish/vocabulary/restaurant-vocabulary.ko.md"
+      },
+      {
+        "name": "tango-vocabulary",
+        "filename": "tango-vocabulary.md",
+        "title": "tango-vocabulary — Card-extracted vocabulary (2026-06-22 ~ latest)",
+        "size_kb": 3.7,
+        "modified": "2026-08-20T00:24:25.694893",
+        "path": "wiki/Spanish/vocabulary/tango-vocabulary.md"
+      },
+      {
+        "name": "tango-vocabulary.ko",
+        "filename": "tango-vocabulary.ko.md",
+        "title": "tango-vocabulary — 탱고 어휘 (Korean Translation)",
+        "size_kb": 6.9,
+        "modified": "2026-08-20T00:24:25.694737",
+        "path": "wiki/Spanish/vocabulary/tango-vocabulary.ko.md"
+      },
+      {
+        "name": "technology-vocabulary",
+        "filename": "technology-vocabulary.md",
+        "title": "technology vocabulary - Spanish theme",
+        "size_kb": 6.1,
+        "modified": "2026-08-20T00:24:25.695047",
+        "path": "wiki/Spanish/vocabulary/technology-vocabulary.md"
+      },
+      {
+        "name": "technology-vocabulary.ko",
+        "filename": "technology-vocabulary.ko.md",
+        "title": "technology vocabulary - 기술 어휘 (Spanish → Korean Translation)",
+        "size_kb": 11.1,
+        "modified": "2026-08-20T00:14:53.667683",
+        "path": "wiki/Spanish/vocabulary/technology-vocabulary.ko.md"
+      },
+      {
+        "name": "time-prepositions-vocabulary",
+        "filename": "time-prepositions-vocabulary.md",
+        "title": "Tiempo y Preposiciones — Time & Prepositions",
+        "size_kb": 19.5,
+        "modified": "2026-08-20T00:24:25.695225",
+        "path": "wiki/Spanish/vocabulary/time-prepositions-vocabulary.md"
+      },
+      {
+        "name": "time-prepositions-vocabulary.ko",
+        "filename": "time-prepositions-vocabulary.ko.md",
+        "title": "Tiempo y Preposiciones — 시간 및 전치사 (Korean Translation)",
+        "size_kb": 38.8,
+        "modified": "2026-08-20T00:14:53.684434",
+        "path": "wiki/Spanish/vocabulary/time-prepositions-vocabulary.ko.md"
+      },
+      {
+        "name": "time-vocabulary",
+        "filename": "time-vocabulary.md",
+        "title": "time (Spanish) vocabulary",
+        "size_kb": 5.2,
+        "modified": "2026-08-20T00:24:25.695396",
+        "path": "wiki/Spanish/vocabulary/time-vocabulary.md"
+      },
+      {
+        "name": "time-vocabulary.ko",
+        "filename": "time-vocabulary.ko.md",
+        "title": "time (Spanish) vocabulary - 시간 어휘 (Spanish → Korean Translation)",
+        "size_kb": 9.7,
+        "modified": "2026-08-20T00:14:53.627146",
+        "path": "wiki/Spanish/vocabulary/time-vocabulary.ko.md"
+      },
+      {
+        "name": "transportation-vocabulary",
+        "filename": "transportation-vocabulary.md",
+        "title": "transportation vocabulary - Spanish theme",
+        "size_kb": 6.2,
+        "modified": "2026-08-20T00:24:25.695556",
+        "path": "wiki/Spanish/vocabulary/transportation-vocabulary.md"
+      },
+      {
+        "name": "transportation-vocabulary.ko",
+        "filename": "transportation-vocabulary.ko.md",
+        "title": "transportation vocabulary - 교통 어휘 (Spanish → Korean Translation)",
+        "size_kb": 11.1,
+        "modified": "2026-08-20T00:14:53.653741",
+        "path": "wiki/Spanish/vocabulary/transportation-vocabulary.ko.md"
+      },
+      {
+        "name": "viajes",
+        "filename": "viajes.md",
+        "title": "Viajes - Travel",
+        "size_kb": 4.0,
+        "modified": "2026-08-20T00:24:25.695893",
+        "path": "wiki/Spanish/vocabulary/viajes.md"
+      },
+      {
+        "name": "viajes.ko",
+        "filename": "viajes.ko.md",
+        "title": "Viajes - 여행 (Travel) - Korean Translation",
+        "size_kb": 8.9,
+        "modified": "2026-08-20T00:24:25.695728",
+        "path": "wiki/Spanish/vocabulary/viajes.ko.md"
+      },
+      {
+        "name": "weather-vocabulary",
+        "filename": "weather-vocabulary.md",
+        "title": "weather-vocabulary — Card-extracted vocabulary (2026-06-22 ~ latest)",
+        "size_kb": 4.8,
+        "modified": "2026-08-20T00:24:25.696381",
+        "path": "wiki/Spanish/vocabulary/weather-vocabulary.md"
+      },
+      {
+        "name": "weather-vocabulary.ko",
+        "filename": "weather-vocabulary.ko.md",
+        "title": "weather-vocabulary — 날씨 어휘 (Korean Translation)",
+        "size_kb": 9.2,
+        "modified": "2026-08-20T00:24:25.696222",
+        "path": "wiki/Spanish/vocabulary/weather-vocabulary.ko.md"
+      },
+      {
+        "name": "weekdays-vocabulary",
+        "filename": "weekdays-vocabulary.md",
+        "title": "weekdays vocabulary - Spanish theme",
+        "size_kb": 5.9,
+        "modified": "2026-08-20T00:24:25.696535",
+        "path": "wiki/Spanish/vocabulary/weekdays-vocabulary.md"
+      },
+      {
+        "name": "weekdays-vocabulary.ko",
+        "filename": "weekdays-vocabulary.ko.md",
+        "title": "weekdays vocabulary - 요일 어휘 (Spanish → Korean Translation)",
+        "size_kb": 10.4,
+        "modified": "2026-08-20T00:14:53.634027",
+        "path": "wiki/Spanish/vocabulary/weekdays-vocabulary.ko.md"
+      }
+    ],
     "expressions": [
       {
-        "name": "a-fuego-lento",
-        "filename": "a-fuego-lento.md",
-        "title": "a fuego lento",
-        "size_kb": 1.1,
-        "modified": "2026-06-16T18:23:23.342491",
-        "path": "wiki/Spanish/expressions/a-fuego-lento.md"
+        "name": "agreement",
+        "filename": "agreement.md",
+        "title": "agreement (Spanish) expressions",
+        "size_kb": 2.0,
+        "modified": "2026-08-20T00:24:25.677466",
+        "path": "wiki/Spanish/expressions/agreement.md"
       },
       {
-        "name": "a-ver-si",
-        "filename": "a-ver-si.md",
-        "title": "a ver si (+ indicativo)",
-        "size_kb": 1.4,
-        "modified": "2026-06-16T18:24:23.260053",
-        "path": "wiki/Spanish/expressions/a-ver-si.md"
+        "name": "apologies",
+        "filename": "apologies.md",
+        "title": "apologies (Spanish) expressions",
+        "size_kb": 1.9,
+        "modified": "2026-08-20T00:24:25.677674",
+        "path": "wiki/Spanish/expressions/apologies.md"
       },
       {
-        "name": "antes-de-que-subjuntivo",
-        "filename": "antes-de-que-subjuntivo.md",
-        "title": "antes de que + subjuntivo",
-        "size_kb": 1.2,
-        "modified": "2026-06-16T18:24:00.868759",
-        "path": "wiki/Spanish/expressions/antes-de-que-subjuntivo.md"
+        "name": "business-basics",
+        "filename": "business-basics.md",
+        "title": "Expresiones: Business Basics",
+        "size_kb": 19.2,
+        "modified": "2026-08-20T00:24:25.677887",
+        "path": "wiki/Spanish/expressions/business-basics.md"
       },
       {
-        "name": "cuando-subjuntivo",
-        "filename": "cuando-subjuntivo.md",
-        "title": "cuando + subjuntivo (cláusula temporal)",
-        "size_kb": 2.3,
-        "modified": "2026-06-16T18:23:55.756821",
-        "path": "wiki/Spanish/expressions/cuando-subjuntivo.md"
+        "name": "citas-expressions",
+        "filename": "citas-expressions.md",
+        "title": "Expresiones: Citas y Romance (Español)",
+        "size_kb": 8.8,
+        "modified": "2026-08-20T00:24:25.678093",
+        "path": "wiki/Spanish/expressions/citas-expressions.md"
       },
       {
-        "name": "dar-la-voz-de-alarma",
-        "filename": "dar-la-voz-de-alarma.md",
-        "title": "dar la voz de alarma",
-        "size_kb": 1.0,
-        "modified": "2026-06-16T15:03:39.672902",
-        "path": "wiki/Spanish/expressions/dar-la-voz-de-alarma.md"
+        "name": "common-phrases",
+        "filename": "common-phrases.md",
+        "title": "common-phrases (Spanish) expressions",
+        "size_kb": 2.2,
+        "modified": "2026-08-20T00:24:25.678258",
+        "path": "wiki/Spanish/expressions/common-phrases.md"
       },
       {
-        "name": "devolverlo-huerfano-a-las-aguas",
-        "filename": "devolverlo-huerfano-a-las-aguas.md",
-        "title": "devolverlo huérfano a las aguas",
-        "size_kb": 1.2,
-        "modified": "2026-06-16T15:04:04.045217",
-        "path": "wiki/Spanish/expressions/devolverlo-huerfano-a-las-aguas.md"
+        "name": "complaints",
+        "filename": "complaints.md",
+        "title": "Expresiones: Complaints",
+        "size_kb": 15.5,
+        "modified": "2026-08-20T00:24:25.678504",
+        "path": "wiki/Spanish/expressions/complaints.md"
       },
       {
-        "name": "donde-esta",
-        "filename": "donde-esta.md",
-        "title": "donde-esta",
-        "size_kb": 0.8,
-        "modified": "2026-06-18T18:56:33.578185",
-        "path": "wiki/Spanish/expressions/donde-esta.md"
+        "name": "cortesia-expressions",
+        "filename": "cortesia-expressions.md",
+        "title": "Expresiones: Cortesía y Formalidad (Español)",
+        "size_kb": 8.5,
+        "modified": "2026-08-20T00:24:25.678682",
+        "path": "wiki/Spanish/expressions/cortesia-expressions.md"
       },
       {
-        "name": "encantado-de-conocerte",
-        "filename": "encantado-de-conocerte.md",
-        "title": "encantado-de-conocerte",
-        "size_kb": 0.9,
-        "modified": "2026-06-19T03:00:17.294203",
-        "path": "wiki/Spanish/expressions/encantado-de-conocerte.md"
+        "name": "cultural-idioms",
+        "filename": "cultural-idioms.md",
+        "title": "Expresiones: Cultural & Idiomatic",
+        "size_kb": 9.1,
+        "modified": "2026-08-20T00:24:25.678868",
+        "path": "wiki/Spanish/expressions/cultural-idioms.md"
       },
       {
-        "name": "estar-hecho-pedazos",
-        "filename": "estar-hecho-pedazos.md",
-        "title": "estar hecho pedazos",
-        "size_kb": 1.0,
-        "modified": "2026-06-16T18:23:43.409732",
-        "path": "wiki/Spanish/expressions/estar-hecho-pedazos.md"
+        "name": "daily-life",
+        "filename": "daily-life.md",
+        "title": "Expresiones: Daily Life",
+        "size_kb": 65.1,
+        "modified": "2026-08-20T00:24:25.679292",
+        "path": "wiki/Spanish/expressions/daily-life.md"
       },
       {
-        "name": "estoy-enamorado",
-        "filename": "estoy-enamorado.md",
-        "title": "estoy-enamorado",
-        "size_kb": 1.1,
-        "modified": "2026-06-19T03:00:43.154315",
-        "path": "wiki/Spanish/expressions/estoy-enamorado.md"
+        "name": "emotions-reactions",
+        "filename": "emotions-reactions.md",
+        "title": "Expresiones: Emotions & Reactions",
+        "size_kb": 17.7,
+        "modified": "2026-08-20T00:24:25.679493",
+        "path": "wiki/Spanish/expressions/emotions-reactions.md"
       },
       {
-        "name": "gracias",
-        "filename": "gracias.md",
-        "title": "gracias",
-        "size_kb": 0.8,
-        "modified": "2026-06-18T18:56:19.244736",
-        "path": "wiki/Spanish/expressions/gracias.md"
+        "name": "food-dining",
+        "filename": "food-dining.md",
+        "title": "Expresiones: Food & Dining",
+        "size_kb": 17.6,
+        "modified": "2026-08-20T00:24:25.679687",
+        "path": "wiki/Spanish/expressions/food-dining.md"
       },
       {
-        "name": "he-pasado-bien",
-        "filename": "he-pasado-bien.md",
-        "title": "he-pasado-bien",
-        "size_kb": 1.1,
-        "modified": "2026-06-19T03:00:58.146093",
-        "path": "wiki/Spanish/expressions/he-pasado-bien.md"
+        "name": "greetings",
+        "filename": "greetings.md",
+        "title": "greetings (Spanish) expressions",
+        "size_kb": 2.0,
+        "modified": "2026-08-20T00:24:25.679861",
+        "path": "wiki/Spanish/expressions/greetings.md"
       },
       {
-        "name": "hombre-pues",
-        "filename": "hombre-pues.md",
-        "title": "hombre pues",
-        "size_kb": 1.0,
-        "modified": "2026-06-16T15:04:17.358239",
-        "path": "wiki/Spanish/expressions/hombre-pues.md"
+        "name": "modismos-refranes",
+        "filename": "modismos-refranes.md",
+        "title": "Expresiones: Modismos y Refranes (Español)",
+        "size_kb": 6.8,
+        "modified": "2026-08-20T00:24:25.680037",
+        "path": "wiki/Spanish/expressions/modismos-refranes.md"
       },
       {
-        "name": "llorar-como-una-magdalena",
-        "filename": "llorar-como-una-magdalena.md",
-        "title": "llorar como una Magdalena",
-        "size_kb": 1.1,
-        "modified": "2026-06-16T18:23:15.864167",
-        "path": "wiki/Spanish/expressions/llorar-como-una-magdalena.md"
+        "name": "negocios-expressions",
+        "filename": "negocios-expressions.md",
+        "title": "Expresiones: Negocios (Español)",
+        "size_kb": 9.8,
+        "modified": "2026-08-20T00:24:25.680234",
+        "path": "wiki/Spanish/expressions/negocios-expressions.md"
       },
       {
-        "name": "me-gustas-mucho",
-        "filename": "me-gustas-mucho.md",
-        "title": "me-gustas-mucho",
-        "size_kb": 1.1,
-        "modified": "2026-06-19T03:00:35.579407",
-        "path": "wiki/Spanish/expressions/me-gustas-mucho.md"
+        "name": "requests",
+        "filename": "requests.md",
+        "title": "Expresiones: Requests",
+        "size_kb": 14.3,
+        "modified": "2026-08-20T00:24:25.680501",
+        "path": "wiki/Spanish/expressions/requests.md"
       },
       {
-        "name": "no-poder-venir-a-mas",
-        "filename": "no-poder-venir-a-mas.md",
-        "title": "no poder venir a más",
-        "size_kb": 1.0,
-        "modified": "2026-06-16T18:23:36.521430",
-        "path": "wiki/Spanish/expressions/no-poder-venir-a-mas.md"
+        "name": "restaurante-expressions",
+        "filename": "restaurante-expressions.md",
+        "title": "Expresiones: Restaurante y Comida (Español)",
+        "size_kb": 8.0,
+        "modified": "2026-08-20T00:24:25.680718",
+        "path": "wiki/Spanish/expressions/restaurante-expressions.md"
       },
       {
-        "name": "ojala",
-        "filename": "ojala.md",
-        "title": "ojalá (+ subjuntivo)",
-        "size_kb": 1.3,
-        "modified": "2026-06-16T18:24:16.045118",
-        "path": "wiki/Spanish/expressions/ojala.md"
+        "name": "romance-relationships",
+        "filename": "romance-relationships.md",
+        "title": "Expresiones: Romance & Relationships",
+        "size_kb": 10.5,
+        "modified": "2026-08-20T00:24:25.680942",
+        "path": "wiki/Spanish/expressions/romance-relationships.md"
       },
       {
-        "name": "para-que-subjuntivo",
-        "filename": "para-que-subjuntivo.md",
-        "title": "para que + subjuntivo",
-        "size_kb": 1.1,
-        "modified": "2026-06-16T18:24:06.634039",
-        "path": "wiki/Spanish/expressions/para-que-subjuntivo.md"
+        "name": "slang-colloquial",
+        "filename": "slang-colloquial.md",
+        "title": "Expresiones: Slang y Coloquial (Español)",
+        "size_kb": 8.4,
+        "modified": "2026-08-20T00:24:25.681158",
+        "path": "wiki/Spanish/expressions/slang-colloquial.md"
       },
       {
-        "name": "pedir-la-mano",
-        "filename": "pedir-la-mano.md",
-        "title": "pedir la mano (de alguien)",
-        "size_kb": 1.2,
-        "modified": "2026-06-16T18:23:06.078685",
-        "path": "wiki/Spanish/expressions/pedir-la-mano.md"
+        "name": "subjunctive-patterns",
+        "filename": "subjunctive-patterns.md",
+        "title": "Expresiones: Subjunctive Patterns",
+        "size_kb": 8.0,
+        "modified": "2026-08-20T00:24:25.681382",
+        "path": "wiki/Spanish/expressions/subjunctive-patterns.md"
       },
       {
-        "name": "puedo-darte-beso",
-        "filename": "puedo-darte-beso.md",
-        "title": "puedo-darte-beso",
-        "size_kb": 1.1,
-        "modified": "2026-06-19T03:00:50.239030",
-        "path": "wiki/Spanish/expressions/puedo-darte-beso.md"
+        "name": "tecnologia-expressions",
+        "filename": "tecnologia-expressions.md",
+        "title": "Expresiones: Tecnología e Internet (Español)",
+        "size_kb": 7.7,
+        "modified": "2026-08-20T00:24:25.681604",
+        "path": "wiki/Spanish/expressions/tecnologia-expressions.md"
       },
       {
-        "name": "que-fuerte",
-        "filename": "que-fuerte.md",
-        "title": "¡qué fuerte!",
-        "size_kb": 1.0,
-        "modified": "2026-06-16T15:04:30.361144",
-        "path": "wiki/Spanish/expressions/que-fuerte.md"
-      },
-      {
-        "name": "que-pasada",
-        "filename": "que-pasada.md",
-        "title": "¡qué pasada!",
-        "size_kb": 1.0,
-        "modified": "2026-06-16T15:04:37.323765",
-        "path": "wiki/Spanish/expressions/que-pasada.md"
-      },
-      {
-        "name": "que-va",
-        "filename": "que-va.md",
-        "title": "¡qué va!",
-        "size_kb": 1.3,
-        "modified": "2026-06-16T18:24:31.746238",
-        "path": "wiki/Spanish/expressions/que-va.md"
-      },
-      {
-        "name": "quedar-varado",
-        "filename": "quedar-varado.md",
-        "title": "quedar varado",
-        "size_kb": 1.0,
-        "modified": "2026-06-16T15:03:33.323963",
-        "path": "wiki/Spanish/expressions/quedar-varado.md"
-      },
-      {
-        "name": "quieres-tomar-algo",
-        "filename": "quieres-tomar-algo.md",
-        "title": "quieres-tomar-algo",
-        "size_kb": 1.0,
-        "modified": "2026-06-19T03:00:27.167008",
-        "path": "wiki/Spanish/expressions/quieres-tomar-algo.md"
-      },
-      {
-        "name": "seguir-siendo-amigos",
-        "filename": "seguir-siendo-amigos.md",
-        "title": "seguir-siendo-amigos",
-        "size_kb": 1.2,
-        "modified": "2026-06-19T03:01:07.342773",
-        "path": "wiki/Spanish/expressions/seguir-siendo-amigos.md"
-      },
-      {
-        "name": "subirse-al-higado",
-        "filename": "subirse-al-higado.md",
-        "title": "subirse al hígado",
-        "size_kb": 1.1,
-        "modified": "2026-06-16T15:03:49.431545",
-        "path": "wiki/Spanish/expressions/subirse-al-higado.md"
-      },
-      {
-        "name": "te-amo",
-        "filename": "te-amo.md",
-        "title": "te-amo",
-        "size_kb": 1.1,
-        "modified": "2026-06-19T03:01:14.593800",
-        "path": "wiki/Spanish/expressions/te-amo.md"
-      },
-      {
-        "name": "tener-cara-de-llamarse",
-        "filename": "tener-cara-de-llamarse.md",
-        "title": "tener cara de llamarse",
-        "size_kb": 1.1,
-        "modified": "2026-06-16T15:03:56.874541",
-        "path": "wiki/Spanish/expressions/tener-cara-de-llamarse.md"
-      },
-      {
-        "name": "tener-el-corazon-en-un-puno",
-        "filename": "tener-el-corazon-en-un-puno.md",
-        "title": "tener el corazón en un puño",
-        "size_kb": 1.2,
-        "modified": "2026-06-16T18:23:30.615035",
-        "path": "wiki/Spanish/expressions/tener-el-corazon-en-un-puno.md"
-      },
-      {
-        "name": "vamos-que",
-        "filename": "vamos-que.md",
-        "title": "vamos que",
-        "size_kb": 1.0,
-        "modified": "2026-06-16T15:04:10.294992",
-        "path": "wiki/Spanish/expressions/vamos-que.md"
-      },
-      {
-        "name": "yo-que-tu",
-        "filename": "yo-que-tu.md",
-        "title": "yo que tú",
-        "size_kb": 1.0,
-        "modified": "2026-06-16T15:04:23.882769",
-        "path": "wiki/Spanish/expressions/yo-que-tu.md"
+        "name": "viaje-expressions",
+        "filename": "viaje-expressions.md",
+        "title": "Expresiones: Viaje Avanzado (Español)",
+        "size_kb": 9.9,
+        "modified": "2026-08-20T00:24:25.681827",
+        "path": "wiki/Spanish/expressions/viaje-expressions.md"
       }
     ],
     "culture": [
       {
+        "name": "ano-nuevo-uvas",
+        "filename": "ano-nuevo-uvas.md",
+        "title": "Año Nuevo: Las 12 Uvas",
+        "size_kb": 2.7,
+        "modified": "2026-08-20T00:14:53.811905",
+        "path": "wiki/Spanish/culture/ano-nuevo-uvas.md"
+      },
+      {
+        "name": "asado",
+        "filename": "asado.md",
+        "title": "Asado: Cultura de la Parrilla Argentina/Uruguaya",
+        "size_kb": 1.9,
+        "modified": "2026-08-20T00:14:53.744046",
+        "path": "wiki/Spanish/culture/asado.md"
+      },
+      {
+        "name": "boom-latinoamericano",
+        "filename": "boom-latinoamericano.md",
+        "title": "Boom Latinoamericano",
+        "size_kb": 3.3,
+        "modified": "2026-08-20T00:14:53.749116",
+        "path": "wiki/Spanish/culture/boom-latinoamericano.md"
+      },
+      {
+        "name": "cafe-social",
+        "filename": "cafe-social.md",
+        "title": "Café Social en el Trabajo",
+        "size_kb": 2.9,
+        "modified": "2026-08-20T00:14:53.773988",
+        "path": "wiki/Spanish/culture/cafe-social.md"
+      },
+      {
+        "name": "camping-cultura",
+        "filename": "camping-cultura.md",
+        "title": "Cultura de Camping en España y LatAm",
+        "size_kb": 3.2,
+        "modified": "2026-08-20T00:14:53.817977",
+        "path": "wiki/Spanish/culture/camping-cultura.md"
+      },
+      {
+        "name": "carnaval",
+        "filename": "carnaval.md",
+        "title": "Carnaval",
+        "size_kb": 3.2,
+        "modified": "2026-08-20T00:14:53.805776",
+        "path": "wiki/Spanish/culture/carnaval.md"
+      },
+      {
+        "name": "cervantes",
+        "filename": "cervantes.md",
+        "title": "Miguel de Cervantes y Don Quijote",
+        "size_kb": 2.9,
+        "modified": "2026-08-20T00:14:53.741950",
+        "path": "wiki/Spanish/culture/cervantes.md"
+      },
+      {
         "name": "cocina-espacio-femenino",
         "filename": "cocina-espacio-femenino.md",
         "title": "la cocina como espacio femenino",
-        "size_kb": 1.5,
-        "modified": "2026-06-16T18:24:51.814914",
+        "size_kb": 2.4,
+        "modified": "2026-08-20T00:14:53.831819",
         "path": "wiki/Spanish/culture/cocina-espacio-femenino.md"
+      },
+      {
+        "name": "comida-familiar",
+        "filename": "comida-familiar.md",
+        "title": "Comida Familiar en el Mundo Hispanohablante",
+        "size_kb": 2.1,
+        "modified": "2026-08-20T00:14:53.833600",
+        "path": "wiki/Spanish/culture/comida-familiar.md"
+      },
+      {
+        "name": "dele-a2-estructura",
+        "filename": "dele-a2-estructura.md",
+        "title": "DELE A2 — Estructura del examen",
+        "size_kb": 6.3,
+        "modified": "2026-08-20T00:14:53.769560",
+        "path": "wiki/Spanish/culture/dele-a2-estructura.md"
+      },
+      {
+        "name": "dia-muertos",
+        "filename": "dia-muertos.md",
+        "title": "Día de los Muertos",
+        "size_kb": 3.3,
+        "modified": "2026-08-20T00:14:53.777781",
+        "path": "wiki/Spanish/culture/dia-muertos.md"
+      },
+      {
+        "name": "email-formato",
+        "filename": "email-formato.md",
+        "title": "Formato de Correo Profesional",
+        "size_kb": 3.2,
+        "modified": "2026-08-20T00:14:53.813839",
+        "path": "wiki/Spanish/culture/email-formato.md"
+      },
+      {
+        "name": "emergencia-vs-urgencia",
+        "filename": "emergencia-vs-urgencia.md",
+        "title": "Emergencia vs Urgencia",
+        "size_kb": 2.9,
+        "modified": "2026-08-20T00:14:53.739769",
+        "path": "wiki/Spanish/culture/emergencia-vs-urgencia.md"
       },
       {
         "name": "espana-vs-latinoamerica-registro",
         "filename": "espana-vs-latinoamerica-registro.md",
         "title": "España vs. Latinoamérica - registro coloquial",
-        "size_kb": 2.0,
-        "modified": "2026-06-16T15:05:03.977725",
+        "size_kb": 2.9,
+        "modified": "2026-08-20T00:14:53.762007",
         "path": "wiki/Spanish/culture/espana-vs-latinoamerica-registro.md"
+      },
+      {
+        "name": "garcia-marquez",
+        "filename": "garcia-marquez.md",
+        "title": "Gabriel García Márquez y Realismo Mágico",
+        "size_kb": 3.5,
+        "modified": "2026-08-20T00:14:53.780461",
+        "path": "wiki/Spanish/culture/garcia-marquez.md"
+      },
+      {
+        "name": "horario-espana-latam",
+        "filename": "horario-espana-latam.md",
+        "title": "Horario Laboral: España vs Latinoamérica",
+        "size_kb": 2.8,
+        "modified": "2026-08-20T00:14:53.790792",
+        "path": "wiki/Spanish/culture/horario-espana-latam.md"
+      },
+      {
+        "name": "horarios",
+        "filename": "horarios.md",
+        "title": "Horarios de Comida: España vs Latinoamérica",
+        "size_kb": 2.0,
+        "modified": "2026-08-20T00:14:53.775863",
+        "path": "wiki/Spanish/culture/horarios.md"
+      },
+      {
+        "name": "isabel-allende",
+        "filename": "isabel-allende.md",
+        "title": "Isabel Allende y Realismo Mágico Femenino",
+        "size_kb": 2.8,
+        "modified": "2026-08-20T00:14:53.782681",
+        "path": "wiki/Spanish/culture/isabel-allende.md"
+      },
+      {
+        "name": "julio-cortazar",
+        "filename": "julio-cortazar.md",
+        "title": "Julio Cortázar y Novela Experimental",
+        "size_kb": 2.7,
+        "modified": "2026-08-20T00:14:53.794819",
+        "path": "wiki/Spanish/culture/julio-cortazar.md"
+      },
+      {
+        "name": "menu-del-dia",
+        "filename": "menu-del-dia.md",
+        "title": "Menú del Día",
+        "size_kb": 3.2,
+        "modified": "2026-08-20T00:14:53.785296",
+        "path": "wiki/Spanish/culture/menu-del-dia.md"
+      },
+      {
+        "name": "mexico-comida-callejera",
+        "filename": "mexico-comida-callejera.md",
+        "title": "Comida callejera mexicana",
+        "size_kb": 3.0,
+        "modified": "2026-08-20T00:14:53.764772",
+        "path": "wiki/Spanish/culture/mexico-comida-callejera.md"
       },
       {
         "name": "mexico-patriarcado-tradicion",
         "filename": "mexico-patriarcado-tradicion.md",
         "title": "México - patriarcado y tradición",
-        "size_kb": 1.5,
-        "modified": "2026-06-16T18:25:01.850746",
+        "size_kb": 2.4,
+        "modified": "2026-08-20T00:14:53.788745",
         "path": "wiki/Spanish/culture/mexico-patriarcado-tradicion.md"
+      },
+      {
+        "name": "navidad-traditions",
+        "filename": "navidad-traditions.md",
+        "title": "Navidad Traditions",
+        "size_kb": 3.2,
+        "modified": "2026-08-20T00:14:53.771914",
+        "path": "wiki/Spanish/culture/navidad-traditions.md"
+      },
+      {
+        "name": "networking-comidas",
+        "filename": "networking-comidas.md",
+        "title": "Networking: Comidas de Trabajo",
+        "size_kb": 3.3,
+        "modified": "2026-08-20T00:14:53.809702",
+        "path": "wiki/Spanish/culture/networking-comidas.md"
+      },
+      {
+        "name": "parques-nacionales",
+        "filename": "parques-nacionales.md",
+        "title": "Parques Nacionales de España",
+        "size_kb": 2.7,
+        "modified": "2026-08-20T00:14:53.759926",
+        "path": "wiki/Spanish/culture/parques-nacionales.md"
+      },
+      {
+        "name": "propinas",
+        "filename": "propinas.md",
+        "title": "Propinas en el Mundo Hispanohablante",
+        "size_kb": 2.7,
+        "modified": "2026-08-20T00:14:53.801298",
+        "path": "wiki/Spanish/culture/propinas.md"
       },
       {
         "name": "pueblo-costero-funeral",
         "filename": "pueblo-costero-funeral.md",
         "title": "pueblo costero y funeral",
-        "size_kb": 1.3,
-        "modified": "2026-06-16T15:04:52.726166",
+        "size_kb": 2.1,
+        "modified": "2026-08-20T00:14:53.757963",
         "path": "wiki/Spanish/culture/pueblo-costero-funeral.md"
+      },
+      {
+        "name": "quinceanera",
+        "filename": "quinceanera.md",
+        "title": "Quinceañera",
+        "size_kb": 2.8,
+        "modified": "2026-08-20T00:14:53.753311",
+        "path": "wiki/Spanish/culture/quinceanera.md"
       },
       {
         "name": "realismo-magico-esquivel",
         "filename": "realismo-magico-esquivel.md",
         "title": "realismo mágico (Esquivel)",
-        "size_kb": 1.8,
-        "modified": "2026-06-16T18:24:41.882850",
+        "size_kb": 2.6,
+        "modified": "2026-08-20T00:14:53.823402",
         "path": "wiki/Spanish/culture/realismo-magico-esquivel.md"
       },
       {
         "name": "realismo-magico-marquez",
         "filename": "realismo-magico-marquez.md",
         "title": "realismo mágico (García Márquez)",
-        "size_kb": 1.1,
-        "modified": "2026-06-16T15:04:45.513801",
+        "size_kb": 2.0,
+        "modified": "2026-08-20T00:14:53.807752",
         "path": "wiki/Spanish/culture/realismo-magico-marquez.md"
       },
       {
         "name": "recetario-como-estructura",
         "filename": "recetario-como-estructura.md",
         "title": "estructura de recetario (Esquivel)",
-        "size_kb": 1.4,
-        "modified": "2026-06-16T18:25:10.247500",
+        "size_kb": 2.3,
+        "modified": "2026-08-20T00:14:53.796861",
         "path": "wiki/Spanish/culture/recetario-como-estructura.md"
+      },
+      {
+        "name": "san-fermin",
+        "filename": "san-fermin.md",
+        "title": "San Fermín",
+        "size_kb": 2.5,
+        "modified": "2026-08-20T00:14:53.803642",
+        "path": "wiki/Spanish/culture/san-fermin.md"
+      },
+      {
+        "name": "semana-santa",
+        "filename": "semana-santa.md",
+        "title": "Semana Santa",
+        "size_kb": 2.5,
+        "modified": "2026-08-20T00:14:53.751152",
+        "path": "wiki/Spanish/culture/semana-santa.md"
+      },
+      {
+        "name": "senderismo-espana",
+        "filename": "senderismo-espana.md",
+        "title": "Senderismo en España",
+        "size_kb": 3.2,
+        "modified": "2026-08-20T00:14:53.755502",
+        "path": "wiki/Spanish/culture/senderismo-espana.md"
+      },
+      {
+        "name": "siesta-trabajo",
+        "filename": "siesta-trabajo.md",
+        "title": "Siesta en el Trabajo",
+        "size_kb": 2.9,
+        "modified": "2026-08-20T00:14:53.767058",
+        "path": "wiki/Spanish/culture/siesta-trabajo.md"
       },
       {
         "name": "siesta-tradicion-verano",
         "filename": "siesta-tradicion-verano.md",
         "title": "siesta - tradición veraniega",
-        "size_kb": 1.0,
-        "modified": "2026-06-16T15:05:10.063936",
+        "size_kb": 2.0,
+        "modified": "2026-08-20T00:14:53.816040",
         "path": "wiki/Spanish/culture/siesta-tradicion-verano.md"
-      },
-      {
-        "name": "spanish-business-culture",
-        "filename": "spanish-business-culture.md",
-        "title": "Spanish Business & Work Culture",
-        "size_kb": 2.1,
-        "modified": "2026-06-24T16:09:36.211949",
-        "path": "wiki/Spanish/culture/spanish-business-culture.md"
       },
       {
         "name": "spanish-dating-culture",
         "filename": "spanish-dating-culture.md",
         "title": "Spanish Dating Culture",
-        "size_kb": 5.5,
-        "modified": "2026-06-20T01:25:13.003639",
+        "size_kb": 5.8,
+        "modified": "2026-08-20T00:14:53.825847",
         "path": "wiki/Spanish/culture/spanish-dating-culture.md"
-      },
-      {
-        "name": "spanish-food-culture",
-        "filename": "spanish-food-culture.md",
-        "title": "Spanish Food & Dining Culture",
-        "size_kb": 1.9,
-        "modified": "2026-06-24T15:30:16.116308",
-        "path": "wiki/Spanish/culture/spanish-food-culture.md"
-      },
-      {
-        "name": "spanish-holidays-culture",
-        "filename": "spanish-holidays-culture.md",
-        "title": "Spanish Holidays & Celebrations Culture",
-        "size_kb": 2.3,
-        "modified": "2026-06-24T15:30:33.722415",
-        "path": "wiki/Spanish/culture/spanish-holidays-culture.md"
-      },
-      {
-        "name": "spanish-travel-culture",
-        "filename": "spanish-travel-culture.md",
-        "title": "Spanish Travel Culture",
-        "size_kb": 2.0,
-        "modified": "2026-06-24T15:30:01.876828",
-        "path": "wiki/Spanish/culture/spanish-travel-culture.md"
       },
       {
         "name": "subjuntivo-conversacional",
         "filename": "subjuntivo-conversacional.md",
         "title": "subjuntivo conversacional",
-        "size_kb": 1.6,
-        "modified": "2026-06-16T18:25:30.230705",
+        "size_kb": 2.4,
+        "modified": "2026-08-20T00:14:53.792657",
         "path": "wiki/Spanish/culture/subjuntivo-conversacional.md"
+      },
+      {
+        "name": "tango-argentino",
+        "filename": "tango-argentino.md",
+        "title": "Tango argentino",
+        "size_kb": 2.8,
+        "modified": "2026-08-20T00:14:53.746690",
+        "path": "wiki/Spanish/culture/tango-argentino.md"
+      },
+      {
+        "name": "tapeo",
+        "filename": "tapeo.md",
+        "title": "Tapeo: Cultura de Tapas",
+        "size_kb": 1.8,
+        "modified": "2026-08-20T00:14:53.798849",
+        "path": "wiki/Spanish/culture/tapeo.md"
+      },
+      {
+        "name": "tomatina",
+        "filename": "tomatina.md",
+        "title": "La Tomatina",
+        "size_kb": 2.9,
+        "modified": "2026-08-20T00:14:53.819978",
+        "path": "wiki/Spanish/culture/tomatina.md"
+      },
+      {
+        "name": "tu-vs-usted",
+        "filename": "tu-vs-usted.md",
+        "title": "Tú vs Usted en el Trabajo",
+        "size_kb": 3.5,
+        "modified": "2026-08-20T00:14:53.827970",
+        "path": "wiki/Spanish/culture/tu-vs-usted.md"
       },
       {
         "name": "verano-espana-tradiciones",
         "filename": "verano-espana-tradiciones.md",
         "title": "verano y vacaciones en España",
-        "size_kb": 1.3,
-        "modified": "2026-06-16T18:25:20.484406",
+        "size_kb": 2.2,
+        "modified": "2026-08-20T00:14:53.829898",
         "path": "wiki/Spanish/culture/verano-espana-tradiciones.md"
       }
     ],
     "study_plan": [
       {
+        "name": "_card_extraction_state",
+        "filename": "_card_extraction_state.md",
+        "title": "Card Extraction State — Spanish",
+        "size_kb": 1.7,
+        "modified": "2026-08-20T00:14:53.516348",
+        "path": "wiki/Spanish/study-plan/_card_extraction_state.md"
+      },
+      {
         "name": "blog-output",
         "filename": "blog-output.md",
         "title": "Salida a Blog y Homepage - 블로그/홈페이지 출력 가이드",
         "size_kb": 8.5,
-        "modified": "2026-06-16T15:08:01.306545",
+        "modified": "2026-08-20T00:14:53.511586",
         "path": "wiki/Spanish/study-plan/blog-output.md"
+      },
+      {
+        "name": "recursos-es",
+        "filename": "recursos-es.md",
+        "title": "Spanish 학습 자료 카탈로그 (recursos)",
+        "size_kb": 6.7,
+        "modified": "2026-08-20T00:14:53.513854",
+        "path": "wiki/Spanish/study-plan/recursos-es.md"
       },
       {
         "name": "weekly-plan",
         "filename": "weekly-plan.md",
         "title": "Plan Semanal de Español - 스페인어 주간 학습 계획",
         "size_kb": 5.8,
-        "modified": "2026-06-16T14:55:54.096167",
+        "modified": "2026-08-20T00:14:53.509237",
         "path": "wiki/Spanish/study-plan/weekly-plan.md"
       }
     ]
@@ -495,7 +1448,7 @@
       "filename": "animals-vocabulary-es.md",
       "title": "Spanish Animals Vocabulary",
       "size_kb": 1.9,
-      "modified": "2026-06-23T00:42:01.284820",
+      "modified": "2026-08-20T00:14:54.611547",
       "path": "raw/Spanish/animals-vocabulary-es.md"
     },
     {
@@ -503,7 +1456,7 @@
       "filename": "business-vocabulary-es.md",
       "title": "Spanish Business Vocabulary",
       "size_kb": 2.8,
-      "modified": "2026-06-23T00:41:30.994420",
+      "modified": "2026-08-20T00:14:54.589640",
       "path": "raw/Spanish/business-vocabulary-es.md"
     },
     {
@@ -511,7 +1464,7 @@
       "filename": "clothing-vocabulary-es.md",
       "title": "Spanish Clothing & Fashion Vocabulary",
       "size_kb": 1.7,
-      "modified": "2026-06-23T00:42:11.247642",
+      "modified": "2026-08-20T00:14:54.624996",
       "path": "raw/Spanish/clothing-vocabulary-es.md"
     },
     {
@@ -519,15 +1472,23 @@
       "filename": "como-agua-para-chocolate-cap1.md",
       "title": "Como agua para chocolate - Capítulo 1 (Enero)",
       "size_kb": 7.9,
-      "modified": "2026-06-16T18:19:23.620154",
+      "modified": "2026-08-20T00:14:54.591714",
       "path": "raw/Spanish/como-agua-para-chocolate-cap1.md"
+    },
+    {
+      "name": "daily-life-basics",
+      "filename": "daily-life-basics.md",
+      "title": "Spanish Daily Life Basics Vocabulary",
+      "size_kb": 3.2,
+      "modified": "2026-08-20T00:14:54.636760",
+      "path": "raw/Spanish/daily-life-basics.md"
     },
     {
       "name": "dating-romance-es",
       "filename": "dating-romance-es.md",
       "title": "Dating & Romance — Source Material (Spanish)",
       "size_kb": 5.4,
-      "modified": "2026-06-19T02:49:46.052151",
+      "modified": "2026-08-20T00:14:54.606964",
       "path": "raw/Spanish/dating-romance-es.md"
     },
     {
@@ -535,7 +1496,7 @@
       "filename": "el-ahogado-mas-hermoso-del-mundo.md",
       "title": "El ahogado más hermoso del mundo",
       "size_kb": 15.0,
-      "modified": "2026-06-16T15:00:22.556818",
+      "modified": "2026-08-20T00:14:54.627147",
       "path": "raw/Spanish/el-ahogado-mas-hermoso-del-mundo.md"
     },
     {
@@ -543,7 +1504,7 @@
       "filename": "emotions-personality-vocabulary-es.md",
       "title": "Spanish Emotions & Personality Vocabulary",
       "size_kb": 2.3,
-      "modified": "2026-06-23T00:41:41.427105",
+      "modified": "2026-08-20T00:14:54.632412",
       "path": "raw/Spanish/emotions-personality-vocabulary-es.md"
     },
     {
@@ -551,31 +1512,63 @@
       "filename": "first-travel-spain.md",
       "title": "Primera Experiencia de Viaje — España",
       "size_kb": 6.7,
-      "modified": "2026-06-18T18:53:54.293765",
+      "modified": "2026-08-20T00:14:54.587714",
       "path": "raw/Spanish/first-travel-spain.md"
+    },
+    {
+      "name": "food-and-dining",
+      "filename": "food-and-dining.md",
+      "title": "Spanish Food and Dining Vocabulary",
+      "size_kb": 3.4,
+      "modified": "2026-08-20T00:14:54.618831",
+      "path": "raw/Spanish/food-and-dining.md"
     },
     {
       "name": "food-vocabulary-es",
       "filename": "food-vocabulary-es.md",
       "title": "Spanish Food & Restaurant Vocabulary",
       "size_kb": 2.2,
-      "modified": "2026-06-23T00:41:18.642084",
+      "modified": "2026-08-20T00:14:54.640648",
       "path": "raw/Spanish/food-vocabulary-es.md"
+    },
+    {
+      "name": "health-and-body",
+      "filename": "health-and-body.md",
+      "title": "Spanish Health and Body Vocabulary",
+      "size_kb": 2.8,
+      "modified": "2026-08-20T00:14:54.597834",
+      "path": "raw/Spanish/health-and-body.md"
+    },
+    {
+      "name": "holidays-and-celebrations",
+      "filename": "holidays-and-celebrations.md",
+      "title": "Spanish Holidays and Celebrations Vocabulary",
+      "size_kb": 3.9,
+      "modified": "2026-08-20T00:14:54.613618",
+      "path": "raw/Spanish/holidays-and-celebrations.md"
     },
     {
       "name": "literature-passages",
       "filename": "literature-passages.md",
-      "title": "Pasajes Literarios — Español (Spanish Literature Passages)",
-      "size_kb": 2.2,
-      "modified": "2026-06-23T16:01:32.874101",
+      "title": "Spanish Literature Passages Vocabulary",
+      "size_kb": 3.7,
+      "modified": "2026-08-20T00:14:54.623104",
       "path": "raw/Spanish/literature-passages.md"
+    },
+    {
+      "name": "movie-quotes",
+      "filename": "movie-quotes.md",
+      "title": "Spanish Movie Quotes Vocabulary",
+      "size_kb": 2.8,
+      "modified": "2026-08-20T00:14:54.629430",
+      "path": "raw/Spanish/movie-quotes.md"
     },
     {
       "name": "nature-vocabulary-es",
       "filename": "nature-vocabulary-es.md",
       "title": "Spanish Nature & Weather Vocabulary",
       "size_kb": 1.9,
-      "modified": "2026-06-23T00:41:50.735928",
+      "modified": "2026-08-20T00:14:54.634563",
       "path": "raw/Spanish/nature-vocabulary-es.md"
     },
     {
@@ -583,7 +1576,7 @@
       "filename": "notes-in-spanish-listening-log.md",
       "title": "Notes in Spanish - Advanced · Episodio de muestra",
       "size_kb": 5.3,
-      "modified": "2026-06-16T15:00:58.730208",
+      "modified": "2026-08-20T00:14:54.609188",
       "path": "raw/Spanish/notes-in-spanish-listening-log.md"
     },
     {
@@ -591,19 +1584,61 @@
       "filename": "notes-in-spanish-planes-de-verano.md",
       "title": "Notes in Spanish Advanced - Planes de verano",
       "size_kb": 5.6,
-      "modified": "2026-06-16T18:20:01.277291",
+      "modified": "2026-08-20T00:14:54.621103",
       "path": "raw/Spanish/notes-in-spanish-planes-de-verano.md"
+    },
+    {
+      "name": "shopping-and-money",
+      "filename": "shopping-and-money.md",
+      "title": "Spanish Shopping and Money Vocabulary",
+      "size_kb": 4.2,
+      "modified": "2026-08-20T00:14:54.616402",
+      "path": "raw/Spanish/shopping-and-money.md"
+    },
+    {
+      "name": "sports-and-hobbies",
+      "filename": "sports-and-hobbies.md",
+      "title": "Spanish Sports and Hobbies Vocabulary",
+      "size_kb": 4.3,
+      "modified": "2026-08-20T00:14:54.638831",
+      "path": "raw/Spanish/sports-and-hobbies.md"
+    },
+    {
+      "name": "technology-and-internet",
+      "filename": "technology-and-internet.md",
+      "title": "Spanish Technology and Internet Vocabulary",
+      "size_kb": 4.6,
+      "modified": "2026-08-20T00:14:54.594860",
+      "path": "raw/Spanish/technology-and-internet.md"
+    },
+    {
+      "name": "travel-adventure",
+      "filename": "travel-adventure.md",
+      "title": "Spanish Travel and Adventure Vocabulary",
+      "size_kb": 4.6,
+      "modified": "2026-08-20T00:14:54.602577",
+      "path": "raw/Spanish/travel-adventure.md"
+    },
+    {
+      "name": "work-and-career",
+      "filename": "work-and-career.md",
+      "title": "Spanish Work and Career Vocabulary",
+      "size_kb": 5.0,
+      "modified": "2026-08-20T00:14:54.604876",
+      "path": "raw/Spanish/work-and-career.md"
     }
   ],
-  "raw_sources_count": 13,
+  "raw_sources_count": 23,
   "corpus": {
-    "total": 155,
+    "total": 201,
     "by_level": {
-      "1": 98,
+      "1": 144,
       "2": 57
     },
     "by_category": {
       "travel": 76,
+      "nature": 34,
+      "animal": 16,
       "number": 12,
       "greeting": 10,
       "time": 10,
@@ -612,14 +1647,13 @@
       "color": 6,
       "family": 6,
       "place": 6,
-      "animal": 4,
       "object": 4,
       "food": 4,
       "person": 2,
       "restaurant": 1
     },
     "by_type": {
-      "words": 155,
+      "words": 201,
       "sentences": 0,
       "chars": 0
     },
@@ -638,7 +1672,12 @@
         "meaning": "안녕",
         "level": 1,
         "category": "greeting",
-        "accentMode": "any"
+        "accentMode": "any",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       },
       {
         "id": "es_002",
@@ -646,7 +1685,12 @@
         "meaning": "안녕히",
         "level": 1,
         "category": "greeting",
-        "accentMode": "any"
+        "accentMode": "any",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       },
       {
         "id": "es_003",
@@ -654,7 +1698,12 @@
         "meaning": "고마워",
         "level": 1,
         "category": "greeting",
-        "accentMode": "any"
+        "accentMode": "any",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       },
       {
         "id": "es_004",
@@ -662,7 +1711,12 @@
         "meaning": "부디",
         "level": 1,
         "category": "greeting",
-        "accentMode": "any"
+        "accentMode": "any",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       },
       {
         "id": "es_005",
@@ -670,7 +1724,12 @@
         "meaning": "네",
         "level": 1,
         "category": "basic",
-        "accentMode": "any"
+        "accentMode": "any",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       },
       {
         "id": "es_006",
@@ -678,7 +1737,12 @@
         "meaning": "아니오",
         "level": 1,
         "category": "basic",
-        "accentMode": "any"
+        "accentMode": "any",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       },
       {
         "id": "es_007",
@@ -686,7 +1750,12 @@
         "meaning": "하나",
         "level": 1,
         "category": "number",
-        "accentMode": "any"
+        "accentMode": "any",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       },
       {
         "id": "es_008",
@@ -694,7 +1763,12 @@
         "meaning": "둘",
         "level": 1,
         "category": "number",
-        "accentMode": "any"
+        "accentMode": "any",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       },
       {
         "id": "es_009",
@@ -702,7 +1776,12 @@
         "meaning": "셋",
         "level": 1,
         "category": "number",
-        "accentMode": "any"
+        "accentMode": "any",
+        "source": [
+          [
+            "basic-vocabulary"
+          ]
+        ]
       }
     ],
     "sentences_sample": [],
@@ -715,6 +1794,7 @@
       "family",
       "food",
       "greeting",
+      "nature",
       "number",
       "object",
       "person",
@@ -874,6 +1954,24 @@
       "difficulty": 5,
       "corpus_type": "passages",
       "corpus_filter": {
+        "minLevel": 5,
+        "maxLevel": 5
+      }
+    },
+    {
+      "id": "es_5_2",
+      "tier": 5,
+      "stage_num": 2,
+      "tier_label": "Tier 5 · 단락",
+      "name": "Reflexiones de Vida",
+      "description": "명상·가치관·삶의 통찰 단락",
+      "word_count": 5,
+      "difficulty": 5,
+      "corpus_type": "words",
+      "corpus_filter": {
+        "categories": [
+          "passage"
+        ],
         "minLevel": 5,
         "maxLevel": 5
       }
@@ -1330,17 +2428,17 @@
     }
   ],
   "coverage": {
-    "total_stages": 34,
-    "total_corpus": 155,
-    "wiki_materials": 59,
-    "sources": 10,
-    "raw_sources": 13,
+    "total_stages": 35,
+    "total_corpus": 201,
+    "wiki_materials": 178,
+    "sources": 34,
+    "raw_sources": 23,
     "stages_by_tier": {
       "1": 2,
       "2": 2,
       "3": 2,
       "4": 2,
-      "5": 1,
+      "5": 2,
       "a": 3,
       "b": 3,
       "c": 3,
@@ -1468,6 +2566,20 @@
         ],
         "word_count": 5,
         "corpus_type": "passages"
+      },
+      {
+        "stage_id": "es_5_2",
+        "stage_name": "Reflexiones de Vida",
+        "tier": 5,
+        "categories": [
+          "passage"
+        ],
+        "level_range": [
+          5,
+          5
+        ],
+        "word_count": 5,
+        "corpus_type": "words"
       },
       {
         "stage_id": "es_a_1",
@@ -1848,6 +2960,16 @@
         "categories": []
       },
       {
+        "stage_id": "es_5_2",
+        "stage_name": "Reflexiones de Vida",
+        "needed": 5,
+        "available": 0,
+        "shortfall": 5,
+        "categories": [
+          "passage"
+        ]
+      },
+      {
         "stage_id": "es_a_1",
         "stage_name": "Animales",
         "needed": 12,
@@ -2036,39 +3158,9 @@
         "categories": [
           "food"
         ]
-      },
-      {
-        "stage_id": "es_n_1",
-        "stage_name": "Naturaleza y Clima",
-        "needed": 12,
-        "available": 0,
-        "shortfall": 12,
-        "categories": [
-          "nature"
-        ]
-      },
-      {
-        "stage_id": "es_n_2",
-        "stage_name": "Naturaleza Advanced",
-        "needed": 10,
-        "available": 0,
-        "shortfall": 10,
-        "categories": [
-          "nature"
-        ]
-      },
-      {
-        "stage_id": "es_n_3",
-        "stage_name": "Naturaleza Expert",
-        "needed": 8,
-        "available": 0,
-        "shortfall": 8,
-        "categories": [
-          "nature"
-        ]
       }
     ],
-    "coverage_percent": 47.7
+    "coverage_percent": 60.9
   },
-  "generated_at": "2026-06-24T18:32:09.387957"
+  "generated_at": "2026-08-20T01:52:38.679228"
 }

@@ -6,7 +6,7 @@ Generates JSON data files for the Language Content Dashboard by:
 1. Scanning Language/wiki/{Lang}/ for learning materials
 2. Scanning Language/raw/{Lang}/ for source documents
 3. Parsing Game/raw/{lang}_words.md for game corpus
-4. Parsing Game/typing_language/prototype/src/data/stages.ts for stage definitions
+4. Parsing Game/lingotype/prototype/src/data/stages.ts for stage definitions
 
 Output: dashboard/data/{lang}.json + dashboard/data/overview.json
 """

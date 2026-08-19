@@ -154,7 +154,7 @@ To learn {lang}:
 1. Start with **Vocabulary > Travel** — basic words for first travel
 2. Practice **Expressions** — common phrases
 3. Read **Sources** — original travel journals and notes
-4. Use the **typing game** to practice (see: Game/typing_language/)
+4. Use the **typing game** to practice (see: Game/lingotype/)
 """
 
     (LANGUAGE_ROOT / "wiki" / lang / "index.md").write_text(index, encoding="utf-8")

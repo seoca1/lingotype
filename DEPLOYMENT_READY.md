@@ -235,6 +235,6 @@ https://yourusername.github.io/lingotype/
 **Happy Typing! ⌨️**
 
 배포 후 공유:
-- Twitter: #TypingLanguage #GameDev
+- Twitter: #LingoType #GameDev
 - Reddit: r/gamedev, r/languagelearning
 - Discord: Language learning communities
