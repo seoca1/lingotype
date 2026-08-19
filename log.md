@@ -1,5 +1,24 @@
 # Activity Log - Typing Language
 
+## [2026-08-19] dashboard | Game/dashboard v2.0 — 통합 허브 + 라이브 stats (cross-project hub)
+
+**Status**: ✅ **Game/dashboard v2.0.0 업그레이드 완료** — typing_language가 포함된 cross-project hub 재구축.
+
+### 변경 요약
+- **typing_language dashboard 링크 수정**: `Game/dashboard/index.html`이 이제 `../typing_language/dashboard/`로 정확히 연결
+- **라이브 stats 추가**: 4 languages (EN/JP/ES/KR), 577 corpus, 140 stages, 41.7% coverage — `Game/typing_language/dashboard/data/overview.json`에서 자동 집계
+- **GitHub Pages 워크플로우**: `.github/workflows/game-dashboard.yml` 추가 (path filter `Game/dashboard/**`로 분리)
+
+### 산출물
+- typing_language stats는 build-time aggregator가 `dashboard-stats.json`에 포함
+- `Game/dashboard/` 빌드는 typing_language와 무관 (각 프로젝트 빌드 유지)
+- `Game/typing_language/dashboard/index.html` 자체는 변경 없음 (v1 그대로)
+
+### 다음
+- Phase 8 계획 시 typing_language sub-dashboard 페이지 추가 가능 (현재 1개 index만)
+
+---
+
 ## [2026-08-17] decision | ADR-0012 — KR corpus raw documentation relocation
 
 **Scope:** New Draft ADR for relocating `raw/kr_words.md` documentation header (stale per-word-page YAML examples violating §1.5) to `wiki/languages/korean-corpus-format-reference.md` (pending user acceptance).
