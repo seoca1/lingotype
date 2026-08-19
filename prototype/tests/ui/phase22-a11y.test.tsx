@@ -77,7 +77,7 @@ beforeEach(() => {
 
 describe('Phase 22 — StageScreen HUD exposes live status to screen readers', () => {
   const baseProps = {
-    canvasRef: { current: null } as RefObject<HTMLCanvasElement>,
+    canvasRef: { current: null } as unknown as RefObject<HTMLCanvasElement>,
     state: {
       ...initialState,
       score: 1234,

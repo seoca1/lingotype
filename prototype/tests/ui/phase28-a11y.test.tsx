@@ -116,7 +116,7 @@ describe('Phase 28 — LearnScreen start button exposes aria-label + Enter hint'
 
 describe('Phase 28 — StageScreen missions list exposes role=list + listitem', () => {
   const stage = SAMPLE_STAGES[0]!;
-  const canvasRef: RefObject<HTMLCanvasElement> = createRef<HTMLCanvasElement>();
+  const canvasRef: RefObject<HTMLCanvasElement | null> = createRef<HTMLCanvasElement>();
   const baseGameState: GameState = {
     phase: 'stage',
     currentStage: stage,

@@ -112,7 +112,7 @@ describe('Phase 19 — OSKeyboardInput Chinese lang attribute', () => {
 
 describe('Phase 19 — StageScreen audio + back button accessibility', () => {
   const baseProps = {
-    canvasRef: { current: null } as RefObject<HTMLCanvasElement>,
+    canvasRef: { current: null } as unknown as RefObject<HTMLCanvasElement>,
     state: initialState,
     stage: null,
     languageLabel: 'Chinese (中文)',
