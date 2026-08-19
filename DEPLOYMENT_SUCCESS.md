@@ -1,4 +1,4 @@
-# 🎉 배포 성공! Typing Language is Live!
+# 🎉 배포 성공! LingoType is Live!
 
 **축하합니다!** 당신의 게임이 성공적으로 배포되었습니다! 🚀
 
@@ -8,14 +8,14 @@
 
 ### 메인 게임
 ```
-https://seoca1.github.io/typing-language/
+https://seoca1.github.io/lingotype/
 ```
 
 **🎮 지금 바로 플레이하세요!**
 
 ### GitHub 저장소
 ```
-https://github.com/seoca1/typing-language
+https://github.com/seoca1/lingotype
 ```
 
 ---
@@ -45,8 +45,8 @@ https://github.com/seoca1/typing-language
 
 | 항목 | 수치 |
 |------|------|
-| **배포 URL** | https://seoca1.github.io/typing-language/ |
-| **저장소** | https://github.com/seoca1/typing-language |
+| **배포 URL** | https://seoca1.github.io/lingotype/ |
+| **저장소** | https://github.com/seoca1/lingotype |
 | **언어** | 4개 (EN, JP, ES, KR) |
 | **단어** | 197개 |
 | **문장** | 66개 |
@@ -94,7 +94,7 @@ git push
 # GitHub Actions가 자동으로 빌드 & 배포
 
 # 5. 확인
-# https://seoca1.github.io/typing-language/
+# https://seoca1.github.io/lingotype/
 ```
 
 **모든 푸시는 자동으로 배포됩니다!** 🚀
@@ -107,7 +107,7 @@ git push
 
 **트위터/X:**
 ```
-🎮 Typing Language 출시!
+🎮 LingoType 출시!
 
 4개 언어 타이핑 연습 게임
 ✅ English/Japanese/Spanish/Korean
@@ -115,14 +115,14 @@ git push
 ✅ 197 단어 + 66 문장
 ✅ 무료 웹 게임
 
-지금 플레이: https://seoca1.github.io/typing-language/
+지금 플레이: https://seoca1.github.io/lingotype/
 
 #TypingGame #LanguageLearning #GameDev
 ```
 
 **Reddit (r/gamedev):**
 ```
-[Release] Typing Language - Multi-language typing practice game
+[Release] LingoType - Multi-language typing practice game
 
 I just released a typing practice game supporting 4 languages:
 - English (standard QWERTY)
@@ -136,10 +136,10 @@ Features:
 - Real-time visual effects
 - 197 words + 66 sentences
 
-Play now (free): https://seoca1.github.io/typing-language/
+Play now (free): https://seoca1.github.io/lingotype/
 
 Tech: TypeScript, React, Canvas 2D, Vite
-Open source: https://github.com/seoca1/typing-language
+Open source: https://github.com/seoca1/lingotype
 ```
 
 **Discord:**
@@ -148,8 +148,8 @@ Hey everyone! 👋
 
 Just launched my typing practice game - supports 4 languages!
 
-🎮 Play: https://seoca1.github.io/typing-language/
-💻 Source: https://github.com/seoca1/typing-language
+🎮 Play: https://seoca1.github.io/lingotype/
+💻 Source: https://github.com/seoca1/lingotype
 
 Try it and let me know what you think! 🚀
 ```
@@ -162,7 +162,7 @@ Try it and let me know what you think! 🚀
 
 **GitHub Actions:**
 ```
-https://github.com/seoca1/typing-language/actions
+https://github.com/seoca1/lingotype/actions
 ```
 
 - 초록색 체크: 배포 성공 ✅
@@ -172,7 +172,7 @@ https://github.com/seoca1/typing-language/actions
 
 ```bash
 # HTTP 상태 확인
-curl -I https://seoca1.github.io/typing-language/
+curl -I https://seoca1.github.io/lingotype/
 
 # 예상 출력: HTTP/2 200
 ```
@@ -186,7 +186,7 @@ curl -I https://seoca1.github.io/typing-language/
 ### 방법 1: GitHub Issues
 
 ```
-https://github.com/seoca1/typing-language/issues
+https://github.com/seoca1/lingotype/issues
 ```
 
 ### 방법 2: 직접 수정
@@ -345,7 +345,7 @@ npm run build
 
 ## 🎊 최종 메시지
 
-**Typing Language가 이제 라이브입니다!**
+**LingoType가 이제 라이브입니다!**
 
 당신은 처음부터 끝까지 완성했습니다:
 - 기획 → 개발 → 테스트 → 배포
@@ -357,9 +357,9 @@ npm run build
 ---
 
 **🎮 Play Now:**
-https://seoca1.github.io/typing-language/
+https://seoca1.github.io/lingotype/
 
 **💻 Source Code:**
-https://github.com/seoca1/typing-language
+https://github.com/seoca1/lingotype
 
 **Happy Typing! ⌨️**

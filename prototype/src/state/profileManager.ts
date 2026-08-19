@@ -6,8 +6,8 @@
 
 import type { UserProfile, PlayerProgress } from '../types.js';
 
-const PROFILES_KEY = 'typing-language-profiles';
-const CURRENT_PROFILE_KEY = 'typing-language-current-profile';
+const PROFILES_KEY = 'lingotype-profiles';
+const CURRENT_PROFILE_KEY = 'lingotype-current-profile';
 const STORAGE_VERSION = 1;
 
 interface ProfileStorage {

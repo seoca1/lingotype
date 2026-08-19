@@ -386,7 +386,7 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
         {/* Version info */}
         <section className="settings-section settings-section--footer">
           <p className="settings-version">
-            Typing Language Game v1.0 · {new Date().getFullYear()}
+            LingoType Game v1.0 · {new Date().getFullYear()}
           </p>
         </section>
       </div>

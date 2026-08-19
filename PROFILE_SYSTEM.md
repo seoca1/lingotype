@@ -161,7 +161,7 @@ src/
 
 ### 현재 프로필
 ```
-typing-language-current-profile: "profile_1234567890_abc123"
+lingotype-current-profile: "profile_1234567890_abc123"
 ```
 
 ---

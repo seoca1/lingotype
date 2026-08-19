@@ -186,10 +186,10 @@ ls -la en/emily/
 cat ~/CHATGPT_PROMPTS_READY.md
 
 # All character prompts
-cat ~/projects/Projects/Game/typing_language/characters/docs/AI_CHARACTER_PROMPTS.md
+cat ~/projects/Projects/Game/lingotype/characters/docs/AI_CHARACTER_PROMPTS.md
 
 # Full guide
-cat ~/projects/Projects/Game/typing_language/characters/docs/CHATGPT_IMAGE_GENERATION.md
+cat ~/projects/Projects/Game/lingotype/characters/docs/CHATGPT_IMAGE_GENERATION.md
 ```
 
 ## 🚀 After Saving Images
@@ -202,7 +202,7 @@ ls -la en/emily/
 
 # Should show 7 PNG files
 # If yes, enable in game:
-cd ~/projects/Projects/Game/typing_language/prototype
+cd ~/projects/Projects/Game/lingotype/prototype
 
 # Edit src/config/characterImages.ts
 # Change: USE_EXTERNAL_IMAGES = true
@@ -222,7 +222,7 @@ npm run dev
 
 **Current location:**
 ```
-/Users/emilio/projects/Projects/Game/typing_language/prototype/public/characters/
+/Users/emilio/projects/Projects/Game/lingotype/prototype/public/characters/
 ```
 
 **Save files relative to this folder:**
@@ -235,7 +235,7 @@ jp/sakura/idle.png     ✓
 
 **Or use full path:**
 ```
-/Users/emilio/projects/Projects/Game/typing_language/prototype/public/characters/en/emily/idle.png
+/Users/emilio/projects/Projects/Game/lingotype/prototype/public/characters/en/emily/idle.png
 ```
 
 ## 🎉 Ready to Save!

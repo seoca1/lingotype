@@ -143,7 +143,7 @@ GitHub에 코드를 업로드하려면 **인증**이 필요합니다.
 
 | 항목             | 설정                               |
 | -------------- | -------------------------------- |
-| **Note**       | `typing-language-deploy` (용도 메모) |
+| **Note**       | `lingotype-deploy` (용도 메모) |
 | **Expiration** | `90 days` (또는 원하는 기간)            |
 | **Scopes**     | 아래 항목 체크                         |
 
@@ -166,7 +166,7 @@ GitHub에 코드를 업로드하려면 **인증**이 필요합니다.
 ```
 메모장이나 비밀번호 관리자에 저장:
 
-GitHub Token (typing-language-deploy)
+GitHub Token (lingotype-deploy)
 ghp_abcdef1234567890abcdef1234567890abcd
 생성일: 2026-06-18
 만료일: 2026-09-16
@@ -254,7 +254,7 @@ Hi your-username! You've successfully authenticated...
 
 | 항목                        | 설정                                       | 설명                      |
 | ------------------------- | ---------------------------------------- | ----------------------- |
-| **Repository name**       | `typing-language`                        | URL에 사용됨                |
+| **Repository name**       | `lingotype`                        | URL에 사용됨                |
 | **Description**           | `🌍 Multi-language typing practice game` | 선택사항                    |
 | **Public/Private**        | **Public** 선택                            | GitHub Pages는 Public 필요 |
 | **Initialize repository** | ❌ 모두 체크 해제                               | 이미 로컬에 파일 있음            |
@@ -272,12 +272,12 @@ Hi your-username! You've successfully authenticated...
 
 **HTTPS (Token 사용):**
 ```
-https://github.com/your-username/typing-language.git
+https://github.com/your-username/lingotype.git
 ```
 
 **SSH (SSH Key 사용):**
 ```
-git@github.com:your-username/typing-language.git
+git@github.com:your-username/lingotype.git
 ```
 
 **본인의 URL을 메모해두세요!**
@@ -289,7 +289,7 @@ git@github.com:your-username/typing-language.git
 ### 1. 프로젝트 디렉토리로 이동
 
 ```bash
-cd /Users/emilio/projects/Projects/Game/typing_language
+cd /Users/emilio/projects/Projects/Game/lingotype
 ```
 
 ### 2. Git 저장소 초기화
@@ -300,7 +300,7 @@ git init
 
 **예상 출력:**
 ```
-Initialized empty Git repository in /Users/emilio/projects/Projects/Game/typing_language/.git/
+Initialized empty Git repository in /Users/emilio/projects/Projects/Game/lingotype/.git/
 ```
 
 ### 3. 모든 파일 추가
@@ -339,15 +339,15 @@ git branch -M main
 
 ```bash
 # HTTPS 사용 (Token)
-git remote add origin https://github.com/your-username/typing-language.git
+git remote add origin https://github.com/your-username/lingotype.git
 
 # 또는 SSH 사용 (SSH Key)
-git remote add origin git@github.com:your-username/typing-language.git
+git remote add origin git@github.com:your-username/lingotype.git
 ```
 
 **예시:**
 ```bash
-git remote add origin https://github.com/emilio-dev/typing-language.git
+git remote add origin https://github.com/emilio-dev/lingotype.git
 ```
 
 ### 7. 원격 저장소 확인
@@ -358,8 +358,8 @@ git remote -v
 
 **예상 출력:**
 ```
-origin  https://github.com/your-username/typing-language.git (fetch)
-origin  https://github.com/your-username/typing-language.git (push)
+origin  https://github.com/your-username/lingotype.git (fetch)
+origin  https://github.com/your-username/lingotype.git (push)
 ```
 
 ### 8. 코드 푸시 (업로드)
@@ -379,7 +379,7 @@ Password for 'https://your-username@github.com': ghp_your_token_here
 Enumerating objects: XXX, done.
 Counting objects: 100% (XXX/XXX), done.
 ...
-To https://github.com/your-username/typing-language.git
+To https://github.com/your-username/lingotype.git
  * [new branch]      main -> main
 Branch 'main' set up to track remote branch 'main' from 'origin'.
 ```
@@ -390,7 +390,7 @@ Branch 'main' set up to track remote branch 'main' from 'origin'.
 
 브라우저에서 확인:
 ```
-https://github.com/your-username/typing-language
+https://github.com/your-username/lingotype
 ```
 
 파일 목록이 보이면 성공! 🎉
@@ -403,7 +403,7 @@ https://github.com/your-username/typing-language
 
 브라우저에서:
 ```
-https://github.com/your-username/typing-language/settings
+https://github.com/your-username/lingotype/settings
 ```
 
 또는:
@@ -435,7 +435,7 @@ GitHub Actions가 자동으로:
 
 **배포 진행 확인:**
 ```
-https://github.com/your-username/typing-language/actions
+https://github.com/your-username/lingotype/actions
 ```
 
 **배포 시간:** 약 2~3분
@@ -453,12 +453,12 @@ https://github.com/your-username/typing-language/actions
 
 **URL 형식:**
 ```
-https://your-username.github.io/typing-language/
+https://your-username.github.io/lingotype/
 ```
 
 **예시:**
 ```
-https://emilio-dev.github.io/typing-language/
+https://emilio-dev.github.io/lingotype/
 ```
 
 ### 3. 사이트 접속
@@ -480,12 +480,12 @@ https://emilio-dev.github.io/typing-language/
 
 **변경 전:**
 ```markdown
-**🎮 [Play Live Demo](https://yourusername.github.io/typing-language/)** *(배포 후 업데이트 필요)*
+**🎮 [Play Live Demo](https://yourusername.github.io/lingotype/)** *(배포 후 업데이트 필요)*
 ```
 
 **변경 후:**
 ```markdown
-**🎮 [Play Live Demo](https://your-actual-username.github.io/typing-language/)**
+**🎮 [Play Live Demo](https://your-actual-username.github.io/lingotype/)**
 ```
 
 **변경사항 푸시:**
@@ -499,7 +499,7 @@ git push
 
 ## 🎉 완료!
 
-**축하합니다!** Typing Language가 성공적으로 배포되었습니다!
+**축하합니다!** LingoType가 성공적으로 배포되었습니다!
 
 ### 다음 단계
 

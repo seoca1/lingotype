@@ -69,7 +69,7 @@ Korean (KR) character for typing language game.
 ### Save Location
 
 ```
-~/projects/Projects/Game/typing_language/prototype/public/characters/kr/hana/
+~/projects/Projects/Game/lingotype/prototype/public/characters/kr/hana/
 ```
 
 ## Progress Tracking
@@ -78,5 +78,5 @@ See `ORDER.txt` for generation checklist.
 
 ---
 
-**Character designed for:** Typing Language Game  
+**Character designed for:** LingoType Game  
 **Target:** Korean (KR) language learners

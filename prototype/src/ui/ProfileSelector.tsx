@@ -147,7 +147,7 @@ export function ProfileSelector({ profiles, onSelect, onCreate, onDelete }: Prof
   return (
     <div className="profile-selector">
       <header className="profile-header">
-        <h1>Typing Language</h1>
+        <h1>LingoType</h1>
         <p>프로필을 선택하거나 새로 만드세요</p>
       </header>
 

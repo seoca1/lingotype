@@ -40,7 +40,7 @@ describe('Phase E fix — all characters have valid image sets', () => {
   it('every image src ends in .png with valid path format', () => {
     for (const charSet of Object.values(CHARACTER_IMAGES)) {
       for (const imageConfig of Object.values(charSet)) {
-        expect(imageConfig.src).toMatch(/^\/typing-language\/characters\/[a-z]{2}\/[a-z-]+\/[a-z]+\.png$$/);
+        expect(imageConfig.src).toMatch(/^\/lingotype\/characters\/[a-z]{2}\/[a-z-]+\/[a-z]+\.png$$/);
       }
     }
   });
@@ -49,8 +49,8 @@ describe('Phase E fix — all characters have valid image sets', () => {
     const prefixes = new Set<string>();
     for (const [charId, charSet] of Object.entries(CHARACTER_IMAGES)) {
       const firstImage = charSet.idle.src;
-      // Extract prefix like /typing-language/characters/en/emily/
-      const match = firstImage.match(/^(\/typing-language\/characters\/[a-z]{2}\/[a-z-]+)\//);
+      // Extract prefix like /lingotype/characters/en/emily/
+      const match = firstImage.match(/^(\/lingotype\/characters\/[a-z]{2}\/[a-z-]+)\//);
       expect(match, `Invalid src for ${charId}: ${firstImage}`).not.toBeNull();
       prefixes.add(match![1]);
     }

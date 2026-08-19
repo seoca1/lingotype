@@ -26,7 +26,7 @@ Downloads/
 cp ~/Downloads/*.png .../characters/en/oliver/
 
 # 3. 변환 스크립트 실행
-cd ~/projects/Projects/Game/typing_language
+cd ~/projects/Projects/Game/lingotype
 source .venv/bin/activate
 python3 scripts/convert_to_png.py prototype/public/characters/en/oliver/
 
@@ -71,7 +71,7 @@ Downloads/
 cp ~/Downloads/*.jpeg .../characters/en/oliver/
 
 # 3. 변환 스크립트 실행
-cd ~/projects/Projects/Game/typing_language
+cd ~/projects/Projects/Game/lingotype
 source .venv/bin/activate
 python3 scripts/convert_to_png.py prototype/public/characters/en/oliver/
 
@@ -178,10 +178,10 @@ characters/en/oliver/
   7-pose.png
 
 # 게임 폴더 복사
-cp ~/Downloads/*-*.png ~/projects/Projects/Game/typing_language/prototype/public/characters/en/emily/
+cp ~/Downloads/*-*.png ~/projects/Projects/Game/lingotype/prototype/public/characters/en/emily/
 
 # 변환
-cd ~/projects/Projects/Game/typing_language
+cd ~/projects/Projects/Game/lingotype
 source .venv/bin/activate
 python3 scripts/convert_to_png.py
 
@@ -210,10 +210,10 @@ prototype/public/characters/en/emily/
   7-pose.jpeg
 
 # 게임 폴더 복사
-cp ~/Downloads/*-*.jpeg ~/projects/Projects/Game/typing_language/prototype/public/characters/en/oliver/
+cp ~/Downloads/*-*.jpeg ~/projects/Projects/Game/lingotype/prototype/public/characters/en/oliver/
 
 # 변환
-cd ~/projects/Projects/Game/typing_language
+cd ~/projects/Projects/Game/lingotype
 source .venv/bin/activate
 python3 scripts/convert_to_png.py prototype/public/characters/en/oliver/
 

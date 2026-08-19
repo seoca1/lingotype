@@ -211,7 +211,7 @@ function printResults(results: TestResult[]) {
 function main() {
   console.clear();
   log('╔═══════════════════════════════════════════════════════════╗', 'cyan');
-  log('║      Typing Language - Quick System Verification         ║', 'cyan');
+  log('║      LingoType - Quick System Verification         ║', 'cyan');
   log('╚═══════════════════════════════════════════════════════════╝', 'cyan');
   console.log();
 

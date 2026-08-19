@@ -23,14 +23,14 @@
                                                           │ curate
                                                           ▼
                                            ┌─────────────────────────────────┐
-                                           │ Game/typing_language/raw/       │
+                                           │ Game/lingotype/raw/       │
                                            │  └─ {lang}_words.md             │
                                            │      (source: [테마 stem])      │
                                            └──────────────┬──────────────────┘
                                                           │ build
                                                           ▼
                                            ┌─────────────────────────────────┐
-                                           │ Game/typing_language/prototype/ │
+                                           │ Game/lingotype/prototype/ │
                                            │  └─ src/data/{lang}_words.json  │
                                            └─────────────────────────────────┘
 ```
@@ -59,14 +59,14 @@
 1. Game: "한국어 인사말 10개가 필요"
 2. 에이전트: Language/wiki/Korean/vocabulary/ 점검
 3. 케이스 A1 — 충분하면:
-     → Game/typing_language/raw/kr_words.md 에 큐레이션 (source 필드에 인용)
+     → Game/lingotype/raw/kr_words.md 에 큐레이션 (source 필드에 인용)
      → wiki/languages/korean.md 갱신
      → log.md 기록
 4. 케이스 A2 — 부족하면:
      → Language/raw/Korean/ 에 출처 추가 (사용자에게 권고)
      → 사용자가 출처 추가 후 인제스트 지시
      → Language/wiki/Korean/vocabulary/ 페이지 생성 (또는 신규 단어를 기존 `{theme}.md` 안 `### {word}` 섹션으로 추가)
-     → Game/typing_language/raw/kr_words.md 에 큐레이션
+     → Game/lingotype/raw/kr_words.md 에 큐레이션
      → 양쪽 log 기록
 
 > 게임 측 코퍼스는 vocabulary 만이 아니라 `expressions/{theme}.md` (관용구) 도 동일한 5필드 + source anchor 패턴으로 큐레이션 가능하다 (2026-07-10 갱신). 예: `raw/jp_idioms.md`, `raw/es_idioms.md` 등을 별도 게임 코퍼스로 운영 가능.
@@ -80,11 +80,11 @@
    - Language/wiki/Korean/ 존재 확인 (없으면 Language 먼저 시드)
    - Language/raw/Korean/ 에 최소 출처(예: TOPIK 1 단어장) 추가
    - Language/wiki/Korean/ 인제스트
-   - Game/typing_language/decisions/0009-kr-input.md (Draft) 작성 — 입력 방식 ADR
+   - Game/lingotype/decisions/0009-kr-input.md (Draft) 작성 — 입력 방식 ADR
    - 사용자 결정 대기
-   - 결정 후 Game/typing_language/wiki/languages/korean.md 작성
-   - Game/typing_language/raw/kr_words.md 골격 작성 (Language 위키 인용)
-   - Game/typing_language/index.md, log.md 갱신
+   - 결정 후 Game/lingotype/wiki/languages/korean.md 작성
+   - Game/lingotype/raw/kr_words.md 골격 작성 (Language 위키 인용)
+   - Game/lingotype/index.md, log.md 갱신
 ```
 
 ### 시나리오 C: 기존 언어 코퍼스 확장
@@ -99,7 +99,7 @@
 
 ## 게임 코퍼스 항목 스키마
 
-`Game/typing_language/raw/{lang}_words.md` 의 각 항목은 다음 필드를 갖는다:
+`Game/lingotype/raw/{lang}_words.md` 의 각 항목은 다음 필드를 갖는다:
 
 | 필드 | 필수 | 출처 (Language 위키) | 비고 |
 | --- | --- | --- | --- |
@@ -142,7 +142,7 @@
 
 ## 동기화 lint (주기 점검)
 
-- [ ] `Game/typing_language/raw/{lang}_words.md` 의 모든 항목이 `source: [[...]]` 를 가지는가
+- [ ] `Game/lingotype/raw/{lang}_words.md` 의 모든 항목이 `source: [[...]]` 를 가지는가
 - [ ] 인용된 Language 페이지가 실제로 존재하는가 (orphan citation 검출)
 - [ ] Language 위키에 신규 vocabulary가 추가됐는데 게임 코퍼스에는 없는 항목이 있는가 (확장 후보)
 - [ ] Language 위키의 메타 변경(예: 난이도 라벨)이 게임 코퍼스에 반영되었는가
@@ -150,9 +150,9 @@
 ## 관련 문서
 
 - Language 측 파이프라인: `Language/wiki/pipeline-to-game.md`
-- 언어별 게임 프로필: `Game/typing_language/wiki/languages/{lang}.md`
-- 결정 기록: `Game/typing_language/decisions/`
-- 언어 정확성 규칙: `Game/typing_language/AGENTS.md` §4
+- 언어별 게임 프로필: `Game/lingotype/wiki/languages/{lang}.md`
+- 결정 기록: `Game/lingotype/decisions/`
+- 언어 정확성 규칙: `Game/lingotype/AGENTS.md` §4
 
 ## Sources
 

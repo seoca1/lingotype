@@ -3,13 +3,13 @@
 **Date:** 2026-07-07
 **Status:** Draft
 **上游:** `Language/wiki/{Lang}/vocabulary/`
-**下游:** `Game/typing_language/raw/{lang}_words.md`
+**下游:** `Game/lingotype/raw/{lang}_words.md`
 
 ---
 
 ## 1. 개요
 
-Language Wiki XL mesh 확장 세션(2026-07-06)에서 추가된 항목을 Game Typing Language corpus에 동기화한다.
+Language Wiki XL mesh 확장 세션(2026-07-06)에서 추가된 항목을 Game LingoType corpus에 동기화한다.
 
 ### Gap 현황
 

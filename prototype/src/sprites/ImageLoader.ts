@@ -116,11 +116,11 @@ class ImageLoaderClass {
         finalUrl = config.src;
       } else {
         // Relative path - detect base URL from current location
-        // GitHub Pages: /typing-language/, Local dev: /
+        // GitHub Pages: /lingotype/, Local dev: /
         const pathname = window.location.pathname;
-        const base = pathname.startsWith('/typing-language') ? '/typing-language/' : '/';
+        const base = pathname.startsWith('/lingotype') ? '/lingotype/' : '/';
 
-        // If config.src already starts with base (e.g., '/typing-language/characters/...'),
+        // If config.src already starts with base (e.g., '/lingotype/characters/...'),
         // it's already an absolute path from domain root — use as-is
         finalUrl = config.src.startsWith(base) ? config.src : base + config.src;
       }

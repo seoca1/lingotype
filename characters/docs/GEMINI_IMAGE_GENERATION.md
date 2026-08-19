@@ -145,7 +145,7 @@ Gemini가 생성한 이미지:
 #### **A. 준비 (최초 1회만):**
 
 ```bash
-cd ~/projects/Projects/Game/typing_language
+cd ~/projects/Projects/Game/lingotype
 
 # 가상환경 생성 (이미 있으면 skip)
 python3 -m venv .venv
@@ -279,10 +279,10 @@ Downloads/
   7-pose.png
 
 # 3. 게임 폴더로 복사
-cp ~/Downloads/*-*.png ~/projects/Projects/Game/typing_language/prototype/public/characters/en/emily/
+cp ~/Downloads/*-*.png ~/projects/Projects/Game/lingotype/prototype/public/characters/en/emily/
 
 # 4. 변환 스크립트 실행
-cd ~/projects/Projects/Game/typing_language
+cd ~/projects/Projects/Game/lingotype
 source .venv/bin/activate
 python3 scripts/convert_to_png.py
 

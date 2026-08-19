@@ -112,7 +112,7 @@ describe('Phase 32 — Tutorial exposes a "Game features" list landmark on the w
     // Welcome page has a visible H1, so it carries an id that the surrounding
     // region references via aria-labelledby (matches Phase 27 ResultScreen).
     expect(tutorialSrc).toMatch(/aria-labelledby="tutorial-welcome-title"/);
-    expect(tutorialSrc).toMatch(/id="tutorial-welcome-title"[^>]*>Typing Language에 오신/);
+    expect(tutorialSrc).toMatch(/id="tutorial-welcome-title"[^>]*>LingoType에 오신/);
   });
 });
 

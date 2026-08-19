@@ -20,7 +20,7 @@ import { t, UI_STRINGS } from '../../src/data/uiTranslations.js';
 import { getMeaning, hasMeaning } from '../../src/data/meaningResolver.js';
 import type { WordEntry, Target } from '../../src/types.js';
 
-const STORAGE_KEY = 'typing-language-native-language';
+const STORAGE_KEY = 'lingotype-native-language';
 
 // jsdom + Node 25 may provide a non-functional localStorage shim.
 // Install a working polyfill before tests run.

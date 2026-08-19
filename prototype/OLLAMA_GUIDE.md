@@ -1,6 +1,6 @@
 # Ollama 연동 가이드
 
-이 문서는 typing-language 프로젝트에 Ollama를 연동하는 방법을 설명합니다.
+이 문서는 lingotype 프로젝트에 Ollama를 연동하는 방법을 설명합니다.
 
 ## 설치된 파일
 

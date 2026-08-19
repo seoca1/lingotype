@@ -13,9 +13,9 @@ Language/raw/Korean/         (소스 자료, immutable)
   └─ ingest
 Language/wiki/Korean/vocabulary/
   └─ curate (source: [[basic-vocabulary]])
-Game/typing_language/raw/kr_words.md  ← 이 파일
+Game/lingotype/raw/kr_words.md  ← 이 파일
   └─ build
-Game/typing_language/prototype/src/data/kr_words.json
+Game/lingotype/prototype/src/data/kr_words.json
 ```
 
 자세한 내용: `wiki/corpus-pipeline.md`, `wiki/languages/korean.md`
@@ -242,7 +242,7 @@ ADR-0009 결정 후 정식 매핑. 자주 쓰는 변동:
 
 1. `Language/raw/Korean/` 에 TOPIK 1 단어장 PDF/웹클립 추가
 2. `Language/wiki/Korean/` 인제스트 → vocabulary 페이지 30~50개 생성
-3. `Game/typing_language/raw/kr_words.md` 에 인용과 함께 큐레이션
+3. `Game/lingotype/raw/kr_words.md` 에 인용과 함께 큐레이션
 4. 발음 변동 매핑 단어 단위 추가
 5. Level 2~6 순차 확장
 

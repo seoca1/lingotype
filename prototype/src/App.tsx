@@ -37,6 +37,7 @@ import { selectCharacterForStage } from './character/CharacterSelector.js';
 import { LanguageSelection } from './ui/LanguageSelection.js';
 import { SettingsScreen } from './ui/SettingsScreen.js';
 import { OptionsScreen } from './ui/OptionsScreen.js';
+import { BadgesScreen } from './ui/BadgesScreen.js';
 import { KoreanKeyboardWarning } from './ui/KoreanKeyboardWarning.js';
 import { NonKoreanKeyboardWarning } from './ui/NonKoreanKeyboardWarning.js';
 import { isKoreanCharacter } from './utils/keyboardLayout.js';
@@ -79,7 +80,7 @@ const LANG_BADGE: Record<Language, string> = {
 
 const CANVAS_W = 1024;
 
-const TUTORIAL_KEY = 'typing-language-tutorial-completed';
+const TUTORIAL_KEY = 'lingotype-tutorial-completed';
 
 export function App() {
   const [canvasSize] = useState(() => getResponsiveCanvasSize());
@@ -91,6 +92,7 @@ export function App() {
 
   // Phase G: Settings screen overlay (accessed from menu)
   const [showSettings, setShowSettings] = useState(false);
+  const [showBadges, setShowBadges] = useState(false);
 
   // Phase 10: Options screen overlay (display / sound / difficulty)
   const [showOptions, setShowOptions] = useState(false);
@@ -582,6 +584,16 @@ export function App() {
     return <OptionsScreen onClose={handleCloseOptions} />;
   }
 
+  if (showBadges) {
+    return (
+      <BadgesScreen
+        stageRecords={state.player.stageRecords}
+        languagesPlayed={state.player.languagesPlayed ?? []}
+        onBack={() => setShowBadges(false)}
+      />
+    );
+  }
+
   // 메뉴 화면 (선택된 언어의 스테이지만 표시)
   if (state.phase === 'menu') {
     return (
@@ -593,6 +605,7 @@ export function App() {
           onBackToLanguageSelect={handleBackToLanguageSelect}
           onShowSettings={() => setShowSettings(true)}
           onShowOptions={() => setShowOptions(true)}
+          onShowBadges={() => setShowBadges(true)}
           stageRecords={state.player.stageRecords}
         />
         {pendingKoreanWarning && (

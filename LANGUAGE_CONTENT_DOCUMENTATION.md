@@ -291,7 +291,7 @@
     ↓
 [3] Game/raw/{lang}_words.md   (큐레이션, 코퍼스)
     ↓
-[4] Game/typing_language/prototype/src/data/
+[4] Game/lingotype/prototype/src/data/
     ↓
 [5] 게임 런타임
 ```
@@ -309,7 +309,7 @@ echo "..." > Language/raw/Japanese/tatoeba-sentences.md
 vim Game/raw/jp_words.md  # source: [[wikilink]]
 
 # 4. 대시보드 데이터 갱신
-cd Game/typing_language
+cd Game/lingotype
 python dashboard/generate_data.py
 
 # 5. 대시보드 확인
@@ -336,15 +336,15 @@ Language/wiki/{NewLang}/
 Language/raw/{NewLang}/
 └── *.md (원본 자료)
 
-Game/typing_language/raw/{newlang}_words.md
-Game/typing_language/prototype/src/data/stages.ts
+Game/lingotype/raw/{newlang}_words.md
+Game/lingotype/prototype/src/data/stages.ts
 ```
 
 **단계:**
 1. Language/wiki/ 에 새 언어 폴더 생성
 2. raw/ 에 원본 자료 최소 1개 추가
 3. Game/raw/ 에 코퍼스 YAML 작성
-4. Game/typing_language/dashboard/generate_data.py 수정:
+4. Game/lingotype/dashboard/generate_data.py 수정:
    ```python
    LANG_CODES = {
        ...
@@ -369,7 +369,7 @@ Game/typing_language/prototype/src/data/stages.ts
 
 **새 스테이지 추가:**
 ```typescript
-// Game/typing_language/prototype/src/data/stages.ts
+// Game/lingotype/prototype/src/data/stages.ts
 {
   id: 'en_2_3',
   language: 'en',
@@ -428,7 +428,7 @@ Game/typing_language/prototype/src/data/stages.ts
 ### 실행
 
 ```bash
-cd Game/typing_language
+cd Game/lingotype
 
 # 1. 데이터 생성 (필수)
 python dashboard/generate_data.py
@@ -508,5 +508,5 @@ python dashboard/generate_data.py
 ---
 
 **마지막 업데이트:** 2024-06-18
-**대시보드 위치:** `Game/typing_language/dashboard/index.html`
-**데이터 생성기:** `Game/typing_language/dashboard/generate_data.py`
+**대시보드 위치:** `Game/lingotype/dashboard/index.html`
+**데이터 생성기:** `Game/lingotype/dashboard/generate_data.py`

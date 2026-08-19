@@ -1,11 +1,11 @@
 /**
  * LessonProgress - Tracks which daily lesson pages have been viewed/learned
  *
- * localStorage key: 'typing-language-lesson-progress'
+ * localStorage key: 'lingotype-lesson-progress'
  * Shape: Record<lessonId, { viewed: string[], mastered: string[] }>
  */
 
-const STORAGE_KEY = 'typing-language-lesson-progress';
+const STORAGE_KEY = 'lingotype-lesson-progress';
 
 interface LessonProgress {
   viewed: string[];

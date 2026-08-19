@@ -147,7 +147,7 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
         <div className="tutorial-content">
           {/* Phase 32: H1 gets an id so the surrounding region can reference
               it via aria-labelledby (mirrors the Phase 27 ResultScreen pattern). */}
-          <h1 id="tutorial-welcome-title">Typing Language에 오신 것을 환영합니다!</h1>
+          <h1 id="tutorial-welcome-title">LingoType에 오신 것을 환영합니다!</h1>
           <p>
             외국어 타자 연습 게임입니다. 영어, 일본어, 스페인어, 한국어, 프랑스어, 독일어의
             <strong>실제 입력 방식</strong>을 그대로 체험할 수 있습니다.

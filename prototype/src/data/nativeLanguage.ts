@@ -14,7 +14,7 @@
 
 export type NativeLanguage = 'en' | 'ko' | 'ja' | 'es';
 
-const STORAGE_KEY = 'typing-language-native-language';
+const STORAGE_KEY = 'lingotype-native-language';
 const DEFAULT_NATIVE_LANGUAGE: NativeLanguage = 'en';
 
 /** In-memory fallback for environments without working localStorage */

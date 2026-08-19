@@ -8,7 +8,7 @@ import { getNativeLanguage } from '../data/nativeLanguage.js';
 import { t } from '../data/uiTranslations.js';
 
 interface StageScreenProps {
-  canvasRef: RefObject<HTMLCanvasElement>;
+  canvasRef: RefObject<HTMLCanvasElement | null>;
   state: GameState;
   stage: StageConfig | null;
   languageLabel: string;

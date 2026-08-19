@@ -42,7 +42,7 @@ if (typeof globalThis.localStorage === 'undefined' || typeof globalThis.localSto
   } as Storage;
 }
 
-const STORAGE_KEY = 'typing-language-options';
+const STORAGE_KEY = 'lingotype-options';
 
 beforeEach(() => {
   localStorage.removeItem(STORAGE_KEY);

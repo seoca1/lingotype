@@ -12,13 +12,13 @@ CLI 도구는 **prototype** 디렉토리에서 실행해야 합니다.
 ```bash
 # 현재 위치 확인
 pwd
-# 출력 예: /Users/emilio/projects/Projects/Game/typing_language
+# 출력 예: /Users/emilio/projects/Projects/Game/lingotype
 
 # prototype 디렉토리로 이동
 cd prototype
 
 # 또는 프로젝트 루트에서
-cd Game/typing_language/prototype
+cd Game/lingotype/prototype
 ```
 
 ### 필수 조건
@@ -55,7 +55,7 @@ npm run cli:test
 **예상 출력:**
 ```
 ╔═══════════════════════════════════════════════════════════╗
-║      Typing Language - Quick System Verification         ║
+║      LingoType - Quick System Verification         ║
 ╚═══════════════════════════════════════════════════════════╝
 
 📦 Testing Language Registry...
@@ -116,10 +116,10 @@ Enter number (1-4): 1
 
 ```bash
 # 프로젝트 루트에서 시작
-cd ~/projects/Projects/Game/typing_language/prototype
+cd ~/projects/Projects/Game/lingotype/prototype
 
 # 또는 절대 경로
-cd /Users/emilio/projects/Projects/Game/typing_language/prototype
+cd /Users/emilio/projects/Projects/Game/lingotype/prototype
 
 # CLI 도구 실행
 npm run cli:test
@@ -129,7 +129,7 @@ npm run cli:test
 
 ```bash
 # 프로젝트 루트에서 시작
-cd C:\projects\Projects\Game\typing_language\prototype
+cd C:\projects\Projects\Game\lingotype\prototype
 
 # CLI 도구 실행
 npm run cli:test
@@ -370,7 +370,7 @@ sudo chown -R $(whoami) ~/.npm
 
 ```bash
 # 1. prototype 디렉토리로 이동
-cd Game/typing_language/prototype
+cd Game/lingotype/prototype
 
 # 2. 의존성 설치
 npm install
@@ -488,9 +488,9 @@ CLI 도구 사용에 익숙해졌다면:
 #### macOS/Linux (.bashrc 또는 .zshrc)
 ```bash
 # alias 추가
-alias tl-test='cd ~/projects/Projects/Game/typing_language/prototype && npm run cli:test'
-alias tl-verify='cd ~/projects/Projects/Game/typing_language/prototype && npm run cli:verify'
-alias tl-play='cd ~/projects/Projects/Game/typing_language/prototype && npm run cli:interactive'
+alias tl-test='cd ~/projects/Projects/Game/lingotype/prototype && npm run cli:test'
+alias tl-verify='cd ~/projects/Projects/Game/lingotype/prototype && npm run cli:verify'
+alias tl-play='cd ~/projects/Projects/Game/lingotype/prototype && npm run cli:interactive'
 
 # 사용
 tl-test      # 어디서나 빠른 검증
@@ -504,9 +504,9 @@ tl-play      # 대화형 모드
 notepad $PROFILE
 
 # 함수 추가
-function tl-test { cd C:\projects\Projects\Game\typing_language\prototype; npm run cli:test }
-function tl-verify { cd C:\projects\Projects\Game\typing_language\prototype; npm run cli:verify }
-function tl-play { cd C:\projects\Projects\Game\typing_language\prototype; npm run cli:interactive }
+function tl-test { cd C:\projects\Projects\Game\lingotype\prototype; npm run cli:test }
+function tl-verify { cd C:\projects\Projects\Game\lingotype\prototype; npm run cli:verify }
+function tl-play { cd C:\projects\Projects\Game\lingotype\prototype; npm run cli:interactive }
 ```
 
 ---
@@ -547,7 +547,7 @@ npm run cli:interactive
 
 ### 실행 위치
 ```
-Game/typing_language/prototype/  ← 여기서 실행!
+Game/lingotype/prototype/  ← 여기서 실행!
 ```
 
 ### 필수 조건

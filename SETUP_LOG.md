@@ -1,9 +1,9 @@
-# Setup Log - Typing Language
+# Setup Log - LingoType
 
 ## 2026-06-18 — 환경 구축 시작
 
 ### 디렉토리 구조 생성
-- `Game/typing_language/` 아래 표준 하위 디렉토리 생성
+- `Game/lingotype/` 아래 표준 하위 디렉토리 생성
   - `design/`, `decisions/`, `wiki/`, `prototype/`, `raw/`, `testcases/`, `log/`
 - `Game/roguelike_sprawl/` 컨벤션 계승 (LLM Wiki + ADR 패턴)
 

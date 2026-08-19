@@ -1,4 +1,4 @@
-# Typing Language - Wiki Index
+# LingoType - Wiki Index
 
 위키/디자인/결정/테스트 페이지 카탈로그. LLM Wiki 표준 패턴.
 

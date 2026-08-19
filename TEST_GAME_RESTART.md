@@ -16,7 +16,7 @@ Issue #1 (게임 중단 후 재시작 불가) 테스트 및 디버깅 가이드
 
 1. **페이지 접속**
    ```
-   https://seoca1.github.io/typing-language/
+   https://seoca1.github.io/lingotype/
    ```
 
 2. **첫 번째 게임 시작**
@@ -171,7 +171,7 @@ Issue #1 (게임 중단 후 재시작 불가) 테스트 및 디버깅 가이드
 
 ### **개발 서버 실행:**
 ```bash
-cd ~/projects/Projects/Game/typing_language/prototype
+cd ~/projects/Projects/Game/lingotype/prototype
 npm run dev
 ```
 
@@ -270,7 +270,7 @@ git push
 # 3. 5분 대기 (GitHub Pages 배포)
 
 # 4. 테스트
-# https://seoca1.github.io/typing-language/
+# https://seoca1.github.io/lingotype/
 # → 시나리오 1 실행
 # → 결과 기록
 

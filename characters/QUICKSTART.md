@@ -1,6 +1,6 @@
 # Character Generation Quick Start
 
-**Goal:** Generate AI character images for Typing Language in 30 minutes.
+**Goal:** Generate AI character images for LingoType in 30 minutes.
 
 ## Prerequisites
 
@@ -91,7 +91,7 @@ Leave this terminal open!
 **New terminal:**
 
 ```bash
-cd typing-language/characters/scripts
+cd lingotype/characters/scripts
 python3 test_api.py --backend webui
 ```
 
@@ -113,7 +113,7 @@ python3 test_api.py --backend webui
 ### Option 1: Generate All (Recommended)
 
 ```bash
-cd typing-language/characters/scripts
+cd lingotype/characters/scripts
 python3 generate_characters.py --backend webui --all
 ```
 
@@ -177,7 +177,7 @@ idle.png  wave.png  jump.png  dance.png  (etc.)
 ### Step 2: Enable External Images
 
 ```typescript
-// typing-language/prototype/src/config/characterImages.ts
+// lingotype/prototype/src/config/characterImages.ts
 
 // Change this line:
 export const USE_EXTERNAL_IMAGES = true; // ← Change false to true
@@ -349,7 +349,7 @@ python3 test_api.py --backend huggingface --token YOUR_TOKEN
 
 **Generated Images:**
 ```
-typing-language/prototype/public/characters/
+lingotype/prototype/public/characters/
   ├── en/
   │   ├── emily/
   │   │   ├── idle.png
@@ -364,7 +364,7 @@ typing-language/prototype/public/characters/
 
 **Configuration:**
 ```
-typing-language/
+lingotype/
   ├── characters/
   │   ├── docs/
   │   │   ├── AI_CHARACTER_PROMPTS.md      ← Edit prompts here

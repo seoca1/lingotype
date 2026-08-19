@@ -97,7 +97,7 @@ export function LanguageSelection({
   return (
     <div className="language-selection">
       <header className="language-selection-header">
-        <h1>Typing Language</h1>
+        <h1>LingoType</h1>
         <p>외국어를 실제 입력하듯 타자하며 배워보세요</p>
       </header>
 

@@ -1,4 +1,4 @@
-# Typing Language — 프로젝트 상태 리포트
+# LingoType — 프로젝트 상태 리포트
 
 > **최종 업데이트**: 2026-08-18 (badge system integration + 21→0 test failures fixed; tests 1,273)
 > **최종 커밋**: fix(badges): close runtime + type errors in BadgesScreen + ResultScreen (c742aaa → 55d63b8)
@@ -266,7 +266,7 @@ GitHub Push → GitHub Actions
   ↓
 [deploy-pages] → GitHub Pages
   ↓
-https://seoca1.github.io/typing-language/
+https://seoca1.github.io/lingotype/
 ```
 
 ### 번들 사이즈 추이
@@ -359,7 +359,7 @@ f7f5ff2 feat(i18n): Phase F — native language setting + UI translations
 ## 부록 A: 디렉토리 구조
 
 ```
-Game/typing_language/
+Game/lingotype/
 ├── prototype/
 │   ├── public/characters/        # 84 PNG (12명 × 7 포즈)
 │   ├── src/

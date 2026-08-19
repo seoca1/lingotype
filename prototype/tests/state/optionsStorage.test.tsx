@@ -21,7 +21,7 @@ import {
 import type { Options } from '../../src/types.js';
 import { OptionsScreen } from '../../src/ui/OptionsScreen.js';
 
-const STORAGE_KEY = 'typing-language-options';
+const STORAGE_KEY = 'lingotype-options';
 
 // jsdom + Node 25 may provide a non-functional localStorage shim.
 // Install a working polyfill before tests run.

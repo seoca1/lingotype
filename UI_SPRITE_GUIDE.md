@@ -555,6 +555,6 @@ const sprite = SpriteLoader.get('ui-button-normal');
 
 ---
 
-**제작:** Typing Language  
+**제작:** LingoType  
 **버전:** v0.5.0  
 **마지막 업데이트:** 2024-01-XX

@@ -17,6 +17,7 @@
 | [0010](0010-kr-input.md) | 한국어 입력: 한글 키보드 자모 직접 입력 + 클라이언트 합성 | Accepted |
 | [0011](0011-extensible-languages.md) | 확장 가능한 언어 레지스트리 시스템 | Accepted |
 | [0012](0012-kr-corpus-relocation.md) | KR Corpus Raw Documentation Relocation (raw/ → wiki/) | **Accepted** (2026-08-17) |
+| [0013](0013-rename-lingotype.md) | Project Rename: `typing_language` → `LingoType` (directory + GitHub repo + display) | **Accepted** (2026-08-18) |
 
 ## 비활성
 

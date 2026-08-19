@@ -1,4 +1,4 @@
-# Phase 7 Progress — Typing Language
+# Phase 7 Progress — LingoType
 
 **Last Updated:** 2026-08-06
 **Status:** Phase 7 Complete — Deployed ✅ (2026-08-06 carry-over session closure)
@@ -103,7 +103,7 @@ f253da3 — feat: Phase 7 complete — culture pages, SVG favicon, meta tags, fl
 
 ## 6. Deployment
 
-**GitHub Pages URL:** https://seoca1.github.io/typing-language/
+**GitHub Pages URL:** https://seoca1.github.io/lingotype/
 
 **Deploy method:** Push to `main` → GitHub Actions auto-build + deploy
 

@@ -1,8 +1,8 @@
-# Typing Language — 프로젝트 점검 리포트
+# LingoType — 프로젝트 점검 리포트
 
 > 작성일: 2026-06-20
 > 최종 커밋: `c38baed` (feat: inline hiragana+kanji display for Japanese targets)
-> 대상: `Game/typing_language/`
+> 대상: `Game/lingotype/`
 
 ---
 
@@ -23,7 +23,7 @@
 | **테스트 통과** | **313 passed / 1 skipped** (총 314) |
 | 빌드 산출물 | 462.52 KB / gzip 137.36 KB |
 | 총 커밋 | 86 |
-| 배포 URL | https://seoca1.github.io/typing-language/ |
+| 배포 URL | https://seoca1.github.io/lingotype/ |
 | 최신 배포 | `index-1FGNmL_J.js` (이전 빌드) / 최신 커밋 `c38baed` 배포 진행 중 |
 | GitHub Actions | ✅ `Deploy to GitHub Pages` success (2026-06-19T14:18:54Z) |
 

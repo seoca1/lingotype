@@ -34,7 +34,7 @@ cd ~/stable-diffusion-webui
 ./webui.sh --api
 
 # 2. 스크립트 실행
-cd typing-language/scripts
+cd lingotype/scripts
 python3 generate_characters.py --backend webui --character en-emily
 ```
 
@@ -78,7 +78,7 @@ sudo apt install python3 python3-pip
 ### 2. 필요한 패키지 설치
 
 ```bash
-cd typing-language/scripts
+cd lingotype/scripts
 pip3 install requests
 ```
 

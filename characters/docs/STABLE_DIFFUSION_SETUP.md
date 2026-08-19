@@ -1,6 +1,6 @@
 # Stable Diffusion WebUI Setup Guide
 
-Complete guide for installing and configuring Stable Diffusion WebUI to generate character images for Typing Language game.
+Complete guide for installing and configuring Stable Diffusion WebUI to generate character images for LingoType game.
 
 ## Table of Contents
 
@@ -262,7 +262,7 @@ Complete guide for installing and configuring Stable Diffusion WebUI to generate
 ### Test API Connection
 
 ```bash
-cd typing-language/characters/scripts
+cd lingotype/characters/scripts
 
 # Test WebUI connection
 python3 test_api.py --backend webui
@@ -304,7 +304,7 @@ ls ../../prototype/public/characters/en/emily/
 ### Generate All Characters
 
 ```bash
-cd typing-language/characters/scripts
+cd lingotype/characters/scripts
 
 # Generate all 12 characters × 7 poses = 84 images
 python3 generate_characters.py --backend webui --all
@@ -350,7 +350,7 @@ The script shows real-time progress:
 After generation completes:
 
 ```typescript
-// typing-language/prototype/src/config/characterImages.ts
+// lingotype/prototype/src/config/characterImages.ts
 
 export const USE_EXTERNAL_IMAGES = true; // ← Change to true
 ```
@@ -358,7 +358,7 @@ export const USE_EXTERNAL_IMAGES = true; // ← Change to true
 Rebuild and deploy:
 
 ```bash
-cd typing-language/prototype
+cd lingotype/prototype
 npm run build
 # Deploy to GitHub Pages
 ```
@@ -646,7 +646,7 @@ If you encounter issues not covered here:
 
 Generated images will appear in:
 ```
-typing-language/prototype/public/characters/{lang}/{name}/{pose}.png
+lingotype/prototype/public/characters/{lang}/{name}/{pose}.png
 ```
 
 Good luck with your character generation! 🎨✨

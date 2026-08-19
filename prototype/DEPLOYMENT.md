@@ -1,6 +1,6 @@
 # Deployment Guide
 
-This document describes how to deploy Typing Language to various platforms.
+This document describes how to deploy LingoType to various platforms.
 
 ## 📦 Build for Production
 
@@ -38,7 +38,7 @@ npm run build
 
 4. **Access your site:**
    ```
-   https://yourusername.github.io/typing-language/
+   https://yourusername.github.io/lingotype/
    ```
 
 **Configuration:**
@@ -66,7 +66,7 @@ vercel
 
 **Production URL:**
 ```
-https://typing-language.vercel.app
+https://lingotype.vercel.app
 ```
 
 ---
@@ -89,7 +89,7 @@ netlify deploy --prod
 
 **Production URL:**
 ```
-https://typing-language.netlify.app
+https://lingotype.netlify.app
 ```
 
 ---
@@ -103,15 +103,15 @@ https://typing-language.netlify.app
 npm run build
 
 # Upload dist/ to your server
-scp -r dist/* user@yourserver:/var/www/typing-language/
+scp -r dist/* user@yourserver:/var/www/lingotype/
 ```
 
 **Nginx configuration:**
 ```nginx
 server {
     listen 80;
-    server_name typing-language.yourdomain.com;
-    root /var/www/typing-language;
+    server_name lingotype.yourdomain.com;
+    root /var/www/lingotype;
     index index.html;
 
     location / {
@@ -274,12 +274,12 @@ All platforms provide free HTTPS:
 
 1. Add CNAME file to `public/`:
    ```
-   typing-language.yourdomain.com
+   lingotype.yourdomain.com
    ```
 
 2. Configure DNS:
    ```
-   CNAME  typing-language  yourusername.github.io
+   CNAME  lingotype  yourusername.github.io
    ```
 
 ### Vercel/Netlify
@@ -312,7 +312,7 @@ After deployment, update URLs in:
 
 ## ✨ Done!
 
-Your Typing Language game is now live! 🎉
+Your LingoType game is now live! 🎉
 
 **Share your deployment:**
 - Twitter: #TypingLanguage

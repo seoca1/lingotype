@@ -167,7 +167,7 @@ All poses maintain Sophia's cool, tech-savvy character while showing different e
 ### Save Location
 
 ```
-~/projects/Projects/Game/typing_language/prototype/public/characters/en/sophia/
+~/projects/Projects/Game/lingotype/prototype/public/characters/en/sophia/
 ```
 
 ## Character Consistency
@@ -220,6 +220,6 @@ Once all 7 images are generated:
 
 ---
 
-**Character designed for:** Typing Language Game  
+**Character designed for:** LingoType Game  
 **Target:** English language learners  
 **Style:** Modern tech aesthetics meets anime

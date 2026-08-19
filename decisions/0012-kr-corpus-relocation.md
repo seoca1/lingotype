@@ -21,7 +21,7 @@ raw/kr_words.md 1-80행 정리(다음 sync 시)는 별도 ADR (Future ADR-0013+)
 
 ## 컨텍스트
 
-`Game/typing_language/AGENTS.md` §1.5(2026-07-10 도입)와 §2 "raw/ 절대 수정 금지" 규약에 따른 두 가지 충돌이 `raw/kr_words.md`에서 발생:
+`Game/lingotype/AGENTS.md` §1.5(2026-07-10 도입)와 §2 "raw/ 절대 수정 금지" 규약에 따른 두 가지 충돌이 `raw/kr_words.md`에서 발생:
 
 ### 충돌 1: §1.5 위반 — per-word 페이지 인용
 
@@ -107,7 +107,7 @@ source: [[baek]]                  # Line 60
 1. `wiki/languages/korean-corpus-format-reference.md` 신규 생성 (raw/kr_words.md 1-80행의 이전)
 2. `wiki/languages/korean.md` 안 cross-reference 추가 (`[[korean-corpus-format-reference]]`)
 3. `wiki/languages/korean.md` 업데이트 (Status 블록에 ADR-0012 추가)
-4. typing_language `log.md` 에 `[2026-08-17] decision | ADR-0012 — KR corpus documentation relocation`
+4. lingotype `log.md` 에 `[2026-08-17] decision | ADR-0012 — KR corpus documentation relocation`
 5. workspace `NEXT_SESSION_TODO.md` 의 "🟡 KR corpus broken citations" 항목을 ✅ CLOSED 로 옮김
 6. workspace `log.md` 에 Phase summary 추가
 

@@ -60,7 +60,7 @@ Mood: Friendly, casual, modern American teenager
 
 - Click image to enlarge
 - Right-click → Save Image As
-- Save to: `typing-language/prototype/public/characters/en/emily/idle.png`
+- Save to: `lingotype/prototype/public/characters/en/emily/idle.png`
 
 #### 4. Repeat for All Characters
 
@@ -96,7 +96,7 @@ Generate: Anime portrait of Emily, modern American teenage girl...
 #### 3. Download Images
 
 - Click generated image
-- Save to: `typing-language/prototype/public/characters/en/emily/idle.png`
+- Save to: `lingotype/prototype/public/characters/en/emily/idle.png`
 
 ---
 
@@ -105,7 +105,7 @@ Generate: Anime portrait of Emily, modern American teenage girl...
 ### Directory Structure
 
 ```
-typing-language/prototype/public/characters/
+lingotype/prototype/public/characters/
 ├── en/
 │   ├── emily/
 │   │   ├── idle.png
@@ -136,7 +136,7 @@ typing-language/prototype/public/characters/
 ### Create Directories
 
 ```bash
-cd ~/projects/Projects/Game/typing_language/prototype/public
+cd ~/projects/Projects/Game/lingotype/prototype/public
 
 # Create all directories
 mkdir -p characters/{en,jp,es,kr}/{emily,oliver,sophia,sakura,yuki,kaito,isabella,carlos,luna,hana,minho,jiwoo}
@@ -307,19 +307,19 @@ sips -z 768 512 input.png --out output.png
 
 1. **Verify images exist:**
    ```bash
-   find ~/projects/Projects/Game/typing_language/prototype/public/characters -name "*.png" | wc -l
+   find ~/projects/Projects/Game/lingotype/prototype/public/characters -name "*.png" | wc -l
    # Should show: 84 (or at least some images)
    ```
 
 2. **Enable external images:**
    ```typescript
-   // typing-language/prototype/src/config/characterImages.ts
+   // lingotype/prototype/src/config/characterImages.ts
    export const USE_EXTERNAL_IMAGES = true;
    ```
 
 3. **Rebuild game:**
    ```bash
-   cd ~/projects/Projects/Game/typing_language/prototype
+   cd ~/projects/Projects/Game/lingotype/prototype
    npm run build
    ```
 

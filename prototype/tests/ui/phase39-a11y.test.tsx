@@ -230,7 +230,7 @@ describe('Phase 39 — LanguageSelection footer counts flow through t() + aria-d
     // translated counts. The actual count value depends on the
     // language registry at test time, so the assertion is on the
     // translated suffix presence.
-    localStorage.setItem('typing-language-native-language', 'ko');
+    localStorage.setItem('lingotype-native-language', 'ko');
     const html = renderToStaticMarkup(
       <LanguageSelection
         onSelectLanguage={() => {}}

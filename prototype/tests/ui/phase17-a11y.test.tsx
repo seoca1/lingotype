@@ -44,8 +44,8 @@ if (typeof globalThis.localStorage === 'undefined' || typeof globalThis.localSto
   } as Storage;
 }
 
-const NATIVE_KEY = 'typing-language-native-language';
-const KR_INPUT_KEY = 'typing-language-kr-input-mode';
+const NATIVE_KEY = 'lingotype-native-language';
+const KR_INPUT_KEY = 'lingotype-kr-input-mode';
 
 beforeEach(() => {
   localStorage.removeItem(NATIVE_KEY);

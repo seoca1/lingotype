@@ -133,7 +133,7 @@
 ### 코퍼스 형식
 
 ```yaml
-# Game/typing_language/raw/kr_words.md
+# Game/lingotype/raw/kr_words.md
 - id: kr_001
   display: 안녕하세요       # 화면 표시
   input: annyeonghaseyo    # 사용자가 타이핑
@@ -228,4 +228,4 @@
 - [[0009-kr-input]] — ADR-0009 (로마자→한글 매핑, Superseded by 0010)
 - [[AGENTS]] §4 — 언어 정확성 규칙
 - Language 위키 업스트림: `Language/wiki/Korean/index.md`
-- 코퍼스: `Game/typing_language/raw/kr_words.md` (theme-anchor citation, 5 real travel entries currently)
+- 코퍼스: `Game/lingotype/raw/kr_words.md` (theme-anchor citation, 5 real travel entries currently)

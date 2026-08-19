@@ -23,7 +23,7 @@ npm run cli:test
 **예상 출력:**
 ```
 ╔═══════════════════════════════════════════════════════════╗
-║      Typing Language - Quick System Verification         ║
+║      LingoType - Quick System Verification         ║
 ╚═══════════════════════════════════════════════════════════╝
 
 📦 Testing Language Registry...
@@ -82,7 +82,7 @@ npm run cli:verify
 **출력 예시:**
 ```
 ╔══════════════════════════════════════════════════════════════╗
-║          Typing Language - CLI Verification Tool            ║
+║          LingoType - CLI Verification Tool            ║
 ╚══════════════════════════════════════════════════════════════╝
 
 📚 Available Languages:
@@ -177,7 +177,7 @@ npm run cli:interactive
 **예시:**
 ```
 ╔══════════════════════════════════════════════════════════════╗
-║          Typing Language - CLI Verification Tool            ║
+║          LingoType - CLI Verification Tool            ║
 ╚══════════════════════════════════════════════════════════════╝
 
 Select a language:

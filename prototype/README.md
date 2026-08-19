@@ -1,4 +1,4 @@
-# Typing Language - Prototype
+# LingoType - Prototype
 
 > 🌍 외국어 타자 연습 게임 - 실제 입력 방식으로 배우는 4개 언어
 
@@ -7,7 +7,7 @@
 [![Vite](https://img.shields.io/badge/Vite-5.3-646cff)](https://vitejs.dev/)
 [![Tests](https://img.shields.io/badge/Tests-680%20passed-success)](#testing)
 
-**🎮 [Play Live Demo](https://seoca1.github.io/typing-language/)**
+**🎮 [Play Live Demo](https://seoca1.github.io/lingotype/)**
 
 ---
 

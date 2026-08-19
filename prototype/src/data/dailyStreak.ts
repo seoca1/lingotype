@@ -15,7 +15,7 @@
  * Storage: localStorage with date strings (YYYY-MM-DD format)
  */
 
-const STORAGE_KEY = 'typing-language-daily-streak';
+const STORAGE_KEY = 'lingotype-daily-streak';
 
 /** In-memory fallback */
 let memoryState: DailyStreakState | null = null;

@@ -14,7 +14,7 @@
  * 'streak' (daily play).
  */
 
-const STORAGE_KEY = 'typing-language-badges';
+const STORAGE_KEY = 'lingotype-badges';
 
 export interface Badge {
   id: string;

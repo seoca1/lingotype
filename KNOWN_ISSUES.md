@@ -106,22 +106,22 @@ localStorage 자체의 문제는 없음 (테스트 통과 확인). 다만 localS
 #### **증상:**
 - 캐릭터 선택화면: 이미지 정상 표시
 - 게임 화면(Canvas): 이미지가 안보임
-- Console 오류: `GET /typing-language/typing-language/characters/... 404`
+- Console 오류: `GET /lingotype/lingotype/characters/... 404`
 
 #### **근본 원인:**
 `ImageLoader.ts` URL construction 중복 prefix 문제:
-1. `pathname.startsWith('/typing-language/')` — trailing slash 없을 때 실패
-2. `config.src`가 이미 `/typing-language/` prefix 포함 → base 재부여로 이중 prefix
+1. `pathname.startsWith('/lingotype/')` — trailing slash 없을 때 실패
+2. `config.src`가 이미 `/lingotype/` prefix 포함 → base 재부여로 이중 prefix
 
 #### **해결책:**
 ```typescript
 // Before: base doubling
-const base = pathname.startsWith('/typing-language/') ? '/typing-language/' : '/';
+const base = pathname.startsWith('/lingotype/') ? '/lingotype/' : '/';
 const cleanSrc = config.src.startsWith('/') ? config.src.slice(1) : config.src;
-finalUrl = base + cleanSrc;  // → /typing-language/typing-language/...
+finalUrl = base + cleanSrc;  // → /lingotype/lingotype/...
 
 // After: prevent double prefix
-const base = pathname.startsWith('/typing-language') ? '/typing-language/' : '/';
+const base = pathname.startsWith('/lingotype') ? '/lingotype/' : '/';
 finalUrl = config.src.startsWith(base) ? config.src : base + config.src;
 ```
 

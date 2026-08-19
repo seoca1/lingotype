@@ -233,4 +233,4 @@
 - [[0002-jp-input]] — ADR-0002 (로마자→한자 직접 매핑, Accepted)
 - [[AGENTS]] §4.2 — 일본어 입력 방식 (장음 ー, 촉음 っ/ッ, 요음 ょ 모두 romaji 반영)
 - Language 위키 업스트림: `Language/wiki/Japanese/index.md`
-- 코퍼스: `Game/typing_language/raw/jp_words.md` (theme-anchor citation)
+- 코퍼스: `Game/lingotype/raw/jp_words.md` (theme-anchor citation)

@@ -8,7 +8,7 @@
  *   Language/ (raw + wiki) → build-daily-lessons.py → dailyLessons.json
  *   dailyLessons.json (import) + lessonHistory (localStorage) → getNextDailyLesson()
  *
- * localStorage key: 'typing-language-seen-lessons'
+ * localStorage key: 'lingotype-seen-lessons'
  *   - value: string[] (lesson ID 목록, max 100개, FIFO)
  */
 
@@ -193,7 +193,7 @@ export function getLessonsByStageId(stageId: string): DailyLesson[] {
 // localStorage Lesson History (with in-memory fallback)
 // ============================================================================
 
-const STORAGE_KEY = 'typing-language-seen-lessons';
+const STORAGE_KEY = 'lingotype-seen-lessons';
 const MAX_HISTORY = 100;
 
 // In-memory fallback for environments without working localStorage

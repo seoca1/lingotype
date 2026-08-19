@@ -2,7 +2,7 @@
 
 ## 📌 개요
 
-Typing Language의 스페인어 스테이지는 **2가지 입력 모드**를 지원합니다:
+LingoType의 스페인어 스테이지는 **2가지 입력 모드**를 지원합니다:
 
 | 모드 | 표시 | 설명 | 키보드 요구사항 |
 |------|------|------|-----------------|
@@ -345,7 +345,7 @@ Option + e = 액센트 준비
 
 ## 🎮 게임 URL
 
-**https://seoca1.github.io/typing-language/**
+**https://seoca1.github.io/lingotype/**
 
 직접 체험해보세요!
 
@@ -362,7 +362,7 @@ Option + e = 액센트 준비
 ## 💬 피드백
 
 스페인어 입력 관련 문의:
-- GitHub Issues: https://github.com/seoca1/typing-language/issues
+- GitHub Issues: https://github.com/seoca1/lingotype/issues
 - 게임 내 피드백 버튼
 
 ---

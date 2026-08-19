@@ -1,6 +1,6 @@
-# Typing Language - AI Agent Guide
+# LingoType - AI Agent Guide
 
-이 문서는 `Game/typing_language/`에서 작업하는 모든 AI 에이전트를 위한 작업 규약이다. 루트 `AGENTS.md`와 인접 프로젝트 `Game/roguelike_sprawl/AGENTS.md`의 컨벤션을 계승한다.
+이 문서는 `Game/lingotype/`에서 작업하는 모든 AI 에이전트를 위한 작업 규약이다. 루트 `AGENTS.md`와 인접 프로젝트 `Game/roguelike_sprawl/AGENTS.md`의 컨벤션을 계승한다.
 
 ## 1. 프로젝트 개요
 

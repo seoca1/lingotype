@@ -15,9 +15,9 @@ Language/raw/Korean/         (소스 자료, immutable)
   └─ ingest
 Language/wiki/Korean/vocabulary/
   └─ curate (source: [테마 stem], theme-file anchor)
-Game/typing_language/raw/kr_words.md  ← raw/ read-only; active 데이터만 유지
+Game/lingotype/raw/kr_words.md  ← raw/ read-only; active 데이터만 유지
   └─ build
-Game/typing_language/prototype/src/data/kr_words.json
+Game/lingotype/prototype/src/data/kr_words.json
   └─ consume
 ```
 

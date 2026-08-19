@@ -1,6 +1,6 @@
 # 🚀 Deployment Ready Checklist
 
-**프로젝트**: Typing Language  
+**프로젝트**: LingoType  
 **날짜**: 2026-06-18  
 **상태**: ✅ 배포 준비 완료
 
@@ -70,7 +70,7 @@
 ### Step 1: Git 저장소 초기화
 
 ```bash
-cd /Users/emilio/projects/Projects/Game/typing_language
+cd /Users/emilio/projects/Projects/Game/lingotype
 
 # Git 초기화 (아직 안 했다면)
 git init
@@ -84,11 +84,11 @@ git commit -m "feat: complete alpha build - 4 languages, 30+ stages, 106 tests"
 
 ### Step 2: GitHub 저장소 생성
 
-1. GitHub에서 새 저장소 생성: `typing-language`
+1. GitHub에서 새 저장소 생성: `lingotype`
 2. 로컬 저장소와 연결:
 
 ```bash
-git remote add origin https://github.com/yourusername/typing-language.git
+git remote add origin https://github.com/yourusername/lingotype.git
 git branch -M main
 git push -u origin main
 ```
@@ -103,7 +103,7 @@ git push -u origin main
 
 배포 URL (예시):
 ```
-https://yourusername.github.io/typing-language/
+https://yourusername.github.io/lingotype/
 ```
 
 확인 사항:
@@ -121,7 +121,7 @@ https://yourusername.github.io/typing-language/
 
 ```markdown
 <!-- README.md 상단 -->
-**🎮 [Play Live Demo](https://yourusername.github.io/typing-language/)**
+**🎮 [Play Live Demo](https://yourusername.github.io/lingotype/)**
 
 <!-- prototype/README.md 상단도 동일 -->
 ```
@@ -213,7 +213,7 @@ https://yourusername.github.io/typing-language/
 
 ## 🎉 완료!
 
-**Typing Language는 이제 배포 준비가 완료되었습니다!**
+**LingoType는 이제 배포 준비가 완료되었습니다!**
 
 ### 핵심 성과
 

@@ -55,7 +55,7 @@ beforeEach(() => {
 
 describe('Phase 23 — StageScreen canvas exposes current target to screen readers', () => {
   const baseProps = {
-    canvasRef: { current: null } as RefObject<HTMLCanvasElement>,
+    canvasRef: { current: null } as RefObject<HTMLCanvasElement | null>,
     state: {
       ...initialState,
       score: 100,

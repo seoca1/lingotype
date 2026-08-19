@@ -36,7 +36,7 @@ import {
   resetMastery,
 } from '../../src/data/wordMastery.js';
 
-const STORAGE_KEY = 'typing-language-word-mastery';
+const STORAGE_KEY = 'lingotype-word-mastery';
 
 describe('wordMastery — basic operations', () => {
   beforeEach(() => {

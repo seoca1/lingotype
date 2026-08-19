@@ -1,10 +1,10 @@
-# Typing Language — Session Index
+# LingoType — Session Index
 
 > **Latest session**: 2026-08-10 (final session entry) — see [log.md](./log.md) (latest entry dated 2026-08-10)
 
 This is an **index** file pointing to the most recent dated session snapshot. Per project `AGENTS.md §9`, `SESSION_SUMMARY.md` should always point at the current/latest session.
 
-> **2026-08-10 final session.** Documented state after Language project 8-phase consolidation + final all commit pass. typing_language corpus.ts 91 entries verified (already committed in prior sessions). log.md updated with final session entry. Pending: 1 unpushed commit (537e423) awaiting GH_TOKEN push.
+> **2026-08-10 final session.** Documented state after Language project 8-phase consolidation + final all commit pass. lingotype corpus.ts 91 entries verified (already committed in prior sessions). log.md updated with final session entry. Pending: 1 unpushed commit (537e423) awaiting GH_TOKEN push.
 
 ## Recent sessions
 
@@ -34,5 +34,5 @@ Per project convention, today's per-project diagnostic passes were appended to t
 ## Related Pages
 
 - `log.md` (per-project activity log, all session entries)
-- `_archive/sessions/SESSION_SUMMARY_2026-08-08-typing_language.md` (previous session summary)
+- `_archive/sessions/SESSION_SUMMARY_2026-08-08-lingotype.md` (previous session summary)
 - `_archive/sessions/SESSION_SUMMARY_2026-08-10-language-and-final-all.md` (cross-project final session)

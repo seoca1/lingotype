@@ -2,7 +2,7 @@
 
 ## 개요
 
-Typing Language 게임의 12개 캐릭터(4개 언어 × 3명)에 대한 AI 이미지 생성 자동화 시스템.
+LingoType 게임의 12개 캐릭터(4개 언어 × 3명)에 대한 AI 이미지 생성 자동화 시스템.
 
 ---
 
@@ -149,7 +149,7 @@ prototype/public/characters/
 export const CHARACTER_IMAGES: Record<string, CharacterImageSet> = {
   'en-emily': {
     idle: {
-      src: '/typing-language/characters/en/emily/idle.png',
+      src: '/lingotype/characters/en/emily/idle.png',
       width: 1024,
       height: 1536,
       scale: 0.85,

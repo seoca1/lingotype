@@ -260,7 +260,7 @@ cd ~/stable-diffusion-webui
 ./webui.sh --api
 
 # 2. 스크립트 실행
-cd typing-language/characters/scripts
+cd lingotype/characters/scripts
 python3 generate_characters.py --backend webui --all
 
 # 3. 게임 설정

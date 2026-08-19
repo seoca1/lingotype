@@ -1,4 +1,4 @@
-# Typing Language - 단계별 계획 (Roadmap)
+# LingoType - 단계별 계획 (Roadmap)
 
 ## 전체 흐름
 

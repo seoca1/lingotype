@@ -6,7 +6,7 @@
 
 import type { PlayerProgress } from '../types.js';
 
-const STORAGE_KEY = 'typing-language-progress';
+const STORAGE_KEY = 'lingotype-progress';
 const STORAGE_VERSION = 1;
 
 interface StorageData {

@@ -152,12 +152,12 @@ describe('Character Configuration — CharacterInfo Metadata', () => {
 
       it('image src points to a real file', () => {
         const set = CHARACTER_IMAGES[id];
-        // src is like "/typing-language/characters/en/emily/1-idle.png" (GitHub Pages)
+        // src is like "/lingotype/characters/en/emily/1-idle.png" (GitHub Pages)
         // or "/characters/en/emily/1-idle.png" (dev).
         // Strip base path prefix and join with PUBLIC_DIR.
         const relative = set.idle.src
           .replace(/^\//, '')
-          .replace(/^typing-language\//, '')
+          .replace(/^lingotype\//, '')
           .replace(/^characters\//, '');
         const filepath = path.join(PUBLIC_DIR, relative);
         expect(fs.existsSync(filepath)).toBe(true);

@@ -1,4 +1,4 @@
-# Typing Language
+# LingoType
 
 > 🌍 외국어 타자 연습 게임 - 각 언어의 **실제 입력 방식**을 그대로 살린 스테이지형 격파 게임
 
@@ -7,7 +7,7 @@
 [![Tests](https://img.shields.io/badge/Tests-680%20passed-success)](prototype/README.md#testing)
 [![Phase](https://img.shields.io/badge/Phase-7%20Alpha%20%F0%9F%9F%9A-green)](ROADMAP.md)
 
-**🎮 [Play Live Demo](https://seoca1.github.io/typing-language/)**
+**🎮 [Play Live Demo](https://seoca1.github.io/lingotype/)**
 
 ---
 

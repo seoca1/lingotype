@@ -169,4 +169,4 @@
 - [[0003-es-accents]] — ADR-0003 (액센트 직접 입력 + ASCII 폴백, Accepted)
 - [[AGENTS]] §4.3 — 스페인어 입력 방식 (액센트 á é í ó ú ñ ¿ ¡ 지원, 스테이지별 모드 선택)
 - Language 위키 업스트림: `Language/wiki/Spanish/index.md`
-- 코퍼스: `Game/typing_language/raw/es_words.md` (theme-anchor citation, 96 cross-language citations resolvable via shared stem convention)
+- 코퍼스: `Game/lingotype/raw/es_words.md` (theme-anchor citation, 96 cross-language citations resolvable via shared stem convention)

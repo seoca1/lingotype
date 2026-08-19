@@ -11,7 +11,7 @@
 
 export type KoreanInputMode = 'jamo' | 'romanized';
 
-const STORAGE_KEY = 'typing-language-kr-input-mode';
+const STORAGE_KEY = 'lingotype-kr-input-mode';
 const DEFAULT_MODE: KoreanInputMode = 'jamo';
 
 let memoryMode: KoreanInputMode | null = null;

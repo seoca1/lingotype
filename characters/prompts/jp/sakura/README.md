@@ -167,7 +167,7 @@ All poses maintain Sakura's traditional, graceful character.
 ### Save Location
 
 ```
-~/projects/Projects/Game/typing_language/prototype/public/characters/jp/sakura/
+~/projects/Projects/Game/lingotype/prototype/public/characters/jp/sakura/
 ```
 
 ## Character Consistency
@@ -221,6 +221,6 @@ Once all 7 images are generated:
 
 ---
 
-**Character designed for:** Typing Language Game  
+**Character designed for:** LingoType Game  
 **Target:** Japanese language learners  
 **Style:** Traditional Japanese aesthetics meets anime

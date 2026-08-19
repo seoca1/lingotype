@@ -34,7 +34,7 @@ function log(message: string, color: keyof typeof colors = 'reset') {
 function printHeader() {
   console.clear();
   log('╔══════════════════════════════════════════════════════════════╗', 'cyan');
-  log('║          Typing Language - CLI Verification Tool            ║', 'cyan');
+  log('║          LingoType - CLI Verification Tool            ║', 'cyan');
   log('╚══════════════════════════════════════════════════════════════╝', 'cyan');
   console.log();
 }

@@ -6,7 +6,7 @@
 
 ```bash
 # 1. 데이터 생성
-cd Game/typing_language
+cd Game/lingotype
 python dashboard/generate_data.py
 
 # 2. 대시보드 열기 (방법 1: 브라우저 직접)
@@ -42,7 +42,7 @@ dashboard/
 | 학습 자료 | `Language/wiki/{Lang}/` | 어휘, 표현, 문화 노트 |
 | 원본 소스 | `Language/raw/{Lang}/` | 학습용 원본 텍스트 |
 | 게임 코퍼스 | `Game/raw/{lang}_words.md` | 게임 단어/문장 후보 |
-| 스테이지 정의 | `Game/typing_language/prototype/src/data/stages.ts` | 스테이지 설정 |
+| 스테이지 정의 | `Game/lingotype/prototype/src/data/stages.ts` | 스테이지 설정 |
 
 ## 🔄 데이터 갱신
 

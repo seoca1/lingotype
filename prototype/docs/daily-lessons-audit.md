@@ -110,4 +110,4 @@
 | kr | travel-basics-kr.md | 90 | 5 | 2 | 121 | 0 | Raw excerpt short: 121 chars |
 | kr | business-vocabulary.md | 95 | 5 | 2 | 559 | 0 | ✓ |
 
-## Report saved to /Users/emilio/projects/Projects/Game/typing_language/prototype/docs/daily-lessons-audit.md
+## Report saved to /Users/emilio/projects/Projects/Game/lingotype/prototype/docs/daily-lessons-audit.md

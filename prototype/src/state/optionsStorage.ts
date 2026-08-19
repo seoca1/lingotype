@@ -3,12 +3,12 @@
  *
  * User-level preferences persisted to localStorage. Distinct from
  * PlayerProgress (which tracks game stats). Mirrors the
- * `typing-language-tutorial-completed` key pattern.
+ * `lingotype-tutorial-completed` key pattern.
  */
 
 import type { DifficultyPreference, Options } from '../types.js';
 
-const STORAGE_KEY = 'typing-language-options';
+const STORAGE_KEY = 'lingotype-options';
 
 export const DEFAULT_OPTIONS: Options = {
   displayHighlighting: true,

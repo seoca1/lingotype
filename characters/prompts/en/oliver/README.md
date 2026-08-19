@@ -168,7 +168,7 @@ All poses maintain Oliver's refined, gentlemanly character while showing differe
 ### Save Location
 
 ```
-~/projects/Projects/Game/typing_language/prototype/public/characters/en/oliver/
+~/projects/Projects/Game/lingotype/prototype/public/characters/en/oliver/
 ```
 
 ## Character Consistency
@@ -221,6 +221,6 @@ Once all 7 images are generated:
 
 ---
 
-**Character designed for:** Typing Language Game  
+**Character designed for:** LingoType Game  
 **Target:** English language learners  
 **Style:** British charm meets modern anime aesthetics

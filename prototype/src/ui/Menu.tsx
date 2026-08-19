@@ -30,8 +30,8 @@ interface MenuProps {
   onBackToLanguageSelect: () => void;
   /** Phase G: Settings screen launcher */
   onShowSettings?: () => void;
-  /** Phase 10: Options screen launcher */
   onShowOptions?: () => void;
+  onShowBadges?: () => void;
   stageRecords?: Record<string, StageRecord>;
 }
 
@@ -147,6 +147,7 @@ export function Menu({
   onBackToLanguageSelect,
   onShowSettings,
   onShowOptions,
+  onShowBadges,
   stageRecords,
 }: MenuProps) {
   const nativeLanguage = getNativeLanguage();
@@ -305,6 +306,17 @@ export function Menu({
                 title="Settings"
               >
                 ⚙️
+              </button>
+            )}
+            {onShowBadges && (
+              <button
+                className="badges-btn"
+                onClick={() => { getAudioManager().play('menu-click'); onShowBadges(); }}
+                aria-label="Badges"
+                title="Badges"
+                data-testid="menu-badges-btn"
+              >
+                🏆
               </button>
             )}
           </div>

@@ -13,7 +13,7 @@
  * - Mastery Bar (overall learning progress)
  */
 
-const STORAGE_KEY = 'typing-language-word-mastery';
+const STORAGE_KEY = 'lingotype-word-mastery';
 
 export interface WordStats {
   attemptCount: number;

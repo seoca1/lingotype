@@ -104,4 +104,4 @@ Buffer: "H" → "He" → "Hel" → "Hell" → "Hello" → "Hello," → ...
 - [[0008-build-target]] — ADR-0008 (SPA / GitHub Pages, Accepted)
 - [[AGENTS]] §4.1 — 영어 입력 방식 (표준 QWERTY, 대소문자, 문장 부호)
 - Language 위키 업스트림: `Language/wiki/English/index.md`
-- 코퍼스: `Game/typing_language/raw/en_words.md` (theme-anchor citation)
+- 코퍼스: `Game/lingotype/raw/en_words.md` (theme-anchor citation)
