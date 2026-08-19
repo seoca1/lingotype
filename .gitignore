@@ -1,4 +1,5 @@
 prototype/dist/
+prototype/tsconfig.tsbuildinfo
 __pycache__/
 *.pyc
 *.pyo
