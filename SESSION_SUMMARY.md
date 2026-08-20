@@ -1,16 +1,17 @@
 # LingoType — Session Index
 
-> **Latest session**: 2026-08-10 (final session entry) — see [log.md](./log.md) (latest entry dated 2026-08-10)
+> **Latest session**: 2026-08-19 (LingoType rename Phases 0-7 + Phase 6 GitHub repo rename + live demo deployed) — see [log.md](./log.md) (latest entries)
 
 This is an **index** file pointing to the most recent dated session snapshot. Per project `AGENTS.md §9`, `SESSION_SUMMARY.md` should always point at the current/latest session.
 
-> **2026-08-10 final session.** Documented state after Language project 8-phase consolidation + final all commit pass. lingotype corpus.ts 91 entries verified (already committed in prior sessions). log.md updated with final session entry. Pending: 1 unpushed commit (537e423) awaiting GH_TOKEN push.
+> **2026-08-19 LingoType Migration complete.** Project renamed: `Game/typing_language/` → `Game/lingotype/`. GitHub repo renamed: `seoca1/typing-language` → `seoca1/lingotype`. Live demo deployed at https://seoca1.github.io/lingotype/ (title: "LingoType — Learn 4 languages by typing"). 6/6 sweep validators CLEAN. Migration ADR-0013 Accepted.
 
 ## Recent sessions
 
 | Date | File | Summary |
 |---|---|---|
-| **2026-08-10 (final session entry)** | [log.md](./log.md) (2026-08-10 entry) | **LATEST.** Final session entry confirming corpus.ts 91 entries already committed in prior sessions. log.md updated with proper session documentation. 1 unpushed commit pending GH_TOKEN push. |
+| **2026-08-19 (LingoType rename Phases 0-7)** | [log.md](./log.md) (2026-08-19 entries) | **LATEST.** Migration complete: directory + paths + display + 28 source files + 1184 Language/ wiki files + workspace docs + Phase 6 GitHub rename + live demo deploy. |
+| 2026-08-10 (final pre-rename session entry) | [log.md](./log.md) (2026-08-10 entry) | Previous: corpus.ts 91 entries verified committed. 1 unpushed commit (537e423) later replaced by new commits in 2026-08-19 migration. |
 | 2026-08-08 (session close) | [log.md](./log.md) (2026-08-08 entries) | Previous session: 4-phase docs-only work (stale-note reconciliation + ADR-0010 KR mapping reference doc). |
 | 2026-08-08 (docs(workspace)) | [log.md](./log.md) (2026-08-08 entries) | 5-track + 8 bonus batch upgrade |
 | 2026-08-06 (top-level) | [log.md](./log.md) (2026-08-06 entry) | Build artifact revert + push + cross-project summary |
@@ -20,12 +21,15 @@ This is an **index** file pointing to the most recent dated session snapshot. Pe
 
 | Project | Log file |
 |---------|----------|
-| Typing language | `log.md` (per-project) |
+| LingoType | `log.md` (per-project) |
 
 ## Status
 
-- ✅ All AI-scope work complete (corpus.ts 91 entries verified committed)
-- 🟡 1 unpushed commit pending GH_TOKEN push
+- ✅ LingoType migration Phases 0-7 complete + Phase 6 GitHub repo rename executed
+- ✅ Live demo deployed at https://seoca1.github.io/lingotype/
+- ✅ All 5 commits pushed to `seoca1/lingotype`
+- ✅ 6/6 sweep validators CLEAN (post-migration)
+- � 0 un-pushed commits in `seoca1/lingotype`
 
 ## Per-project session logs
 
