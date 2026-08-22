@@ -5773,3 +5773,34 @@ Significantly over ≤15 cap per workspace AGENTS.md §6. Justified as structura
 - Live demo: ✅ updated to LingoType
 
 **세션 종료 (2026-08-18 Phase 6) — GitHub repo renamed to seoca1/lingotype. Live demo deployed. Migration 100% complete.**
+
+## [2026-08-22] maintenance | auto-regen timestamp reverted
+
+**Status**: ✅ **정리 완료 (2026-08-22)** — `prototype/src/data/dailyLessons.json` reverted to last committed state.
+
+### 1. 변경사항
+
+- `prototype/src/data/dailyLessons.json`: auto-regenerated timestamp change (1 line, 1 insertion + 1 deletion)
+  - Before: `"generatedAt": "2026-08-20T16:46:18.045531"`
+  - After: `"generatedAt": "2026-08-20T15:37:00.442120"`
+
+### 2. Rationale
+
+The change was a build artifact (timestamp regenerated on each `npm run build`). Not meaningful content. Reverted via `git checkout -- prototype/src/data/dailyLessons.json`.
+
+### 3. Working tree state
+
+After revert: 1 untracked item (`node_modules/` empty 4KB directory with `.vite/` cache residue). Harmless.
+
+### 4. 다음 세션 (optional cleanup)
+
+Add `node_modules/` to `.gitignore`:
+```bash
+echo "node_modules/" >> .gitignore
+git add .gitignore
+git commit -m "chore(lingotype): gitignore node_modules"
+```
+
+### 5. 인용
+
+- workspace `log.md` (2026-08-22 session close)
