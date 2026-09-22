@@ -356,7 +356,7 @@ f7f5ff2 feat(i18n): Phase F — native language setting + UI translations
 ## 부록 A: 디렉토리 구조
 
 ```
-Game/typing_language/
+Game/lingotype/
 ├── prototype/
 │   ├── public/characters/        # 84 PNG (12명 × 7 포즈)
 │   ├── src/

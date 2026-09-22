@@ -70,7 +70,7 @@
 ### Step 1: Git 저장소 초기화
 
 ```bash
-cd /Users/emilio/projects/Projects/Game/typing_language
+cd /Users/emilio/projects/opencodework/Game/lingotype
 
 # Git 초기화 (아직 안 했다면)
 git init

@@ -289,7 +289,7 @@ git@github.com:your-username/typing-language.git
 ### 1. 프로젝트 디렉토리로 이동
 
 ```bash
-cd /Users/emilio/projects/Projects/Game/typing_language
+cd /Users/emilio/projects/opencodework/Game/lingotype
 ```
 
 ### 2. Git 저장소 초기화
@@ -300,7 +300,7 @@ git init
 
 **예상 출력:**
 ```
-Initialized empty Git repository in /Users/emilio/projects/Projects/Game/typing_language/.git/
+Initialized empty Git repository in /Users/emilio/projects/opencodework/Game/lingotype/.git/
 ```
 
 ### 3. 모든 파일 추가
