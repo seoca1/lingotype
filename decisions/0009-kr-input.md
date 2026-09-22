@@ -26,7 +26,7 @@
 
 ## 컨텍스트
 
-`typing_language` 게임에 한국어(KR)를 추가한다. 일본어(ADR-0002)는 "로마자→한자/히라가나 매핑" 패턴을 채택해 IME 의존 없이 키보드 자판만으로 플레이 가능했다. 한국어도 동일한 패턴을 따를지, 아니면 한국어 특성에 맞는 다른 방식(직접 한글 타이핑, IME 의존 등)을 채택할지 결정해야 한다.
+`lingotype` 게임에 한국어(KR)를 추가한다. 일본어(ADR-0002)는 "로마자→한자/히라가나 매핑" 패턴을 채택해 IME 의존 없이 키보드 자판만으로 플레이 가능했다. 한국어도 동일한 패턴을 따를지, 아니면 한국어 특성에 맞는 다른 방식(직접 한글 타이핑, IME 의존 등)을 채택할지 결정해야 한다.
 
 ### 제약 / 요구사항
 
@@ -95,6 +95,6 @@
 2. `wiki/languages/korean.md` 의 입력 매핑 표를 본 ADR 결정에 맞춰 갱신 ✅
 3. `Language/raw/Korean/` 에 첫 출처 추가 (예: TOPIK 1 단어장, Yonsei Korean 1-1) ✅
 4. `Language/wiki/Korean/` 인제스트 → vocabulary 페이지 시드 ✅
-5. `Game/typing_language/raw/kr_words.md` 에 인용과 함께 항목 추가 ✅
+5. `Game/lingotype/raw/kr_words.md` 에 인용과 함께 항목 추가 ✅
 6. 핸들러 골격 작성: `prototype/src/input/KoreanHandler.ts` ✅
 7. 단위 테스트 골격: `testcases/input-handler.md` > Korean Tests (예정)
