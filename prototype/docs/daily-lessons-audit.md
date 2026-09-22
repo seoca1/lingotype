@@ -61,4 +61,4 @@
 | kr | sports-and-hobbies.md | 95 | 8 | 2 | 591 | 0 | ✓ |
 | kr | travel-basics-kr.md | 80 | 8 | 2 | 121 | 1 | 1/8 generic fallback vocab; Raw excerpt short: 121 chars |
 
-## Report saved to /Users/emilio/projects/Game/typing_language/prototype/docs/daily-lessons-audit.md
+## Report saved to /Users/emilio/projects/Game/lingotype/prototype/docs/daily-lessons-audit.md

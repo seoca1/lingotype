@@ -99,7 +99,7 @@
 ### 코퍼스 형식
 
 ```yaml
-# Game/typing_language/raw/kr_words.md
+# Game/lingotype/raw/kr_words.md
 - id: kr_001
   display: 안녕하세요       # 화면 표시
   input: annyeonghaseyo    # 사용자가 타이핑
@@ -173,7 +173,7 @@
 2. 결정에 따라 입력 매핑 정식 문서화
 3. `Language/raw/Korean/` 에 첫 출처 (예: TOPIK 1 단어장) 추가
 4. `Language/wiki/Korean/` 인제스트 → vocabulary 페이지 생성
-5. `Game/typing_language/raw/kr_words.md` 에 인용과 함께 큐레이션
+5. `Game/lingotype/raw/kr_words.md` 에 인용과 함께 큐레이션
 6. 핸들러 구현: `prototype/src/input/KoreanHandler.ts`
 7. 단위 테스트: `testcases/input-handler.md` > Korean Tests
 
