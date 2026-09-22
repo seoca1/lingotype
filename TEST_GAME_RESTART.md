@@ -171,7 +171,7 @@ Issue #1 (게임 중단 후 재시작 불가) 테스트 및 디버깅 가이드
 
 ### **개발 서버 실행:**
 ```bash
-cd ~/projects/Projects/Game/typing_language/prototype
+cd ~/projects/opencodework/Game/lingotype/prototype
 npm run dev
 ```
 

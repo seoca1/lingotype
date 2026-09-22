@@ -167,7 +167,7 @@ All poses maintain Sophia's cool, tech-savvy character while showing different e
 ### Save Location
 
 ```
-~/projects/Projects/Game/typing_language/prototype/public/characters/en/sophia/
+~/projects/opencodework/Game/lingotype/prototype/public/characters/en/sophia/
 ```
 
 ## Character Consistency

@@ -136,7 +136,7 @@ typing-language/prototype/public/characters/
 ### Create Directories
 
 ```bash
-cd ~/projects/Projects/Game/typing_language/prototype/public
+cd ~/projects/opencodework/Game/lingotype/prototype/public
 
 # Create all directories
 mkdir -p characters/{en,jp,es,kr}/{emily,oliver,sophia,sakura,yuki,kaito,isabella,carlos,luna,hana,minho,jiwoo}
@@ -307,7 +307,7 @@ sips -z 768 512 input.png --out output.png
 
 1. **Verify images exist:**
    ```bash
-   find ~/projects/Projects/Game/typing_language/prototype/public/characters -name "*.png" | wc -l
+   find ~/projects/opencodework/Game/lingotype/prototype/public/characters -name "*.png" | wc -l
    # Should show: 84 (or at least some images)
    ```
 
@@ -319,7 +319,7 @@ sips -z 768 512 input.png --out output.png
 
 3. **Rebuild game:**
    ```bash
-   cd ~/projects/Projects/Game/typing_language/prototype
+   cd ~/projects/opencodework/Game/lingotype/prototype
    npm run build
    ```
 

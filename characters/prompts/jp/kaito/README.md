@@ -69,7 +69,7 @@ Japanese (JP) character for typing language game.
 ### Save Location
 
 ```
-~/projects/Projects/Game/typing_language/prototype/public/characters/jp/kaito/
+~/projects/opencodework/Game/lingotype/prototype/public/characters/jp/kaito/
 ```
 
 ## Progress Tracking

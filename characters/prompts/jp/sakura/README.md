@@ -167,7 +167,7 @@ All poses maintain Sakura's traditional, graceful character.
 ### Save Location
 
 ```
-~/projects/Projects/Game/typing_language/prototype/public/characters/jp/sakura/
+~/projects/opencodework/Game/lingotype/prototype/public/characters/jp/sakura/
 ```
 
 ## Character Consistency

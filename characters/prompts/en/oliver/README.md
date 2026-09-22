@@ -168,7 +168,7 @@ All poses maintain Oliver's refined, gentlemanly character while showing differe
 ### Save Location
 
 ```
-~/projects/Projects/Game/typing_language/prototype/public/characters/en/oliver/
+~/projects/opencodework/Game/lingotype/prototype/public/characters/en/oliver/
 ```
 
 ## Character Consistency

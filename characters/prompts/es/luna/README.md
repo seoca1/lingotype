@@ -69,7 +69,7 @@ Spanish (ES) character for typing language game.
 ### Save Location
 
 ```
-~/projects/Projects/Game/typing_language/prototype/public/characters/es/luna/
+~/projects/opencodework/Game/lingotype/prototype/public/characters/es/luna/
 ```
 
 ## Progress Tracking

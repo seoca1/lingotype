@@ -69,7 +69,7 @@ Korean (KR) character for typing language game.
 ### Save Location
 
 ```
-~/projects/Projects/Game/typing_language/prototype/public/characters/kr/jiwoo/
+~/projects/opencodework/Game/lingotype/prototype/public/characters/kr/jiwoo/
 ```
 
 ## Progress Tracking
