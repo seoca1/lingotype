@@ -78,6 +78,6 @@ AVOID:
 - Overly casual dancing
 
 Save to:
-~/projects/Projects/Game/typing_language/prototype/public/characters/en/oliver/6-dance.png
+~/projects/opencodework/Game/lingotype/prototype/public/characters/en/oliver/6-dance.png
 
 This is pose 6/7 (dance) for Oliver.

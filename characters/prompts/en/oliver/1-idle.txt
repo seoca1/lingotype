@@ -64,6 +64,6 @@ AVOID:
 - Modern streetwear
 
 Save to:
-~/projects/Projects/Game/typing_language/prototype/public/characters/en/oliver/1-idle.png
+~/projects/opencodework/Game/lingotype/prototype/public/characters/en/oliver/1-idle.png
 
 This is pose 1/7 (idle) for Oliver.

@@ -73,6 +73,6 @@ AVOID:
 - Traditional clothing
 
 Save to:
-~/projects/Projects/Game/typing_language/prototype/public/characters/en/sophia/2-wave.png
+~/projects/opencodework/Game/lingotype/prototype/public/characters/en/sophia/2-wave.png
 
 This is pose 2/7 (wave) for Sophia.

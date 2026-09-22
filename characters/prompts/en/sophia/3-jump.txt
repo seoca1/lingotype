@@ -74,6 +74,6 @@ AVOID:
 - Traditional clothing
 
 Save to:
-~/projects/Projects/Game/typing_language/prototype/public/characters/en/sophia/3-jump.png
+~/projects/opencodework/Game/lingotype/prototype/public/characters/en/sophia/3-jump.png
 
 This is pose 3/7 (jump) for Sophia.

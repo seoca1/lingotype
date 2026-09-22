@@ -73,6 +73,6 @@ AVOID:
 - Modern clothing
 
 Save to:
-~/projects/Projects/Game/typing_language/prototype/public/characters/jp/sakura/5-spin.png
+~/projects/opencodework/Game/lingotype/prototype/public/characters/jp/sakura/5-spin.png
 
 This is pose 5/7 (spin) for Sakura.

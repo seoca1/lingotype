@@ -73,6 +73,6 @@ AVOID:
 - Loss of refined demeanor
 
 Save to:
-~/projects/Projects/Game/typing_language/prototype/public/characters/en/oliver/4-clap.png
+~/projects/opencodework/Game/lingotype/prototype/public/characters/en/oliver/4-clap.png
 
 This is pose 4/7 (clap) for Oliver.

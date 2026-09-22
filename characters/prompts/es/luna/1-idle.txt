@@ -52,6 +52,6 @@ AVOID:
 - Incorrect anatomy
 
 Save to:
-~/projects/Projects/Game/typing_language/prototype/public/characters/es/luna/1-idle.png
+~/projects/opencodework/Game/lingotype/prototype/public/characters/es/luna/1-idle.png
 
 This is pose 1/7 (idle) for Luna.

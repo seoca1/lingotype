@@ -73,10 +73,10 @@ cat 2-wave.txt
 SAVE LOCATION:
 --------------
 All images save to:
-~/projects/Projects/Game/typing_language/prototype/public/characters/en/sophia/
+~/projects/opencodework/Game/lingotype/prototype/public/characters/en/sophia/
 
 Example full path:
-~/projects/Projects/Game/typing_language/prototype/public/characters/en/sophia/1-idle.png
+~/projects/opencodework/Game/lingotype/prototype/public/characters/en/sophia/1-idle.png
 
 CONSISTENCY CHECKLIST:
 ----------------------

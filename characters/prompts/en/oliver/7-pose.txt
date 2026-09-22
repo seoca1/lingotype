@@ -76,6 +76,6 @@ AVOID:
 - Boastful or arrogant appearance
 
 Save to:
-~/projects/Projects/Game/typing_language/prototype/public/characters/en/oliver/7-pose.png
+~/projects/opencodework/Game/lingotype/prototype/public/characters/en/oliver/7-pose.png
 
 This is pose 7/7 (pose) for Oliver - final pose!

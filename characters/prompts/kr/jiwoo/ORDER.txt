@@ -71,7 +71,7 @@ cat 1-idle.txt
 SAVE LOCATION:
 --------------
 All images save to:
-~/projects/Projects/Game/typing_language/prototype/public/characters/kr/jiwoo/
+~/projects/opencodework/Game/lingotype/prototype/public/characters/kr/jiwoo/
 
 CONSISTENCY CHECKLIST:
 ----------------------

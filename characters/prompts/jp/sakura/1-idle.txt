@@ -65,6 +65,6 @@ AVOID:
 - Overly revealing kimono
 
 Save to:
-~/projects/Projects/Game/typing_language/prototype/public/characters/jp/sakura/1-idle.png
+~/projects/opencodework/Game/lingotype/prototype/public/characters/jp/sakura/1-idle.png
 
 This is pose 1/7 (idle) for Sakura.

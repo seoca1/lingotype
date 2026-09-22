@@ -69,6 +69,6 @@ AVOID:
 - Formal clothing
 
 Save to:
-~/projects/Projects/Game/typing_language/prototype/public/characters/jp/yuki/2-wave.png
+~/projects/opencodework/Game/lingotype/prototype/public/characters/jp/yuki/2-wave.png
 
 This is pose 2/7 (wave) for Yuki.
