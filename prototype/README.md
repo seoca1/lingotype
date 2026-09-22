@@ -5,7 +5,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-18.3-61dafb)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-5.3-646cff)](https://vitejs.dev/)
-[![Tests](https://img.shields.io/badge/Tests-106%20passed-success)](#testing)
+[![Tests](https://img.shields.io/badge/Tests-648%20passed-success)](#testing)
 
 **🎮 [Play Live Demo](https://seoca1.github.io/typing-language/)**
 
@@ -70,8 +70,8 @@ prototype/
 │   │   ├── SpanishHandler.ts
 │   │   └── KoreanHandler.ts
 │   ├── data/                 # 코퍼스 & 스테이지
-│   │   ├── corpus.ts         # 203 words, 83 sentences
-│   │   └── stages.ts         # 40 stages
+│   │   ├── corpus.ts         # 431 words, 131 sentences
+│   │   └── stages.ts         # 60 stages
 │   ├── combat/               # 격파 시스템
 │   ├── mission/              # 미션 시스템
 │   ├── stage/                # 스테이지 진행
@@ -96,7 +96,7 @@ prototype/
 | **Spanish** | `es` | Accent input | 50 | 21 | - |
 | **Korean** | `kr` | 2-beol Jamo | 32 | 20 | - |
 
-**총:** 203 words, 83 sentences, 132 characters
+**총:** 431 words, 131 sentences
 
 ---
 
@@ -111,7 +111,7 @@ npm run preview      # 빌드 미리보기
 
 ### 테스트
 ```bash
-npm test             # 유닛 테스트 (99/100 + 1 skip)
+npm test             # 유닛 테스트 (648 passed + 2 skipped)
 npm run test:watch   # Watch 모드
 npm run cli:test     # CLI 자동 검증 (30 tests)
 ```
@@ -176,8 +176,8 @@ npm test
 ```
 
 **결과:**
-- ✅ 99/100 tests passed
-- ⏭️ 1 test skipped (Korean accuracy - 설계상 의도)
+- ✅ 648 tests passed
+- ⏭️ 2 tests skipped (Korean accuracy - 설계상 의도)
 - 📊 Coverage: EnglishHandler (22), JapaneseHandler (24), SpanishHandler (26), KoreanHandler (27)
 
 ### CLI 검증
@@ -305,7 +305,7 @@ npm run build
 
 **결과:**
 - `dist/` 디렉토리 생성
-- 크기: ~253 KB (gzip 77 KB)
+- 크기: 1049 KB (gzip 285 KB)
 - 정적 파일: HTML, CSS, JS
 
 ### 미리보기
@@ -356,14 +356,14 @@ npm run dev -- --port 3000
 | 항목 | 값 |
 |------|-----|
 | **언어** | TypeScript 5.5 |
-| **프레임워크** | React 18.3 + Vite 5.3 |
+| **프레임워크** | React 19 + Vite 6 |
 | **코드 라인** | ~5,000 lines |
-| **유닛 테스트** | 99/100 passed |
+| **유닛 테스트** | 648 passed + 2 skipped (650 total) |
 | **CLI 테스트** | 30/30 passed |
-| **빌드 크기** | 253 KB (gzip 77 KB) |
+| **빌드 크기** | 1049 KB (gzip 285 KB) |
 | **지원 언어** | 4개 (EN/JP/ES/KR) |
-| **코퍼스** | 203 words, 83 sentences |
-| **스테이지** | 40개 (24개 활성화) |
+| **코퍼스** | 431 words, 131 sentences |
+| **스테이지** | 60 |
 
 ---
 

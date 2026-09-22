@@ -4,7 +4,7 @@
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-18.3-61dafb)](https://react.dev/)
-[![Tests](https://img.shields.io/badge/Tests-106%20passed-success)](prototype/README.md#testing)
+[![Tests](https://img.shields.io/badge/Tests-648%20passed-success)](prototype/README.md#testing)
 [![Phase](https://img.shields.io/badge/Phase-7%20Alpha-orange)](ROADMAP.md)
 
 **🎮 [Play Live Demo](https://seoca1.github.io/typing-language/)**
@@ -23,8 +23,8 @@
   - 실시간 비주얼 피드백 (파티클, 플래시, 콤보)
   - 정확도/속도 기반 점수 시스템
 - **컴패니언 캐릭터**: 언어별 문화 의상 (영미복/기모노/플라멩코/한복)
-- **30+ 스테이지**: Tier 1-3 난이도 곡선
-- **197개 단어 + 66개 문장**: 실용적인 일상 회화
+- **60 스테이지**: Tier 1-3 난이도 곡선
+- **431개 단어 + 131개 문장**: 실용적인 일상 회화
 - **🏆 Achievement / Badge System** (12 badges): stages cleared, perfect
   scores, daily streak, tier mastery, polyglot unlocks — each with
   a celebration banner and audio cue on ResultScreen (3 categories:
@@ -74,11 +74,11 @@ npm run cli:interactive
 
 | 항목 | 상태 | 세부사항 |
 |------|------|----------|
-| **테스트** | ✅ | 629/630 통과 (629 passed + 1 skipped) |
-| **번들 크기** | ✅ | 716KB (gzip: 230KB) |
+| **테스트** | ✅ | 648 passed + 2 skipped (650 total) |
+| **번들 크기** | ✅ | 1049 KB (gzip: 285 KB) |
 | **언어** | ✅ | EN, JP, ES, KR |
-| **스테이지** | ✅ | 30+ (Tier 1-3) |
-| **콘텐츠** | ✅ | 197 단어 + 66 문장 + 52 Daily Lessons |
+| **스테이지** | ✅ | 60 (Tier 1-3) |
+| **콘텐츠** | ✅ | 431 단어 + 131 문장 (60 스테이지) |
 | **Achievement** | ✅ | 12 badges (3 categories, 4-lang i18n) |
 | **배포** | ✅ | GitHub Pages 라이브 |
 
@@ -89,7 +89,7 @@ npm run cli:interactive
 - **Language**: TypeScript 5.5
 - **Framework**: React 18.3
 - **Build**: Vite 5.3
-- **Testing**: Vitest (629 tests)
+- **Testing**: Vitest (648 tests + 2 skipped)
 - **Rendering**: HTML5 Canvas 2D
 - **State**: React useState + Reducer
 - **Styling**: CSS (모듈 없이)
