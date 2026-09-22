@@ -291,4 +291,4 @@ npm run cli:interactive
 
 - **Language Registry**: `src/language/LanguageRegistry.ts`
 - **Wiki**: `wiki/extensible-languages.md`
-- **ADR**: `decisions/0010-extensible-languages.md`
+- **ADR**: `decisions/0011-extensible-languages.md`

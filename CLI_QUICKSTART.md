@@ -116,7 +116,7 @@ Enter number (1-4): 1
 
 ```bash
 # 프로젝트 루트에서 시작
-cd ~/projects/Projects/Game/typing_language/prototype
+cd ~/projects/opencodework/Game/typing_language/prototype
 
 # 또는 절대 경로
 cd /Users/emilio/projects/Projects/Game/typing_language/prototype
@@ -477,7 +477,7 @@ CLI 도구 사용에 익숙해졌다면:
 - **CLI_TOOLS.md** - 상세 사용법 및 트러블슈팅
 - **prototype/README.md** - 프로젝트 전체 가이드
 - **wiki/extensible-languages.md** - 언어 시스템 아키텍처
-- **decisions/0010-extensible-languages.md** - 설계 결정 기록
+- **decisions/0011-extensible-languages.md** - 설계 결정 기록
 
 ---
 
@@ -488,9 +488,9 @@ CLI 도구 사용에 익숙해졌다면:
 #### macOS/Linux (.bashrc 또는 .zshrc)
 ```bash
 # alias 추가
-alias tl-test='cd ~/projects/Projects/Game/typing_language/prototype && npm run cli:test'
-alias tl-verify='cd ~/projects/Projects/Game/typing_language/prototype && npm run cli:verify'
-alias tl-play='cd ~/projects/Projects/Game/typing_language/prototype && npm run cli:interactive'
+alias tl-test='cd ~/projects/opencodework/Game/typing_language/prototype && npm run cli:test'
+alias tl-verify='cd ~/projects/opencodework/Game/typing_language/prototype && npm run cli:verify'
+alias tl-play='cd ~/projects/opencodework/Game/typing_language/prototype && npm run cli:interactive'
 
 # 사용
 tl-test      # 어디서나 빠른 검증

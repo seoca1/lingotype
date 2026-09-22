@@ -10,6 +10,7 @@
 | [0002](0002-jp-input.md) | 일본어 입력: 로마자→한자 직접 매핑 | Accepted |
 | [0003](0003-es-accents.md) | 스페인어 액센트: 직접 입력 + ASCII 폴백 | Accepted |
 | [0010](0010-kr-input.md) | 한국어 입력: 한글 키보드 자모 직접 입력 + 클라이언트 합성 | Accepted |
+| [0011](0011-extensible-languages.md) | Extensible Language System (LanguageRegistry) | Accepted |
 
 ## 미해결 결정 (Draft)
 

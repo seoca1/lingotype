@@ -276,4 +276,4 @@ When adding a new language:
 - [[languages/spanish]] - Spanish language profile
 - [[languages/korean]] - Korean language profile
 - `src/language/languages/french.example.ts` - New language template
-- `decisions/0010-extensible-languages.md` - Architecture decision record
+- `decisions/0011-extensible-languages.md` - Architecture decision record

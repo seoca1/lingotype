@@ -240,7 +240,7 @@ interface LanguageConfig {
 - `../wiki/languages/*.md` - 언어별 프로필
 
 ### Architecture Decision Records
-- `../decisions/0010-extensible-languages.md` - 확장형 언어 시스템
+- `../decisions/0011-extensible-languages.md` - 확장형 언어 시스템
 - `../decisions/0002-jp-input.md` - 일본어 입력 방식
 - `../decisions/0003-es-accents.md` - 스페인어 악센트
 

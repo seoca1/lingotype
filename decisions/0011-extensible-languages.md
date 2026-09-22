@@ -1,4 +1,4 @@
-# ADR-0010: Extensible Language System
+# ADR-0011: Extensible Language System
 
 **Status**: Accepted  
 **Date**: 2026-06-18  
