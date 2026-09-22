@@ -19,7 +19,7 @@ from pathlib import Path
 from collections import defaultdict, Counter
 
 OUTPUT_PATH = Path(__file__).parent.parent / "prototype" / "src" / "data" / "dailyLessons.json"
-LANGUAGE_ROOT = Path("/Users/emilio/projects/Projects/Language")
+LANGUAGE_ROOT = Path("/Users/emilio/projects/opencodework/Language")
 
 REQUIRED_LANG = ["en", "jp", "es", "kr"]
 

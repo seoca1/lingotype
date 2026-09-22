@@ -10,7 +10,7 @@ import os
 import re
 from pathlib import Path
 
-LANGUAGE_ROOT = Path("/Users/emilio/projects/Projects/Language")
+LANGUAGE_ROOT = Path("/Users/emilio/projects/opencodework/Language")
 
 WORD_DATA = {
     "Korean": {

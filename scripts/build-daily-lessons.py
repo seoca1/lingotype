@@ -29,8 +29,8 @@ from pathlib import Path
 # Configuration
 # ============================================================================
 
-LANGUAGE_ROOT = Path("/Users/emilio/projects/Projects/Language")
-GAME_ROOT = Path("/Users/emilio/projects/Projects/Game/typing_language")
+LANGUAGE_ROOT = Path("/Users/emilio/projects/opencodework/Language")
+GAME_ROOT = Path("/Users/emilio/projects/opencodework/Game/lingotype")
 OUTPUT_PATH = GAME_ROOT / "prototype" / "src" / "data" / "dailyLessons.json"
 
 LANG_CODES = {
