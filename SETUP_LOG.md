@@ -5,7 +5,7 @@
 ### 디렉토리 구조 생성
 - `Game/typing_language/` 아래 표준 하위 디렉토리 생성
   - `design/`, `decisions/`, `wiki/`, `prototype/`, `raw/`, `testcases/`, `log/`
-- `Game/roguelike_sprawl/` 컨벤션 계승 (LLM Wiki + ADR 패턴)
+- `Game/wet_run/` 컨벤션 계승 (LLM Wiki + ADR 패턴)
 
 ### 메타 문서 작성
 - `AGENTS.md` — AI 에이전트 작업 규약 (언어 정확성 규칙 포함)
@@ -18,7 +18,7 @@
 - **플랫폼**: 웹 (TypeScript + React + Canvas)
 - **일본어 입력**: 로마자→한자 직접 매핑
 - **스페인어 입력**: 액센트 직접 입력 + ASCII 폴백 모두 지원
-- **문서 구조**: roguelike_sprawl 스타일 모방
+- **문서 구조**: wet_run 스타일 모방
 
 ### 다음 작업
 - Phase 1 디자인 명세 보강
