@@ -9,18 +9,17 @@
 | [0001](0001-tech-stack.md) | Tech Stack: TypeScript + React + Canvas + Vite | Accepted |
 | [0002](0002-jp-input.md) | 일본어 입력: 로마자→한자 직접 매핑 | Accepted |
 | [0003](0003-es-accents.md) | 스페인어 액센트: 직접 입력 + ASCII 폴백 | Accepted |
+| [0004](0004-rendering.md) | 렌더링 방식: Canvas 2D + React UI | Accepted |
+| [0005](0005-state-management.md) | 상태 관리: React useState/useReducer + Context | Accepted |
+| [0006](0006-data-format.md) | 데이터 형식: TypeScript const (원안 JSON에서 변경) | Accepted |
+| [0007](0007-testing-strategy.md) | 테스트 전략: Vitest | Accepted |
+| [0008](0008-build-target.md) | 빌드 타겟: SPA (PWA는 별도 ADR 검토) | Accepted |
 | [0010](0010-kr-input.md) | 한국어 입력: 한글 키보드 자모 직접 입력 + 클라이언트 합성 | Accepted |
 | [0011](0011-extensible-languages.md) | Extensible Language System (LanguageRegistry) | Accepted |
 
 ## 미해결 결정 (Draft)
 
-| ADR | 제목 | 상태 |
-| --- | --- | --- |
-| [0004](0004-rendering.md) | 렌더링 방식 (Canvas / DOM / WebGL) | Draft |
-| [0005](0005-state-management.md) | 상태 관리 (React state / Zustand / Redux) | Draft |
-| [0006](0006-data-format.md) | 데이터 형식 (JSON / YAML / TS const) | Draft |
-| [0007](0007-testing-strategy.md) | 테스트 전략 (Vitest / Playwright) | Draft |
-| [0008](0008-build-target.md) | 빌드 타겟 (SPA / PWA / Electron) | Draft |
+_(없음 — 모든 메타 결정은 Accepted 또는 Superseded)_
 
 ## 비활성
 
@@ -37,9 +36,4 @@
 
 ## 다음 결정
 
-사용자 결정 대기:
-- [ ] ADR-0004 렌더링 방식
-- [ ] ADR-0005 상태 관리
-- [ ] ADR-0006 데이터 형식
-- [ ] ADR-0007 테스트 전략
-- [ ] ADR-0008 빌드 타겟
+_(없음)_

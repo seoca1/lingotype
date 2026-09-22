@@ -2,7 +2,11 @@
 
 ## 상태
 
-Draft
+**Accepted**
+
+## 결정일
+
+2026-06-18 (구현 중 확정 — TypeScript const 채택, 원안 JSON에서 변경)
 
 ## 컨텍스트
 
@@ -25,48 +29,59 @@ Draft
 | TOML | 명시적, 단순 | 표현력 제한 | |
 | Markdown table | 사람이 가장 읽기 쉬움 | 파싱 복잡 | |
 
-## 결정 (제안)
+## 결정
 
-**JSON + JSON Schema**
+**TypeScript const** (`export const` arrays/objects in `.ts` files)
 
-- 데이터: `.json` 파일
-- 스키마: `JSON Schema` (선택적 검증)
-- TS 타입 자동 생성 (json-schema-to-typescript)
+- 코퍼스: `prototype/src/data/corpus.ts` (TS const arrays)
+- 스테이지: `prototype/src/data/stages.ts` (TS const)
+- 메타데이터: `badges.ts`, `translations.ts` 등 (TS const)
+- 예외: `dailyLessons.json` (빌드 산출물, generator가 생성)
 
-또는
-
-**JSON5** (코퍼스 작성을 사람이 직접 하는 경우)
+> **원안 변경 사유**: 원안은 **JSON + JSON Schema** 였으나, 구현 단계에서
+> **TypeScript const** 로 변경. JSON보다 다음 이점이 결정적이었음:
+> - **타입 안정성**: `WordEntry[]` 타입이 컴파일 타임에 강제됨
+> - **IDE 자동완성**: 변수명, 필드명 자동완성 (VSCode)
+> - **런타임 검증**: `as const` + 타입 가드
+> - **빌드 단계 없음**: `import { EN_WORDS } from './corpus'` 직접
+> - **빌드 도구가 타입 오류를 잡아줌** (tsc strict)
 
 ## 이유
 
-1. **표준**: JSON은 어디서나 지원
-2. **JS 통합**: fetch 또는 import 시 자연 로드
-3. **도구**: VSCode, jq, json-schema 모두 지원
-4. **확장성**: Phase 7에서 서버 백엔드 추가 시 JSON 그대로 사용
+1. **타입 안정성**: 코퍼스 항목이 `WordEntry` 인터페이스와 일치하지 않으면 컴파일 실패
+2. **IDE 자동완성**: 필드명 오타 방지, 리팩토링 안전
+3. **런타임 import**: 별도 fetch/파싱 단계 없이 직접 import
+4. **빌드 도구**: tsc가 데이터 일관성을 검증
+5. **Git diff 가독성**: JSON보다 변경점이 명확
 
 ## 결과 / 영향
 
 ### 긍정적
-- 빌드 단계 없이 직접 import (`import data from './data/en_words.json'`)
-- 디버깅 쉬움 (브라우저에서 객체 그대로 보임)
-- 표준 도구로 검증 가능
+
+- 4개 언어의 562개 항목(431 단어 + 131 문장) 모두 타입 안전하게 로드
+- IDE 점프/리네임이 코퍼스·스테이지 코드 전반에 동작
+- 비주얼 회귀 시 데이터 문제로 인한 실패를 tsc가 차단
 
 ### 부정적 / 트레이드오프
-- 주석 불가 → 별도 메타데이터는 `meta.json` 분리 또는 README
-- 큰 파일은 트리쉐이킹 어려움 → 언어별 분리
+
+- 비개발자가 코퍼스를 편집하기 어려움 (TS 문법 학습 필요)
+- 코퍼스 편집 도구 없음 (현재 VSCode + 수동 편집)
+- 큰 const 배열은 초기 번들 사이즈에 포함됨 (현재 1049 KB / gzip 285 KB)
 
 ### 제약
-- 코퍼스 편집 도구 필요 (VSCode OK, 비개발자는 어려움)
-- 한글/일본어/스페인어는 UTF-8로 인코딩 필수
+
+- 코퍼스 편집자는 TypeScript 기본 문법을 알아야 함
+- 빌드 시 tsc 검증 통과 필수 (strict 모드)
+- 일일 레슨 데이터는 generator → JSON 패턴 유지 (`dailyLessons.json`만 JSON)
 
 ## 열린 질문
 
-- [ ] 코퍼스 검수 워크플로우 (PR 기반? 전용 도구?)
-- [ ] JSON5 채택 여부 (주석이 필요한 경우)
+- [ ] 비개발자용 코퍼스 편집 도구 (CSV → TS const 변환기?)
+- [ ] JSON Schema 검증 단계 추가 (Phase 7+)
 - [ ] 외부 API/사전 연동 (Phase 7+)
 
-## 다음 단계
+## 다음 단계 (구현 완료)
 
-- 사용자 결정 대기
-- 결정 후 `prototype/src/data/` 구조화
-- `raw/{lang}_words.md` → JSON 변환 도구 (Phase 4+)
+- ✅ `prototype/src/data/` 구조화 완료 (`corpus.ts`, `stages.ts`, `badges.ts` 등)
+- ✅ TS const 패턴 채택, 빌드 단계 없이 타입 안전 import
+- 🔲 비개발자용 CSV → TS const 변환기 (열린 질문 §참조)
