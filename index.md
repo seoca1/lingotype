@@ -11,7 +11,7 @@
 
 ## 파이프라인 (Pipeline)
 - [Corpus Pipeline](wiki/corpus-pipeline.md) - **`Language/` 위키에서 게임으로 콘텐츠 흘러오는 흐름**
-- [Language 측 파이프라인](../Language/wiki/pipeline-to-game.md) - 다운스트림 컨슈머 계약
+- [Language 측 파이프라인](../../Language/wiki/pipeline-to-game.md) - 다운스트림 컨슈머 계약
 
 ## 언어 (Languages)
 - [English (EN)](wiki/languages/english.md) - 입력 방식, 단어/문장 코퍼스
