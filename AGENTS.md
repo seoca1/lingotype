@@ -43,7 +43,7 @@ Language/wiki/{Lang}/culture/      ──(cite: [[wikilink]])──▶  Game/wik
 
 ### 3.1 새 언어/코퍼스 추가
 1. **Language 위키 확인**: `Language/wiki/{Lang}/` 가 존재하고 콘텐츠가 충분한지 확인. 부족하면 §3.1.1 먼저 수행.
-2. `raw/{lang}_words.md` 에 Language 위키 인용과 함께 항목 추가 — `source: [[vocabulary-page]]` 형식 필수
+2. `raw/{lang}_words.md` 에 Language 위키 인용과 함께 항목 추가 — `source: [[basic-vocabulary]]` 형식 필수 (테마 파일 stem 인용)
 3. `wiki/languages/{lang}.md` 작성 — 입력 방식, 로마자 매핑 표, 액센트 표기, 코퍼스 출처 (Language 위키 링크 포함)
 4. 필요시 새 ADR 작성 (입력 방식 결정)
 5. `wiki/` index 갱신, `log.md` 에 `[YYYY-MM-DD] ingest | 언어/주제` 형식으로 기록

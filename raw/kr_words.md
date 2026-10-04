@@ -81,7 +81,7 @@ Game/lingotype/prototype/src/data/kr_words.json
 ## 여행 (Travel) — Level 1
 
 > **출처**: [[first-travel-japan]] (raw/Korean/first-travel-japan.md)
-> **위키 페이지**: 각 단어마다 별도 페이지 존재 (예: [[kuukou]], [[hoteru]], [[yoyaku]])
+> **위키 페이지**: 단어별 페이지 대신 [[jp-travel-vocab]] 테마 파일에 수록 (예: kuukou, hoteru, yoyaku 섹션)
 > **카테고리**: travel (여행)
 
 ### 공항 & 비행기
