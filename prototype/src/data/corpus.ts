@@ -1013,11 +1013,403 @@ export const ES_SENTENCES: WordEntry[] = [
   { id: 'ess_312', display: 'Los líderes mundiales se reúnen para discutir medidas contra el cambio climático.', level: 4, category: 'news' },
 ];
 
+export const FR_WORDS: WordEntry[] = [
+  // Tier 1 (Level 1) — basic vocabulary (greeting, number, color, family)
+  { id: 'fr_001', display: 'bonjour', meanings: { en: 'hello', es: 'hola', ja: 'こんにちは', ko: '안녕' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_002', display: 'merci', meanings: { en: 'thank you', es: 'gracias', ja: 'ありがとう', ko: '고마워' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_003', display: 'au revoir', meanings: { en: 'goodbye', es: 'adiós', ja: 'さようなら', ko: '안녕히' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_004', display: 'oui', meanings: { ko: '네' }, meaningLang: 'ko', level: 1, category: 'basic', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_005', display: 'non', meanings: { en: 'no', es: 'no', ja: 'いいえ', ko: '아니오' }, meaningLang: 'ko', level: 1, category: 'basic', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_006', display: 'un', meanings: { ko: '하나' }, meaningLang: 'ko', level: 1, category: 'number', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_007', display: 'deux', meanings: { ko: '둘' }, meaningLang: 'ko', level: 1, category: 'number', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_008', display: 'trois', meanings: { ko: '셋' }, meaningLang: 'ko', level: 1, category: 'number', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_009', display: 'quatre', meanings: { ko: '넷' }, meaningLang: 'ko', level: 1, category: 'number', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_010', display: 'cinq', meanings: { ko: '다섯' }, meaningLang: 'ko', level: 1, category: 'number', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_011', display: 'dix', meanings: { ko: '열' }, meaningLang: 'ko', level: 1, category: 'number', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_012', display: 'rouge', meanings: { ko: '빨강' }, meaningLang: 'ko', level: 1, category: 'color', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_013', display: 'bleu', meanings: { ko: '파랑' }, meaningLang: 'ko', level: 1, category: 'color', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_014', display: 'vert', meanings: { ko: '초록' }, meaningLang: 'ko', level: 1, category: 'color', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_015', display: 'blanc', meanings: { ko: '하양' }, meaningLang: 'ko', level: 1, category: 'color', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_016', display: 'noir', meanings: { ko: '검정' }, meaningLang: 'ko', level: 1, category: 'color', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_017', display: 'jaune', meanings: { ko: '노랑' }, meaningLang: 'ko', level: 1, category: 'color', accentMode: 'loose', source: 'basic-vocabulary' },
+  { id: 'fr_018', display: 'père', meanings: { ko: '아버지' }, meaningLang: 'ko', level: 1, category: 'family', accentMode: 'loose', source: 'basic-vocabulary' },
+  { id: 'fr_019', display: 'mère', meanings: { ko: '어머니' }, meaningLang: 'ko', level: 1, category: 'family', accentMode: 'loose', source: 'basic-vocabulary' },
+  { id: 'fr_020', display: 'ami', meanings: { ko: '친구 (m)' }, meaningLang: 'ko', level: 1, category: 'family', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_021', display: 'maison', meanings: { ko: '집' }, meaningLang: 'ko', level: 1, category: 'place', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_022', display: 'école', meanings: { ko: '학교' }, meaningLang: 'ko', level: 1, category: 'place', accentMode: 'strict', source: 'basic-vocabulary' },
+  { id: 'fr_023', display: 'livre', meanings: { ko: '책' }, meaningLang: 'ko', level: 1, category: 'object', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_024', display: 'eau', meanings: { ko: '물' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'loose', source: 'basic-vocabulary' },
+  { id: 'fr_025', display: 'chat', meanings: { ko: '고양이' }, meaningLang: 'ko', level: 1, category: 'animal', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_026', display: 'chien', meanings: { ko: '개' }, meaningLang: 'ko', level: 1, category: 'animal', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_027', display: 'France', meanings: { ko: '프랑스' }, meaningLang: 'ko', level: 1, category: 'place', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'fr_028', display: 'café', meanings: { ko: '커피/카페' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'strict', source: 'basic-vocabulary' },
+
+  // Tier 1 (Level 1) — daily verbs
+  { id: 'fr_101', display: 'être', meanings: { ko: '~이다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'loose', source: 'daily-life-vocabulary' },
+  { id: 'fr_102', display: 'avoir', meanings: { ko: '가지다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'fr_103', display: 'aller', meanings: { ko: '가다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'fr_104', display: 'faire', meanings: { ko: '하다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'loose', source: 'daily-life-vocabulary' },
+  { id: 'fr_105', display: 'vouloir', meanings: { ko: '원하다' }, meaningLang: 'ko', level: 2, category: 'verb', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'fr_106', display: 'pouvoir', meanings: { ko: '~할 수 있다' }, meaningLang: 'ko', level: 2, category: 'verb', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'fr_107', display: 'aujourd\'hui', meanings: { ko: '오늘' }, meaningLang: 'ko', level: 1, category: 'time', accentMode: 'loose', source: 'daily-life-vocabulary' },
+  { id: 'fr_108', display: 'demain', meanings: { ko: '내일' }, meaningLang: 'ko', level: 1, category: 'time', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'fr_109', display: 'matin', meanings: { ko: '아침' }, meaningLang: 'ko', level: 1, category: 'time', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'fr_110', display: 'soir', meanings: { ko: '저녁' }, meaningLang: 'ko', level: 1, category: 'time', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'fr_111', display: 'heure', meanings: { ko: '시간' }, meaningLang: 'ko', level: 1, category: 'time', accentMode: 'loose', source: 'daily-life-vocabulary' },
+
+  // Tier 1-2 — food vocabulary
+  { id: 'fr_201', display: 'pain', meanings: { ko: '빵' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'fr_202', display: 'fromage', meanings: { ko: '치즈' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'fr_203', display: 'viande', meanings: { ko: '고기' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'fr_204', display: 'poisson', meanings: { ko: '생선' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'fr_205', display: 'légume', meanings: { ko: '야채' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'strict', source: 'food-vocabulary' },
+  { id: 'fr_206', display: 'fruit', meanings: { ko: '과일' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'fr_207', display: 'pomme', meanings: { ko: '사과' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'fr_208', display: 'vin', meanings: { ko: '와인' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'fr_209', display: 'bière', meanings: { ko: '맥주' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'strict', source: 'food-vocabulary' },
+  { id: 'fr_210', display: 'thé', meanings: { ko: '차' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'strict', source: 'food-vocabulary' },
+  { id: 'fr_211', display: 'jus', meanings: { ko: '주스' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'fr_212', display: 'déjeuner', meanings: { ko: '점심' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'strict', source: 'food-vocabulary' },
+  { id: 'fr_213', display: 'dîner', meanings: { ko: '저녁 식사' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'strict', source: 'food-vocabulary' },
+  { id: 'fr_214', display: 'restaurant', meanings: { ko: '식당' }, meaningLang: 'ko', level: 1, category: 'place', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'fr_215', display: 'menu', meanings: { ko: '메뉴 (정식)' }, meaningLang: 'ko', level: 1, category: 'object', accentMode: 'any', source: 'food-vocabulary' },
+
+  // Tier 2 — business
+  { id: 'fr_301', display: 'courriel', meanings: { ko: '이메일' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'any', source: 'business-vocabulary' },
+  { id: 'fr_302', display: 'adresse', meanings: { ko: '주소' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'strict', source: 'business-vocabulary' },
+  { id: 'fr_303', display: 'réunion', meanings: { ko: '회의' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'strict', source: 'business-vocabulary' },
+  { id: 'fr_304', display: 'rendez-vous', meanings: { ko: '약속' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'any', source: 'business-vocabulary' },
+  { id: 'fr_305', display: 'entreprise', meanings: { ko: '회사' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'strict', source: 'business-vocabulary' },
+  { id: 'fr_306', display: 'bureau', meanings: { ko: '사무실' }, meaningLang: 'ko', level: 2, category: 'place', accentMode: 'any', source: 'business-vocabulary' },
+  { id: 'fr_307', display: 'envoyer', meanings: { ko: '보내다' }, meaningLang: 'ko', level: 2, category: 'verb', accentMode: 'any', source: 'business-vocabulary' },
+  { id: 'fr_308', display: 'recevoir', meanings: { ko: '받다' }, meaningLang: 'ko', level: 2, category: 'verb', accentMode: 'any', source: 'business-vocabulary' },
+  { id: 'fr_309', display: 'répondre', meanings: { ko: '답하다' }, meaningLang: 'ko', level: 2, category: 'verb', accentMode: 'strict', source: 'business-vocabulary' },
+
+  // Tier 2 — travel
+  { id: 'fr_401', display: 'aéroport', meanings: { ko: '공항' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'strict', source: 'travel-vocabulary' },
+  { id: 'fr_402', display: 'passeport', meanings: { ko: '여권' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'fr_403', display: 'valise', meanings: { ko: '여행가방' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'fr_404', display: 'avion', meanings: { ko: '비행기' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'fr_405', display: 'train', meanings: { ko: '기차' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'fr_406', display: 'métro', meanings: { ko: '지하철' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'strict', source: 'travel-vocabulary' },
+  { id: 'fr_407', display: 'hôtel', meanings: { ko: '호텔' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'strict', source: 'travel-vocabulary' },
+  { id: 'fr_408', display: 'chambre', meanings: { ko: '방' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'fr_409', display: 'clé', meanings: { ko: '열쇠' }, meaningLang: 'ko', level: 2, category: 'travel', accentMode: 'strict', source: 'travel-vocabulary' },
+  { id: 'fr_410', display: 'musée', meanings: { ko: '박물관' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'strict', source: 'travel-vocabulary' },
+  { id: 'fr_411', display: 'cathédrale', meanings: { ko: '대성당' }, meaningLang: 'ko', level: 2, category: 'travel', accentMode: 'strict', source: 'travel-vocabulary' },
+  { id: 'fr_412', display: 'plage', meanings: { ko: '해변' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'fr_413', display: 'montagne', meanings: { ko: '산' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'fr_414', display: 'Paris', meanings: { ko: '파리' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'fr_415', display: 'gauche', meanings: { ko: '왼쪽' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'loose', source: 'travel-vocabulary' },
+  { id: 'fr_416', display: 'droite', meanings: { ko: '오른쪽' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+
+  // Tier 1 — polite expressions (greetings, courtesy)
+  { id: 'fr_501', display: 'bonsoir', meanings: { ko: '안녕히 주무세요 (저녁)' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'fr_502', display: 'bonne nuit', meanings: { ko: '잘 자요' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'fr_503', display: 's\'il vous plaît', meanings: { ko: '부탁드립니다' }, meaningLang: 'ko', level: 1, category: 'expression', accentMode: 'loose', source: 'polite-expressions' },
+  { id: 'fr_504', display: 'pardon', meanings: { ko: '실례합니다' }, meaningLang: 'ko', level: 1, category: 'expression', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'fr_505', display: 'excusez-moi', meanings: { ko: '죄송합니다' }, meaningLang: 'ko', level: 1, category: 'expression', accentMode: 'strict', source: 'polite-expressions' },
+  { id: 'fr_506', display: 'merci beaucoup', meanings: { ko: '대단히 감사합니다' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'fr_507', display: 'de rien', meanings: { ko: '천만에요' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'fr_508', display: 'bienvenue', meanings: { ko: '환영합니다' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'fr_509', display: 'enchanté', meanings: { ko: '반가워요 (m)' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'strict', source: 'polite-expressions' },
+  { id: 'fr_510', display: 'français', meanings: { ko: '프랑스어' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'strict', source: 'basic-vocabulary' },
+  { id: 'fr_511', display: 'garçon', meanings: { ko: '소년/남자' }, meaningLang: 'ko', level: 1, category: 'person', accentMode: 'strict', source: 'basic-vocabulary' },
+];
+export const DE_WORDS: WordEntry[] = [
+  // Tier 1 (Level 1) — basic vocabulary (greeting, number, color, family, articles)
+  { id: 'de_001', display: 'Hallo', meanings: { en: 'hello (casual)', es: 'hola', ja: 'やあ', ko: '안녕' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_002', display: 'Guten Tag', meanings: { en: 'good day', es: 'buenos días', ja: 'こんにちは', ko: '안녕하세요' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'de_003', display: 'Auf Wiedersehen', meanings: { en: 'goodbye (formal)', es: 'adiós', ja: 'さようなら', ko: '안녕히 가세요' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'de_004', display: 'Tschüss', meanings: { en: 'bye (casual)', es: 'chao', ja: 'バイバイ', ko: '잘 가' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'de_005', display: 'ja', meanings: { en: 'yes', es: 'sí', ja: 'はい', ko: '네' }, meaningLang: 'ko', level: 1, category: 'basic', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'de_006', display: 'nein', meanings: { en: 'no', es: 'no', ja: 'いいえ', ko: '아니오' }, meaningLang: 'ko', level: 1, category: 'basic', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'de_007', display: 'eins', meanings: { ko: '하나' }, meaningLang: 'ko', level: 1, category: 'number', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_008', display: 'zwei', meanings: { ko: '둘' }, meaningLang: 'ko', level: 1, category: 'number', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_009', display: 'drei', meanings: { ko: '셋' }, meaningLang: 'ko', level: 1, category: 'number', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_010', display: 'vier', meanings: { ko: '넷' }, meaningLang: 'ko', level: 1, category: 'number', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_011', display: 'fünf', meanings: { ko: '다섯' }, meaningLang: 'ko', level: 1, category: 'number', accentMode: 'strict', source: 'basic-vocabulary' },
+  { id: 'de_012', display: 'zehn', meanings: { ko: '열' }, meaningLang: 'ko', level: 1, category: 'number', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_013', display: 'rot', meanings: { ko: '빨강' }, meaningLang: 'ko', level: 1, category: 'color', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_014', display: 'blau', meanings: { ko: '파랑' }, meaningLang: 'ko', level: 1, category: 'color', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_015', display: 'grün', meanings: { ko: '초록' }, meaningLang: 'ko', level: 1, category: 'color', accentMode: 'strict', source: 'basic-vocabulary' },
+  { id: 'de_016', display: 'gelb', meanings: { ko: '노랑' }, meaningLang: 'ko', level: 1, category: 'color', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_017', display: 'weiß', meanings: { ko: '하양' }, meaningLang: 'ko', level: 1, category: 'color', accentMode: 'strict', source: 'basic-vocabulary' },
+  { id: 'de_018', display: 'schwarz', meanings: { ko: '검정' }, meaningLang: 'ko', level: 1, category: 'color', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_019', display: 'Vater', meanings: { ko: '아버지' }, meaningLang: 'ko', level: 1, category: 'family', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_020', display: 'Mutter', meanings: { ko: '어머니' }, meaningLang: 'ko', level: 1, category: 'family', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_021', display: 'Bruder', meanings: { ko: '남자 형제' }, meaningLang: 'ko', level: 1, category: 'family', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_022', display: 'Schwester', meanings: { ko: '여자 형제' }, meaningLang: 'ko', level: 1, category: 'family', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_023', display: 'Freund', meanings: { ko: '친구 (m)' }, meaningLang: 'ko', level: 1, category: 'family', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_024', display: 'Freundin', meanings: { ko: '친구 (f)' }, meaningLang: 'ko', level: 1, category: 'family', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_025', display: 'Haus', meanings: { ko: '집' }, meaningLang: 'ko', level: 1, category: 'place', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_026', display: 'Schule', meanings: { ko: '학교' }, meaningLang: 'ko', level: 1, category: 'place', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_027', display: 'Buch', meanings: { ko: '책' }, meaningLang: 'ko', level: 1, category: 'object', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_028', display: 'Wasser', meanings: { ko: '물' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_029', display: 'Katze', meanings: { ko: '고양이' }, meaningLang: 'ko', level: 1, category: 'animal', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_030', display: 'Hund', meanings: { ko: '개' }, meaningLang: 'ko', level: 1, category: 'animal', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_031', display: 'Deutschland', meanings: { ko: '독일' }, meaningLang: 'ko', level: 1, category: 'place', accentMode: 'strict', source: 'basic-vocabulary' },
+  { id: 'de_032', display: 'Berlin', meanings: { ko: '베를린' }, meaningLang: 'ko', level: 1, category: 'place', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_033', display: 'Kaffee', meanings: { ko: '커피' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_034', display: 'der', meanings: { ko: '남성 정관사' }, meaningLang: 'ko', level: 1, category: 'article', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_035', display: 'die', meanings: { ko: '여성 정관사' }, meaningLang: 'ko', level: 1, category: 'article', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_036', display: 'das', meanings: { ko: '중성 정관사' }, meaningLang: 'ko', level: 1, category: 'article', accentMode: 'any', source: 'basic-vocabulary' },
+
+  // Tier 1 (Level 1) — daily verbs
+  { id: 'de_101', display: 'sein', meanings: { ko: '~이다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_102', display: 'haben', meanings: { ko: '가지다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_103', display: 'gehen', meanings: { ko: '가다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_104', display: 'kommen', meanings: { ko: '오다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_105', display: 'machen', meanings: { ko: '하다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'basic-vocabulary' },
+  { id: 'de_106', display: 'essen', meanings: { ko: '먹다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_107', display: 'trinken', meanings: { ko: '마시다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_108', display: 'schlafen', meanings: { ko: '자다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_109', display: 'arbeiten', meanings: { ko: '일하다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_110', display: 'lernen', meanings: { ko: '배우다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_111', display: 'sprechen', meanings: { ko: '말하다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_112', display: 'hören', meanings: { ko: '듣다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_113', display: 'lesen', meanings: { ko: '읽다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_114', display: 'schreiben', meanings: { ko: '쓰다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_115', display: 'kaufen', meanings: { ko: '사다' }, meaningLang: 'ko', level: 1, category: 'verb', accentMode: 'any', source: 'daily-life-vocabulary' },
+
+  // Tier 1-2 — daily time + weather
+  { id: 'de_201', display: 'heute', meanings: { ko: '오늘' }, meaningLang: 'ko', level: 1, category: 'time', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_202', display: 'morgen', meanings: { ko: '내일' }, meaningLang: 'ko', level: 1, category: 'time', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_203', display: 'gestern', meanings: { ko: '어제' }, meaningLang: 'ko', level: 1, category: 'time', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_204', display: 'jetzt', meanings: { ko: '지금' }, meaningLang: 'ko', level: 1, category: 'time', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_205', display: 'Stunde', meanings: { ko: '시간' }, meaningLang: 'ko', level: 1, category: 'time', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_206', display: 'Uhr', meanings: { ko: '시계/~시' }, meaningLang: 'ko', level: 1, category: 'time', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_207', display: 'Wetter', meanings: { ko: '날씨' }, meaningLang: 'ko', level: 1, category: 'nature', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_208', display: 'Sonne', meanings: { ko: '태양' }, meaningLang: 'ko', level: 1, category: 'nature', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_209', display: 'Regen', meanings: { ko: '비' }, meaningLang: 'ko', level: 1, category: 'nature', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_210', display: 'kalt', meanings: { ko: '춥다' }, meaningLang: 'ko', level: 1, category: 'nature', accentMode: 'any', source: 'daily-life-vocabulary' },
+  { id: 'de_211', display: 'warm', meanings: { ko: '따뜻하다' }, meaningLang: 'ko', level: 1, category: 'nature', accentMode: 'any', source: 'daily-life-vocabulary' },
+
+  // Tier 1-2 — food vocabulary
+  { id: 'de_301', display: 'Brot', meanings: { ko: '빵' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'de_302', display: 'Käse', meanings: { ko: '치즈' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'strict', source: 'food-vocabulary' },
+  { id: 'de_303', display: 'Fleisch', meanings: { ko: '고기' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'de_304', display: 'Fisch', meanings: { ko: '생선' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'de_305', display: 'Gemüse', meanings: { ko: '야채' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'strict', source: 'food-vocabulary' },
+  { id: 'de_306', display: 'Obst', meanings: { ko: '과일' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'de_307', display: 'Apfel', meanings: { ko: '사과' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'de_308', display: 'Bier', meanings: { ko: '맥주' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'de_309', display: 'Wein', meanings: { ko: '와인' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'de_310', display: 'Tee', meanings: { ko: '차' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'de_311', display: 'Restaurant', meanings: { ko: '식당' }, meaningLang: 'ko', level: 1, category: 'place', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'de_312', display: 'Frühstück', meanings: { ko: '아침 식사' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'strict', source: 'food-vocabulary' },
+  { id: 'de_313', display: 'Mittagessen', meanings: { ko: '점심' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'de_314', display: 'Abendessen', meanings: { ko: '저녁 식사' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'de_315', display: 'Rechnung', meanings: { ko: '계산서' }, meaningLang: 'ko', level: 2, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'de_316', display: 'Trinkgeld', meanings: { ko: '팁' }, meaningLang: 'ko', level: 2, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'de_317', display: 'lecker', meanings: { ko: '맛있는' }, meaningLang: 'ko', level: 1, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'de_318', display: 'Würstchen', meanings: { ko: '소시지' }, meaningLang: 'ko', level: 2, category: 'food', accentMode: 'strict', source: 'food-vocabulary' },
+  { id: 'de_319', display: 'Bratwurst', meanings: { ko: '볶은 소시지' }, meaningLang: 'ko', level: 2, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'de_320', display: 'Brezel', meanings: { ko: '프레첼' }, meaningLang: 'ko', level: 2, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'de_321', display: 'Schnitzel', meanings: { ko: '슈니첼' }, meaningLang: 'ko', level: 2, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+  { id: 'de_322', display: 'Sauerkraut', meanings: { ko: '사우어크라우트' }, meaningLang: 'ko', level: 2, category: 'food', accentMode: 'any', source: 'food-vocabulary' },
+
+  // Tier 2 — business
+  { id: 'de_401', display: 'E-Mail', meanings: { ko: '이메일' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'any', source: 'business-vocabulary' },
+  { id: 'de_402', display: 'Adresse', meanings: { ko: '주소' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'strict', source: 'business-vocabulary' },
+  { id: 'de_403', display: 'Betreff', meanings: { ko: '제목' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'any', source: 'business-vocabulary' },
+  { id: 'de_404', display: 'senden', meanings: { ko: '보내다' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'any', source: 'business-vocabulary' },
+  { id: 'de_405', display: 'erhalten', meanings: { ko: '받다' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'any', source: 'business-vocabulary' },
+  { id: 'de_406', display: 'antworten', meanings: { ko: '답장하다' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'any', source: 'business-vocabulary' },
+  { id: 'de_407', display: 'Büro', meanings: { ko: '사무실' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'strict', source: 'business-vocabulary' },
+  { id: 'de_408', display: 'Besprechung', meanings: { ko: '회의' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'strict', source: 'business-vocabulary' },
+  { id: 'de_409', display: 'Termin', meanings: { ko: '일정' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'any', source: 'business-vocabulary' },
+  { id: 'de_410', display: 'Unternehmen', meanings: { ko: '기업' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'any', source: 'business-vocabulary' },
+  { id: 'de_411', display: 'Kollege', meanings: { ko: '동료 (m)' }, meaningLang: 'ko', level: 2, category: 'business', accentMode: 'strict', source: 'business-vocabulary' },
+
+  // Tier 2 — travel
+  { id: 'de_501', display: 'Flughafen', meanings: { ko: '공항' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'de_502', display: 'Pass', meanings: { ko: '여권' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'de_503', display: 'Flugzeug', meanings: { ko: '비행기' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'de_504', display: 'Koffer', meanings: { ko: '여행가방' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'de_505', display: 'Gepäck', meanings: { ko: '수하물' }, meaningLang: 'ko', level: 2, category: 'travel', accentMode: 'strict', source: 'travel-vocabulary' },
+  { id: 'de_506', display: 'Hotel', meanings: { ko: '호텔' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'de_507', display: 'Zimmer', meanings: { ko: '방' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'de_508', display: 'Reservierung', meanings: { ko: '예약' }, meaningLang: 'ko', level: 2, category: 'travel', accentMode: 'strict', source: 'travel-vocabulary' },
+  { id: 'de_509', display: 'Zug', meanings: { ko: '기차' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'de_510', display: 'U-Bahn', meanings: { ko: '지하철' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'strict', source: 'travel-vocabulary' },
+  { id: 'de_511', display: 'Bus', meanings: { ko: '버스' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'de_512', display: 'Taxi', meanings: { ko: '택시' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'de_513', display: 'Bahnhof', meanings: { ko: '역' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'de_514', display: 'links', meanings: { ko: '왼쪽' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'de_515', display: 'rechts', meanings: { ko: '오른쪽' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'de_516', display: 'Karte', meanings: { ko: '지도' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+  { id: 'de_517', display: 'München', meanings: { ko: '뮌헨' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'strict', source: 'travel-vocabulary' },
+  { id: 'de_518', display: 'Hamburg', meanings: { ko: '함부르크' }, meaningLang: 'ko', level: 1, category: 'travel', accentMode: 'any', source: 'travel-vocabulary' },
+
+  // Tier 1 — polite expressions
+  { id: 'de_601', display: 'Guten Morgen', meanings: { ko: '좋은 아침입니다' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'de_602', display: 'Guten Abend', meanings: { ko: '좋은 저녁입니다' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'de_603', display: 'Gute Nacht', meanings: { ko: '잘 자요' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'de_604', display: 'Bitte', meanings: { ko: '부탁합니다/천만에요' }, meaningLang: 'ko', level: 1, category: 'expression', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'de_605', display: 'Danke', meanings: { ko: '감사합니다' }, meaningLang: 'ko', level: 1, category: 'expression', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'de_606', display: 'Vielen Dank', meanings: { ko: '대단히 감사합니다' }, meaningLang: 'ko', level: 1, category: 'expression', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'de_607', display: 'Entschuldigung', meanings: { ko: '실례합니다' }, meaningLang: 'ko', level: 1, category: 'expression', accentMode: 'strict', source: 'polite-expressions' },
+  { id: 'de_608', display: 'Es tut mir leid', meanings: { ko: '미안합니다' }, meaningLang: 'ko', level: 1, category: 'expression', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'de_609', display: 'Herzlich willkommen', meanings: { ko: '환영합니다' }, meaningLang: 'ko', level: 1, category: 'expression', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'de_610', display: 'Freut mich', meanings: { ko: '반가워요' }, meaningLang: 'ko', level: 1, category: 'greeting', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'de_611', display: 'Sehr gerne', meanings: { ko: '기꺼이' }, meaningLang: 'ko', level: 1, category: 'expression', accentMode: 'any', source: 'polite-expressions' },
+  { id: 'de_612', display: 'Kein Problem', meanings: { ko: '문제없어요' }, meaningLang: 'ko', level: 1, category: 'expression', accentMode: 'any', source: 'polite-expressions' },
+];
+export const ZH_WORDS: WordEntry[] = [
+  // Tier 1 (Level 1) — 인사 / 기본
+  { id: 'zh_001', display: '你好', romaji: 'nǐ hǎo', meanings: { en: 'hello', ko: '안녕' }, meaningLang: 'ko', level: 1, category: 'greeting', source: 'basic-vocabulary' },
+  { id: 'zh_002', display: '您好', romaji: 'nín hǎo', meanings: { en: 'hello (formal)', ko: '안녕하세요 (격식)' }, meaningLang: 'ko', level: 1, category: 'greeting', source: 'polite-expressions' },
+  { id: 'zh_003', display: '再见', romaji: 'zàijiàn', meanings: { en: 'goodbye', ko: '안녕' }, meaningLang: 'ko', level: 1, category: 'greeting', source: 'basic-vocabulary' },
+  { id: 'zh_004', display: '谢谢', romaji: 'xièxie', meanings: { en: 'thanks', ko: '고마워' }, meaningLang: 'ko', level: 1, category: 'expression', source: 'polite-expressions' },
+  { id: 'zh_005', display: '不客气', romaji: 'bú kèqi', meanings: { en: 'you\'re welcome', ko: '천만에요' }, meaningLang: 'ko', level: 1, category: 'expression', source: 'polite-expressions' },
+  { id: 'zh_006', display: '对不起', romaji: 'duìbùqǐ', meanings: { en: 'sorry', ko: '미안해요' }, meaningLang: 'ko', level: 1, category: 'expression', source: 'polite-expressions' },
+  { id: 'zh_007', display: '没关系', romaji: 'méiguānxi', meanings: { en: 'no problem', ko: '괜찮아요' }, meaningLang: 'ko', level: 1, category: 'expression', source: 'polite-expressions' },
+  { id: 'zh_008', display: '请', romaji: 'qǐng', meanings: { en: 'please', ko: '부탁합니다' }, meaningLang: 'ko', level: 1, category: 'expression', source: 'polite-expressions' },
+  { id: 'zh_009', display: '是', romaji: 'shì', meanings: { en: 'yes / to be', ko: '네/~이다' }, meaningLang: 'ko', level: 1, category: 'basic', source: 'basic-vocabulary' },
+  { id: 'zh_010', display: '不是', romaji: 'búshì', meanings: { en: 'no / not to be', ko: '아니오/~가 아니다' }, meaningLang: 'ko', level: 1, category: 'basic', source: 'basic-vocabulary' },
+
+  // Tier 1 — 숫자
+  { id: 'zh_021', display: '一', romaji: 'yī', meanings: { en: 'one', ko: '하나' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+  { id: 'zh_022', display: '二', romaji: 'èr', meanings: { en: 'two', ko: '둘' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+  { id: 'zh_023', display: '三', romaji: 'sān', meanings: { en: 'three', ko: '셋' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+  { id: 'zh_024', display: '四', romaji: 'sì', meanings: { en: 'four', ko: '넷' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+  { id: 'zh_025', display: '五', romaji: 'wǔ', meanings: { en: 'five', ko: '다섯' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+  { id: 'zh_026', display: '六', romaji: 'liù', meanings: { en: 'six', ko: '여섯' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+  { id: 'zh_027', display: '七', romaji: 'qī', meanings: { en: 'seven', ko: '일곱' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+  { id: 'zh_028', display: '八', romaji: 'bā', meanings: { en: 'eight', ko: '여덟' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+  { id: 'zh_029', display: '九', romaji: 'jiǔ', meanings: { en: 'nine', ko: '아홉' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+  { id: 'zh_030', display: '十', romaji: 'shí', meanings: { en: 'ten', ko: '열' }, meaningLang: 'ko', level: 1, category: 'number', source: 'numbers-vocabulary' },
+
+  // Tier 1 — 색깔
+  { id: 'zh_041', display: '红色', romaji: 'hóngsè', meanings: { en: 'red', ko: '빨강' }, meaningLang: 'ko', level: 1, category: 'color', source: 'colors-vocabulary' },
+  { id: 'zh_042', display: '蓝色', romaji: 'lánsè', meanings: { en: 'blue', ko: '파랑' }, meaningLang: 'ko', level: 1, category: 'color', source: 'colors-vocabulary' },
+  { id: 'zh_043', display: '绿色', romaji: 'lǜsè', meanings: { en: 'green', ko: '초록' }, meaningLang: 'ko', level: 1, category: 'color', source: 'colors-vocabulary' },
+  { id: 'zh_044', display: '黄色', romaji: 'huángsè', meanings: { en: 'yellow', ko: '노랑' }, meaningLang: 'ko', level: 1, category: 'color', source: 'colors-vocabulary' },
+  { id: 'zh_045', display: '白色', romaji: 'báisè', meanings: { en: 'white', ko: '하양' }, meaningLang: 'ko', level: 1, category: 'color', source: 'colors-vocabulary' },
+  { id: 'zh_046', display: '黑色', romaji: 'hēisè', meanings: { en: 'black', ko: '검정' }, meaningLang: 'ko', level: 1, category: 'color', source: 'colors-vocabulary' },
+
+  // Tier 1 — 가족
+  { id: 'zh_061', display: '爸爸', romaji: 'bàba', meanings: { en: 'father', ko: '아빠' }, meaningLang: 'ko', level: 1, category: 'family', source: 'family-vocabulary' },
+  { id: 'zh_062', display: '妈妈', romaji: 'māma', meanings: { en: 'mother', ko: '엄마' }, meaningLang: 'ko', level: 1, category: 'family', source: 'family-vocabulary' },
+  { id: 'zh_063', display: '哥哥', romaji: 'gēge', meanings: { en: 'older brother', ko: '오빠/형' }, meaningLang: 'ko', level: 1, category: 'family', source: 'family-vocabulary' },
+  { id: 'zh_064', display: '姐姐', romaji: 'jiějie', meanings: { en: 'older sister', ko: '언니/누나' }, meaningLang: 'ko', level: 1, category: 'family', source: 'family-vocabulary' },
+  { id: 'zh_065', display: '弟弟', romaji: 'dìdi', meanings: { en: 'younger brother', ko: '남동생' }, meaningLang: 'ko', level: 1, category: 'family', source: 'family-vocabulary' },
+  { id: 'zh_066', display: '妹妹', romaji: 'mèimei', meanings: { en: 'younger sister', ko: '여동생' }, meaningLang: 'ko', level: 1, category: 'family', source: 'family-vocabulary' },
+  { id: 'zh_067', display: '朋友', romaji: 'péngyou', meanings: { en: 'friend', ko: '친구' }, meaningLang: 'ko', level: 1, category: 'family', source: 'family-vocabulary' },
+
+  // Tier 1 — 일상 사물 / 음식
+  { id: 'zh_081', display: '水', romaji: 'shuǐ', meanings: { en: 'water', ko: '물' }, meaningLang: 'ko', level: 1, category: 'food', source: 'food-vocabulary' },
+  { id: 'zh_082', display: '茶', romaji: 'chá', meanings: { en: 'tea', ko: '차' }, meaningLang: 'ko', level: 1, category: 'food', source: 'food-vocabulary' },
+  { id: 'zh_083', display: '米饭', romaji: 'mǐfàn', meanings: { en: 'rice', ko: '밥' }, meaningLang: 'ko', level: 1, category: 'food', source: 'food-vocabulary' },
+  { id: 'zh_084', display: '面条', romaji: 'miàntiáo', meanings: { en: 'noodles', ko: '국수' }, meaningLang: 'ko', level: 1, category: 'food', source: 'food-vocabulary' },
+  { id: 'zh_085', display: '苹果', romaji: 'píngguǒ', meanings: { en: 'apple', ko: '사과' }, meaningLang: 'ko', level: 1, category: 'food', source: 'food-vocabulary' },
+  { id: 'zh_086', display: '茶馆', romaji: 'cháguǎn', meanings: { en: 'tea house', ko: '찻집' }, meaningLang: 'ko', level: 1, category: 'place', source: 'food-vocabulary' },
+
+  // Tier 1 — 시간
+  { id: 'zh_101', display: '今天', romaji: 'jīntiān', meanings: { en: 'today', ko: '오늘' }, meaningLang: 'ko', level: 1, category: 'time', source: 'time-vocabulary' },
+  { id: 'zh_102', display: '明天', romaji: 'míngtiān', meanings: { en: 'tomorrow', ko: '내일' }, meaningLang: 'ko', level: 1, category: 'time', source: 'time-vocabulary' },
+  { id: 'zh_103', display: '昨天', romaji: 'zuótiān', meanings: { en: 'yesterday', ko: '어제' }, meaningLang: 'ko', level: 1, category: 'time', source: 'time-vocabulary' },
+  { id: 'zh_104', display: '现在', romaji: 'xiànzài', meanings: { en: 'now', ko: '지금' }, meaningLang: 'ko', level: 1, category: 'time', source: 'time-vocabulary' },
+  { id: 'zh_105', display: '早上', romaji: 'zǎoshang', meanings: { en: 'morning', ko: '아침' }, meaningLang: 'ko', level: 1, category: 'time', source: 'time-vocabulary' },
+  { id: 'zh_106', display: '晚上', romaji: 'wǎnshang', meanings: { en: 'evening', ko: '저녁' }, meaningLang: 'ko', level: 1, category: 'time', source: 'time-vocabulary' },
+
+  // Tier 2 — 여행
+  { id: 'zh_201', display: '飞机', romaji: 'fēijī', meanings: { en: 'airplane', ko: '비행기' }, meaningLang: 'ko', level: 1, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'zh_202', display: '机场', romaji: 'jīchǎng', meanings: { en: 'airport', ko: '공항' }, meaningLang: 'ko', level: 1, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'zh_203', display: '护照', romaji: 'hùzhào', meanings: { en: 'passport', ko: '여권' }, meaningLang: 'ko', level: 1, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'zh_204', display: '酒店', romaji: 'jiǔdiàn', meanings: { en: 'hotel', ko: '호텔' }, meaningLang: 'ko', level: 1, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'zh_205', display: '出租车', romaji: 'chūzūchē', meanings: { en: 'taxi', ko: '택시' }, meaningLang: 'ko', level: 1, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'zh_206', display: '地铁', romaji: 'dìtiě', meanings: { en: 'subway', ko: '지하철' }, meaningLang: 'ko', level: 1, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'zh_207', display: '火车站', romaji: 'huǒchēzhàn', meanings: { en: 'train station', ko: '기차역' }, meaningLang: 'ko', level: 1, category: 'travel', source: 'travel-vocabulary' },
+
+  // Tier 2 — 비즈니스
+  { id: 'zh_301', display: '邮件', romaji: 'yóujiàn', meanings: { en: 'email', ko: '이메일' }, meaningLang: 'ko', level: 2, category: 'business', source: 'business-vocabulary' },
+  { id: 'zh_302', display: '会议', romaji: 'huìyì', meanings: { en: 'meeting', ko: '회의' }, meaningLang: 'ko', level: 2, category: 'business', source: 'business-vocabulary' },
+  { id: 'zh_303', display: '办公室', romaji: 'bàngōngshì', meanings: { en: 'office', ko: '사무실' }, meaningLang: 'ko', level: 2, category: 'business', source: 'business-vocabulary' },
+  { id: 'zh_304', display: '工作', romaji: 'gōngzuò', meanings: { en: 'work', ko: '일/작업' }, meaningLang: 'ko', level: 2, category: 'business', source: 'business-vocabulary' },
+  { id: 'zh_305', display: '公司', romaji: 'gōngsī', meanings: { en: 'company', ko: '회사' }, meaningLang: 'ko', level: 2, category: 'business', source: 'business-vocabulary' },
+
+  // Tier 2 — 일상 (verbs)
+  { id: 'zh_401', display: '吃', romaji: 'chī', meanings: { en: 'to eat', ko: '먹다' }, meaningLang: 'ko', level: 1, category: 'verb', source: 'basic-vocabulary' },
+  { id: 'zh_402', display: '喝', romaji: 'hē', meanings: { en: 'to drink', ko: '마시다' }, meaningLang: 'ko', level: 1, category: 'verb', source: 'basic-vocabulary' },
+  { id: 'zh_403', display: '去', romaji: 'qù', meanings: { en: 'to go', ko: '가다' }, meaningLang: 'ko', level: 1, category: 'verb', source: 'basic-vocabulary' },
+  { id: 'zh_404', display: '来', romaji: 'lái', meanings: { en: 'to come', ko: '오다' }, meaningLang: 'ko', level: 1, category: 'verb', source: 'basic-vocabulary' },
+  { id: 'zh_405', display: '看', romaji: 'kàn', meanings: { en: 'to see / to watch', ko: '보다' }, meaningLang: 'ko', level: 1, category: 'verb', source: 'basic-vocabulary' },
+  { id: 'zh_406', display: '学习', romaji: 'xuéxí', meanings: { en: 'to study', ko: '배우다' }, meaningLang: 'ko', level: 1, category: 'verb', source: 'basic-vocabulary' },
+  { id: 'zh_407', display: '工作', romaji: 'gōngzuò', meanings: { en: 'to work', ko: '일하다' }, meaningLang: 'ko', level: 1, category: 'verb', source: 'basic-vocabulary' },
+  { id: 'zh_408', display: '睡觉', romaji: 'shuìjiào', meanings: { en: 'to sleep', ko: '자다' }, meaningLang: 'ko', level: 1, category: 'verb', source: 'basic-vocabulary' },
+
+  // Tier 2 — 추가 어휘
+  { id: 'zh_501', display: '中国', romaji: 'zhōngguó', meanings: { en: 'China', ko: '중국' }, meaningLang: 'ko', level: 1, category: 'place', source: 'basic-vocabulary' },
+  { id: 'zh_502', display: '北京', romaji: 'běijīng', meanings: { en: 'Beijing', ko: '베이징' }, meaningLang: 'ko', level: 1, category: 'place', source: 'basic-vocabulary' },
+  { id: 'zh_503', display: '上海', romaji: 'shànghǎi', meanings: { en: 'Shanghai', ko: '상하이' }, meaningLang: 'ko', level: 1, category: 'place', source: 'basic-vocabulary' },
+  { id: 'zh_504', display: '老师', romaji: 'lǎoshī', meanings: { en: 'teacher', ko: '선생님' }, meaningLang: 'ko', level: 2, category: 'family', source: 'basic-vocabulary' },
+  { id: 'zh_505', display: '学生', romaji: 'xuésheng', meanings: { en: 'student', ko: '학생' }, meaningLang: 'ko', level: 2, category: 'family', source: 'basic-vocabulary' },
+  { id: 'zh_506', display: '书', romaji: 'shū', meanings: { en: 'book', ko: '책' }, meaningLang: 'ko', level: 1, category: 'object', source: 'basic-vocabulary' },
+  { id: 'zh_507', display: '猫', romaji: 'māo', meanings: { en: 'cat', ko: '고양이' }, meaningLang: 'ko', level: 1, category: 'animal', source: 'basic-vocabulary' },
+  { id: 'zh_508', display: '狗', romaji: 'gǒu', meanings: { en: 'dog', ko: '개' }, meaningLang: 'ko', level: 1, category: 'animal', source: 'basic-vocabulary' },
+];
+export const FR_SENTENCES: WordEntry[] = [
+  // Tier 3: Short sentences (greeting + basic)
+  { id: 'frs_001', display: 'Bonjour, comment allez-vous ?', meanings: { en: 'Hello, how are you?' }, meaningLang: 'en', level: 3, category: 'greeting', source: 'polite-expressions' },
+  { id: 'frs_002', display: 'Merci beaucoup, madame.', meanings: { en: 'Thank you very much, ma\'am.' }, meaningLang: 'en', level: 3, category: 'greeting', source: 'polite-expressions' },
+  { id: 'frs_003', display: 'Enchanté, je suis étudiant.', meanings: { en: 'Nice to meet you, I am a student.' }, meaningLang: 'en', level: 3, category: 'greeting', source: 'polite-expressions' },
+  { id: 'frs_004', display: 'Où est la bibliothèque ?', meanings: { en: 'Where is the library?' }, meaningLang: 'en', level: 3, category: 'question', source: 'basic-vocabulary' },
+
+  // Tier 3: Daily-life sentences
+  { id: 'frs_101', display: 'Je voudrais un café, s\'il vous plaît.', meanings: { en: 'I would like a coffee, please.' }, meaningLang: 'en', level: 3, category: 'restaurant', source: 'food-vocabulary' },
+  { id: 'frs_102', display: 'Aujourd\'hui, je vais au bureau.', meanings: { en: 'Today, I am going to the office.' }, meaningLang: 'en', level: 3, category: 'daily', source: 'daily-life-vocabulary' },
+  { id: 'frs_103', display: 'Nous avons une réunion demain matin.', meanings: { en: 'We have a meeting tomorrow morning.' }, meaningLang: 'en', level: 3, category: 'business', source: 'business-vocabulary' },
+
+  // Tier 4: Travel sentences
+  { id: 'frs_201', display: 'Où est l\'aéroport, s\'il vous plaît ?', meanings: { en: 'Where is the airport, please?' }, meaningLang: 'en', level: 4, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'frs_202', display: 'Je voudrais réserver une chambre pour deux nuits.', meanings: { en: 'I would like to book a room for two nights.' }, meaningLang: 'en', level: 4, category: 'travel', source: 'travel-vocabulary' },
+];
+export const DE_SENTENCES: WordEntry[] = [
+  // Tier 3: Short sentences (greeting + basic)
+  { id: 'des_001', display: 'Guten Tag, wie geht es Ihnen?', meanings: { en: 'Hello, how are you (formal)?' }, meaningLang: 'en', level: 3, category: 'greeting', source: 'polite-expressions' },
+  { id: 'des_002', display: 'Vielen Dank, Frau Schmidt.', meanings: { en: 'Thank you very much, Mrs. Schmidt.' }, meaningLang: 'en', level: 3, category: 'greeting', source: 'polite-expressions' },
+  { id: 'des_003', display: 'Freut mich, ich heiße Anna.', meanings: { en: 'Nice to meet you, my name is Anna.' }, meaningLang: 'en', level: 3, category: 'greeting', source: 'polite-expressions' },
+  { id: 'des_004', display: 'Wo ist die Bibliothek?', meanings: { en: 'Where is the library?' }, meaningLang: 'en', level: 3, category: 'question', source: 'basic-vocabulary' },
+  { id: 'des_005', display: 'Ich möchte einen Kaffee, bitte.', meanings: { en: 'I would like a coffee, please.' }, meaningLang: 'en', level: 3, category: 'restaurant', source: 'food-vocabulary' },
+
+  // Tier 3: Daily-life sentences
+  { id: 'des_101', display: 'Heute gehe ich ins Büro.', meanings: { en: 'Today I am going to the office.' }, meaningLang: 'en', level: 3, category: 'daily', source: 'daily-life-vocabulary' },
+  { id: 'des_102', display: 'Wir haben morgen eine Besprechung.', meanings: { en: 'We have a meeting tomorrow.' }, meaningLang: 'en', level: 3, category: 'business', source: 'business-vocabulary' },
+  { id: 'des_103', display: 'Das Wetter ist heute schön.', meanings: { en: 'The weather is nice today.' }, meaningLang: 'en', level: 3, category: 'nature', source: 'daily-life-vocabulary' },
+
+  // Tier 4: Travel sentences
+  { id: 'des_201', display: 'Wo ist der Flughafen, bitte?', meanings: { en: 'Where is the airport, please?' }, meaningLang: 'en', level: 4, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'des_202', display: 'Ich möchte ein Zimmer für zwei Nächte reservieren.', meanings: { en: 'I would like to reserve a room for two nights.' }, meaningLang: 'en', level: 4, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'des_203', display: 'Ich fahre nach München mit dem Zug.', meanings: { en: 'I am traveling to Munich by train.' }, meaningLang: 'en', level: 4, category: 'travel', source: 'travel-vocabulary' },
+];
+export const ZH_SENTENCES: WordEntry[] = [
+  // Tier 3: Short sentences (greeting + basic)
+  { id: 'zhs_001', display: '你好, 你叫什么名字?', romaji: 'nǐ hǎo, nǐ jiào shénme míngzi?', meanings: { en: 'Hello, what is your name?' }, meaningLang: 'en', level: 3, category: 'greeting', source: 'basic-vocabulary' },
+  { id: 'zhs_002', display: '很高兴认识你', romaji: 'hěn gāoxìng rènshí nǐ', meanings: { en: 'Nice to meet you.' }, meaningLang: 'en', level: 3, category: 'greeting', source: 'polite-expressions' },
+  { id: 'zhs_003', display: '你是中国人吗?', romaji: 'nǐ shì zhōngguó rén ma?', meanings: { en: 'Are you Chinese?' }, meaningLang: 'en', level: 3, category: 'question', source: 'basic-vocabulary' },
+  { id: 'zhs_004', display: '我不知道', romaji: 'wǒ bù zhīdào', meanings: { en: 'I don\'t know.' }, meaningLang: 'en', level: 3, category: 'expression', source: 'daily-life-vocabulary' },
+
+  // Tier 3: Daily-life sentences
+  { id: 'zhs_101', display: '我现在在工作', romaji: 'wǒ xiànzài zài gōngzuò', meanings: { en: 'I am working now.' }, meaningLang: 'en', level: 3, category: 'daily', source: 'basic-vocabulary' },
+  { id: 'zhs_102', display: '我今天很忙', romaji: 'wǒ jīntiān hěn máng', meanings: { en: 'I am busy today.' }, meaningLang: 'en', level: 3, category: 'daily', source: 'time-vocabulary' },
+  { id: 'zhs_103', display: '我们一起去吃饭吧', romaji: 'wǒmen yīqǐ qù chīfàn ba', meanings: { en: 'Let\'s go eat together.' }, meaningLang: 'en', level: 3, category: 'food', source: 'food-vocabulary' },
+
+  // Tier 4: Travel sentences
+  { id: 'zhs_201', display: '请问机场在哪里?', romaji: 'qǐngwèn jīchǎng zài nǎlǐ?', meanings: { en: 'Excuse me, where is the airport?' }, meaningLang: 'en', level: 4, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'zhs_202', display: '我要去北京出差', romaji: 'wǒ yào qù běijīng chūchāi', meanings: { en: 'I am going to Beijing on a business trip.' }, meaningLang: 'en', level: 4, category: 'travel', source: 'travel-vocabulary' },
+  { id: 'zhs_203', display: '我明天去上海', romaji: 'wǒ míngtiān qù shànghǎi', meanings: { en: 'I am going to Shanghai tomorrow.' }, meaningLang: 'en', level: 4, category: 'travel', source: 'travel-vocabulary' },
+];
+
 export const CORPUS = {
   en: EN_WORDS,
   jp: JP_WORDS,
   es: ES_WORDS,
   kr: KR_WORDS,
+  fr: FR_WORDS,
+  de: DE_WORDS,
+  zh: ZH_WORDS,
 } as const;
 
 export const SENTENCES = {
@@ -1025,6 +1417,9 @@ export const SENTENCES = {
   jp: JP_SENTENCES,
   es: ES_SENTENCES,
   kr: KR_SENTENCES,
+  fr: FR_SENTENCES,
+  de: DE_SENTENCES,
+  zh: ZH_SENTENCES,
 } as const;
 
 // JP character corpuses (Tier 0)

@@ -73,6 +73,8 @@ export interface WordEntry {
   category?: string;
   /** ES 한정 */
   accentMode?: 'strict' | 'loose' | 'any';
+  /** Wiki source page (e.g. 'food-vocabulary') */
+  source?: string;
 }
 
 export interface StageConfig {
