@@ -1,1 +1,22 @@
+# Build artifacts
 prototype/dist/
+dist/
+node_modules/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtualenvs
+venv/
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets (CRITICAL — never commit)
+.env
