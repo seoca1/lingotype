@@ -33,4 +33,5 @@
 - `audit_vault.py` (workspace): ✅ CLEAN
 
 ### 잔여
-- fr/de/zh 는 corpus+handler 등록까지; **stages/dailyLessons 콘텐츠 미포팅** (별도 콘텐츠 작업). remote 고유 docs(AUDIT.md·design/*·SESSION_* 등)는 미반입.
+- fr/de/zh **stages 포팅 완료** (`800099c`, 6 stages each, tiers 1-3). dailyLessons 는 remote 도 en/jp/es/kr 만 커버 → fr/de/zh 레슨 불필요.
+- remote 고유 docs(AUDIT.md·design/*·SESSION_* 등)·OptionsScreen·키보드 경고·a11y tests 는 미반입.
