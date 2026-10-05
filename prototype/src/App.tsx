@@ -60,6 +60,8 @@ import {
 import type { Language, StageConfig, WordEntry } from './types.js';
 import { getResponsiveCanvasSize, logDeviceInfo } from './utils/device.js';
 import { OSKeyboardInput } from './ui/OSKeyboardInput.js';
+import { NonKoreanKeyboardWarning } from './ui/NonKoreanKeyboardWarning.js';
+import { isKoreanCharacter } from './utils/keyboardLayout.js';
 
 const LANG_BADGE: Record<Language, string> = {
   en: 'EN',
@@ -83,6 +85,7 @@ export function App() {
   // Phase G: Settings screen overlay (accessed from menu)
   const [showSettings, setShowSettings] = useState(false);
   const [showBadges, setShowBadges] = useState(false);
+  const [showWrongKeyboardWarning, setShowWrongKeyboardWarning] = useState(false);
 
   // 선택된 언어 (LanguageSelection → Menu 흐름)
   const [selectedLanguage, setSelectedLanguage] = useState<Language | null>(null);
@@ -151,6 +154,7 @@ export function App() {
   const lastTickRef = useRef<number>(0);
   const keyboardRef = useRef<Keyboard | null>(null);
   const osKeyboardRef = useRef<{ focus: () => void } | null>(null);
+  const recentCharsRef = useRef<string[]>([]);
   const characterRef = useRef<CharacterState>(createInitialCharacterState());
 
   // 진행도 자동 저장
@@ -664,6 +668,16 @@ export function App() {
   // to avoid duplicate processing through the window keydown listener.
   const handleOSChar = (char: string) => {
     if (!enabled || !handlerRef.current || !state.currentEnemy) return;
+    if (stage.language !== 'kr' && !showWrongKeyboardWarning && isKoreanCharacter(char)) {
+      recentCharsRef.current.push(char);
+      if (recentCharsRef.current.length >= 2) {
+        setShowWrongKeyboardWarning(true);
+        recentCharsRef.current = [];
+        return;
+      }
+    } else {
+      recentCharsRef.current = [];
+    }
     const mockEvent = {
       key: char,
       isComposing: false,
@@ -781,6 +795,15 @@ export function App() {
     osKeyboardRef.current?.focus();
   };
 
+  const handleWrongKeyboardDismiss = () => {
+    setShowWrongKeyboardWarning(false);
+    recentCharsRef.current = [];
+  };
+  const handleWrongKeyboardContinue = () => {
+    setShowWrongKeyboardWarning(false);
+    recentCharsRef.current = [];
+  };
+
   return (
     <>
       <StageScreen
@@ -802,6 +825,12 @@ export function App() {
         onEnter={handleOSEnter}
         onEscape={handleOSEscape}
       />
+      {showWrongKeyboardWarning && (
+        <NonKoreanKeyboardWarning
+          onDismiss={handleWrongKeyboardDismiss}
+          onContinue={handleWrongKeyboardContinue}
+        />
+      )}
     </>
   );
 }

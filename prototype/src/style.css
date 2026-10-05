@@ -2249,3 +2249,176 @@ button:hover {
   min-width: 50px;
   text-align: center;
 }
+
+
+/* ---- Keyboard warning (ported from pre-merge origin) ---- */
+/* ===== Korean Keyboard Warning ===== */
+
+.keyboard-warning-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+.keyboard-warning-modal {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 2px solid #10b981;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: 0 0 60px rgba(16, 185, 129, 0.3);
+}
+.keyboard-warning-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.keyboard-warning-header .warning-icon {
+  font-size: 2.5rem;
+}
+.keyboard-warning-header h2 {
+  color: #10b981;
+  margin: 0;
+  font-size: 1.5rem;
+}
+.keyboard-warning-alert {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid #ef4444;
+  color: #fca5a5;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.keyboard-warning-desc {
+  color: #ccc;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+.keyboard-warning-desc strong {
+  color: #10b981;
+}
+.keyboard-layout-preview {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.keyboard-layout-preview h3 {
+  color: #888;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.keyboard-key {
+  width: 48px;
+  height: 52px;
+  background: #2a2a3e;
+  border: 1px solid #444;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+.keyboard-key .key-en {
+  font-size: 0.7rem;
+  color: #666;
+  font-family: monospace;
+}
+.keyboard-key .key-ko {
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: 600;
+}
+.keyboard-warning-example {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+.keyboard-warning-example h3 {
+  color: #10b981;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+.example-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+}
+.example-expected {
+  font-size: 1.5rem;
+  font-weight: bold;
+  min-width: 50px;
+}
+.example-keys {
+  color: #10b981;
+  font-family: monospace;
+}
+.example-physical {
+  color: #666;
+  font-size: 0.85rem;
+}
+.keyboard-warning-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.warning-btn {
+  flex: 1;
+  padding: 0.875rem 1.25rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+.warning-btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #888;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.warning-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #aaa;
+}
+.warning-btn-primary {
+  background: #10b981;
+  color: #fff;
+}
+.warning-btn-primary:hover {
+  background: #059669;
+}
+.keyboard-warning-hint {
+  color: #555;
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 1.5;
+}
+/* Phase 30: focus-visible for the blocking KeyboardWarning modal buttons
+   (KoreanKeyboardWarning + NonKoreanKeyboardWarning). Phase 14/25 added
+   role="dialog" + aria-label + the (Escape)/(Enter) keyboard hints, plus
+   focus-trap wiring that auto-focuses the dismiss button on mount — but
+   the only persistent actions (Back / Continue) had no visible focus
+   indicator. Same 2px cyan outline + 2px offset as the Phase 14 modal
+   close buttons, so keyboard users tabbing through the trap see a
+   consistent cyan ring on every actionable element. */
+.warning-btn:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: 2px;
+}
