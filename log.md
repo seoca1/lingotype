@@ -35,3 +35,14 @@
 ### 잔여
 - fr/de/zh **stages 포팅 완료** (`800099c`, 6 stages each, tiers 1-3). dailyLessons 는 remote 도 en/jp/es/kr 만 커버 → fr/de/zh 레슨 불필요.
 - remote 고유 docs(AUDIT.md·design/*·SESSION_* 등)·OptionsScreen·키보드 경고·a11y tests 는 미반입.
+
+## [2026-10-04] feat | NonKoreanKeyboardWarning 포팅
+
+**Status**: ✅ 완료 (`95ea6d1`, push)
+
+- remote history(`1ba7d1c`)에서 `utils/keyboardLayout.ts` (`isKoreanCharacter`·레이아웃) + `ui/NonKoreanKeyboardWarning.tsx` 반입.
+- `App.tsx`: 비한국어 스테이지에서 한글 문자 2연속 입력 감지 → wrong-keyboard 경고 모달. dismiss/continue 핸들러 + 렌더.
+- `style.css`: 키보드 경고 스타일(사용 선택자만) append.
+- **보류**: `KoreanKeyboardWarning` — KR 스테이지 시작 UX 를 바꾸므로 사용자 결정 필요 (dead file 제거).
+
+**검증**: `tsc` 0 · `vitest` 808 passed/2 skipped · `vite build` ok.
