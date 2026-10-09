@@ -46,3 +46,13 @@
 - **보류**: `KoreanKeyboardWarning` — KR 스테이지 시작 UX 를 바꾸므로 사용자 결정 필요 (dead file 제거).
 
 **검증**: `tsc` 0 · `vitest` 808 passed/2 skipped · `vite build` ok.
+
+## [2026-10-04] feat | KoreanKeyboardWarning + OptionsScreen 포팅
+
+**Status**: ✅ 완료 (`c8c7c32`, `0ec6135`, push)
+
+- **KoreanKeyboardWarning** (`c8c7c32`): KR 스테이지 confirm 시 pre-start 경고 (`pendingKoreanWarning` state). onContinue = 시작, onDismiss = 취소.
+- **OptionsScreen** (`0ec6135`): `Options`/`DifficultyPreference` types + `state/optionsStorage.ts` (load/save/clear, sanitized) + `ui/OptionsScreen.tsx` (자체 인라인 스타일) + Menu 🎛️ 버튼 + App 배선.
+- **a11y tests (phase17–39)**: ⚠️ **반입 기각** — remote UI 구현 종속(`WeakWordModal`·`koreanInputMode`·`DailyLesson.difficulty` 등), 반입 시 tsc 12 err + vitest 245 fail. local UI 에 맞춘 재작성 필요. split corpus(`{en,es,jp,kr}_corpus.ts`)도 미반입 (local `corpus.ts` 통합본).
+
+**검증**: `tsc` 0 · `vitest` 808 passed/2 skipped · `vite build` ok.
