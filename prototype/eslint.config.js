@@ -9,5 +9,11 @@ export default tseslint.config(
     languageOptions: {
       ecmaVersion: 2020,
     },
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { ignoreRestSiblings: true, varsIgnorePattern: '^_' },
+      ],
+    },
   },
 );

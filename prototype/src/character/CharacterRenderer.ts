@@ -59,8 +59,8 @@ export function renderCharacter(
   let bodyRotation = 0;
   let armLeftAngle = 0;
   let armRightAngle = 0;
-  let armLeftLength = 1;
-  let armRightLength = 1;
+  const armLeftLength = 1;
+  const armRightLength = 1;
   let legSpread = 0;
 
   switch (state.pose) {
@@ -1225,7 +1225,7 @@ function renderCharacterImage(
 
   // Get image config for current pose
   const imageConfig = characterSet[state.pose] || characterSet.idle;
-  let loadedImage = ImageLoader.get(imageConfig.src);
+  const loadedImage = ImageLoader.get(imageConfig.src);
 
   // On-demand load if not yet preloaded (Phase E fix: random selection
   // may pick characters that weren't in the initial preload batch)
@@ -1244,7 +1244,7 @@ function renderCharacterImage(
   // Calculate position with pose animations
   let offsetY = 0;
   let offsetX = 0;
-  let rotation = 0;
+  const rotation = 0;
   let scale = imageConfig.scale || 1.0;
   let scaleX = 1.0; // Horizontal scale for flip effects
 
@@ -1443,8 +1443,8 @@ export function renderCharacterPrimitive(
   let bodyRotation = 0;
   let armLeftAngle = 0;
   let armRightAngle = 0;
-  let armLeftLength = 1;
-  let armRightLength = 1;
+  const armLeftLength = 1;
+  const armRightLength = 1;
   let legSpread = 0;
 
   switch (state.pose) {

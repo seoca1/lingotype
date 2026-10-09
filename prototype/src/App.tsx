@@ -120,7 +120,7 @@ export function App() {
     import('./config/characterImages.js').then(({ USE_EXTERNAL_IMAGES, CHARACTER_IMAGES }) => {
       if (USE_EXTERNAL_IMAGES) {
         import('./sprites/ImageLoader.js').then(({ ImageLoader }) => {
-          const imagesToLoad: any[] = [];
+          const imagesToLoad: import('./sprites/ImageLoader.js').ImageConfig[] = [];
 
           Object.values(CHARACTER_IMAGES).forEach((characterSet) => {
             imagesToLoad.push(...Object.values(characterSet));
@@ -252,7 +252,7 @@ export function App() {
     
     // Spanish: accentMode 설정
     if (stage.language === 'es' && 'setMode' in handler && stage.accentMode) {
-      (handler as any).setMode(stage.accentMode);
+      (handler as { setMode: (mode: 'strict' | 'loose') => void }).setMode(stage.accentMode);
     }
     
     handlerRef.current = handler;
@@ -281,7 +281,7 @@ export function App() {
 
     // Phase B-2: Build preview enemies first, then show LearnScreen
     const langConfig = getLanguage(stage.language);
-    let corpus: WordEntry[] = stage.corpusFilter.minLevel && stage.corpusFilter.minLevel >= 3
+    const corpus: WordEntry[] = stage.corpusFilter.minLevel && stage.corpusFilter.minLevel >= 3
       ? [...langConfig.corpus.sentences, ...langConfig.corpus.words]
       : langConfig.corpus.words;
     const previewStage = createStageState(stage, [...corpus]);

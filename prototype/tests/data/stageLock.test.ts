@@ -92,7 +92,7 @@ it('JP Tier 1 is locked when no Tier 0 cleared', () => {
   it('Tier 4 and Tier 5 follow same chain', () => {
     // JP Tier 4 stages (jp_4_1, jp_4_2) require news/business corpus
     // which may not be available, so test EN Tier 3 → Tier 4 (EN has Tier 4)
-    let records: Record<string, StageRecord> = {};
+    const records: Record<string, StageRecord> = {};
     for (let i = 1; i <= 3; i++) {
       records[`en_${i}_1`] = makeRecord(`en_${i}_1`, true);
     }
