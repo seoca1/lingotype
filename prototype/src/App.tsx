@@ -34,6 +34,7 @@ import { CharacterSelect } from './ui/CharacterSelect.js';
 import { selectCharacterForStage } from './character/CharacterSelector.js';
 import { LanguageSelection } from './ui/LanguageSelection.js';
 import { SettingsScreen } from './ui/SettingsScreen.js';
+import { OptionsScreen } from './ui/OptionsScreen.js';
 import { BadgesScreen } from './ui/BadgesScreen.js';
 import {
   createEffectsState,
@@ -85,6 +86,7 @@ export function App() {
 
   // Phase G: Settings screen overlay (accessed from menu)
   const [showSettings, setShowSettings] = useState(false);
+  const [showOptions, setShowOptions] = useState(false);
   const [showBadges, setShowBadges] = useState(false);
   const [showWrongKeyboardWarning, setShowWrongKeyboardWarning] = useState(false);
   const [pendingKoreanWarning, setPendingKoreanWarning] = useState<StageConfig | null>(null);
@@ -479,6 +481,7 @@ export function App() {
         onShowCharacterSelect={handleShowCharacterSelect}
         onBackToLanguageSelect={handleBackToLanguageSelect}
         onShowSettings={() => setShowSettings(true)}
+        onShowOptions={() => setShowOptions(true)}
         onShowBadges={() => setShowBadges(true)}
         stageRecords={state.player.stageRecords}
       />
@@ -503,6 +506,10 @@ export function App() {
         onClose={() => setShowSettings(false)}
       />
     );
+  }
+
+  if (showOptions) {
+    return <OptionsScreen onClose={() => setShowOptions(false)} />;
   }
 
   if (state.phase === 'chartest') {

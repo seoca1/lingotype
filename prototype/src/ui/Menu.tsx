@@ -23,6 +23,7 @@ interface MenuProps {
   onBackToLanguageSelect: () => void;
   /** Phase G: Settings screen launcher */
   onShowSettings?: () => void;
+  onShowOptions?: () => void;
   onShowBadges?: () => void;
   stageRecords?: Record<string, StageRecord>;
 }
@@ -110,6 +111,7 @@ export function Menu({
   onShowCharacterSelect,
   onBackToLanguageSelect,
   onShowSettings,
+  onShowOptions,
   onShowBadges,
   stageRecords,
 }: MenuProps) {
@@ -187,6 +189,17 @@ export function Menu({
                 title="Settings"
               >
                 ⚙️
+              </button>
+            )}
+            {onShowOptions && (
+              <button
+                className="options-btn"
+                onClick={onShowOptions}
+                aria-label="Options"
+                title="Options"
+                data-testid="menu-options-btn"
+              >
+                🎛️
               </button>
             )}
             {onShowBadges && (

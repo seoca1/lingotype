@@ -192,3 +192,11 @@ export interface AIResponse {
   /** 에러 여부 */
   error?: string;
 }
+
+export type DifficultyPreference = 'easy' | 'normal' | 'hard';
+
+export interface Options {
+  displayHighlighting: boolean;
+  sound: boolean;
+  difficulty: DifficultyPreference;
+}
