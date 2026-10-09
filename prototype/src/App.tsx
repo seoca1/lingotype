@@ -61,6 +61,7 @@ import type { Language, StageConfig, WordEntry } from './types.js';
 import { getResponsiveCanvasSize, logDeviceInfo } from './utils/device.js';
 import { OSKeyboardInput } from './ui/OSKeyboardInput.js';
 import { NonKoreanKeyboardWarning } from './ui/NonKoreanKeyboardWarning.js';
+import { KoreanKeyboardWarning } from './ui/KoreanKeyboardWarning.js';
 import { isKoreanCharacter } from './utils/keyboardLayout.js';
 
 const LANG_BADGE: Record<Language, string> = {
@@ -86,6 +87,7 @@ export function App() {
   const [showSettings, setShowSettings] = useState(false);
   const [showBadges, setShowBadges] = useState(false);
   const [showWrongKeyboardWarning, setShowWrongKeyboardWarning] = useState(false);
+  const [pendingKoreanWarning, setPendingKoreanWarning] = useState<StageConfig | null>(null);
 
   // 선택된 언어 (LanguageSelection → Menu 흐름)
   const [selectedLanguage, setSelectedLanguage] = useState<Language | null>(null);
@@ -287,6 +289,11 @@ export function App() {
 
   const handleConfirmStartStage = () => {
     if (!pendingStage) return;
+    if (pendingStage.stage.language === 'kr') {
+      setPendingKoreanWarning(pendingStage.stage);
+      setPendingStage(null);
+      return;
+    }
     actuallyStartStage(pendingStage.stage);
     setPendingStage(null);
   };
@@ -427,6 +434,27 @@ export function App() {
         enemies={pendingStage.enemies}
         onStart={handleConfirmStartStage}
         onBack={handleCancelLearn}
+      />
+    );
+  }
+
+  const handleKoreanWarningDismiss = () => {
+    setPendingKoreanWarning(null);
+    setPendingStage(null);
+  };
+
+  const handleKoreanWarningContinue = () => {
+    const stage = pendingKoreanWarning;
+    setPendingKoreanWarning(null);
+    setPendingStage(null);
+    if (stage) actuallyStartStage(stage);
+  };
+
+  if (pendingKoreanWarning) {
+    return (
+      <KoreanKeyboardWarning
+        onDismiss={handleKoreanWarningDismiss}
+        onContinue={handleKoreanWarningContinue}
       />
     );
   }
