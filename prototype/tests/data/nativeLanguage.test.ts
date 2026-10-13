@@ -18,6 +18,7 @@ import {
 } from '../../src/data/nativeLanguage.js';
 import { t, UI_STRINGS } from '../../src/data/uiTranslations.js';
 import { getMeaning, hasMeaning } from '../../src/data/meaningResolver.js';
+import type { TranslationKey } from '../../src/data/uiTranslations.js';
 import type { WordEntry, Target } from '../../src/types.js';
 
 const STORAGE_KEY = 'typing-language-native-language';
@@ -102,7 +103,7 @@ describe('uiTranslations — t() function', () => {
 
   it('fallback: missing key returns key as debug', () => {
     // Cast to bypass type check for invalid key
-    expect(t('nonexistent' as any, 'en')).toBe('nonexistent');
+    expect(t('nonexistent' as unknown as TranslationKey, 'en')).toBe('nonexistent');
   });
 });
 
@@ -158,9 +159,9 @@ describe('meaningResolver — getMeaning()', () => {
   });
 
   it('hasMeaning detects presence', () => {
-    expect(hasMeaning({ meanings: { en: 'hello' } } as any)).toBe(true);
-    expect(hasMeaning({ display: 'word' } as any)).toBe(true);
-    expect(hasMeaning({} as any)).toBe(false);
+    expect(hasMeaning({ meanings: { en: 'hello' } } as unknown as WordEntry)).toBe(true);
+    expect(hasMeaning({ display: 'word' } as unknown as WordEntry)).toBe(true);
+    expect(hasMeaning({} as unknown as WordEntry)).toBe(false);
   });
 });
 

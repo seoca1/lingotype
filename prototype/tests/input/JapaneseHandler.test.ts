@@ -6,7 +6,7 @@
 
 import { describe, it, expect, beforeEach } from 'vitest';
 import { JapaneseHandler } from '../../src/input/JapaneseHandler.js';
-import type { Target } from '../../src/types.js';
+import type { MatchResult, Target } from '../../src/types.js';
 
 describe('JapaneseHandler', () => {
   let handler: JapaneseHandler;
@@ -64,7 +64,7 @@ describe('JapaneseHandler', () => {
         preventDefault: () => {},
       } as KeyboardEvent);
 
-      let result: any;
+      let result!: MatchResult;
       'arigatou'.split('').forEach((char) => {
         result = handler.handleKey(mockEvent(char));
       });

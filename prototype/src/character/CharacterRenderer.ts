@@ -14,6 +14,7 @@ import { hasAccessory, hasProp } from './CharacterController.js';
 import type { CulturalAppearance } from './CharacterData.js';
 import { SpriteLoader } from '../sprites/SpriteLoader.js';
 import { SpriteRenderer } from '../sprites/SpriteRenderer.js';
+import type { SpriteName } from '../sprites/SpriteLoader.js';
 import { GraphicsConfig } from '../config/graphics.js';
 import { ImageLoader } from '../sprites/ImageLoader.js';
 import { 
@@ -152,7 +153,7 @@ function renderCharacterSprite(
   now: number,
 ): void {
   // Get appropriate sprite based on pose
-  let spriteName: any;
+  let spriteName: SpriteName;
   let frameDuration = 150;
   let loop = true;
 
@@ -1253,23 +1254,26 @@ function renderCharacterImage(
       // Gentle breathing animation
       offsetY = Math.sin(now / 600) * 3;
       break;
-    case 'wave':
+    case 'wave': {
       // Slight bounce while waving
       const waveT = (now - state.poseStart) / 900;
       offsetY = Math.sin(waveT * Math.PI) * -5;
       break;
-    case 'jump':
+    }
+    case 'jump': {
       // Jump arc
       const jumpT = (now - state.poseStart) / 700;
       const arc = Math.sin(jumpT * Math.PI);
       offsetY = -arc * 40;
       break;
-    case 'clap':
+    }
+    case 'clap': {
       // Small bounce
       const clapT = (now - state.poseStart) / 600;
       offsetY = Math.sin(clapT * Math.PI * 2) * -5;
       break;
-    case 'spin':
+    }
+    case 'spin': {
       // Horizontal flip animation (left-right spin effect)
       // Instead of rotating the image, we scale X from 1 → -1 → 1
       // This creates a natural "character spinning" effect
@@ -1278,12 +1282,14 @@ function renderCharacterImage(
       scaleX = spinCycle; // Flip horizontally as we go
       offsetY = Math.sin(spinT * Math.PI) * -10; // Keep bounce
       break;
-    case 'dance':
+    }
+    case 'dance': {
       // Dancing motion
       const danceT = (now - state.poseStart) / 1200;
       offsetY = Math.sin(danceT * Math.PI * 4) * -8;
       offsetX = Math.cos(danceT * Math.PI * 2) * 5;
       break;
+    }
     case 'pose':
       // Triumphant pose with slight scale up
       scale *= 1.05;

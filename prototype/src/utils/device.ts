@@ -2,22 +2,29 @@
  * Device Detection and Mobile Utilities
  */
 
+// Local narrow shape for vendor-specific legacy globals (Opera Presto, IE).
+// Kept off the global Window type so the lib.dom contract stays intact.
+interface LegacyNavigatorGlobals {
+  opera?: string;
+  MSStream?: unknown;
+}
+
 /**
  * 모바일 디바이스 감지
  */
 export function isMobileDevice(): boolean {
   if (typeof window === 'undefined') return false;
-  
+
   // User agent 체크
-  const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+  const userAgent = navigator.userAgent || navigator.vendor || (window as Window & LegacyNavigatorGlobals).opera || '';
   const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
-  
+
   // Touch 지원 여부
   const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-  
+
   // 화면 크기
   const isSmallScreen = window.innerWidth <= 768;
-  
+
   return mobileRegex.test(userAgent) || (hasTouch && isSmallScreen);
 }
 
@@ -26,11 +33,11 @@ export function isMobileDevice(): boolean {
  */
 export function isTablet(): boolean {
   if (typeof window === 'undefined') return false;
-  
+
   const userAgent = navigator.userAgent.toLowerCase();
   const isTabletUA = /ipad|android(?!.*mobile)|tablet/i.test(userAgent);
   const isLargeTouch = 'ontouchstart' in window && window.innerWidth >= 768 && window.innerWidth <= 1024;
-  
+
   return isTabletUA || isLargeTouch;
 }
 
@@ -39,8 +46,8 @@ export function isTablet(): boolean {
  */
 export function isIOS(): boolean {
   if (typeof window === 'undefined') return false;
-  
-  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as Window & LegacyNavigatorGlobals).MSStream;
 }
 
 /**

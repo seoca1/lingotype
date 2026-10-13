@@ -7,7 +7,7 @@
 
 import { describe, it, expect, beforeEach } from 'vitest';
 import { FrenchHandler } from '../../src/input/FrenchHandler.js';
-import type { Target } from '../../src/types.js';
+import type { MatchResult, Target } from '../../src/types.js';
 
 describe('FrenchHandler', () => {
   let handler: FrenchHandler;
@@ -113,7 +113,7 @@ describe('FrenchHandler', () => {
       const target: Target = { text: 'café', acceptedInputs: ['café'], level: 1 };
       handler.setTarget(target);
       const mk = (key: string) => ({ key, isComposing: false, preventDefault: () => {} } as KeyboardEvent);
-      let result: any;
+      let result!: MatchResult;
       'cafe'.split('').forEach((c) => {
         result = handler.handleKey(mk(c));
       });
@@ -313,7 +313,7 @@ describe('FrenchHandler', () => {
       handler.reset();
       handler.setMode('strict');
       // strict mode: now requires exact accent
-      let result: any;
+      let result!: MatchResult;
       'cafe'.split('').forEach((c) => {
         result = handler.handleKey(mk(c));
       });

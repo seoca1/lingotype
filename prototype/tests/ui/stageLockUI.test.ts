@@ -8,7 +8,7 @@
 
 import { describe, it, expect } from 'vitest';
 import { SAMPLE_STAGES, stagesByTier } from '../../src/data/stages.js';
-import { checkStageUnlocked } from '../../src/data/stageLock.js';
+import { checkStageUnlocked, type StageLockInfo } from '../../src/data/stageLock.js';
 
 describe('Stage Lock UI — lockMap coverage (Bug Fix)', () => {
   /**
@@ -25,7 +25,7 @@ describe('Stage Lock UI — lockMap coverage (Bug Fix)', () => {
 
       // Simulate fixed lockMap construction (uses ALL language stages)
       const records = {};
-      const lockMap: Record<string, any> = {};
+      const lockMap: Record<string, StageLockInfo> = {};
       for (const s of renderedStages) {
         lockMap[s.id] = checkStageUnlocked(s.id, records);
       }

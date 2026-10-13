@@ -134,7 +134,8 @@ export function getSentenceEnglishTranslation(
   sourceLang: Language,
   display: string,
 ): string | null {
-  const sentenceList = (SENTENCES as any)[sourceLang] || [];
+  type SentencesByLang = Record<string, ReadonlyArray<WordEntry>>;
+  const sentenceList = (SENTENCES as SentencesByLang)[sourceLang] || [];
 
   // Exact match first
   for (const entry of sentenceList) {

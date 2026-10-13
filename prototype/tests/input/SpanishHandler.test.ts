@@ -6,7 +6,7 @@
 
 import { describe, it, expect, beforeEach } from 'vitest';
 import { SpanishHandler } from '../../src/input/SpanishHandler.js';
-import type { Target } from '../../src/types.js';
+import type { MatchResult, Target } from '../../src/types.js';
 
 describe('SpanishHandler', () => {
   let handler: SpanishHandler;
@@ -185,7 +185,7 @@ describe('SpanishHandler', () => {
         preventDefault: () => {},
       } as KeyboardEvent);
 
-      let result: any;
+      let result!: MatchResult;
       'espanol'.split('').forEach((char) => {
         result = handler.handleKey(mockEvent(char));
       });
@@ -480,7 +480,7 @@ describe('SpanishHandler', () => {
       handler.setMode('strict');
 
       // Now requires exact accent
-      let result: any;
+      let result!: MatchResult;
       'espanol'.split('').forEach((char) => {
         result = handler.handleKey(mockEvent(char));
       });

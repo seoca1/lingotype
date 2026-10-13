@@ -175,13 +175,14 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
         },
       };
 
-    case 'BACK_TO_MENU':
+    case 'BACK_TO_MENU': {
       console.log('[GameReducer] BACK_TO_MENU: Resetting game state');
       console.log('[GameReducer] Current phase:', state.phase);
       console.log('[GameReducer] Preserving player data:', state.player);
       const resetState = { ...initialState, player: state.player };
       console.log('[GameReducer] New phase:', resetState.phase);
       return resetState;
+    }
 
     case 'UPDATE_STATS':
       return { ...state, accuracy: action.accuracy, wpm: action.wpm };

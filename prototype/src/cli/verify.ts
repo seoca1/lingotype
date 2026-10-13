@@ -13,6 +13,7 @@
 import * as readline from 'readline';
 import { getAllLanguages, getLanguage } from '../language/index.js';
 import type { LanguageConfig } from '../language/index.js';
+import type { MatchResult } from '../types.js';
 
 // ANSI colors
 const colors = {
@@ -205,13 +206,13 @@ async function typingPractice(lang: LanguageConfig, rl: readline.Interface) {
     });
 
     // Simulate typing
-    let result: any;
+    let result!: MatchResult;
     for (const char of input) {
       result = handler.handleKey({ key: char } as KeyboardEvent);
     }
 
     if (!result) {
-      result = { completed: false, accuracy: 0, errors: 0, currentBuffer: '' };
+      result = { completed: false, accuracy: 0, errors: 0, buffer: '' };
     }
 
     if (result.completed) {
@@ -219,7 +220,7 @@ async function typingPractice(lang: LanguageConfig, rl: readline.Interface) {
       score++;
     } else {
       log(`❌ Incorrect. Expected: "${word.display}", Got: "${input}"`, 'red');
-      log(`   Buffer: "${result.currentBuffer}"`, 'dim');
+      log(`   Buffer: "${result.buffer}"`, 'dim');
     }
   }
 

@@ -9,6 +9,7 @@
  */
 
 import { getAllLanguages, getLanguage } from '../language/index.js';
+import type { MatchResult } from '../types.js';
 
 const colors = {
   reset: '\x1b[0m',
@@ -158,22 +159,22 @@ function testInputHandlers(): TestResult[] {
         handler.setTarget(target);
 
         // Simulate typing (setTarget calls reset internally)
-        let result: any;
+        let result!: MatchResult;
         for (const char of inputString) {
           result = handler.handleKey({ key: char } as KeyboardEvent);
         }
 
         if (!result) {
-          result = { completed: false, accuracy: 0, errors: 0, currentBuffer: '' };
+          result = { completed: false, accuracy: 0, errors: 0, buffer: '' };
         }
-        
+
         // Korean is expected to fail in simple char-by-char test (needs jamo composition)
         const shouldSkip = lang.code === 'kr';
-        
+
         results.push({
           name: `${lang.code}: Can type word "${testWord.display}"${shouldSkip ? ' (skipped - needs jamo)' : ''}`,
           passed: shouldSkip || result.completed,
-          error: !shouldSkip && !result.completed ? `Expected complete, got buffer: "${result.currentBuffer}"` : undefined,
+          error: !shouldSkip && !result.completed ? `Expected complete, got buffer: "${result.buffer}"` : undefined,
         });
       }
     } catch (error) {
