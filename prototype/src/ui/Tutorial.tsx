@@ -111,30 +111,42 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
 
   if (currentPage === 'welcome') {
     return (
-      <div className="tutorial">
+      <div
+        className="tutorial"
+        role="region"
+        aria-labelledby="tutorial-welcome-title"
+      >
         <div className="tutorial-content">
-          <h1>Typing Language에 오신 것을 환영합니다!</h1>
+          <h1 id="tutorial-welcome-title">
+            Typing Language에 오신 것을 환영합니다!
+          </h1>
           <p>
             외국어 타자 연습 게임입니다. 영어, 일본어, 스페인어, 한국어의 <strong>실제 입력
             방식</strong>을 그대로 체험할 수 있습니다.
           </p>
-          <div className="tutorial-features">
-            <div className="feature">
-              <h3>🌍 4개 언어</h3>
-              <p>각 언어의 고유한 입력 방식 지원</p>
-            </div>
-            <div className="feature">
-              <h3>⚔️ 격파 시스템</h3>
-              <p>단어를 타이핑하여 적을 물리치세요</p>
-            </div>
-            <div className="feature">
-              <h3>🎯 40+ 스테이지</h3>
-              <p>단어부터 단락까지 단계적 학습</p>
-            </div>
-            <div className="feature">
-              <h3>✨ 컴패니언 캐릭터</h3>
-              <p>언어별 의상과 성장 시스템</p>
-            </div>
+          <div
+            className="tutorial-features"
+            role="group"
+            aria-label="Game features"
+          >
+            <ul role="list" aria-label="Game features list">
+              <li className="feature">
+                <h3>🌍 4개 언어</h3>
+                <p>각 언어의 고유한 입력 방식 지원</p>
+              </li>
+              <li className="feature">
+                <h3>⚔️ 격파 시스템</h3>
+                <p>단어를 타이핑하여 적을 물리치세요</p>
+              </li>
+              <li className="feature">
+                <h3>🎯 40+ 스테이지</h3>
+                <p>단어부터 단락까지 단계적 학습</p>
+              </li>
+              <li className="feature">
+                <h3>✨ 컴패니언 캐릭터</h3>
+                <p>언어별 의상과 성장 시스템</p>
+              </li>
+            </ul>
           </div>
           <div className="tutorial-actions">
             <button className="btn-primary" onClick={() => setCurrentPage('language')}>
@@ -154,8 +166,15 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
     const currentStep = steps[languageStep];
 
     return (
-      <div className="tutorial">
+      <div
+        className="tutorial"
+        role="region"
+        aria-labelledby="tutorial-language-title"
+      >
         <div className="tutorial-content">
+          <h1 id="tutorial-language-title" className="visually-hidden">
+            언어별 입력 방식
+          </h1>
           <div className="tutorial-nav">
             <button
               className="btn-nav"
@@ -217,6 +236,7 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
             <div className="tutorial-actions">
               <button
                 className="btn-primary"
+                aria-label={`Start ${selectedLanguage.toUpperCase()} tutorial stage (Enter)`}
                 onClick={() => onStartTutorialStage(selectedLanguage)}
               >
                 {selectedLanguage.toUpperCase()} 튜토리얼 스테이지 시작
@@ -232,8 +252,15 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
     const currentStep = GAME_MECHANICS[mechanicsStep];
 
     return (
-      <div className="tutorial">
+      <div
+        className="tutorial"
+        role="region"
+        aria-labelledby="tutorial-mechanics-title"
+      >
         <div className="tutorial-content">
+          <h1 id="tutorial-mechanics-title" className="visually-hidden">
+            게임 방식 안내
+          </h1>
           <div className="tutorial-nav">
             <button
               className="btn-nav"
@@ -253,6 +280,11 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
             </span>
             <button
               className="btn-nav"
+              aria-label={
+                mechanicsStep === GAME_MECHANICS.length - 1
+                  ? 'Finish tutorial (Enter)'
+                  : 'Next mechanics step (Enter)'
+              }
               onClick={() => {
                 if (mechanicsStep < GAME_MECHANICS.length - 1) {
                   setMechanicsStep(mechanicsStep + 1);
@@ -274,7 +306,11 @@ export function Tutorial({ onComplete, onStartTutorialStage }: TutorialProps) {
 
           {mechanicsStep === GAME_MECHANICS.length - 1 && (
             <div className="tutorial-actions">
-              <button className="btn-primary" onClick={onComplete}>
+              <button
+                className="btn-primary"
+                aria-label="Complete tutorial and enter menu (Enter)"
+                onClick={onComplete}
+              >
                 튜토리얼 완료, 시작하기!
               </button>
             </div>

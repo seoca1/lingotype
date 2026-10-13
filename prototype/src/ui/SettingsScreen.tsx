@@ -11,7 +11,7 @@
  * - Volume slider
  */
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   getNativeLanguage,
   setNativeLanguage,
@@ -36,10 +36,25 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
   const [native, setNative] = useState<NativeLanguage>(getNativeLanguage());
   const [volume, setVolume] = useState(audio.getVolume());
   const [soundEnabled, setSoundEnabled] = useState(audio.isEnabled());
+  // Phase 30: transient "Settings saved" indicator (mirrors Phase 19 OptionsScreen)
+  const [savedAt, setSavedAt] = useState<number | null>(null);
+  // Phase 31: debounce the volume savedAt tick so dragging the slider does
+  // not retrigger the aria-live="polite" saved indicator ~10 times per drag
+  // (SR users would hear "Settings saved" repeatedly).
+  const volumeSaveTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (volumeSaveTimerRef.current !== null) {
+        window.clearTimeout(volumeSaveTimerRef.current);
+      }
+    };
+  }, []);
 
   const handleNativeChange = (lang: NativeLanguage) => {
     setNative(lang);
     setNativeLanguage(lang);
+    setSavedAt(Date.now());
     // Optional: visual feedback by playing TTS for the new language
     if (soundEnabled && 'speechSynthesis' in window) {
       const label = NATIVE_LANGUAGE_LABELS[lang];
@@ -61,12 +76,19 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
     const v = parseFloat(e.target.value);
     setVolume(v);
     audio.setVolume(v);
+    if (volumeSaveTimerRef.current !== null) {
+      window.clearTimeout(volumeSaveTimerRef.current);
+    }
+    volumeSaveTimerRef.current = window.setTimeout(() => {
+      setSavedAt(Date.now());
+    }, 400);
   };
 
   const toggleSound = () => {
     const newEnabled = !soundEnabled;
     setSoundEnabled(newEnabled);
     audio.setEnabled(newEnabled);
+    setSavedAt(Date.now());
   };
 
   return (
@@ -119,25 +141,43 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
             🔊 {t('sound', native)}
           </h2>
           <div className="settings-section__row">
-            <label className="settings-toggle">
+            {/* Phase 26: htmlFor/id pairing + aria-label on the sound toggle
+               so SR tools that walk the accessibility tree (rather than rely
+               on DOM nesting) still hear "Sound, toggle" on focus. */}
+            <label className="settings-toggle" htmlFor="settings-sound-toggle">
               <input
+                id="settings-sound-toggle"
                 type="checkbox"
                 checked={soundEnabled}
                 onChange={toggleSound}
+                aria-label={t('sound', native)}
               />
               <span>{soundEnabled ? t('on', native) : t('off', native)}</span>
             </label>
             {soundEnabled && (
               <div className="settings-volume">
-                <label>
+                {/* Phase 26: explicit htmlFor binding on the volume label so
+                   the label association survives CSS repositioning. Phase 36
+                   upgrade: full aria-valuenow/valuemin/valuemax tuple on a
+                   0-100 percent scale so older SR engines (VoiceOver / NVDA)
+                   announce the live numeric value while aria-valuetext
+                   continues to carry the natural-language phrasing. */}
+                <label htmlFor="settings-volume-slider">
                   {t('volume', native)}: {Math.round(volume * 100)}%
                   <input
+                    id="settings-volume-slider"
                     type="range"
+                    role="progressbar"
                     min="0"
                     max="1"
                     step="0.1"
                     value={volume}
                     onChange={handleVolumeChange}
+                    aria-label={t('volume', native)}
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                    aria-valuenow={Math.round(volume * 100)}
+                    aria-valuetext={`${Math.round(volume * 100)} percent`}
                   />
                 </label>
               </div>
@@ -169,10 +209,21 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
         )}
 
         {/* Version info */}
+        {savedAt !== null && (
+          <div
+            className="settings-saved-indicator"
+            role="status"
+            aria-live="polite"
+            data-testid="settings-saved-indicator"
+          >
+            ✓ {t('settingsSaved', native)}
+          </div>
+        )}
         <section className="settings-section settings-section--footer">
           <p className="settings-version">
             Typing Language Game v1.0 · {new Date().getFullYear()}
           </p>
+          <p className="settings-footer-hint">{t('pressEscToClose', native)}</p>
         </section>
       </div>
 
@@ -212,6 +263,11 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
         }
         .settings-screen__close:hover {
           background: rgba(255, 255, 255, 0.2);
+        }
+        .settings-screen__close:focus-visible,
+        .settings-lang-btn:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
         }
         .settings-screen__body {
           flex: 1;
@@ -340,6 +396,15 @@ export function SettingsScreen({ language, onClose }: SettingsScreenProps) {
           color: #66dd66;
           font-size: 16px;
           font-weight: 600;
+        }
+        .settings-saved-indicator {
+          background: rgba(102, 221, 102, 0.1);
+          border: 1px solid #66dd66;
+          border-radius: 8px;
+          padding: 10px 14px;
+          margin-bottom: 16px;
+          color: #66dd66;
+          font-size: 14px;
         }
       `}</style>
     </div>

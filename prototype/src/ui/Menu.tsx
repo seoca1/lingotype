@@ -5,7 +5,7 @@
  * 캐릭터 선택 버튼 + 뒤로가기 버튼 포함
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import type { StageConfig, StageRecord, Language } from '../types.js';
 import { SAMPLE_STAGES, stagesByTier, type StageTier } from '../data/stages.js';
 import { CHARACTER_INFO } from '../config/characterImages.js';
@@ -49,11 +49,15 @@ function StageCard({
   onStart,
   record,
   lock,
+  selected,
+  setRef,
 }: {
   stage: StageConfig;
   onStart: (s: StageConfig) => void;
   record?: StageRecord;
   lock?: StageLockInfo;
+  selected?: boolean;
+  setRef?: (el: HTMLButtonElement | null) => void;
 }) {
   const stars = record?.stars || 0;
   const cleared = record?.cleared || false;
@@ -70,10 +74,17 @@ function StageCard({
 
   return (
     <button
-      className={`stage-card ${cleared ? 'stage-cleared' : ''} ${locked ? 'stage-locked' : ''}`}
+      ref={setRef}
+      className={`stage-card ${cleared ? 'stage-cleared' : ''} ${locked ? 'stage-locked' : ''} ${selected ? 'stage-selected' : ''}`}
       onClick={handleClick}
       disabled={locked}
       title={locked ? lockReason : stage.description}
+      aria-label={
+        locked
+          ? `${stage.name}, Tier ${stage.difficulty}, locked: ${lockReason}`
+          : `${stage.name}, Tier ${stage.difficulty}${cleared ? `, cleared ${stars} stars` : ''}, ${stage.wordCount} words${selected ? ', currently selected' : ''}`
+      }
+      aria-current={selected ? 'true' : undefined}
     >
       <div className="stage-card-header">
         <h3>
@@ -142,6 +153,64 @@ export function Menu({
   const [unlockedBadges, setUnlockedBadges] = useState(() => getUnlockedBadges());
   const totalBadges = getTotalBadgeCount();
 
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const allLanguageStagesOrdered: StageConfig[] = (
+    supportsTier0 && byTier[0] ? byTier[0] : []
+  ).concat(
+    [1, 2, 3, 4, 5]
+      .filter((tier): tier is StageTier => tier in byTier)
+      .flatMap((tier) => byTier[tier])
+  );
+  const allStageIds = allLanguageStagesOrdered.map((s) => s.id);
+
+  const cardRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const setCardRef = useCallback(
+    (index: number) => (el: HTMLButtonElement | null) => {
+      cardRefs.current[index] = el;
+    },
+    []
+  );
+
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onBackToLanguageSelect();
+        return;
+      }
+      if (selectedIndex < 0) return;
+      const currentStage = allLanguageStagesOrdered[selectedIndex];
+      if (!currentStage) return;
+      if (e.key === 'Enter' || e.key === ' ') {
+        const lock = lockMap[currentStage.id];
+        const locked = lock ? !lock.unlocked : false;
+        if (!locked) onStartStage(currentStage);
+        return;
+      }
+      let newIndex = selectedIndex;
+      if (e.key === 'ArrowRight') {
+        newIndex = Math.min(selectedIndex + 1, allStageIds.length - 1);
+      } else if (e.key === 'ArrowLeft') {
+        newIndex = Math.max(selectedIndex - 1, 0);
+      } else if (e.key === 'ArrowDown') {
+        newIndex = Math.min(selectedIndex + 3, allStageIds.length - 1);
+      } else if (e.key === 'ArrowUp') {
+        newIndex = Math.max(selectedIndex - 3, 0);
+      }
+      if (newIndex !== selectedIndex) {
+        e.preventDefault();
+        setSelectedIndex(newIndex);
+        cardRefs.current[newIndex]?.focus();
+      }
+    },
+    [selectedIndex, allLanguageStagesOrdered, allStageIds, lockMap, onStartStage, onBackToLanguageSelect]
+  );
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleKeyDown]);
+
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const refresh = () => setUnlockedBadges(getUnlockedBadges());
@@ -178,6 +247,8 @@ export function Menu({
             <span
               className={`streak-badge streak-badge--${streak.status}`}
               title={streak.text}
+              role="status"
+              aria-label={`Daily streak: ${streak.text}`}
             >
               {streak.icon} {streak.count > 0 ? streak.count : '—'}
             </span>
@@ -224,6 +295,9 @@ export function Menu({
           <button
             className="character-select-btn"
             onClick={() => onShowCharacterSelect(language)}
+            aria-label={`Select Character${
+              defaultCharacter ? ` (${defaultCharacter.name})` : ''
+            }`}
           >
             👤 캐릭터 선택 {defaultCharacter ? `(${defaultCharacter.name})` : ''}
           </button>
@@ -231,16 +305,21 @@ export function Menu({
       </header>
 
       {supportsTier0 && byTier[0] && byTier[0].length > 0 && (
-        <section className="tier-group">
-          <h3 className="tier-title">{TIER_LABELS[0]}</h3>
+        <section
+          className="tier-group"
+          aria-labelledby="tier-title-0"
+        >
+          <h3 id="tier-title-0" className="tier-title">{TIER_LABELS[0]}</h3>
           <div className="stage-grid">
-            {byTier[0].map((s) => (
+            {byTier[0].map((s, i) => (
               <StageCard
                 key={s.id}
                 stage={s}
                 onStart={onStartStage}
                 record={stageRecords?.[s.id]}
                 lock={lockMap[s.id]}
+                selected={selectedIndex === i}
+                setRef={setCardRef(i)}
               />
             ))}
           </div>
@@ -250,30 +329,45 @@ export function Menu({
       {([1, 2, 3, 4, 5] as StageTier[]).map((tier) => {
         const tierStages = byTier[tier];
         if (tierStages.length === 0) return null;
-        // For EN/ES/KR (no Tier 0), Tier 1 is the first tier and is auto-unlocked.
-        // Show a small hint so the user knows why there's no prerequisite.
         const showTier1Hint =
           tier === 1 &&
           !supportsTier0 &&
           tierStages.some((s) => lockMap[s.id]?.unlocked);
         return (
-          <section key={tier} className="tier-group">
-            <h3 className="tier-title">{TIER_LABELS[tier]}</h3>
+          <section
+            key={tier}
+            className="tier-group"
+            aria-labelledby={`tier-title-${tier}`}
+          >
+            <h3 id={`tier-title-${tier}`} className="tier-title">
+              {TIER_LABELS[tier]}
+            </h3>
             {showTier1Hint && (
-              <p className="tier-hint tier-hint-auto">
+              // Phase 38: role="note" + aria-label so SR users hear the
+              // hint framed as an informational note.
+              <p
+                className="tier-hint tier-hint-auto"
+                role="note"
+                aria-label="Tier 1 unlock note"
+              >
                 ✨ 시작 단계 — 바로 플레이할 수 있어요
               </p>
             )}
             <div className="stage-grid">
-              {tierStages.map((s) => (
-                <StageCard
-                  key={s.id}
-                  stage={s}
-                  onStart={onStartStage}
-                  record={stageRecords?.[s.id]}
-                  lock={lockMap[s.id]}
-                />
-              ))}
+              {tierStages.map((s) => {
+                const globalIndex = allLanguageStagesOrdered.findIndex((st) => st.id === s.id);
+                return (
+                  <StageCard
+                    key={s.id}
+                    stage={s}
+                    onStart={onStartStage}
+                    record={stageRecords?.[s.id]}
+                    lock={lockMap[s.id]}
+                    selected={selectedIndex === globalIndex}
+                    setRef={setCardRef(globalIndex)}
+                  />
+                );
+              })}
             </div>
           </section>
         );
@@ -283,6 +377,10 @@ export function Menu({
         <p>
           단어부터 장문까지 6 티어 · 총 {languageStages.length}개 스테이지
         </p>
+        <small className="menu-kbd-hint">
+          <kbd>←</kbd>/<kbd>→</kbd>/<kbd>↑</kbd>/<kbd>↓</kbd> navigate ·{' '}
+          <kbd>Enter</kbd> start · <kbd>Esc</kbd> back
+        </small>
       </footer>
     </div>
   );

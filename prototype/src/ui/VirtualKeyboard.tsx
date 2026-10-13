@@ -59,8 +59,13 @@ export function VirtualKeyboard({ language, onKeyPress, expectedChar }: VirtualK
     onKeyPress(' ');
   };
 
+  const keyAriaLabel = (displayKey: string, isExpected: boolean): string => {
+    const base = `key ${displayKey}`;
+    return isExpected ? `${base}, expected next` : base;
+  };
+
   return (
-    <div className="virtual-keyboard">
+    <div className="virtual-keyboard" role="group" aria-label="Virtual keyboard">
       {layout.map((row, rowIndex) => (
         <div key={rowIndex} className="keyboard-row">
           {row.map((key) => {
@@ -72,6 +77,8 @@ export function VirtualKeyboard({ language, onKeyPress, expectedChar }: VirtualK
                 key={key}
                 className={`key ${isExpected ? 'key-expected' : ''}`}
                 onClick={() => handleKeyClick(key)}
+                aria-label={keyAriaLabel(displayKey, !!isExpected)}
+                aria-pressed={isExpected ? 'true' : undefined}
               >
                 {displayKey}
               </button>
@@ -80,19 +87,27 @@ export function VirtualKeyboard({ language, onKeyPress, expectedChar }: VirtualK
         </div>
       ))}
       <div className="keyboard-row keyboard-controls">
-        <button className="key key-shift" onClick={() => setShift(!shift)}>
+        <button className="key key-shift" onClick={() => setShift(!shift)} aria-label={shift ? 'Shift, on' : 'Shift, off'} aria-pressed={shift}>
           {shift ? '⬆' : '⇧'}
         </button>
-        <button className="key key-space" onClick={handleSpace}>
+        <button className="key key-space" onClick={handleSpace} aria-label="Space">
           Space
         </button>
-        <button className="key key-backspace" onClick={handleBackspace}>
+        <button className="key key-backspace" onClick={handleBackspace} aria-label="Backspace">
           ⌫
         </button>
-        <button className="key key-enter" onClick={handleEnter}>
+        <button className="key key-enter" onClick={handleEnter} aria-label="Enter">
           Enter
         </button>
       </div>
+      <style>{`
+        /* Phase 38: visible focus indicator for keyboard users tabbing
+           through the virtual keys. */
+        .virtual-keyboard .key:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
+        }
+      `}</style>
     </div>
   );
 }

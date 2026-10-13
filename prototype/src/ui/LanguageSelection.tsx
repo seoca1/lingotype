@@ -6,8 +6,11 @@
  * 다른 언어로 바꾸려면 초기 화면으로 돌아가야 함
  */
 
+import { useRef, useState } from 'react';
 import type { LanguageConfig } from '../language/LanguageRegistry.js';
 import { getAllLanguages } from '../language/index.js';
+import { t } from '../data/uiTranslations.js';
+import { getNativeLanguage } from '../data/nativeLanguage.js';
 
 interface LanguageSelectionProps {
   onSelectLanguage: (langCode: string) => void;
@@ -41,6 +44,27 @@ export function LanguageSelection({
   onStartCharTest,
 }: LanguageSelectionProps) {
   const languages = getAllLanguages();
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const cardRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const last = languages.length - 1;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      const next = selectedIndex >= last ? 0 : selectedIndex + 1;
+      setSelectedIndex(next);
+      cardRefs.current[next]?.focus();
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      const next = selectedIndex <= 0 ? last : selectedIndex - 1;
+      setSelectedIndex(next);
+      cardRefs.current[next]?.focus();
+    } else if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      const lang = languages[selectedIndex];
+      onSelectLanguage(lang.code);
+    }
+  };
 
   return (
     <div className="language-selection">
@@ -57,11 +81,23 @@ export function LanguageSelection({
           다른 언어로 바꾸려면 메인 화면으로 돌아가야 합니다.
         </p>
 
-        <div className="language-grid">
-          {languages.map((lang: LanguageConfig) => (
+        <div
+          className="language-grid"
+          role="grid"
+          aria-label="Available languages"
+          aria-describedby="language-selection-footer-info"
+          onKeyDown={handleKeyDown}
+        >
+          {languages.map((lang: LanguageConfig, i: number) => (
             <button
               key={lang.code}
-              className="language-card"
+              ref={(el) => {
+                cardRefs.current[i] = el;
+              }}
+              role="radio"
+              aria-pressed={i === selectedIndex}
+              aria-checked={i === selectedIndex}
+              className={`language-card${i === selectedIndex ? ' language-card-selected' : ''}`}
               style={{
                 '--theme-color': LANGUAGE_THEME[lang.code] || '#6366f1',
               } as React.CSSProperties}
@@ -92,8 +128,9 @@ export function LanguageSelection({
             🎨 캐릭터 애니메이션 테스트
           </button>
         )}
-        <p className="language-selection-info">
-          {languages.length}개 언어 지원 · 각 언어별 7 티어 · 84개 스테이지
+        <p className="language-selection-info" id="language-selection-footer-info">
+          {t('languagesSupported', getNativeLanguage())} ·{' '}
+          {t('footerHint', getNativeLanguage())}
         </p>
       </footer>
     </div>

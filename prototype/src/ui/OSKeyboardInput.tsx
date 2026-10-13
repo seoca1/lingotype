@@ -57,8 +57,17 @@ function getInputMode(_lang: Language): 'text' | 'tel' | 'url' | 'email' | 'nume
  * Map game language to OS language code (BCP 47)
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-function getLangCode(_lang: Language): string {
-  return 'en';
+function getLangCode(lang: Language): string {
+  const bcp47: Record<string, string> = {
+    en: 'en',
+    jp: 'ja',
+    kr: 'ko',
+    es: 'es',
+    fr: 'fr',
+    de: 'de',
+    zh: 'zh-CN',
+  };
+  return bcp47[lang] ?? 'en';
 }
 
 export const OSKeyboardInput = forwardRef<OSKeyboardInputHandle, OSKeyboardInputProps>(function OSKeyboardInput({
@@ -192,6 +201,8 @@ export const OSKeyboardInput = forwardRef<OSKeyboardInputHandle, OSKeyboardInput
       spellCheck={false}
       inputMode={getInputMode(language)}
       lang={getLangCode(language)}
+      aria-hidden="true"
+      tabIndex={-1}
       aria-label={`${language} typing input`}
       onKeyDown={(e) => {
         handleKeyDown(e);

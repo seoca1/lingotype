@@ -27,7 +27,7 @@ describe('ResultScreen — module shape', () => {
 // component is properly exported. Use E2E tests in `tests/e2e/` for
 // full ResultScreen coverage.
 
-describe.skip('ResultScreen — full rendering (deferred)', () => {
+describe.skip('[feature-deferred: full ResultScreen render needs E2E — downstream DailyLessonCard/MarkdownView/audio deps throw under SSR] ResultScreen — full rendering (deferred)', () => {
   it('placeholder', () => {
     expect(baseProps.score).toBe(1000);
   });

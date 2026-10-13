@@ -12,7 +12,7 @@
  * and gameplay, leveraging the existing daily lesson content.
  */
 
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useRef } from 'react';
 import type { StageConfig, Enemy } from '../types.js';
 import { LANGUAGE_LABEL, type Language } from '../types.js';
 import { getNativeLanguage, type NativeLanguage } from '../data/nativeLanguage.js';
@@ -47,6 +47,9 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
   const color = LANG_COLORS[stage.language];
   const [selectedVocab, setSelectedVocab] = useState<VocabPreview | null>(null);
   const [tier, setTier] = useState<'all' | 'core'>('all');
+  const vocabModalRef = useRef<HTMLDivElement | null>(null);
+  const vocabModalCloseRef = useRef<HTMLButtonElement | null>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
 
   // Get vocab from the pre-computed enemy list
   const nativeLanguage: NativeLanguage = getNativeLanguage();
@@ -83,6 +86,36 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
     return () => window.removeEventListener('keydown', handler);
   }, [onBack, onStart, selectedVocab]);
 
+  useEffect(() => {
+    if (!selectedVocab) return;
+    if (typeof document === 'undefined') return;
+    previouslyFocusedRef.current = document.activeElement as HTMLElement | null;
+    vocabModalCloseRef.current?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab' || !vocabModalRef.current) return;
+      const focusable = vocabModalRef.current.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0]!;
+      const last = focusable[focusable.length - 1]!;
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      previouslyFocusedRef.current?.focus?.();
+    };
+  }, [selectedVocab]);
+
   return (
     <div className="learn-screen">
       <div className="learn-screen__header" style={{ background: color }}>
@@ -101,15 +134,24 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
         <button
           className="learn-screen__start"
           onClick={onStart}
+          aria-label={`${t('start', nativeLanguage)} ${stage.name} (Enter)`}
           style={{ background: color }}
         >
-          ⚔️ {t('start', nativeLanguage)}
+          ⚔️ {t('start', nativeLanguage)} <kbd style={{ marginLeft: '6px', opacity: 0.85 }}>(Enter)</kbd>
         </button>
       </div>
 
       <div className="learn-screen__body">
-        <div className="learn-screen__filter">
-          <span className="learn-screen__filter-label">
+        {/* Phase 17: filter buttons expose aria-pressed reflecting the
+           active tier, container is role="group" with an aria-label, and
+           the live status region announces the active filter selection
+           to screen readers via role="status" + aria-live="polite". */}
+        <div
+          className="learn-screen__filter"
+          role="group"
+          aria-label={t('preview', nativeLanguage)}
+        >
+          <span className="learn-screen__filter-label" aria-hidden="true">
             {t('preview', nativeLanguage)}:
           </span>
           <button
@@ -117,6 +159,7 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
               tier === 'core' ? 'learn-screen__filter-btn--active' : ''
             }`}
             onClick={() => setTier('core')}
+            aria-pressed={tier === 'core'}
           >
             {t('core', nativeLanguage)} ({Math.min(8, vocabList.length)})
           </button>
@@ -125,9 +168,23 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
               tier === 'all' ? 'learn-screen__filter-btn--active' : ''
             }`}
             onClick={() => setTier('all')}
+            aria-pressed={tier === 'all'}
           >
             {t('all', nativeLanguage)} ({vocabList.length})
           </button>
+        </div>
+        {/* Phase 34/17: status region announces the active filter
+           selection for SR users. data-testid="learn-screen-filter-status"
+           so the test file can locate the region deterministically. */}
+        <div
+          className="learn-screen__filter-status"
+          role="status"
+          aria-live="polite"
+          data-testid="learn-screen-filter-status"
+        >
+          {tier === 'all'
+            ? t('all', nativeLanguage)
+            : t('core', nativeLanguage)}
         </div>
 
         <div className="learn-screen__vocab-grid">
@@ -136,6 +193,7 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
               key={v.id}
               className="learn-screen__vocab-card"
               onClick={() => setSelectedVocab(v)}
+              aria-label={`${v.display}, meaning ${v.meaning || 'unavailable'}, level ${v.level}, category ${v.category || 'general'}. Activate to view details.`}
             >
               <div className="learn-screen__vocab-display">{v.display}</div>
               <div className="learn-screen__vocab-input">
@@ -165,6 +223,15 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
         <div className="learn-screen__tip">
           💡 <strong>{t('tipHoverForMeaning', nativeLanguage).split('💡')[1]?.trim() || t('tipHoverForMeaning', nativeLanguage)}</strong>
         </div>
+
+        {/* Phase 34: kbd-hint footer announces Enter to start + Escape
+           to back via the readable <kbd> content. NO aria-label
+           override (mirrors Phase 32/34 Menu + ResultScreen contract) so
+           SR users hear the actual shortcut names instead of a generic
+           "Keyboard shortcuts" replacement. */}
+        <small className="learn-screen__kbd-hint">
+          <kbd>Enter</kbd> start stage · <kbd>Esc</kbd> back to menu
+        </small>
       </div>
 
       {/* Vocab Detail Modal */}
@@ -172,6 +239,11 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
         <div
           className="learn-screen__vocab-modal"
           onClick={() => setSelectedVocab(null)}
+          ref={vocabModalRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selectedVocab.display} details`}
+          data-testid="learn-screen-vocab-modal"
         >
           <div
             className="learn-screen__vocab-modal-content"
@@ -188,9 +260,10 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
                 </div>
               </div>
               <button
+                ref={vocabModalCloseRef}
                 className="learn-screen__vocab-modal-close"
                 onClick={() => setSelectedVocab(null)}
-                aria-label={t('close', nativeLanguage)}
+                aria-label={`${t('close', nativeLanguage)} (Escape)`}
               >
                 ✕
               </button>
@@ -543,6 +616,19 @@ export function LearnScreen({ stage, enemies, onStart, onBack }: LearnScreenProp
           .learn-screen__vocab-grid {
             grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
           }
+        }
+
+        /* Phase 31: focus-visible ring on the LearnScreen actionable
+           controls so keyboard users tabbing through the preview see a
+           consistent 2px cyan outline + 2px offset. */
+        .learn-screen__filter-btn:focus-visible,
+        .learn-screen__vocab-card:focus-visible,
+        .learn-screen__vocab-modal-close:focus-visible,
+        .learn-screen__tts-btn:focus-visible,
+        .learn-screen__back:focus-visible,
+        .learn-screen__start:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
         }
       `}</style>
     </div>

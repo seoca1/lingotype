@@ -101,7 +101,8 @@ function TtsButton({ text, lang }: { text: string; lang: string }): ReactNode {
       className={`md-tts-btn ${speaking ? 'md-tts-btn--active' : ''}`}
       onClick={handleClick}
       title={speaking ? 'Stop' : 'Listen to pronunciation'}
-      aria-label="Listen to pronunciation"
+      aria-label={speaking ? 'Stop pronunciation' : 'Listen to pronunciation'}
+      aria-pressed={speaking}
     >
       {speaking ? '⏸' : '🔊'}
     </button>
@@ -447,13 +448,21 @@ function renderBlock(
         </div>
       );
     }
-    case 'table':
+    case 'table': {
+      // Phase 36 (WCAG 1.3.1): wrap in a visually-hidden <caption>
+      // synthesised from the first header + " table" (Data table
+      // fallback) so SR users navigating by landmarks get a meaningful
+      // table name, and tag every <th> with scope="col" so SR engines
+      // announce header context for each data cell.
+      const firstHeader = block.headers[0]?.trim();
+      const captionText = firstHeader ? `${firstHeader} table` : 'Data table';
       return (
         <table key={key} className="md-table">
+          <caption className="visually-hidden">{captionText}</caption>
           <thead>
             <tr>
               {block.headers.map((h, i) => (
-                <th key={i}>{parseInline(h, linkResolver)}</th>
+                <th key={i} scope="col">{parseInline(h, linkResolver)}</th>
               ))}
             </tr>
           </thead>
@@ -468,6 +477,7 @@ function renderBlock(
           </tbody>
         </table>
       );
+    }
     case 'divider':
       return <hr key={key} className="md-divider" />;
   }

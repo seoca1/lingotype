@@ -105,7 +105,11 @@ export type TranslationKey =
   | 'nativeLanguage' // 모국어 / Native Language
   | 'characterSelect' // 캐릭터 선택
   | 'randomCharacter' // 랜덤 캐릭터
-  | 'noCharacterSelected'; // 선택 안 함
+  | 'noCharacterSelected' // 선택 안 함
+  | 'settingsSaved' // 설정 저장됨
+  | 'pressEscToClose' // Esc로 닫기
+  | 'footerHint' // 푸터
+  | 'languagesSupported'; // 지원 언어
 
 export const UI_STRINGS: Record<TranslationKey, Record<NativeLanguage, string>> = {
   // Stage / Game UI
@@ -225,6 +229,15 @@ export const UI_STRINGS: Record<TranslationKey, Record<NativeLanguage, string>> 
   characterSelect: { en: 'Character Select', ko: '캐릭터 선택', ja: 'キャラ選択', es: 'Selección de personaje' },
   randomCharacter: { en: 'Random', ko: '랜덤', ja: 'ランダム', es: 'Aleatorio' },
   noCharacterSelected: { en: 'No character selected', ko: '선택 안 함', ja: '未選択', es: 'Sin selección' },
+  settingsSaved: { en: 'Settings saved', ko: '설정 저장됨', ja: '設定を保存しました', es: 'Ajustes guardados' },
+  pressEscToClose: { en: 'Press Esc to close', ko: 'Esc 키로 닫기', ja: 'Esc で閉じる', es: 'Pulsa Esc para cerrar' },
+  footerHint: {
+    en: 'Tip: Settings auto-save and sync across browser sessions.',
+    ko: '팁: 설정은 자동으로 저장되며 브라우저 세션 간 동기화됩니다.',
+    ja: 'ヒント: 設定は自動保存され、ブラウザセッション間で同期されます。',
+    es: 'Consejo: los ajustes se guardan automáticamente y se sincronizan entre sesiones.',
+  },
+  languagesSupported: { en: '4 languages supported', ko: '4개 언어 지원', ja: '4言語対応', es: '4 idiomas soportados' },
 };
 
 /**

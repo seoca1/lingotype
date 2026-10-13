@@ -46,6 +46,51 @@ interface ResultScreenProps {
   clearedStageId?: string;
 }
 
+/** A single weak-word chip entry — id + optional stats from wordMastery. */
+export interface WeakWordEntry {
+  id: string;
+  stats?: { mistakeCount: number } | null;
+}
+
+/** Session-level weak words panel. */
+export function WeakWordModal({ words }: { words: WeakWordEntry[] }) {
+  if (words.length === 0) return null;
+  return (
+    <div className="result-weak-words">
+      <h2>{t('weakWords', getNativeLanguage())}</h2>
+      <p className="weak-words-hint">
+        {(() => {
+          const nl = getNativeLanguage();
+          if (nl === 'ko')
+            return '실수가 많았던 단어들입니다. 일일 학습에서 복습해보세요.';
+          if (nl === 'ja')
+            return 'ミスの多い単語です。毎日の学習で復習しましょう。';
+          if (nl === 'es')
+            return 'Palabras con más errores. Repásalas en la lección diaria.';
+          return 'Words with many mistakes. Review them in the daily lesson.';
+        })()}
+      </p>
+      <div className="weak-words-list">
+        {words.slice(0, 5).map(({ id, stats }) => (
+          <div key={id} className="weak-word-chip" aria-label={`View details for ${id}, ${stats?.mistakeCount ?? 0} mistakes`}>
+            <span className="weak-word-id">{id}</span>
+            <span className="weak-word-mistakes">
+              {stats?.mistakeCount ?? 0}{' '}
+              {(() => {
+                const nl = getNativeLanguage();
+                if (nl === 'ko') return '회 실수';
+                if (nl === 'ja') return '回ミス';
+                if (nl === 'es') return ' errores';
+                return ' mistakes';
+              })()}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function triggerHapticFeedback(): void {
   if (typeof navigator === 'undefined' || typeof navigator.vibrate !== 'function') return;
   try {
@@ -161,8 +206,11 @@ export function ResultScreen({
   };
 
   return (
-    <div className="result-screen">
-      <h1>Stage Result</h1>
+    // Phase 27: outer wrapper exposes role="region" tied to the H1 via
+    // aria-labelledby so SR users navigating by landmarks can jump
+    // straight to the result region.
+    <section className="result-screen" role="region" aria-labelledby="result-screen-title">
+      <h1 id="result-screen-title">Stage Result</h1>
       <div className="result-summary">
         <p>Score: <strong>{score}</strong></p>
         <p>Defeated: <strong>{enemiesDefeated}</strong></p>
@@ -170,8 +218,13 @@ export function ResultScreen({
 
       {/* Phase I: Newly Unlocked Stages Banner */}
       {newlyUnlocked.length > 0 && (
-        <div className="result-unlock-banner">
-          <div className="result-unlock-banner__icon">🔓</div>
+        <div
+          className="result-unlock-banner"
+          role="status"
+          aria-live="polite"
+          aria-label={`${newlyUnlocked.length} new stage${newlyUnlocked.length > 1 ? 's' : ''} unlocked`}
+        >
+          <div className="result-unlock-banner__icon" aria-hidden="true">🔓</div>
           <div className="result-unlock-banner__text">
             <strong>+{newlyUnlocked.length} new stage{newlyUnlocked.length > 1 ? 's' : ''} unlocked!</strong>
             <div className="result-unlock-banner__list">
@@ -188,8 +241,17 @@ export function ResultScreen({
 
       {/* Phase J: Daily Streak Celebration */}
       {streakInfo && (
-        <div className={`result-streak-banner ${streakInfo.newMilestone ? 'result-streak-banner--milestone' : ''}`}>
-          <div className="result-streak-banner__icon">
+        <div
+          className={`result-streak-banner ${streakInfo.newMilestone ? 'result-streak-banner--milestone' : ''}`}
+          role="status"
+          aria-live="polite"
+          aria-label={
+            streakInfo.newMilestone
+              ? `New streak milestone: ${streakInfo.newMilestone.label}`
+              : `Daily streak: ${streakInfo.state.currentStreak} days`
+          }
+        >
+          <div className="result-streak-banner__icon" aria-hidden="true">
             {streakInfo.newMilestone?.icon ||
               (streakInfo.state.currentStreak >= 7 ? '🔥' : '📅')}
           </div>
@@ -265,9 +327,20 @@ export function ResultScreen({
       {/* Phase B-4: Mastery Overview */}
       <div className="result-mastery">
         <h2>{t('learningProgress', getNativeLanguage())}</h2>
-        <div className="mastery-bar">
+        {/* Phase 34: role="progressbar" + aria-valuenow/valuemin/valuemax +
+           aria-label so SR users hear the mastery percentage. The visible
+           % label inside the fill is aria-hidden so SR users do not get a
+           double-announcement ("40%, 40 percent"). */}
+        <div
+          className="mastery-bar"
+          role="progressbar"
+          aria-label={`${t('masteryPercent', getNativeLanguage())}: ${overallMastery} percent`}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={overallMastery}
+        >
           <div className="mastery-bar__fill" style={{ width: `${overallMastery}%` }}>
-            <span className="mastery-bar__label">{overallMastery}%</span>
+            <span className="mastery-bar__label" aria-hidden="true">{overallMastery}%</span>
           </div>
         </div>
         <p className="mastery-meta">
@@ -278,48 +351,32 @@ export function ResultScreen({
 
       {/* Phase B-4: Weak Words */}
       {sessionWeakWords.length > 0 && (
-        <div className="result-weak-words">
-          <h2>{t('weakWords', getNativeLanguage())}</h2>
-          <p className="weak-words-hint">
-            {(() => {
-              const nl = getNativeLanguage();
-              if (nl === 'ko')
-                return '실수가 많았던 단어들입니다. 일일 학습에서 복습해보세요.';
-              if (nl === 'ja')
-                return 'ミスの多い単語です。毎日の学習で復習しましょう。';
-              if (nl === 'es')
-                return 'Palabras con más errores. Repásalas en la lección diaria.';
-              return 'Words with many mistakes. Review them in the daily lesson.';
-            })()}
-          </p>
-          <div className="weak-words-list">
-            {sessionWeakWords.slice(0, 5).map(({ id, stats }) => (
-              <div key={id} className="weak-word-chip">
-                <span className="weak-word-id">{id}</span>
-                <span className="weak-word-mistakes">
-                  {stats?.mistakeCount ?? 0}{' '}
-                  {(() => {
-                    const nl = getNativeLanguage();
-                    if (nl === 'ko') return '회 실수';
-                    if (nl === 'ja') return '回ミス';
-                    if (nl === 'es') return ' errores';
-                    return ' mistakes';
-                  })()}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
+        <WeakWordModal words={sessionWeakWords} />
       )}
 
-      <div className="result-missions">
-        <h2>Missions</h2>
+      {/* Phase 37 — list landmark: aria-labelledby ties the missions list to
+          its heading so SR users hear "Missions, list, N items" on entry. */}
+      <div className="result-missions" role="list" aria-labelledby="result-missions-heading">
+        <h2 id="result-missions-heading">Missions</h2>
         {missions.map((m) => {
           const result = results.find((r) => r.missionId === m.id);
           const cleared = result?.cleared ?? false;
           return (
-            <div key={m.id} className={`mission-result ${cleared ? 'cleared' : 'failed'}`}>
-              <strong>{cleared ? '✓' : '✗'} {m.name}</strong>
+            // Phase 34 — aria-label names the mission + cleared/failed status
+            // so SR users hear "Mission name, cleared" instead of just the
+            // glyph + name. The visible ✓/✗ glyph is aria-hidden so SR users
+            // don't get a double announcement. role="listitem" stays
+            // immediately after class to preserve the Phase 27 regex
+            // `class="mission-result[^"]*" role="listitem"`.
+            <div
+              key={m.id}
+              className={`mission-result ${cleared ? 'cleared' : 'failed'}`}
+              role="listitem"
+              aria-label={`${m.name}: ${cleared ? 'cleared' : 'failed'}`}
+            >
+              <strong>
+                <span aria-hidden="true">{cleared ? '✓' : '✗'}</span> {m.name}
+              </strong>
               <p>{m.description}</p>
             </div>
           );
@@ -344,7 +401,14 @@ export function ResultScreen({
         />
       )}
 
-      <button onClick={onBack}>Back to Menu</button>
+      <button onClick={onBack} aria-label="Back to menu (Escape)">Back to Menu (Esc)</button>
+
+      {/* Phase 24/32/34: kbd hint footer announces the Escape shortcut
+          via the readable <kbd> content (no aria-label override so SR
+          users hear the actual shortcut instead of "Keyboard shortcuts"). */}
+      <small className="result-kbd-hint">
+        <kbd>Esc</kbd> return to menu
+      </small>
 
       <style>{`
         .result-mastery {
@@ -547,6 +611,6 @@ export function ResultScreen({
           font-size: 11px;
         }
       `}</style>
-    </div>
+    </section>
   );
 }

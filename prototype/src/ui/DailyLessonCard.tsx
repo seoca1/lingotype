@@ -67,6 +67,7 @@ export function DailyLessonCard({ lesson, onOpen, onSkip, onPractice }: DailyLes
         <button
           className="daily-lesson-card__btn daily-lesson-card__btn--primary"
           style={{ background: color }}
+          aria-label={t('readMore', nativeLanguage)}
           onClick={() => onOpen(lesson)}
         >
           📖 {t('readMore', nativeLanguage)}
@@ -74,6 +75,7 @@ export function DailyLessonCard({ lesson, onOpen, onSkip, onPractice }: DailyLes
         {lesson.meta.relatedStages.length > 0 && (
           <button
             className="daily-lesson-card__btn daily-lesson-card__btn--secondary"
+            aria-label={t('practice', nativeLanguage)}
             onClick={() => onPractice(lesson.meta.relatedStages[0])}
           >
             🎮 {t('practice', nativeLanguage)}
@@ -81,6 +83,7 @@ export function DailyLessonCard({ lesson, onOpen, onSkip, onPractice }: DailyLes
         )}
         <button
           className="daily-lesson-card__btn daily-lesson-card__btn--tertiary"
+          aria-label={t('later', nativeLanguage)}
           onClick={onSkip}
         >
           {t('later', nativeLanguage)}
@@ -154,6 +157,13 @@ export function DailyLessonCard({ lesson, onOpen, onSkip, onPractice }: DailyLes
           min-width: 70px;
         }
         .daily-lesson-card__btn:hover { opacity: 0.85; }
+        /* Phase 30: focus-visible ring on the 3 action buttons so keyboard
+           users tabbing through the Result screen get a visible focus
+           indicator that mirrors the .warning-btn focus pattern. */
+        .daily-lesson-card__btn:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
+        }
       `}</style>
     </div>
   );

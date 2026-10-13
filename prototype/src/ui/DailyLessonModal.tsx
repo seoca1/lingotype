@@ -110,6 +110,7 @@ export function DailyLessonModal({ lesson, onClose, onPractice }: DailyLessonMod
   const color = LANG_COLORS[lesson.language];
   const [tier, setTier] = useState<Tier>('standard');
   const [wikilinkTarget, setWikilinkTarget] = useState<WikiPage | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Mark as seen when modal opens
   useEffect(() => {
@@ -151,8 +152,13 @@ export function DailyLessonModal({ lesson, onClose, onPractice }: DailyLessonMod
 
   // Filter content based on tier
   const content = useMemo(() => {
+    const q = searchQuery.toLowerCase();
+    const matchesQuery = (page: WikiPage) =>
+      !q || page.title.toLowerCase().includes(q) || page.body.toLowerCase().includes(q);
+
+    let base: { vocab: WikiPage[]; expressions: WikiPage[]; culture: WikiPage | null };
     if (tier === 'quick') {
-      return {
+      base = {
         vocab: lesson.wiki.vocabulary.slice(0, 1).map(getQuickVocabSummary).map((body, i) => ({
           ...lesson.wiki.vocabulary[i],
           body,
@@ -165,9 +171,8 @@ export function DailyLessonModal({ lesson, onClose, onPractice }: DailyLessonMod
           ? { ...lesson.wiki.culture, body: filterMarkdownByTier(lesson.wiki.culture.body, 'quick') }
           : null,
       };
-    }
-    if (tier === 'standard') {
-      return {
+    } else if (tier === 'standard') {
+      base = {
         vocab: lesson.wiki.vocabulary.slice(0, 3).map((p) => ({
           ...p,
           body: filterMarkdownByTier(p.body, 'standard'),
@@ -180,13 +185,20 @@ export function DailyLessonModal({ lesson, onClose, onPractice }: DailyLessonMod
           ? { ...lesson.wiki.culture, body: filterMarkdownByTier(lesson.wiki.culture.body, 'standard') }
           : null,
       };
+    } else {
+      base = {
+        vocab: lesson.wiki.vocabulary,
+        expressions: lesson.wiki.expressions,
+        culture: lesson.wiki.culture,
+      };
     }
+
     return {
-      vocab: lesson.wiki.vocabulary,
-      expressions: lesson.wiki.expressions,
-      culture: lesson.wiki.culture,
+      vocab: base.vocab.filter(matchesQuery),
+      expressions: base.expressions.filter(matchesQuery),
+      culture: base.culture && matchesQuery(base.culture) ? base.culture : null,
     };
-  }, [lesson, tier]);
+  }, [lesson, tier, searchQuery]);
 
   // Handle wikilink click → show related page in sub-modal
   const handleWikilinkClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -236,7 +248,7 @@ export function DailyLessonModal({ lesson, onClose, onPractice }: DailyLessonMod
         </div>
 
         {/* Tier Selector */}
-        <div className="daily-lesson-modal__tier-selector">
+        <div className="daily-lesson-modal__tier-selector" role="group" aria-label="Lesson depth">
           {(Object.keys(TIER_META) as Tier[]).map((t) => {
             const meta = TIER_META[t];
             return (
@@ -246,14 +258,27 @@ export function DailyLessonModal({ lesson, onClose, onPractice }: DailyLessonMod
                   tier === t ? 'daily-lesson-modal__tier-btn--active' : ''
                 }`}
                 onClick={() => setTier(t)}
+                aria-pressed={tier === t}
+                aria-label={`${meta.label} tier, ~${meta.minutes} minute${meta.minutes === 1 ? '' : 's'}${tier === t ? ', selected' : ''}`}
                 style={tier === t ? { background: meta.color, color: 'white' } : {}}
               >
-                <span className="daily-lesson-modal__tier-icon">{meta.icon}</span>
+                <span className="daily-lesson-modal__tier-icon" aria-hidden="true">{meta.icon}</span>
                 <span className="daily-lesson-modal__tier-label">{meta.label}</span>
                 <span className="daily-lesson-modal__tier-time">~{meta.minutes}분</span>
               </button>
             );
           })}
+        </div>
+
+        <div className="daily-lesson-modal__search-row">
+          <input
+            className="daily-lesson-modal__search"
+            type="text"
+            placeholder={getNativeLanguage() === 'ko' ? '단어 검색...' : 'Search...'}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            aria-label="Search lesson content"
+          />
         </div>
 
         <div className="daily-lesson-modal__body">
@@ -333,6 +358,7 @@ export function DailyLessonModal({ lesson, onClose, onPractice }: DailyLessonMod
                 onPractice(lesson.meta.relatedStages[0]);
                 onClose();
               }}
+              aria-label={`${t('practice', getNativeLanguage())} ${lesson.meta.relatedStages[0]}`}
             >
               🎮 {t('practice', getNativeLanguage())} ({lesson.meta.relatedStages[0]})
             </button>
@@ -341,9 +367,14 @@ export function DailyLessonModal({ lesson, onClose, onPractice }: DailyLessonMod
               {t('relatedStageComingSoon', getNativeLanguage())}
             </span>
           )}
-          <button className="daily-lesson-modal__close-btn" onClick={onClose}>
+          <button
+            className="daily-lesson-modal__close-btn"
+            onClick={onClose}
+            aria-label={`${t('close', getNativeLanguage())} (Escape)`}
+          >
             {t('close', getNativeLanguage())}
           </button>
+          <small className="daily-lesson-modal__kbd-hint" aria-hidden="true">Esc to close</small>
         </div>
       </div>
 
@@ -466,6 +497,29 @@ export function DailyLessonModal({ lesson, onClose, onPractice }: DailyLessonMod
         }
         .daily-lesson-modal__tier-btn--active {
           font-weight: 600;
+        }
+        .daily-lesson-modal__tier-btn:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
+        }
+        .daily-lesson-modal__search-row {
+          padding: 12px 24px;
+          background: #06090f;
+          border-bottom: 1px solid #1a2530;
+        }
+        .daily-lesson-modal__search {
+          width: 100%;
+          padding: 8px 12px;
+          background: #1a2530;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 6px;
+          color: #c5d4e3;
+          font-size: 13px;
+        }
+        .daily-lesson-modal__kbd-hint {
+          color: #6a7888;
+          font-size: 11px;
+          align-self: center;
         }
         .daily-lesson-modal__tier-icon { font-size: 14px; }
         .daily-lesson-modal__tier-label { font-size: 13px; }

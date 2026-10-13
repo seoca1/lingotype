@@ -55,16 +55,26 @@ export function EnemyTooltip({
     onTtsPlay(text, ttsLang);
   };
 
+  // Some enemies carry an optional pronunciation field added at runtime
+  // (e.g. by spreading a WordEntry that includes one). Narrow the type
+  // locally so we can read it without `any`.
+  const pronunciation = (target as Target & { pronunciation?: string }).pronunciation;
+
+  const closeLabel = `${t('close', nativeLanguage)} (Escape)`;
+
   return (
     <div
       className="enemy-tooltip"
       style={{ left: tooltipX, top: tooltipY }}
       onMouseEnter={(e) => e.stopPropagation()}
+      role="dialog"
+      aria-modal="false"
+      aria-label={`${target.text} details`}
     >
       <button
         className="enemy-tooltip__close"
         onClick={onClose}
-        aria-label={t('close', nativeLanguage)}
+        aria-label={closeLabel}
       >
         ✕
       </button>
@@ -93,21 +103,21 @@ export function EnemyTooltip({
         </div>
       )}
 
-      {(target as any).pronunciation && (
+      {pronunciation && (
         <div className="enemy-tooltip__pron">
           <span className="enemy-tooltip__label">
             {t('pronunciation', nativeLanguage)}:
           </span>{' '}
-          <code>{(target as any).pronunciation}</code>
+          <code>{pronunciation}</code>
         </div>
       )}
 
       <div className="enemy-tooltip__meta">
         {target.category && (
-          <span className="enemy-tooltip__cat">📁 {target.category}</span>
+          <span className="enemy-tooltip__cat" aria-hidden="true">📁 {target.category}</span>
         )}
         {target.level !== undefined && (
-          <span className="enemy-tooltip__level">
+          <span className="enemy-tooltip__level" aria-hidden="true">
             📊 {t('level', nativeLanguage)} {target.level}
           </span>
         )}
@@ -141,6 +151,11 @@ export function EnemyTooltip({
           padding: 2px 6px;
         }
         .enemy-tooltip__close:hover { color: #fff; }
+        .enemy-tooltip__close:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
+          color: #fff;
+        }
         .enemy-tooltip__header {
           margin-bottom: 8px;
           padding-right: 24px;

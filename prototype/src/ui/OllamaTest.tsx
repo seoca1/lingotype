@@ -72,8 +72,16 @@ export function OllamaTest() {
     <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
       <h2>Ollama Connection Test</h2>
 
-      <div style={{ marginBottom: '20px' }}>
-        <button onClick={testConnection} disabled={loading}>
+      <div
+        style={{ marginBottom: '20px' }}
+        role="group"
+        aria-label="Connection test"
+      >
+        <button
+          onClick={testConnection}
+          disabled={loading}
+          aria-label="Test Ollama connection"
+        >
           Test Connection
         </button>
         {connected !== null && (
@@ -82,6 +90,9 @@ export function OllamaTest() {
               marginLeft: '10px',
               color: connected ? 'green' : 'red',
             }}
+            role="status"
+            aria-live="polite"
+            aria-label={connected ? 'Connection succeeded' : 'Connection failed'}
           >
             {connected ? '✓ Connected' : '✗ Connection Failed'}
           </span>
@@ -95,31 +106,52 @@ export function OllamaTest() {
       </div>
 
       <div style={{ marginBottom: '20px' }}>
+        <label htmlFor="ollama-test-prompt">
+          <strong>Prompt</strong>
+        </label>
         <textarea
+          id="ollama-test-prompt"
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           placeholder="Enter your prompt here..."
           rows={5}
+          aria-label="Prompt input"
           style={{ width: '100%', padding: '10px', fontSize: '14px' }}
         />
       </div>
 
-      <div style={{ marginBottom: '20px', display: 'flex', gap: '10px' }}>
-        <button onClick={handleGenerate} disabled={loading || !prompt.trim()}>
+      <div
+        style={{ marginBottom: '20px', display: 'flex', gap: '10px' }}
+        role="group"
+        aria-label="Generation actions"
+      >
+        <button
+          onClick={handleGenerate}
+          disabled={loading || !prompt.trim()}
+          aria-label="Generate response (non-streaming)"
+        >
           Generate (Normal)
         </button>
         <button
           onClick={handleStreamGenerate}
           disabled={loading || !prompt.trim()}
+          aria-label="Generate response (streaming)"
         >
           Generate (Stream)
         </button>
       </div>
 
-      {loading && <p>Generating...</p>}
+      {loading && (
+        <p role="status" aria-live="polite">
+          Generating...
+        </p>
+      )}
 
       {response && (
         <div
+          role="region"
+          aria-label="Ollama response"
+          aria-live="polite"
           style={{
             border: '1px solid #ccc',
             padding: '15px',
@@ -132,6 +164,15 @@ export function OllamaTest() {
           <p>{response}</p>
         </div>
       )}
+      <style>{`
+        /* Phase 38: visible focus indicator on every actionable control
+           inside this test harness. */
+        div button:focus-visible,
+        div textarea:focus-visible {
+          outline: 2px solid #00d9ff;
+          outline-offset: 2px;
+        }
+      `}</style>
     </div>
   );
 }

@@ -5,7 +5,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-18.3-61dafb)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-5.3-646cff)](https://vitejs.dev/)
-[![Tests](https://img.shields.io/badge/Tests-648%20passed-success)](#testing)
+[![Tests](https://img.shields.io/badge/Tests-1094%20passed-success)](#testing)
 
 **🎮 [Play Live Demo](https://seoca1.github.io/typing-language/)**
 
@@ -111,7 +111,7 @@ npm run preview      # 빌드 미리보기
 
 ### 테스트
 ```bash
-npm test             # 유닛 테스트 (648 passed + 2 skipped)
+npm test             # 유닛 테스트 (1094 passed + 19 skipped)
 npm run test:watch   # Watch 모드
 npm run cli:test     # CLI 자동 검증 (30 tests)
 ```
@@ -176,8 +176,8 @@ npm test
 ```
 
 **결과:**
-- ✅ 648 tests passed
-- ⏭️ 2 tests skipped (Korean accuracy - 설계상 의도)
+- ✅ 1094 tests passed
+- ⏭️ 19 tests skipped (Korean accuracy + documented a11y feature-deferrals)
 - 📊 Coverage: EnglishHandler (22), JapaneseHandler (24), SpanishHandler (26), KoreanHandler (27)
 
 ### CLI 검증
@@ -358,7 +358,7 @@ npm run dev -- --port 3000
 | **언어** | TypeScript 5.5 |
 | **프레임워크** | React 19 + Vite 6 |
 | **코드 라인** | ~5,000 lines |
-| **유닛 테스트** | 648 passed + 2 skipped (650 total) |
+| **유닛 테스트** | 1094 passed + 19 skipped (1113 total) |
 | **CLI 테스트** | 30/30 passed |
 | **빌드 크기** | 1049 KB (gzip 285 KB) |
 | **지원 언어** | 4개 (EN/JP/ES/KR) |

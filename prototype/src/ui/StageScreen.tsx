@@ -18,6 +18,9 @@ interface StageScreenProps {
   onCanvasClick?: (x: number, y: number) => void;
   /** Called when the user clicks the Back to Menu button */
   onBackToMenu?: () => void;
+  /** Caps Lock detected during Korean jamo input — triggers an aria-live
+      announcement for SR users (the canvas overlay is invisible to SR). */
+  capsLockWarning?: boolean;
 }
 
 export function StageScreen({
@@ -29,6 +32,7 @@ export function StageScreen({
   canvasHeight = 880,
   onCanvasClick,
   onBackToMenu,
+  capsLockWarning = false,
 }: StageScreenProps) {
   const audio = getAudioManager();
   const [volume, setVolume] = useState(audio.getVolume());
@@ -139,8 +143,27 @@ export function StageScreen({
     window.speechSynthesis.speak(u);
   }, []);
 
+  const canvasAriaLabel = state.currentEnemy
+    ? (() => {
+        const target = state.currentEnemy.target;
+        const meaning = target.meaning ? `, meaning ${target.meaning}` : '';
+        const category = target.category ? `, category ${target.category}` : '';
+        return `Game canvas. Type ${target.text} in ${languageLabel}${meaning}${category}. Typed so far: ${state.buffer || 'nothing'}.`;
+      })()
+    : `Game canvas for ${languageLabel}. ${stage?.name ?? 'Stage ready.'}`;
+
   return (
     <div className="stage-screen">
+      <div
+        className="caps-lock-warning-sr"
+        role={capsLockWarning ? 'alert' : undefined}
+        aria-live={capsLockWarning ? 'assertive' : undefined}
+        data-testid="caps-lock-warning-sr"
+      >
+        {capsLockWarning
+          ? 'Caps Lock is on. Korean jamo input may behave unexpectedly. Turn off Caps Lock.'
+          : ''}
+      </div>
       <canvas
         ref={canvasRef}
         width={canvasWidth}
@@ -150,6 +173,8 @@ export function StageScreen({
         onMouseMove={handleCanvasMouseMove}
         onMouseLeave={handleCanvasMouseLeave}
         style={{ cursor: onCanvasClick ? 'pointer' : 'default' }}
+        role="img"
+        aria-label={canvasAriaLabel}
       />
       <aside className="stage-info">
         <h2>
@@ -170,21 +195,28 @@ export function StageScreen({
             )}
           </div>
         )}
-        <div className="missions">
-          <h3>Missions</h3>
+        <div
+          className="missions"
+          role="list"
+          aria-label={`Stage missions for ${stage?.name ?? 'this stage'}`}
+        >
+          <h3 id="stage-missions-heading">Missions</h3>
           {stage?.missions.map((m) => (
-            <div key={m.id} className="mission">
+            <div key={m.id} className="mission" role="listitem">
               <strong>{m.name}</strong>
               <p>{m.description}</p>
             </div>
           ))}
         </div>
-        <div className="hud-info">
-          <p>Score: {state.score}</p>
-          <p>Defeated: {state.enemiesDefeated}</p>
-          <p>Combo: {state.combo} (max: {state.comboMax})</p>
-          <p>WPM: {state.wpm.toFixed(0)}</p>
-          <p>ACC: {state.accuracy.toFixed(0)}%</p>
+        <div className="hud-info" role="region" aria-labelledby="hud-heading">
+          <h3 id="hud-heading" className="visually-hidden">
+            Game stats
+          </h3>
+          <p aria-hidden="true">Score: {state.score}</p>
+          <p aria-hidden="true">Defeated: {state.enemiesDefeated}</p>
+          <p aria-hidden="true">Combo: {state.combo} (max: {state.comboMax})</p>
+          <p aria-hidden="true">WPM: {state.wpm.toFixed(0)}</p>
+          <p aria-hidden="true">ACC: {state.accuracy.toFixed(0)}%</p>
         </div>
         <div className="hover-hint">
           <small>{t('tipHoverForMeaning', getNativeLanguage())}</small>
@@ -192,27 +224,39 @@ export function StageScreen({
         <div className="audio-controls">
           <h3>Audio</h3>
           <div className="audio-toggle">
-            <button onClick={toggleSound} className="toggle-btn">
+            <button
+              onClick={toggleSound}
+              className="toggle-btn"
+              aria-label={soundEnabled ? 'Mute sound effects' : 'Enable sound effects'}
+              aria-pressed={soundEnabled}
+            >
               {soundEnabled ? '🔊' : '🔇'} {soundEnabled ? 'On' : 'Off'}
             </button>
           </div>
           {soundEnabled && (
             <div className="volume-slider">
-              <label>
+              <label htmlFor="stage-volume-slider">
                 Volume: {Math.round(volume * 100)}%
-                <input
-                  type="range"
-                  min="0"
-                  max="1"
-                  step="0.1"
-                  value={volume}
-                  onChange={handleVolumeChange}
-                />
               </label>
+              <input
+                id="stage-volume-slider"
+                type="range"
+                min="0"
+                max="1"
+                step="0.1"
+                value={volume}
+                onChange={handleVolumeChange}
+                aria-label="Sound effects volume"
+                aria-valuetext={`${Math.round(volume * 100)} percent`}
+              />
             </div>
           )}
         </div>
-        <button onClick={onBackToMenu}>
+        <button
+          onClick={onBackToMenu}
+          aria-label="Back to menu (Escape)"
+          className="stage-back-btn"
+        >
           Back to Menu (Esc)
         </button>
       </aside>

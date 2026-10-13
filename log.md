@@ -56,3 +56,48 @@
 - **a11y tests (phase17–39)**: ⚠️ **반입 기각** — remote UI 구현 종속(`WeakWordModal`·`koreanInputMode`·`DailyLesson.difficulty` 등), 반입 시 tsc 12 err + vitest 245 fail. local UI 에 맞춘 재작성 필요. split corpus(`{en,es,jp,kr}_corpus.ts`)도 미반입 (local `corpus.ts` 통합본).
 
 **검증**: `tsc` 0 · `vitest` 808 passed/2 skipped · `vite build` ok.
+
+## [2026-10-13] chore | ESLint debt 해소 — flat-config lint script 수정 + 28 errors → 0
+
+**Status**: ✅ 완료 (미커밋 — 사용자 승인 대기)
+
+- **lint script** (`prototype/package.json`): `eslint . --ext .ts,.tsx` → `eslint .` (flat `eslint.config.js` 는 `--ext` 미지원). `npm run lint` 정상화.
+- **`no-explicit-any` 20 → 0**: AudioManager `Window & { webkitAudioContext?: typeof AudioContext }` · CharacterRenderer `SpriteName` · cli `MatchResult` · translations `SentencesByLang` record · CharacterSelect `Language` · EnemyTooltip `Target & { pronunciation?: string }` · device `LegacyNavigatorGlobals` · handler/stageLock 테스트 `MatchResult`·`StageLockInfo` · invalid-input cast 는 `as unknown as <T>`.
+- **`no-case-declarations` 8 → 0**: `CharacterRenderer.ts` pose switch 5 case + `gameReducer.ts` `BACK_TO_MENU` case → 블록 `{}` 스코프.
+- **부수 버그**: CLI 진단 `result.currentBuffer` 는 `MatchResult` 에 없는 필드 → `result.buffer` 정정 (기존 `any` 로 가려져 `undefined` 출력).
+
+**검증**: `npx eslint .` 0 problems · `npx tsc --noEmit` exit 0 · `npx vitest run` 808 passed/2 skipped · `npm run lint` ✓. 변경 = `prototype/` 15 파일 (lint script 1 + src 9 + tests 5). `raw/`·`decisions/` Accepted ADR 무변경.
+
+## [2026-10-13] a11y | foundation — WeakWordModal export + koreanInputMode + settingsSaved keys
+
+**Status**: ✅ 완료 (미커밋)
+
+### 작업 내용
+
+- a11y 테스트 포팅(원격 `1ba7d1c` 분기) 1차 slice 의 foundation:
+  - `src/ui/ResultScreen.tsx`: inline weak-words 블록을 `export function WeakWordModal` + `export interface WeakWordEntry` 로 추출. 동작/마크업 무변경.
+  - `src/data/koreanInputMode.ts` 신규: `KoreanInputMode = 'jamo' | 'romanized'`, `getKoreanInputMode` / `setKoreanInputMode`. `nativeLanguage.ts` 패턴 그대로 미러 (lazy localStorage check + in-memory fallback). 기본 `'jamo'`, invalid stored value → `'jamo'`.
+  - `src/data/uiTranslations.ts`: `TranslationKey` 에 `'settingsSaved' | 'pressEscToClose' | 'footerHint' | 'languagesSupported'` 추가 + 4개 언어 번역 추가. `settingsSaved` ko = `설정 저장됨` (`저장` 포함), ja = `設定を保存しました` (`保存` 포함), es = `Ajustes guardados` (`guardados` 포함), en = `Settings saved`.
+- `decisions/0014-korean-input-mode.md` 신규 (Draft) — options 비교 + 결정/이유 + 열린 질문. `decisions/README.md` 미해결 결정 표에 entry 추가.
+- 기존 `SettingsScreen.tsx` 의 native/sound/volume 핸들러는 이번 slice 에서는 아직 wiring 하지 않음 (Part B.2 에서 saved indicator 와 함께 처리).
+
+### 검증
+
+- `npx tsc --noEmit` · `npx eslint .` · `npx vitest run` 모두 baseline(808/2) 유지 — Part B 의 테스트 포팅은 다음 단계.
+
+## [2026-10-13] a11y | Phase 14/17–39 a11y suite 포팅 완료 — 22 파일, 1094 passed
+
+**Status**: ✅ 완료 (미커밋 — 사용자 승인 대기)
+
+### 작업 내용
+
+- 원격 `1ba7d1c` 분기의 22-file a11y suite (`tests/ui/phase{17,19..39}-a11y.test.tsx`) 를 로컬 UI 에 맞게 포팅/적응.
+- 마커(wiring) 추가 — 모두 additive (aria/role/id/aria-label + `:focus-visible` CSS, 동작 무변경):
+  KeyboardWarning · SettingsScreen(saved indicator) · Tutorial(region/list + (Enter) aria-label) · Menu(kbd-hint + tier aria-labelledby + stage aria-current) · MarkdownView(table caption/scope + TtsButton aria-pressed) · ResultScreen(region + missions list/listitem + progressbar + `result-missions-heading`) · LearnScreen(filter aria-pressed + status) · ProfileSelector/CharacterSelect(radiogroup/radio) · CharacterTest · OllamaTest · DailyLessonCard(3 버튼 aria-label) · DailyLessonModal · VirtualKeyboard · OSKeyboardInput(BCP47 `getLangCode` map: jp→ja, kr→ko, zh→zh-CN, fallback en) · EnemyTooltip · StageScreen · LanguageSelection(grid/radiogroup + arrow-key focus + i18n footer + aria-describedby) · style.css(`:focus-visible` 규칙).
+- foundation: `WeakWordModal` export, `src/data/koreanInputMode.ts`, `uiTranslations` 4 키, `decisions/0014`(Draft).
+
+### 검증
+
+- `npx tsc --noEmit` 0 · `npx eslint .` 0 errors · `npx vitest run` **1094 passed | 19 skipped (1113 total, 54 files)**.
+- baseline 808 → **1094** (+286 active). 남은 skip 19 = 문서화된 feature-deferral (6-lang Tutorial, local `WeakWordModal` 이 remote 의 selected-word dialog API 와 상이, remote CharacterSelect cardRefs 미구현, mojibake n/a 등) — 각 항목에 `feature-deferred:` 근거 명시.
+- `README.md` 테스트 카운트 갱신. `raw/`·Accepted ADR 무변경.

@@ -19,7 +19,9 @@
 
 ## 미해결 결정 (Draft)
 
-_(없음 — 모든 메타 결정은 Accepted 또는 Superseded)_
+| ADR | 제목 | 상태 |
+| --- | --- | --- |
+| [0014](0014-korean-input-mode.md) | Korean input mode setting: `jamo` (default) \| `romanized` | Draft |
 
 ## 비활성
 

@@ -230,9 +230,15 @@ describe('MarkdownView — Tables', () => {
 `;
     const html = render(md);
     expect(html).toContain('<table');
-    expect(html).toContain('<th>Type</th>');
-    expect(html).toContain('<th>Mode</th>');
-    expect(html).toContain('<th>When</th>');
+    // Phase 36 (Slice 3): every <th> now ships scope="col" so SR engines
+    // announce the column header with each <td>. The prior literal
+    // "<th>Type</th>" / "<th>Mode</th>" / "<th>When</th>" sub-strings
+    // fail because the <th> now opens with `scope="col"`. Match the
+    // scope-bearing variant instead so the test stays anchored to the
+    // table-rendering contract.
+    expect(html).toMatch(/<th[^>]*scope="col"[^>]*>Type<\/th>/);
+    expect(html).toMatch(/<th[^>]*scope="col"[^>]*>Mode<\/th>/);
+    expect(html).toMatch(/<th[^>]*scope="col"[^>]*>When<\/th>/);
     expect(html).toContain('<td>ojala</td>');
     expect(html).toContain('<td>subjuntivo</td>');
   });
@@ -255,7 +261,8 @@ describe('MarkdownView — Tables', () => {
 | 1 | 2 |
 `;
     const html = render(md);
-    expect(html).toContain('<th>A</th>');
+    // Phase 36 (Slice 3): see note above; the <th> now carries scope="col".
+    expect(html).toMatch(/<th[^>]*scope="col"[^>]*>A<\/th>/);
     expect(html).toContain('<td>1</td>');
   });
 });

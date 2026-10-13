@@ -7,6 +7,7 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import type { GameAction } from '../state/gameReducer.js';
+import type { Language } from '../types.js';
 import { 
   LANGUAGE_CHARACTERS, 
   CHARACTER_INFO, 
@@ -57,7 +58,7 @@ export function CharacterSelect({ language, dispatch }: CharacterSelectProps) {
 
         // Draw character
         const characterState = createInitialCharacterState();
-        characterState.language = language as any;
+        characterState.language = language as Language;
 
         renderCharacterPrimitive(ctx, characterState, canvas.width / 2, canvas.height - 50, Date.now());
 
@@ -113,28 +114,45 @@ export function CharacterSelect({ language, dispatch }: CharacterSelectProps) {
       <h1>Choose Your Character</h1>
       <p className="language-label">Language: {language.toUpperCase()}</p>
       
-      <div className="character-grid">
+      {/* Phase 21: character-grid is a radiogroup with an aria-label so
+         SR users get selection-group semantics. Each card is a real
+         <button> with role="radio" + aria-checked so native Enter/Space
+         activation fires (in addition to the existing window keydown for
+         arrow keys / 1-3 shortcuts). */}
+      <div
+        className="character-grid"
+        role="radiogroup"
+        aria-label="Choose your character"
+      >
         {characters.map((char, index) => (
-          <div
+          <button
             key={char.id}
+            type="button"
             className={`character-card ${index === selectedIndex ? 'selected' : ''}`}
             onClick={() => handleCharacterClick(index)}
+            role="radio"
+            aria-checked={index === selectedIndex}
+            aria-label={`${char.name}, style ${char.style}. Press ${index + 1} to select.`}
           >
             <canvas
               ref={canvasRefs[index]}
               width={200}
               height={200}
               className="character-preview"
+              aria-hidden="true"
             />
             <h2>{char.name}</h2>
             <p className="character-description">{char.description}</p>
             <p className="character-style">Style: {char.style}</p>
-            <div className="key-hint">Press {index + 1}</div>
-          </div>
+            <div className="key-hint" aria-hidden="true">Press {index + 1}</div>
+          </button>
         ))}
       </div>
 
-      <div className="controls">
+      <div
+        className="controls"
+        aria-label="Keyboard shortcuts"
+      >
         <p>
           <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> Select character
         </p>
@@ -149,7 +167,11 @@ export function CharacterSelect({ language, dispatch }: CharacterSelectProps) {
         </p>
       </div>
 
-      <button onClick={handleConfirm} className="confirm-button">
+      <button
+        onClick={handleConfirm}
+        className="confirm-button"
+        aria-label={`Confirm selection of ${characters[selectedIndex].name}`}
+      >
         Select {characters[selectedIndex].name}
       </button>
     </div>
