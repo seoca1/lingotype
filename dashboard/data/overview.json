@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T03:09:17.239502",
+  "generated_at": "2026-11-02T23:54:41.318068",
   "languages": [
     {
       "code": "en",
@@ -10,13 +10,13 @@
       "stats": {
         "stages": 13,
         "corpus_total": 162,
-        "vocab_wiki": 67,
-        "expressions_wiki": 12,
-        "culture_wiki": 1,
-        "sources_wiki": 2,
-        "study_plan_wiki": 0,
-        "raw_sources": 3,
-        "coverage_percent": 128.6,
+        "vocab_wiki": 62,
+        "expressions_wiki": 21,
+        "culture_wiki": 43,
+        "sources_wiki": 25,
+        "study_plan_wiki": 3,
+        "raw_sources": 22,
+        "coverage_percent": 76.5,
         "gaps": 2
       }
     },
@@ -29,13 +29,13 @@
       "stats": {
         "stages": 15,
         "corpus_total": 182,
-        "vocab_wiki": 58,
-        "expressions_wiki": 7,
-        "culture_wiki": 1,
-        "sources_wiki": 2,
-        "study_plan_wiki": 0,
-        "raw_sources": 3,
-        "coverage_percent": 107.7,
+        "vocab_wiki": 76,
+        "expressions_wiki": 21,
+        "culture_wiki": 43,
+        "sources_wiki": 23,
+        "study_plan_wiki": 3,
+        "raw_sources": 22,
+        "coverage_percent": 51.5,
         "gaps": 3
       }
     },
@@ -48,13 +48,13 @@
       "stats": {
         "stages": 12,
         "corpus_total": 155,
-        "vocab_wiki": 97,
-        "expressions_wiki": 32,
-        "culture_wiki": 11,
-        "sources_wiki": 5,
-        "study_plan_wiki": 2,
-        "raw_sources": 6,
-        "coverage_percent": 139.6,
+        "vocab_wiki": 76,
+        "expressions_wiki": 21,
+        "culture_wiki": 43,
+        "sources_wiki": 34,
+        "study_plan_wiki": 4,
+        "raw_sources": 23,
+        "coverage_percent": 66.7,
         "gaps": 3
       }
     },
@@ -67,13 +67,13 @@
       "stats": {
         "stages": 12,
         "corpus_total": 78,
-        "vocab_wiki": 84,
-        "expressions_wiki": 11,
-        "culture_wiki": 1,
-        "sources_wiki": 2,
-        "study_plan_wiki": 0,
-        "raw_sources": 4,
-        "coverage_percent": 69.0,
+        "vocab_wiki": 87,
+        "expressions_wiki": 21,
+        "culture_wiki": 46,
+        "sources_wiki": 21,
+        "study_plan_wiki": 3,
+        "raw_sources": 22,
+        "coverage_percent": 37.8,
         "gaps": 5
       }
     }
@@ -81,11 +81,11 @@
   "totals": {
     "stages": 52,
     "corpus": 577,
-    "wiki_materials": 395,
-    "raw_sources": 16,
-    "vocab_words": 306,
-    "expressions": 62,
-    "culture": 14
+    "wiki_materials": 676,
+    "raw_sources": 89,
+    "vocab_words": 301,
+    "expressions": 84,
+    "culture": 175
   },
   "tiers": {
     "0": 3,

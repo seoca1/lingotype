@@ -346,6 +346,27 @@ def compute_coverage(lang_code: str, wiki_data: dict, corpus_data: dict, stages_
                     }
                 )
 
+    # Corpus-level coverage, computed on the same basis as the per-stage gap
+    # analysis above: for every word-type stage, how much of the vocabulary it
+    # demands is actually available in its own category pool. A stage can
+    # contribute at most its own requirement, so the result is bounded to
+    # 0..100 and stays consistent with the `gaps` list.
+    #
+    # The previous formula divided the corpus *total* by the summed stage
+    # requirement, which (a) counted corpus entries outside every stage's
+    # categories as coverage and (b) summed requirements across stages that
+    # draw from overlapping category pools — so it could exceed 100% for a
+    # metric labelled "coverage".
+    covered = 0
+    needed_total = 0
+    for req in stage_requirements:
+        if req["corpus_type"] != "words":
+            continue
+        needed = req["word_count"]
+        available = sum(available_by_category.get(cat, 0) for cat in req["categories"])
+        covered += min(available, needed)
+        needed_total += needed
+
     return {
         "total_stages": len(stages_data),
         "total_corpus": corpus_data.get("total", 0),
@@ -355,9 +376,7 @@ def compute_coverage(lang_code: str, wiki_data: dict, corpus_data: dict, stages_
         "stages_by_tier": Counter(s["tier"] for s in stages_data),
         "stage_requirements": stage_requirements,
         "gaps": gaps,
-        "coverage_percent": (
-            round((corpus_data.get("total", 0) / max(sum(s["word_count"] for s in stages_data), 1)) * 100, 1)
-        ),
+        "coverage_percent": round((covered / max(needed_total, 1)) * 100, 1),
     }
 
 

@@ -101,3 +101,20 @@
 - `npx tsc --noEmit` 0 · `npx eslint .` 0 errors · `npx vitest run` **1094 passed | 19 skipped (1113 total, 54 files)**.
 - baseline 808 → **1094** (+286 active). 남은 skip 19 = 문서화된 feature-deferral (6-lang Tutorial, local `WeakWordModal` 이 remote 의 selected-word dialog API 와 상이, remote CharacterSelect cardRefs 미구현, mojibake n/a 등) — 각 항목에 `feature-deferred:` 근거 명시.
 - `README.md` 테스트 카운트 갱신. `raw/`·Accepted ADR 무변경.
+
+## [2026-11-02] fix(dashboard) | coverage_percent 수식 정정 — 100% 초과 지표 해소 + 대시보드 데이터 갱신
+
+**Status**: ✅ 완료
+
+### 작업 내용
+
+- **수식 결함**: `dashboard/generate_data.py` 의 `compute_coverage()` 요약 지표가 `corpus_total / sum(stage.word_count) * 100` 이었다. 이 식은 (a) 어떤 스테이지의 카테고리에도 속하지 않는 코퍼스 항목까지 커버리지로 세고 (b) 카테고리 풀이 겹치는 스테이지들의 요구량을 그대로 합산해 **분모를 중복 계상**했다. 그 결과 "coverage" 지표가 100% 를 넘겼다 — English 128.6% · Japanese 107.7% · Spanish 139.6%.
+- **정정**: 같은 함수 안의 per-stage 결손 분석(`gaps`)과 **동일 기준**으로 요약을 계산하도록 변경 — word 型 스테이지만 대상으로, 각 스테이지가 자기 카테고리 풀에서 **실제로 확보한 만큼**(스테이지 요구량을 상한으로) 합산. 결과는 0..100 으로 유계되고 `gaps` 목록과 정합한다.
+  - English 128.6% → **76.5%** (gaps 2) · Japanese 107.7% → **51.5%** (gaps 3) · Spanish 139.6% → **66.7%** (gaps 3) · Korean 69.0% → **37.8%** (gaps 5)
+- **데이터 갱신**: 위 수식 수정이 동시에 **커밋된 대시보드 데이터가 낡아 있었음**을 드러냈다 — `dashboard/data/en.json` 의 wiki sources 가 2개뿐인데 `Language/wiki/English/sources/` 는 현재 25개(미반영 23개). `dashboard/generate_data.py` 로 재생성해 언어별 JSON 4개 + `overview.json` 을 현재 상태에 맞췄다. 리턴값의 키·스키마는 변경 없음(소비측 `aggregate-stats.mjs` · 대시보드 무수정).
+- **불변**: 게임 코드(`prototype/`) 무변경 — `dashboard/data/` 는 게임이 읽지 않는다(확인). `raw/` 무변경. Accepted ADR 무변경(대시보드 리포팅 지표 수정은 게임 설계 결정이 아니다 — `decisions/` 는 게임 설계·기술 결정 전용이라 신규 ADR 없음). 코퍼스·위키 콘텐츠 추가 없음.
+
+### 검증
+
+- `npx tsc --noEmit` 0 · `npx eslint .` 0 errors · `npx vitest run` **1094 passed | 19 skipped (1113 total, 54 files)** — 기존과 동일.
+- coverage 값이 `gaps` 수와 정합(English gaps 2 → 76.5% 최고, Korean gaps 5 → 37.8% 최저), 전 언어 0..100 범위.
